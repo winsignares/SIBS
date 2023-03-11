@@ -1,3 +1,8 @@
+creamos maquina virtual
+pip install virtualenv
+virtualenv venv
+cd \venv\scripts\activate.bat
+
 pip install flask flask-sqlalchemy flask-marshmallow marshmallow pymysql
 
 /*sacamos las librerias */
