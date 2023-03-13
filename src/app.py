@@ -1,8 +1,21 @@
 #10.230.16.229
-from flask import Flask
+from flask import Flask,  redirect, request, jsonify, json, session, render_template
+from config.db import db, app, ma
 
-app = Flask(__name__)
+from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 
+rolesusuario_schema = RolesSchema()
+rolesusuarios_schema = RolesSchema(many=True)
+
+@app.route('/rusuarios', methods=['GET'])
+def rusuario():    
+    returnall = RolesUsuarios.query.all()
+   
+    result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
+    #print(result_rolesusuaiors)
+    return jsonify(result_rolesusuaiors)
+   
+    
 @app.route("/")
 def index():
     return "Hola Mundo!! Dulfran xD"
