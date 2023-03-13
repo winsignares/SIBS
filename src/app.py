@@ -8,6 +8,12 @@ from Model.Libros import Libros, LibrosSchema
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
 
+#Datos de la tabla libros listo
+
+libro_schema = LibrosSchema()
+libros_Schema = LibrosSchema(many=True)
+
+
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
     returnall = RolesUsuarios.query.all()
@@ -16,16 +22,13 @@ def rusuario():
     #print(result_rolesusuaiors)
     return jsonify(result_rolesusuaiors)
 
-#Datos de la tabla libros listo
 
-libros_schema = LibrosSchema()
-Libros_Schema = LibrosSchema(many=True)
 
-@app.route('/rusuarios', methods=['GET'])
-def rusuario():    
+@app.route('/libros', methods=['GET'])
+def libros():    
     returnall = Libros.query.all()
    
-    resultado_libros = LibrosSchema.dump(returnall)
+    resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
    
 @app.route('/saveroles', methods=['POST'] )
