@@ -15,7 +15,15 @@ def rusuario():
     #print(result_rolesusuaiors)
     return jsonify(result_rolesusuaiors)
    
-    
+@app.route('/saveroles', methods=['POST'] )
+def guardar_roles():
+    roles = request['roles']
+    new_rol = RolesUsuarios(roles)
+    db.session.add(new_rol)
+    db.session.commit()
+    return redirect('/rusuarios')
+
+
 @app.route("/")
 def index():
     return "Hola Mundo!! Dulfran xD"
