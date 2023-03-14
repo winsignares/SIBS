@@ -1,13 +1,18 @@
 #10.230.16.229
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
+from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
 
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 
+
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
+
+Categoria_schema = CategoriasSchema()
+Categoria_schema = CategoriasSchema(many=True)
 
 #Datos de la tabla libros listo
 
@@ -74,6 +79,14 @@ def actualizar():
 @app.route("/")
 def index():
     return "Hola Mundo!! Dulfran   xD"
+
+@app.route('/Categorias', methods=['GET'])
+def Categorias():    
+    returnall = Categorias.query.all()
+   
+    result_Categorias = CategoriasSchema.dump(returnall)
+    #print(result_rolesusuaiors)
+    return jsonify(result_Categorias)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
