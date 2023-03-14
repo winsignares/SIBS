@@ -9,8 +9,17 @@ from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Editoriales import Editoriales, EditorialesSchema
 
 from Model.Libros import Libros, LibrosSchema
+<<<<<<< HEAD
+<<<<<<< HEAD
+from Model.Proveedores  import Proveedores, ProveedoresSchema
+from Model.estadosolicitud import estadosolicitud, estadoSchema
+
+=======
+=======
 from Model.Usuarios import Ussers,UsuariosSchema
+>>>>>>> 097d816a4a1138dcd0b5518de38499ac1afb9d3f
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
+>>>>>>> 0afdb1a05ccfb3586005173ced282aeadaeb611f
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -27,6 +36,10 @@ libros_Schema = LibrosSchema(many=True)
 solicitudes_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
+
+# datos de estado de solicitud 
+estadosolicitud_schema = estadoSchema()
+estadosolicitudes_Schema = estadoSchema(many=True)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -51,6 +64,15 @@ def libros():
     returnall = Libros.query.all()
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
+
+#fin
+#metodo de estado de solicitudes
+@app.route('/estadosolicitud', methods=['GET'])
+def estado():    
+    returnall = estadosolicitud.query.all()
+    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
+    return jsonify(resultado_estadosolicitud)
+   
 #fin
 
 #datos de usuarios listo
