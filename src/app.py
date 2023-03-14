@@ -1,22 +1,26 @@
-#10.230.16.229
+#10.230.16.196
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
+from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
 
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
-from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
+from Model.Solicitudes import Solicitudes, SolicitudesSchema
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
+
+Categoria_schema = CategoriasSchema()
+Categoria_schema = CategoriasSchema(many=True)
 
 #Datos de la tabla libros listo
 
 libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
-#Dato de la tabla Det_Solicitudes
-Det_Solicitude = Det_SolicitudesSchema()
-Det_Solicitudes = Det_SolicitudesSchema(many=True)
+#Valores Intermediarios de la TABLA SOLICITUDES
+solicitudes_schema = SolicitudesSchema()
+solicitudes_schema = SolicitudesSchema(many=True)
 
 
 @app.route('/rusuarios', methods=['GET'])
@@ -27,13 +31,22 @@ def rusuario():
     #print(result_rolesusuaiors)
     return jsonify(result_rolesusuaiors)
 
+#metodos para Proveedores inicio
+@app.route('/Proveedores', methods=['GET'])
+def Proveedores():    
+    returnall = Proveedores.query.all()
+   
+    resultado_Proveedores = Proveedores_Schema.dump(returnall)
+    return jsonify(resultado_Proveedores)
+#metodos para Proveedores final 
 
-
+#metodo para libros
 @app.route('/libros', methods=['GET'])
 def libros():    
     returnall = Libros.query.all()
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
+#fin
    
 @app.route('/saveroles', methods=['POST'] )
 def guardar_roles():
@@ -68,6 +81,14 @@ def actualizar():
 @app.route("/")
 def index():
     return "Hola Mundo!! Dulfran   xD"
+
+@app.route('/Categorias', methods=['GET'])
+def Categorias():    
+    returnall = Categorias.query.all()
+   
+    result_Categorias = CategoriasSchema.dump(returnall)
+    #print(result_rolesusuaiors)
+    return jsonify(result_Categorias)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
