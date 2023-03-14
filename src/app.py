@@ -1,13 +1,17 @@
-#10.230.16.229
+#10.230.16.196
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
 
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
+<<<<<<< HEAD
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
+=======
+from Model.Solicitudes import Solicitudes, SolicitudesSchema
+>>>>>>> 0afdb1a05ccfb3586005173ced282aeadaeb611f
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -20,9 +24,10 @@ Categoria_schema = CategoriasSchema(many=True)
 libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
-#Datos de la tabla Proveedores listo
-Proveedor_schema = ProveedoresSchema()
-Proveedores_Schema = ProveedoresSchema(many=True)
+#Valores Intermediarios de la TABLA SOLICITUDES
+solicitudes_schema = SolicitudesSchema()
+solicitudes_schema = SolicitudesSchema(many=True)
+
 
 # datos de estado de solicitud 
 estadosolicitud_schema = estadoSchema()
