@@ -9,7 +9,7 @@ class Libros(db.Model):
     pais = db.Column(db.String(50))
     ano_publicado = db.Column(db.Date)
     copias = db.Column(db.Integer)
-    estado = db.Column(db.text(50))
+    estado = db.Column(db.String(50))
     ubicacion = db.Column(db.String(50))
     id_deta_cat = db.Column(db.Integer, db.ForeignKey(''))
     id_autor = db.Column(db.Integer, db.ForeignKey(''))
