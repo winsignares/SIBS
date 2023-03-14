@@ -6,6 +6,7 @@ from config.db import db, app, ma
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
+from Model.estadosolicitud import estadosolicitud, estadoSchema
 
 
 rolesusuario_schema = RolesSchema()
@@ -22,6 +23,10 @@ libros_Schema = LibrosSchema(many=True)
 #Datos de la tabla Proveedores listo
 Proveedor_schema = ProveedoresSchema()
 Proveedores_Schema = ProveedoresSchema(many=True)
+
+# datos de estado de solicitud 
+estadosolicitud_schema = estadoSchema()
+estadosolicitudes_Schema = estadoSchema(many=True)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -46,6 +51,15 @@ def libros():
     returnall = Libros.query.all()
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
+
+#fin
+#metodo de estado de solicitudes
+@app.route('/estadosolicitud', methods=['GET'])
+def estado():    
+    returnall = estadosolicitud.query.all()
+    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
+    return jsonify(resultado_estadosolicitud)
+   
 #fin
    
 @app.route('/saveroles', methods=['POST'] )
