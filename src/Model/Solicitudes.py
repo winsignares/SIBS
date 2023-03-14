@@ -6,13 +6,15 @@ class Solicitudes(db.Model):
     id = db.Columm (db.Integer, primary_key = True)
     fecha_solicitud = db.Columm (db.Datetime)
     cantidad = db.Columm (db.Integer)
+    Id_usu = db.Column(db.Integer, db.ForeignKey('Usuarios.id'))
+
   #  id_usu = db.Columm (db.integer) 
     
 
-    def __init__(self, fecha_solicitud, cantidad, id_usu ):
+    def __init__(self, fecha_solicitud, cantidad, Id_usu ):
         self.fecha_solicitud = fecha_solicitud
         self.cantidad = cantidad
-        self.id_usu = id_usu
+        self.Id_usu = Id_usu
 
 
 with app.app_context():
@@ -20,4 +22,4 @@ with app.app_context():
 
 class SolicitudesSchema(ma.Schema):
     class meta:
-        fields = ('id', 'fecha_solicitud','cantidad', 'id_usu' )
+        fields = ('id', 'fecha_solicitud','cantidad', ' Id_usu' )
