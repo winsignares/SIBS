@@ -40,11 +40,13 @@ def Proveedores():
     return jsonify(resultado_Proveedores)
 #metodos para Proveedores final 
 
+#metodo para libros
 @app.route('/libros', methods=['GET'])
 def libros():    
     returnall = Libros.query.all()
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
+#fin
    
 @app.route('/saveroles', methods=['POST'] )
 def guardar_roles():
