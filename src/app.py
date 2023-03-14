@@ -4,6 +4,7 @@ from config.db import db, app, ma
 
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
+from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -12,6 +13,10 @@ rolesusuarios_schema = RolesSchema(many=True)
 
 libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
+
+#Dato de la tabla Det_Solicitudes
+Det_Solicitude = Det_SolicitudesSchema()
+Det_Solicitudes = Det_SolicitudesSchema(many=True)
 
 
 @app.route('/rusuarios', methods=['GET'])
