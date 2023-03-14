@@ -7,14 +7,14 @@ class Libros(db.Model):
     id  = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(50))
     pais = db.Column(db.String(50))
-    ano_publicado = db.Column(db.date)
+    ano_publicado = db.Column(db.Date)
     copias = db.Column(db.Integer)
-    estado = db.Column(db.text(50))
+    estado = db.Column(db.String(50))
     ubicacion = db.Column(db.String(50))
     id_deta_cat = db.Column(db.Integer, db.ForeignKey(''))
     id_autor = db.Column(db.Integer, db.ForeignKey(''))
     id_editoral = db.Column(db.Integer, db.ForeignKey(''))
-    id_proov = db.Column(db.Integer, db.ForeignKey(''))
+    id_proov = db.Column(db.Integer, db.ForeignKey('proveedores.id'))
     
 
     def __init__(self, titulo, pais, ano_publicado, copias, estado, ubicacion, id_deta_cat, id_autor, id_editoral, id_proov):
