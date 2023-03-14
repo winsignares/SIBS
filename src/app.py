@@ -27,7 +27,6 @@ def rusuario():
 @app.route('/libros', methods=['GET'])
 def libros():    
     returnall = Libros.query.all()
-   
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
    
