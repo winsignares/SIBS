@@ -4,6 +4,7 @@ from config.db import db, app, ma
 
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
+from Model.Proveedores  import Proveedores, ProveedoresSchema
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -13,6 +14,9 @@ rolesusuarios_schema = RolesSchema(many=True)
 libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
+#Datos de la tabla Proveedores listo
+Proveedor_schema = ProveedoresSchema()
+Proveedores_Schema = ProveedoresSchema(many=True)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -22,7 +26,14 @@ def rusuario():
     #print(result_rolesusuaiors)
     return jsonify(result_rolesusuaiors)
 
-
+#metodos para Proveedores inicio
+@app.route('/Proveedores', methods=['GET'])
+def Proveedores():    
+    returnall = Proveedores.query.all()
+   
+    resultado_Proveedores = Proveedores_Schema.dump(returnall)
+    return jsonify(resultado_Proveedores)
+#metodos para Proveedores final 
 
 @app.route('/libros', methods=['GET'])
 def libros():    
