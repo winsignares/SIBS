@@ -5,12 +5,7 @@ from config.db import db, app, ma
 
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
-<<<<<<< HEAD
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
-=======
-from Model.Proveedores  import Proveedores, ProveedoresSchema
-
->>>>>>> 666f75739f5ed9d1c4e0d2ee7fa11b2597a2cb81
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -23,16 +18,10 @@ Categoria_schema = CategoriasSchema(many=True)
 libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
-<<<<<<< HEAD
 #Valores Intermediarios de la TABLA SOLICITUDES
 solicitudes_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
-=======
-#Datos de la tabla Proveedores listo
-Proveedor_schema = ProveedoresSchema()
-Proveedores_Schema = ProveedoresSchema(many=True)
->>>>>>> 666f75739f5ed9d1c4e0d2ee7fa11b2597a2cb81
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
