@@ -14,7 +14,7 @@ class Libros(db.Model):
     id_deta_cat = db.Column(db.Integer, db.ForeignKey(''))
     id_autor = db.Column(db.Integer, db.ForeignKey(''))
     id_editoral = db.Column(db.Integer, db.ForeignKey(''))
-    id_proov = db.Column(db.Integer, db.ForeignKey(''))
+    id_proov = db.Column(db.Integer, db.ForeignKey('proveedores.id'))
     
 
     def __init__(self, titulo, pais, ano_publicado, copias, estado, ubicacion, id_deta_cat, id_autor, id_editoral, id_proov):
