@@ -16,7 +16,7 @@ def rusuario():
     return jsonify(result_rolesusuaiors)
    
     
-@app.route("/")
+@app.route("/a")
 def index():
     return "Hola Mundo!! Dulfran xD"
 
