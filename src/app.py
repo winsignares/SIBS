@@ -1,3 +1,5 @@
+#10.230.16.229
+
 #10.230.16.196
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import Categorias, CategoriasSchema
@@ -6,10 +8,14 @@ from config.db import db, app, ma
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Libros import Libros, LibrosSchema
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
 =======
+=======
+from Model.Usuarios import Ussers,UsuariosSchema
+>>>>>>> 097d816a4a1138dcd0b5518de38499ac1afb9d3f
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 >>>>>>> 0afdb1a05ccfb3586005173ced282aeadaeb611f
 
@@ -66,6 +72,20 @@ def estado():
     return jsonify(resultado_estadosolicitud)
    
 #fin
+
+#datos de usuarios listo
+Usuario_Schema= UsuariosSchema()
+Usuarios_Schema= UsuariosSchema(many=True)
+
+@app.route('/Usuarios', methods=['GET'])
+def usuarios():    
+    returnall = Ussers.query.all()
+   
+    resultado_usuarios = Usuarios_Schema.dump(returnall)
+    return jsonify(resultado_usuarios)
+
+
+
    
 @app.route('/saveroles', methods=['POST'] )
 def guardar_roles():
