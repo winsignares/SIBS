@@ -13,7 +13,7 @@ class Libros(db.Model):
     ubicacion = db.Column(db.String(50))
     id_deta_cat = db.Column(db.Integer, db.ForeignKey(''))
     id_autor = db.Column(db.Integer, db.ForeignKey(''))
-    id_editoral = db.Column(db.Integer, db.ForeignKey(''))
+    id_editoral = db.Column(db.Integer, db.ForeignKey('Editoriales.id'))
     id_proov = db.Column(db.Integer, db.ForeignKey('proveedores.id'))
     
 
