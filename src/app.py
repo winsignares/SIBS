@@ -41,10 +41,6 @@ Proveedores_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
 
-# datos de estado de solicitud 
-estadosolicitud_schema = estadoSchema()
-estadosolicitudes_Schema = estadoSchema(many=True)
-
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
 def autores():    
@@ -129,13 +125,7 @@ def eliminar(id):
 
 #fin
 
-#metodo de estado de solicitudes
-@app.route('/estadosolicitud', methods=['GET'])
-def estado():    
-    returnall = estadosolicitud.query.all()
-    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
-    return jsonify(resultado_estadosolicitud)
-   
+
 #fin
 
 #metodo para solicitudes
@@ -233,25 +223,74 @@ def guardar_autores():
 #<----------------------------------------------------------------->
 
 
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
+
+# datos de estado de solicitud 
+estadosolicitud_schema = estadoSchema()
+estadosolicitudes_Schema = estadoSchema(many=True)
 
 
+#metodo de estado de solicitudes
+@app.route('/estadosolicitud', methods=['GET'])
+def estado():    
+    returnall = estadosolicitud.query.all()
+    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
+    return jsonify(resultado_estadosolicitud)
+   
+
+@app.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
+def eliminaestadosoli(id):
+    fecha = estadosolicitud.query.get(id)
+    id_solicitud = estadosolicitud.query.get(id)
+    fecha_devolucion = estadosolicitud.query.get(id)
+    dias_atraso = estadosolicitud.query.get(id)
+    estado = estadosolicitud.query.get(id)
+    
+    db.session.delete(fecha,id_solicitud,fecha_devolucion, dias_atraso,estado)
+    db.session.commit()
+    return jsonify(estadoSchema.dump(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado))
+
+@app.route('/saveestadosolicitud', methods=['POST'] )
+def guardar_estadosolicitud():
+    fecha = request.json['fecha']
+    id_solicitud = request.json['id_solicitud']
+    fecha_devolucion = request.json['fecha_devolucion']
+    dias_atraso = request.json['dias_atraso']
+    estado = request.json['estado']
+    print(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado)
+    new_estadosolicitud = estadosolicitud(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado)
+    db.session.add(new_estadosolicitud)
+    db.session.commit()
+    return redirect('/estadosolicitud')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@app.route('/actualizar_estadosolicitud', methods=['POST'] )
+def actualizar_estadosolicitud():
+    #id = request.form['id']
+    #Nombre = request.form['Nombre']
+    #Precio = request.form['Precio']git 
+    id = request.json['id']
+    fechas = request.json['fechas']
+    id_solicitudes = request.json['id_solicitud']
+    fecha_devoluciones = request.json['fecha_devolucion']
+    dias_atrasos = request.json['dias_atraso']
+    estados = request.json['estado']
+    
+    estadosolicitud = estadosolicitud.query.get(id)
+    estadosolicitud.fechas = fechas 
+    estadosolicitud.id_solicitudes = id_solicitudes
+    estadosolicitud.fecha_devolucion = fecha_devoluciones
+    estadosolicitud.dias_atraso = dias_atrasos
+    estadosolicitud.estado = estados
+    db.session.commit()
+    return redirect('/estadosolicitud')
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
 
 
 
