@@ -7,17 +7,13 @@
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
-
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Editoriales import Editoriales, EditorialesSchema
-
 from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
-
 from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
-
 from Model.autores import autores, AutoresSchema
 
 #Datos de la tabla autores
