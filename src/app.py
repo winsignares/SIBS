@@ -53,7 +53,6 @@ estadosolicitudes_Schema = estadoSchema(many=True)
 @app.route('/autores', methods=['GET'])
 def autores():    
     returnall = autores.query.all()
-   
     result_autores = autores_Schema.dump(returnall)
     return jsonify(result_autores)
 
@@ -158,7 +157,9 @@ def Editoriales():
     result_Editoriales = EditorialesSchema.dump(returnall)
     return jsonify(result_Editoriales)
 
-
+#<----------------------------------------------------------------->
+#<--------------------------CRUD AUTORES--------------------------->
+#<----------------------------------------------------------------->
 
 
 
