@@ -80,7 +80,35 @@ def libros():
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
 
+@app.route('/savelibros', methods=['POST'] )
+def guardar_roles():
+    addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
+    print(addlibros)
+    new_libro = Libros(addlibros)
+    db.session.add(new_libro)
+    db.session.commit()
+    return redirect('/libros')
+
+@app.route('/actualizarlibros', methods=['POST'] )
+def actualizar():
+
+    id = request.json['id']
+    rol = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
+    rusuario = RolesUsuarios.query.get(id)
+    rusuario.roles = rol
+    db.session.commit()
+    return redirect('/libros')
+
+@app.route('/eliminarlibros/<id>', methods=['GET'] )
+def eliminar(id):
+
+    rol = RolesUsuarios.query.get(id)
+    db.session.delete(rol)
+    db.session.commit()
+    return jsonify(rolesusuario_schema.dump(rol)) 
+
 #fin
+
 #metodo de estado de solicitudes
 @app.route('/estadosolicitud', methods=['GET'])
 def estado():    
