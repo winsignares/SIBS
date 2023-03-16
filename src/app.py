@@ -36,6 +36,10 @@ libros_Schema = LibrosSchema(many=True)
 solicitudes_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
+#TABLA Proveedores
+Proveedores_schema = SolicitudesSchema()
+Proveedores_schema = SolicitudesSchema(many=True)
+
 
 # datos de estado de solicitud 
 estadosolicitud_schema = estadoSchema()
@@ -54,7 +58,7 @@ def rusuario():
 def Proveedores():    
     returnall = Proveedores.query.all()
    
-    resultado_Proveedores = Proveedores_Schema.dump(returnall)
+    resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
 #metodos para Proveedores final 
 
