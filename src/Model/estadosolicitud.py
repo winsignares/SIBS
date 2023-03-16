@@ -6,7 +6,7 @@ class estadosolicitud(db.Model):
     
     id  = db.Column(db.Integer, primary_key=True)
     fecha = db.Column(db.Date)
-    id_solicitud =db.Column(db.Interger)
+    id_solicitud =db.Column(db.Integer)
     fecha_devolucion = db.Column(db.Date)
     dias_atraso = db.Column(db.Integer)
     estado = db.Column(db.Integer)
