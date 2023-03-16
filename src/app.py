@@ -140,7 +140,7 @@ def index():
     return "Hola Mundo!! Dulfran   xD"
 
 @app.route('/Categorias', methods=['GET'])
-def Categorias():    
+def Categorias2():    
     returnall = Categorias.query.all()
    
     result_Categorias = CategoriasSchema.dump(returnall)
