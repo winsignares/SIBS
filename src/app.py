@@ -287,15 +287,17 @@ def guardar_autores():
     db.session.commit()
     return redirect('/autores')
 
-@app.route('/actualizar', methods=['POST'] )
-def actualizar():
+@app.route('/actualizarautores', methods=['POST'] )
+def actualizarautores():
     id = request.json['id']
     nombre = request.json['nombre']
     nacionalidad = request.json['nacionalidad']
     rautores = autores.query.get(id)
-    rautores.autores = autor
+    rautores.autores = nombre
     db.session.commit()
     return redirect('/autores')
+
+
 #<----------------------------------------------------------------->
 
 
