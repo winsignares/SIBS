@@ -91,6 +91,15 @@ def estado():
    
 #fin
 
+#metodo para solicitudes
+
+@app.route('/solicitudes', methods=['GET'])
+def solicitudes():
+    returnall = Solicitudes.query.all()
+    resultado_solicitudes = solicitudes_schema.dump(returnall)
+    return jsonify(resultado_solicitudes)
+#fin
+
 #datos de usuarios listo
 Usuario_Schema= UsuariosSchema()
 Usuarios_Schema= UsuariosSchema(many=True)
@@ -104,7 +113,7 @@ def usuarios():
 
 
 
-   
+
 @app.route('/saveroles', methods=['POST'] )
 def guardar_roles():
     roles = request.json['roles']
