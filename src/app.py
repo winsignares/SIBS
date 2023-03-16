@@ -96,7 +96,7 @@ Usuarios_Schema= UsuariosSchema(many=True)
 
 @app.route('/Usuarios', methods=['GET'])
 def usuarios():    
-    returnall = Ussers.query.all()
+    returnall = Users.query.all()
    
     resultado_usuarios = Usuarios_Schema.dump(returnall)
     return jsonify(resultado_usuarios)
@@ -139,7 +139,7 @@ def index():
     return "Hola Mundo!! Dulfran   xD"
 
 @app.route('/Categorias', methods=['GET'])
-def Categorias():    
+def Categorias2():    
     returnall = Categorias.query.all()
    
     result_Categorias = CategoriasSchema.dump(returnall)
