@@ -79,14 +79,14 @@ def guardar_Proveedores():
     return redirect('/Proveedores')
 
 @app.route('/eliminarProveedores/<id>', methods=['GET'] )
-def eliminar(id):
+def eliminarP(id):
     prov = Proveedores.query.get(id)
     db.session.delete(prov)
     db.session.commit()
     return jsonify(Proveedores_schema.dump(prov)) 
 
 @app.route('/actualizarProveedores', methods=['POST'] )
-def actualizar():
+def actualizarP():
     id = request.json['id']
     prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
     pusuario = Proveedores.query.get(id)
@@ -103,7 +103,7 @@ def libros():
     return jsonify(resultado_libros)
 
 @app.route('/savelibros', methods=['POST'] )
-def guardar_roles():
+def guardar_Libros():
     addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
     print(addlibros)
     new_libro = Libros(addlibros)
@@ -112,7 +112,7 @@ def guardar_roles():
     return redirect('/libros')
 
 @app.route('/actualizarlibros', methods=['POST'] )
-def actualizar():
+def actualizarL():
 
     id = request.json['id']
     libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
@@ -122,7 +122,7 @@ def actualizar():
     return redirect('/libros')
 
 @app.route('/eliminarlibros/<id>', methods=['GET'] )
-def eliminar(id):
+def eliminarL(id):
 
     libro = Libros.query.get(id)
     db.session.delete(libro)
@@ -146,13 +146,36 @@ def solicitudes():
 #guardar solicitudes 
 
 @app.route('/savesolicitudes', methods=['POST'])
-def guardar_solcitudes():
+def guardar_solicitudes():
     solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
     print(solicitudes)
     new_soli = Solicitudes(solicitudes)
     db.session.add(new_soli)
     db.session.commit()
     return redirect('/savesolicitudes')
+
+#Eliminar   solicitudes
+
+@app.route('/deletesolicitudes/<id>', methods=['GET'] )
+def eliminarD(id):
+
+    solicitudes = Libros.query.get(id)
+    db.session.delete(solicitudes)
+    db.session.commit()
+    return jsonify(solicitudes_schema.dump(solicitudes)) 
+
+#Actualizar Solicitudes
+
+@app.route('/updatesolicitudes', methods=['POST'] )
+def actualizarS():
+    id = request.json['id']
+    solicitudes = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    pusuario = Proveedores.query.get(id)
+    pusuario.cantidad = solicitudes
+    db.session.commit()
+    return redirect('/updatesolicitudes')
+
+
 
 #fin
 
