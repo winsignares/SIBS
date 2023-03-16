@@ -71,6 +71,30 @@ def Proveedores():
    
     resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
+
+@app.route('/saveProveedores', methods=['POST'])
+def guardar_Proveedores():    
+    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    new_pro = Proveedores(newProveedores)
+    db.session.add(new_pro)
+    db.session.commit()
+    return redirect('/Proveedores')
+
+@app.route('/eliminarProveedores/<id>', methods=['GET'] )
+def eliminar(id):
+    prov = Proveedores.query.get(id)
+    db.session.delete(prov)
+    db.session.commit()
+    return jsonify(Proveedores_schema.dump(prov)) 
+
+@app.route('/actualizarProveedores', methods=['POST'] )
+def actualizar():
+    id = request.json['id']
+    prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    pusuario = Proveedores.query.get(id)
+    pusuario.Nombre_proveedor = prov
+    db.session.commit()
+    return redirect('/Proveedores')
 #metodos para Proveedores final 
 
 #metodo para libros
