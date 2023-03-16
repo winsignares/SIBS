@@ -1,18 +1,16 @@
 from config.db import db,app,ma 
 
-class Ussers(db.Model):
-    __tablename__= "Usuarios"
+class Users(db.Model):
+    __tablename__= "Usuarios"    
     
     
-    
-    id = db.column(db.Integer,primary_key=True)
-    full_name= db.column(db.String(200))
-    Email= db.column(db.String(200))
-    telefono= db.column(db.Integer)
-    especialidad= db.column(db.String(200))
-    jornada= db.column(db.String(200))
-    direccion= db.column(db.String(200))
-    id_solicitudes= db.column(db.Integer,db.Foreingkey('tbSolicitudes.id'))
+    id = db.Column(db.Integer,primary_key=True)
+    full_name= db.Column(db.String(200))
+    Email= db.Column(db.String(200))
+    telefono= db.Column(db.Integer)
+    especialidad= db.Column(db.String(200))
+    jornada= db.Column(db.String(200))
+    direccion= db.Column(db.String(200))
     
     def __init__(self,full_name,Email,telefono,especialidad,jornada,direccion):
        self.full_name= full_name
