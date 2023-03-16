@@ -154,13 +154,36 @@ def solicitudes():
 #guardar solicitudes 
 
 @app.route('/savesolicitudes', methods=['POST'])
-def guardar_solcitudes():
+def guardar_solicitudes():
     solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
     print(solicitudes)
     new_soli = Solicitudes(solicitudes)
     db.session.add(new_soli)
     db.session.commit()
     return redirect('/savesolicitudes')
+
+#Eliminar   solicitudes
+
+@app.route('/deletesolicitudes/<id>', methods=['GET'] )
+def eliminar(id):
+
+    solicitudes = Libros.query.get(id)
+    db.session.delete(solicitudes)
+    db.session.commit()
+    return jsonify(solicitudes_schema.dump(solicitudes)) 
+
+#Actualizar Solicitudes
+
+@app.route('/updatesolicitudes', methods=['POST'] )
+def actualizar():
+    id = request.json['id']
+    solicitudes = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    pusuario = Proveedores.query.get(id)
+    pusuario.cantidad = solicitudes
+    db.session.commit()
+    return redirect('/updatesolicitudes')
+
+
 
 #fin
 
