@@ -1,6 +1,9 @@
 #10.230.16.229
 
 #10.230.16.196
+
+#https://docs.sqlalchemy.org/en/14/core/type_basics.html
+#https://flask.palletsprojects.com/en/2.2.x/
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
