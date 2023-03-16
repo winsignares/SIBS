@@ -153,7 +153,7 @@ def solicitudes():
 
 #guardar solicitudes 
 
-
+@app.route('/savesolicitudes', methods=['POST'])
 def guardar_solcitudes():
     solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
     print(solicitudes)
