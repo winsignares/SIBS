@@ -239,6 +239,7 @@ def eliminarautores(id):
     db.session.delete(rol)
     db.session.commit()
     return jsonify(autor_schema.dump(rol))
+
 @app.route('/saveautores', methods=['POST'] )
 def guardar_autores():
     autores = request.json['autores']
@@ -247,6 +248,18 @@ def guardar_autores():
     db.session.add(new_autor)
     db.session.commit()
     return redirect('/autores')
+
+@app.route('/actualizarautores', methods=['POST'] )
+def actualizarautores():
+    id = request.json['id']
+    nombre = request.json['nombre']
+    nacionalidad = request.json['nacionalidad']
+    rautores = autores.query.get(id)
+    rautores.autores = nombre
+    db.session.commit()
+    return redirect('/autores')
+
+
 #<----------------------------------------------------------------->
 
 
