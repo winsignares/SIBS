@@ -71,6 +71,30 @@ def Proveedores():
    
     resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
+
+@app.route('/saveProveedores', methods=['POST'])
+def guardar_Proveedores():    
+    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    new_pro = Proveedores(newProveedores)
+    db.session.add(new_pro)
+    db.session.commit()
+    return redirect('/Proveedores')
+
+@app.route('/eliminarProveedores/<id>', methods=['GET'] )
+def eliminar(id):
+    prov = Proveedores.query.get(id)
+    db.session.delete(prov)
+    db.session.commit()
+    return jsonify(Proveedores_schema.dump(prov)) 
+
+@app.route('/actualizarProveedores', methods=['POST'] )
+def actualizar():
+    id = request.json['id']
+    prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    pusuario = Proveedores.query.get(id)
+    pusuario.Nombre_proveedor = prov
+    db.session.commit()
+    return redirect('/Proveedores')
 #metodos para Proveedores final 
 
 #metodo para libros
@@ -93,19 +117,19 @@ def guardar_roles():
 def actualizar():
 
     id = request.json['id']
-    rol = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
-    rusuario = RolesUsuarios.query.get(id)
-    rusuario.roles = rol
+    libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
+    nlibros = Libros.query.get(id)
+    nlibros.libro = libro
     db.session.commit()
     return redirect('/libros')
 
 @app.route('/eliminarlibros/<id>', methods=['GET'] )
 def eliminar(id):
 
-    rol = RolesUsuarios.query.get(id)
-    db.session.delete(rol)
+    libro = Libros.query.get(id)
+    db.session.delete(libro)
     db.session.commit()
-    return jsonify(rolesusuario_schema.dump(rol)) 
+    return jsonify(libros_Schema.dump(libro)) 
 
 #fin
 
@@ -116,6 +140,15 @@ def estado():
     resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
     return jsonify(resultado_estadosolicitud)
    
+#fin
+
+#metodo para solicitudes
+
+@app.route('/solicitudes', methods=['GET'])
+def solicitudes():
+    returnall = Solicitudes.query.all()
+    resultado_solicitudes = solicitudes_schema.dump(returnall)
+    return jsonify(resultado_solicitudes)
 #fin
 
 #datos de usuarios listo
@@ -131,7 +164,7 @@ def usuarios():
 
 
 
-   
+
 @app.route('/saveroles', methods=['POST'] )
 def guardar_roles():
     roles = request.json['roles']
@@ -187,21 +220,20 @@ def Editoriales():
 
 #<----------------------------------------------------------------->
 #<--------------------------CRUD AUTORES--------------------------->
-
-
-
-
-
-
-
-
-
 @app.route('/eliminarautores/<id>', methods=['GET'] )
 def eliminarautores(id):
     rol = autores.query.get(id)
     db.session.delete(rol)
     db.session.commit()
     return jsonify(autor_schema.dump(rol))
+@app.route('/saveautores', methods=['POST'] )
+def guardar_autores():
+    autores = request.json['autores']
+    print(autores)
+    new_autor = autores(autores)
+    db.session.add(new_autor)
+    db.session.commit()
+    return redirect('/autores')
 #<----------------------------------------------------------------->
 
 
