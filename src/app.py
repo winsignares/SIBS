@@ -1,6 +1,9 @@
 #10.230.16.229
 
 #10.230.16.196
+
+#https://docs.sqlalchemy.org/en/14/core/type_basics.html
+#https://flask.palletsprojects.com/en/2.2.x/
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
@@ -36,10 +39,22 @@ libros_Schema = LibrosSchema(many=True)
 solicitudes_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
+#TABLA Proveedores
+Proveedores_schema = SolicitudesSchema()
+Proveedores_schema = SolicitudesSchema(many=True)
+
 
 # datos de estado de solicitud 
 estadosolicitud_schema = estadoSchema()
 estadosolicitudes_Schema = estadoSchema(many=True)
+
+#Datos de la tabla autores
+@app.route('/autores', methods=['GET'])
+def autores():    
+    returnall = autores.query.all()
+   
+    result_autores = autores_Schema.dump(returnall)
+    return jsonify(result_autores)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -54,7 +69,7 @@ def rusuario():
 def Proveedores():    
     returnall = Proveedores.query.all()
    
-    resultado_Proveedores = Proveedores_Schema.dump(returnall)
+    resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
 #metodos para Proveedores final 
 
