@@ -14,12 +14,18 @@ from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
+from Model.autores import Autores, AutoresSchema
 =======
 =======
 from Model.Usuarios import Ussers,UsuariosSchema
 >>>>>>> 097d816a4a1138dcd0b5518de38499ac1afb9d3f
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 >>>>>>> 0afdb1a05ccfb3586005173ced282aeadaeb611f
+
+#Datos de la tabla autores
+
+autor_schema = AutoresSchema()
+autores_Schema = AutoresSchema(many=True)
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -40,6 +46,14 @@ solicitudes_schema = SolicitudesSchema(many=True)
 # datos de estado de solicitud 
 estadosolicitud_schema = estadoSchema()
 estadosolicitudes_Schema = estadoSchema(many=True)
+
+#Datos de la tabla autores
+@app.route('/autores', methods=['GET'])
+def autores():    
+    returnall = autores.query.all()
+   
+    result_autores = autores_Schema.dump(returnall)
+    return jsonify(result_autores)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
