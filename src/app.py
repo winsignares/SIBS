@@ -15,12 +15,8 @@ from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
-<<<<<<< HEAD
 from Model.autores import Autores, AutoresSchema
-=======
-=======
-=======
->>>>>>> ed480c4ba864a0424922ab76b0227609fe711d8d
+
 from Model.Usuarios import Ussers,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 
