@@ -12,6 +12,7 @@ class Proveedores(db.Model):
     
 
     def __init__(self, Nombre_proveedor, Telefono, Direccion, Descripcion):
+        
         self.Nombre_proveedor = Nombre_proveedor
         self.Telefono = Telefono
         self.Direccion = Direccion
