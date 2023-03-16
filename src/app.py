@@ -154,7 +154,7 @@ def eliminar(id):
 def actualizar():
     #id = request.form['id']
     #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']
+    #Precio = request.form['Precio']git 
     id = request.json['id']
     rol = request.json['roles']
     rusuario = RolesUsuarios.query.get(id)
@@ -187,6 +187,21 @@ def Editoriales():
 
 #<----------------------------------------------------------------->
 #<--------------------------CRUD AUTORES--------------------------->
+
+
+
+
+
+
+
+
+
+@app.route('/eliminarautores/<id>', methods=['GET'] )
+def eliminarautores(id):
+    rol = autores.query.get(id)
+    db.session.delete(rol)
+    db.session.commit()
+    return jsonify(autor_schema.dump(rol))
 #<----------------------------------------------------------------->
 
 
