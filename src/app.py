@@ -15,8 +15,15 @@ from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
+from Model.autores import Autores, AutoresSchema
+
 from Model.Usuarios import Ussers,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
+
+#Datos de la tabla autores
+
+autor_schema = AutoresSchema()
+autores_Schema = AutoresSchema(many=True)
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -33,10 +40,22 @@ libros_Schema = LibrosSchema(many=True)
 solicitudes_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
+#TABLA Proveedores
+Proveedores_schema = SolicitudesSchema()
+Proveedores_schema = SolicitudesSchema(many=True)
+
 
 # datos de estado de solicitud 
 estadosolicitud_schema = estadoSchema()
 estadosolicitudes_Schema = estadoSchema(many=True)
+
+#Datos de la tabla autores
+@app.route('/autores', methods=['GET'])
+def autores():    
+    returnall = autores.query.all()
+   
+    result_autores = autores_Schema.dump(returnall)
+    return jsonify(result_autores)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -51,7 +70,7 @@ def rusuario():
 def Proveedores():    
     returnall = Proveedores.query.all()
    
-    resultado_Proveedores = Proveedores_Schema.dump(returnall)
+    resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
 #metodos para Proveedores final 
 
