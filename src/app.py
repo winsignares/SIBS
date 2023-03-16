@@ -187,6 +187,14 @@ def Editoriales():
 
 #<----------------------------------------------------------------->
 #<--------------------------CRUD AUTORES--------------------------->
+@app.route('/saveautores', methods=['POST'] )
+def guardar_autores():
+    autores = request.json['autores']
+    print(autores)
+    new_autor = autores(autores)
+    db.session.add(new_autor)
+    db.session.commit()
+    return redirect('/autores')
 #<----------------------------------------------------------------->
 
 
