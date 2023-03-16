@@ -198,6 +198,7 @@ def actualizar():
 def index():
     return "Hola Mundo!! Dulfran   xD"
 
+#URL/ Categorias
 @app.route('/Categorias', methods=['GET'])
 def Categorias2():    
     returnall = Categorias.query.all()
@@ -205,6 +206,43 @@ def Categorias2():
     result_Categorias = CategoriasSchema.dump(returnall)
     #print(result_rolesusuaiors)
     return jsonify(result_Categorias)
+
+#Guardar - Categoria
+@app.route('/saveCat', methods=['POST'] )
+def guardar_categoria():
+    categori = request.json['N_cat']
+    print(categori)
+    new_Cat = Categorias(categori)
+    db.session.add(new_Cat)
+    db.session.commit()
+    return redirect('/Categorias')
+
+#Eliminar - Categoria
+@app.route('/clearCat', methods=['GET'] )
+def eliminarCat(id):
+    #id = request.args.get('id')
+    #id = request.json['id']
+    Cat = Categorias.query.get(id)
+    db.session.delete(Cat)
+    db.session.commit()
+    return jsonify(CategoriasSchema.dump(Cat)) 
+
+#Actualizar - Categoria
+@app.route('/updateCat', methods=['POST'] )
+def actualizarCat():
+    #id = request.form['id']
+    #Nombre = request.form['Nombre']
+    #Precio = request.form['Precio']
+    id = request.json['id']
+    N_cat = request.json['N_cat']
+    Descripcion = request.json['Descripcion']
+
+    updateCat = Categorias.query.get(id)
+    updateCat.nameCat = N_cat
+    updateCat.descripCat = Descripcion
+
+    db.session.commit()
+    return redirect('/Categorias')
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
