@@ -22,4 +22,4 @@ with app.app_context():
 
 class SolicitudesSchema(ma.Schema):
     class meta:
-        fields = ('id', 'fecha_solicitud','cantidad', ' Id_usu' )
+        fields = ('id', 'fecha_solicitud','cantidad', 'Id_usu' )
