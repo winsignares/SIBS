@@ -8,7 +8,7 @@ class Proveedores(db.Model):
     Nombre_proveedor = db.Column(db.String(50))
     Telefono = db.Column(db.Integer)
     Direccion = db.Column(db.String(50))
-    Descripcion = db.column(db.String(100))
+    Descripcion = db.Column(db.Text)
     
 
     def __init__(self, Nombre_proveedor, Telefono, Direccion, Descripcion):
