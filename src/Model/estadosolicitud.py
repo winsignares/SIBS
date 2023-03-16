@@ -9,7 +9,7 @@ class estadosolicitud(db.Model):
     id_solicitud =db.Column(db.Integer)
     fecha_devolucion = db.Column(db.Date)
     dias_atraso = db.Column(db.Integer)
-    estado = db.Column(db.Integer)
+    estsado = db.Column(db.Integer)
     
 
     def __init__(self, fecha,id_solicitud , fecha_devolucion,dias_atraso,estado):
