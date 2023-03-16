@@ -9,17 +9,17 @@ from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Editoriales import Editoriales, EditorialesSchema
 
 from Model.Libros import Libros, LibrosSchema
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 from Model.Proveedores  import Proveedores, ProveedoresSchema
+
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
-=======
-=======
+
 from Model.Usuarios import Ussers,UsuariosSchema
->>>>>>> 097d816a4a1138dcd0b5518de38499ac1afb9d3f
+
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
->>>>>>> 0afdb1a05ccfb3586005173ced282aeadaeb611f
+
 
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
