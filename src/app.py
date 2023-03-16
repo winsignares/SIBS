@@ -149,6 +149,19 @@ def solicitudes():
     returnall = Solicitudes.query.all()
     resultado_solicitudes = solicitudes_schema.dump(returnall)
     return jsonify(resultado_solicitudes)
+
+
+#guardar solicitudes 
+
+@app.route('/savesolicitudes', methods=['POST'])
+def guardar_solcitudes():
+    savesolicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
+    print('fecha_solicitud','cantidad','Id_usu')
+    new_soli = RolesUsuarios(savesolicitudes)
+    db.session.add(new_soli)
+    db.session.commit()
+    return redirect('/solicitudes')
+
 #fin
 
 #datos de usuarios listo
