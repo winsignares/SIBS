@@ -9,18 +9,17 @@ from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Editoriales import Editoriales, EditorialesSchema
 
 from Model.Libros import Libros, LibrosSchema
-<<<<<<< HEAD
-<<<<<<< HEAD
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
+<<<<<<< HEAD
 from Model.autores import Autores, AutoresSchema
 =======
 =======
+=======
+>>>>>>> ed480c4ba864a0424922ab76b0227609fe711d8d
 from Model.Usuarios import Ussers,UsuariosSchema
->>>>>>> 097d816a4a1138dcd0b5518de38499ac1afb9d3f
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
->>>>>>> 0afdb1a05ccfb3586005173ced282aeadaeb611f
 
 #Datos de la tabla autores
 
