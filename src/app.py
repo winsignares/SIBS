@@ -160,7 +160,7 @@ def guardar_solcitudes():
     new_soli = RolesUsuarios(savesolicitudes)
     db.session.add(new_soli)
     db.session.commit()
-    return redirect('/solicitudes')
+    return redirect('/savesolicitudes')
 
 #fin
 
