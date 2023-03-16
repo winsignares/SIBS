@@ -94,19 +94,19 @@ def guardar_roles():
 def actualizar():
 
     id = request.json['id']
-    rol = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
-    rusuario = RolesUsuarios.query.get(id)
-    rusuario.roles = rol
+    libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
+    nlibros = Libros.query.get(id)
+    nlibros.libro = libro
     db.session.commit()
     return redirect('/libros')
 
 @app.route('/eliminarlibros/<id>', methods=['GET'] )
 def eliminar(id):
 
-    rol = RolesUsuarios.query.get(id)
-    db.session.delete(rol)
+    libro = Libros.query.get(id)
+    db.session.delete(libro)
     db.session.commit()
-    return jsonify(rolesusuario_schema.dump(rol)) 
+    return jsonify(libros_Schema.dump(libro)) 
 
 #fin
 
