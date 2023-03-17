@@ -282,10 +282,10 @@ def Editoriales():
 #<--------------------------CRUD AUTORES--------------------------->
 @app.route('/eliminarautores/<id>', methods=['GET'] )
 def eliminarautores(id):
-    autor = autores.query.get(id)
-    db.session.delete(autor)
+    rol = autores.query.get(id)
+    db.session.delete(rol)
     db.session.commit()
-    return jsonify(autor_schema.dump(autor))
+    return jsonify(autor_schema.dump(rol))
 
 @app.route('/saveautores', methods=['POST'] )
 def guardar_autores():
