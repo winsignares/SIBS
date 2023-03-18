@@ -34,7 +34,7 @@ rolesusuarios_schema = RolesSchema(many=True)
 
 #Datos de la tabla categorias
 Categoria_schema = CategoriasSchema()
-Categoria_schema = CategoriasSchema(many=True)
+Categorias_schema = CategoriasSchema(many=True)
 
 
 #Datos de la tabla Detalles de categorias
@@ -47,11 +47,11 @@ libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
 #Valores Intermediarios de la TABLA SOLICITUDES
-solicitudes_schema = SolicitudesSchema()
+solicitud_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
 #TABLA Proveedores
-Proveedores_schema = SolicitudesSchema()
+Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
 
