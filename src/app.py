@@ -20,9 +20,12 @@ from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 
 from Model.autores import autores, AutoresSchema
+from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
+
+#Datos de la tabla detalles_autores
+Deta_autor_schema = detallesAutoresSchema()
+Detalles_autores_Schema = detallesAutoresSchema(many=True)
 from Model.Cate_deta import cate_deta, cate_detaSchema
-
-
 #Datos de la tabla autores
 autor_schema = AutoresSchema()
 autores_Schema = AutoresSchema(many=True)
@@ -63,6 +66,13 @@ def autores():
    
     result_autores = autores_Schema.dump(returnall)
     return jsonify(result_autores)
+
+#Datos de la tabla Detalles_autores
+@app.route('/detalles_autores', methods=['GET'])
+def detalles_autores():    
+    returnall = DetallesAutores.query.all()
+    result_detaautores = Detalles_autores_Schema.dump(returnall)
+    return jsonify(result_detaautores)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -328,16 +338,10 @@ def actualizarautores():
     nacionalidad = request.json['nacionalidad']
     rautores = autores.query.get(id)
     rautores.autores = nombre
+    rautores.autores = nacionalidad
     db.session.commit()
     return redirect('/autores')
 
-
-#<----------------------------------------------------------------->
-
-
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
 #------------------datos de estado de solicitud------------------------>
 
 # datos de estado de solicitud 
@@ -400,9 +404,50 @@ def actualizar_estadosolicitud():
     estadosolicitud.estado = estados
     db.session.commit()
     return redirect('/estadosolicitud')
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
+
+#<--------------------------CRUD DETALLES_AUTORES--------------------------->
+@app.route('/eliminarDautores/<id>', methods=['GET'] )
+def eliminardetalles (id):
+    Dautor = DetallesAutores.query.get(id)
+    db.session.delete(Dautor)
+    db.session.commit()
+    return jsonify(Deta_autor_schema.dump(Dautor))
+
+@app.route('/saveDautores', methods=['POST'] )
+def guardar_detalles():
+    Dautores = request.json['id_libros', 'id_autores']
+    print(Dautores)
+    new_Dautor = detalles_autores(Dautores)
+    db.session.add(new_Dautor)
+    db.session.commit()
+    return redirect('/detalles_autores')
+
+@app.route('/actualizarautores', methods=['POST'] )
+def actualizar_detalles():
+    id = request.json['id']
+    id_libros = request.json['id_libros']
+    id_autores = request.json['id_autores']
+    Dautores = detalles_autores.query.get(id)
+    Dautores.detalles_autores = id_libros
+    Dautores.detalles_autores = id_autores
+    db.session.commit()
+    return redirect('/detalles_autores')
+#<----------------------------------------------------------------->
+'''
+@app.route('/consultar3tabla', methods=['GET'])
+def consultar3tablas():
+    datos= {}
+    resultado = db.session.query(Employee,Department, Company). \
+        select_from(Employee).join(Department).join(Company).all()
+    i=0
+    for employee,department,company  in resultado:
+        i+=1
+        datos[i]={
+           
+                'Ename': employee.name,
+                'Dname': department.name,
+                'Cname': company.name          
+        }
+    print(datos)
+    return "Algo"
+'''
