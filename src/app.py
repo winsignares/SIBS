@@ -4,74 +4,66 @@
 
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
-
 from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
-from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
+
+from Model.Categorias import Categorias, CategoriasSchema
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
+from Model.Proveedores  import Proveedores, ProveedoresSchema
+from Model.autores import autores, AutoresSchema
+
+from Model.Usuarios import Users,UsuariosSchema
+
 from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
+from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
+from Model.Cate_deta import cate_deta, cate_detaSchema
 
-
-from Model.Proveedores  import Proveedores, ProveedoresSchema
-
+from Model.Solicitudes import Solicitudes, SolicitudesSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
-from Model.Usuarios import Users,UsuariosSchema
-from Model.Solicitudes import Solicitudes, SolicitudesSchema
 
-from Model.autores import autores, AutoresSchema
-from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
+from dotenv import load_dotenv
 
-#Datos de la tabla detalles_autores
-Deta_autor_schema = detallesAutoresSchema()
-Detalles_autores_Schema = detallesAutoresSchema(many=True)
-from Model.Cate_deta import cate_deta, cate_detaSchema
-#Datos de la tabla autores
-autor_schema = AutoresSchema()
-autores_Schema = AutoresSchema(many=True)
+app.register_blueprint(routes_user, url_prefix="/api")
 
 
-#Datos de la tabla roles
-rolesusuario_schema = RolesSchema()
-rolesusuarios_schema = RolesSchema(many=True)
 
-
-#Datos de la tabla categorias
+#Categoria
 Categoria_schema = CategoriasSchema()
 Categorias_schema = CategoriasSchema(many=True)
-
-
-#Datos de la tabla Detalles de categorias
-cate_detaSchema = cate_detaSchema()
-categ_detaSchema = cate_detaSchema(many=True)
-
-#Datos de la tabla libros listo
-
-libro_schema = LibrosSchema()
-libros_Schema = LibrosSchema(many=True)
-
-#Valores Intermediarios de la TABLA SOLICITUDES
-solicitud_schema = SolicitudesSchema()
-solicitudes_schema = SolicitudesSchema(many=True)
-
-#TABLA Proveedores
+#Autores
+autor_schema = AutoresSchema()
+autores_Schema = AutoresSchema(many=True)
+#Roles
+rolesusuario_schema = RolesSchema()
+rolesusuarios_schema = RolesSchema(many=True)
+#Proveedores
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
-#detalles de solicitudes
+#usuario
+Usuario_Schema= UsuariosSchema()
+Usuarios_Schema= UsuariosSchema(many=True)
+
+categoria_detaSchema = cate_detaSchema()
+categorias_detaSchema = cate_detaSchema(many=True)
+Deta_autor_schema = detallesAutoresSchema()
+Detalles_autores_Schema = detallesAutoresSchema(many=True)
+editorial_Schema = EditorialesSchema()
+editoriales_Schema = EditorialesSchema(many=True)
+
+libro_schema = LibrosSchema()
+libros_Schema = LibrosSchema(many=True)
+solicitud_schema = SolicitudesSchema()
+solicitudes_schema = SolicitudesSchema(many=True)
+
+Estado_schema = estadoSchema()
+Estados_schema = estadoSchema(many=True)
 detalleSolicitud_schema= Det_SolicitudesSchema()
 detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
-
-'''
-Usuario
-Categoria
-Autores
-Roles
-Proveedores
-'''
 #USUARIOS
 #-------SAVE/CREAR------------
 
@@ -115,21 +107,7 @@ def guardar_Proveedores():
     db.session.add(new_pro)
     db.session.commit()
     return redirect('/Proveedores')
-'''
-Detalle categorias
-Detalle Autores
-Editorial
-'''
 
-'''
-Libros
-Solicitud
-'''
-
-'''
-Estado de Solicitud
-Detalle Solicitud
-'''
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
@@ -151,10 +129,7 @@ def Editoriales():
    
     result_Editoriales = EditorialesSchema.dump(returnall)
     return jsonify(result_Editoriales)
-'''
-Libros
-Solicitud
-'''
+
 #----------------------------crud libros
 #metodo para libros
 @app.route('/libros', methods=['GET'])
@@ -222,14 +197,10 @@ def actualizarS():
     pusuario.cantidad = solicitudes
     db.session.commit()
     return redirect('/updatesolicitudes')
-'''
-Estado de Solicitud
-Detalle Solicitud
-'''
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
-def autores():    
+def obtenerautores():    
     returnall = autores.query.all()
    
     result_autores = autores_Schema.dump(returnall)
@@ -249,15 +220,15 @@ def rusuario():
 
 #Datos de la tabla Datos de categorias
 @app.route('/deta_cate', methods=['GET'])
-def cate_deta():    
+def category():    
     returnall = cate_deta.query.all()
-    result_cate_deta = cate_detaSchema.dump(returnall)
+    result_cate_deta = categorias_detaSchema.dump(returnall)
     return jsonify(result_cate_deta)
 
 
 #metodos para Proveedores inicio
 @app.route('/Proveedores', methods=['GET'])
-def Proveedores():    
+def obtenerproveedor():    
     returnall = Proveedores.query.all()
    
     resultado_Proveedores = ProveedoresSchema.dump(returnall)
@@ -281,11 +252,6 @@ def actualizarP():
 #metodos para Proveedores final 
 
 
-
-#datos de usuarios listo
-Usuario_Schema= UsuariosSchema()
-Usuarios_Schema= UsuariosSchema(many=True)
-
 @app.route('/Usuarios', methods=['GET'])
 def usuarios():    
     returnall = Users.query.all()
@@ -293,17 +259,6 @@ def usuarios():
     resultado_usuarios = Usuarios_Schema.dump(returnall)
     return jsonify(resultado_usuarios)
 
-
-
-
-@app.route('/saveroles', methods=['POST'] )
-def guardar_roles():
-    roles = request.json['roles']
-    print(roles)
-    new_rol = RolesUsuarios(roles)
-    db.session.add(new_rol)
-    db.session.commit()
-    return redirect('/rusuarios')
 
 @app.route('/eliminar/<id>', methods=['GET'] )
 def eliminar(id):
@@ -360,11 +315,6 @@ def actualizarCat():
 
     db.session.commit()
     return redirect('/Categorias')
-
-from dotenv import load_dotenv
-
-
-app.register_blueprint(routes_user, url_prefix="/api")
 
 if __name__ == '__main__':
     load_dotenv()

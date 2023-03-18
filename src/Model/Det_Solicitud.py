@@ -5,7 +5,7 @@ class Det_Solicitud(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     idLibros = db.Column(db.Integer, db.ForeignKey('tbllibros.id'))
-    idSolicitudes = db.Column(db.Integer, db.ForeignKey('tbSolicitudes.id'))
+    idSolicitudes = db.Column(db.Integer, db.ForeignKey('tblSolicitudes.id'))
     
     def __init__(self, idLibros, idSolicitudes):
         self.idLibros = idLibros
