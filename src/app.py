@@ -10,11 +10,15 @@ from config.db import db, app, ma
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
+
+
 from Model.Proveedores  import Proveedores, ProveedoresSchema
+
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
+
 from Model.autores import autores, AutoresSchema
 from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
 
@@ -66,8 +70,49 @@ Autores
 Roles
 Proveedores
 '''
+#USUARIOS
+#-------SAVE/CREAR------------
 
 
+#Categoria
+#--------SAVE/CREAR-----------
+@app.route('/saveCat', methods=['POST'] )
+def guardar_categoria():
+    categori = request.json['N_cat']
+    print(categori)
+    new_Cat = Categorias(categori)
+    db.session.add(new_Cat)
+    db.session.commit()
+    return redirect('/Categorias')
+#Autores
+#---------SAVE/CREAR------------
+@app.route('/saveautores', methods=['POST'] )
+def guardar_autores():
+    autores = request.json['nombre', 'nacionalidad']
+    print(autores)
+    new_autor = autores(autores)
+    db.session.add(new_autor)
+    db.session.commit()
+    return redirect('/autores')
+#Roles
+#---------SAVE/CREAR------------
+@app.route('/saveroles', methods=['POST'] )
+def guardar_roles():
+    roles = request.json['roles']
+    print(roles)
+    new_rol = RolesUsuarios(roles)
+    db.session.add(new_rol)
+    db.session.commit()
+    return redirect('/rusuarios')
+#Proveedores
+#---------SAVE/CREAR------------
+@app.route('/saveProveedores', methods=['POST'])
+def guardar_Proveedores():    
+    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    new_pro = Proveedores(newProveedores)
+    db.session.add(new_pro)
+    db.session.commit()
+    return redirect('/Proveedores')
 '''
 Detalle categorias
 Detalle Autores
@@ -83,27 +128,6 @@ Solicitud
 Estado de Solicitud
 Detalle Solicitud
 '''
-#------------------datos de estado de solicitud------------------------>
-
-# datos de estado de solicitud 
-estadosolicitud_schema = estadoSchema()
-estadosolicitudes_Schema = estadoSchema(many=True)
-
-
-#metodo de estado de solicitudes
-@app.route('/estadosolicitud', methods=['GET'])
-def estado():    
-    returnall = estadosolicitud.query.all()
-    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
-    return jsonify(resultado_estadosolicitud)
-
-
-@app.route('/detallesoli', methods=['GET'])
-def det_solicitudes():    
-    returnall = Det_Solicitud.query.all()
-    resultado_det_soli = detalleSolicitudes_schema.dump(returnall)
-    return jsonify(resultado_det_soli)
-
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
@@ -118,57 +142,18 @@ def detalles_autores():
     returnall = DetallesAutores.query.all()
     result_detaautores = Detalles_autores_Schema.dump(returnall)
     return jsonify(result_detaautores)
-
-@app.route('/rusuarios', methods=['GET'])
-def rusuario():    
-    returnall = RolesUsuarios.query.all()
+#tbledioriales
+@app.route('/Editoriales', methods=['GET'])
+def Editoriales():    
+    returnall = Editoriales.query.all()
    
-    result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
-    #print(result_rolesusuaiors)
-    return jsonify(result_rolesusuaiors)
-
-
-#Datos de la tabla Datos de categorias
-@app.route('/deta_cate', methods=['GET'])
-def cate_deta():    
-    returnall = cate_deta.query.all()
-    result_cate_deta = cate_detaSchema.dump(returnall)
-    return jsonify(result_cate_deta)
-
-
-#metodos para Proveedores inicio
-@app.route('/Proveedores', methods=['GET'])
-def Proveedores():    
-    returnall = Proveedores.query.all()
-   
-    resultado_Proveedores = ProveedoresSchema.dump(returnall)
-    return jsonify(resultado_Proveedores)
-
-@app.route('/saveProveedores', methods=['POST'])
-def guardar_Proveedores():    
-    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    new_pro = Proveedores(newProveedores)
-    db.session.add(new_pro)
-    db.session.commit()
-    return redirect('/Proveedores')
-
-@app.route('/eliminarProveedores/<id>', methods=['GET'] )
-def eliminarP(id):
-    prov = Proveedores.query.get(id)
-    db.session.delete(prov)
-    db.session.commit()
-    return jsonify(Proveedores_schema.dump(prov)) 
-
-@app.route('/actualizarProveedores', methods=['POST'] )
-def actualizarP():
-    id = request.json['id']
-    prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    pusuario = Proveedores.query.get(id)
-    pusuario.Nombre_proveedor = prov
-    db.session.commit()
-    return redirect('/Proveedores')
-#metodos para Proveedores final 
-
+    result_Editoriales = EditorialesSchema.dump(returnall)
+    return jsonify(result_Editoriales)
+'''
+Libros
+Solicitud
+'''
+#----------------------------crud libros
 #metodo para libros
 @app.route('/libros', methods=['GET'])
 def libros():    
@@ -202,18 +187,15 @@ def eliminarL(id):
     db.session.delete(libro)
     db.session.commit()
     return jsonify(libros_Schema.dump(libro)) 
-
+#fin
+#----------------------CRUD SOLICITUDES--------------------------------
 #metodo para solicitudes
-
 @app.route('/solicitudes', methods=['GET'])
 def solicitudes():
     returnall = Solicitudes.query.all()
     resultado_solicitudes = solicitudes_schema.dump(returnall)
     return jsonify(resultado_solicitudes)
-
-
 #guardar solicitudes 
-
 @app.route('/savesolicitudes', methods=['POST'])
 def guardar_solicitudes():
     solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
@@ -222,19 +204,14 @@ def guardar_solicitudes():
     db.session.add(new_soli)
     db.session.commit()
     return redirect('/savesolicitudes')
-
 #Eliminar   solicitudes
-
 @app.route('/deletesolicitudes/<id>', methods=['GET'] )
 def eliminarD(id):
-
     solicitudes = Libros.query.get(id)
     db.session.delete(solicitudes)
     db.session.commit()
     return jsonify(solicitudes_schema.dump(solicitudes)) 
-
 #Actualizar Solicitudes
-
 @app.route('/updatesolicitudes', methods=['POST'] )
 def actualizarS():
     id = request.json['id']
@@ -243,6 +220,64 @@ def actualizarS():
     pusuario.cantidad = solicitudes
     db.session.commit()
     return redirect('/updatesolicitudes')
+'''
+Estado de Solicitud
+Detalle Solicitud
+'''
+
+#Datos de la tabla autores
+@app.route('/autores', methods=['GET'])
+def autores():    
+    returnall = autores.query.all()
+   
+    result_autores = autores_Schema.dump(returnall)
+    return jsonify(result_autores)
+
+#Datos de la tabla Detalles_autores
+
+
+@app.route('/rusuarios', methods=['GET'])
+def rusuario():    
+    returnall = RolesUsuarios.query.all()
+   
+    result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
+    #print(result_rolesusuaiors)
+    return jsonify(result_rolesusuaiors)
+
+
+#Datos de la tabla Datos de categorias
+@app.route('/deta_cate', methods=['GET'])
+def cate_deta():    
+    returnall = cate_deta.query.all()
+    result_cate_deta = cate_detaSchema.dump(returnall)
+    return jsonify(result_cate_deta)
+
+
+#metodos para Proveedores inicio
+@app.route('/Proveedores', methods=['GET'])
+def Proveedores():    
+    returnall = Proveedores.query.all()
+   
+    resultado_Proveedores = ProveedoresSchema.dump(returnall)
+    return jsonify(resultado_Proveedores)
+
+@app.route('/eliminarProveedores/<id>', methods=['GET'] )
+def eliminarP(id):
+    prov = Proveedores.query.get(id)
+    db.session.delete(prov)
+    db.session.commit()
+    return jsonify(Proveedores_schema.dump(prov)) 
+
+@app.route('/actualizarProveedores', methods=['POST'] )
+def actualizarP():
+    id = request.json['id']
+    prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    pusuario = Proveedores.query.get(id)
+    pusuario.Nombre_proveedor = prov
+    db.session.commit()
+    return redirect('/Proveedores')
+#metodos para Proveedores final 
+
 
 
 #datos de usuarios listo
@@ -255,8 +290,6 @@ def usuarios():
    
     resultado_usuarios = Usuarios_Schema.dump(returnall)
     return jsonify(resultado_usuarios)
-
-
 
 
 
@@ -296,23 +329,8 @@ def index():
     return "Hola Mundo!! Dulfran   xD"
 
 #URL/ Categorias
-@app.route('/Categorias', methods=['GET'])
-def Categorias2():    
-    returnall = Categorias.query.all()
-   
-    result_Categorias = CategoriasSchema.dump(returnall)
-    #print(result_rolesusuaiors)
-    return jsonify(result_Categorias)
 
-#Guardar - Categoria
-@app.route('/saveCat', methods=['POST'] )
-def guardar_categoria():
-    categori = request.json['N_cat']
-    print(categori)
-    new_Cat = Categorias(categori)
-    db.session.add(new_Cat)
-    db.session.commit()
-    return redirect('/Categorias')
+
 
 #Eliminar - Categoria
 @app.route('/clearCat', methods=['GET'] )
@@ -344,12 +362,7 @@ def actualizarCat():
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
 # Datos de la tabla de Editoriales
-@app.route('/Editoriales', methods=['GET'])
-def Editoriales():    
-    returnall = Editoriales.query.all()
-   
-    result_Editoriales = EditorialesSchema.dump(returnall)
-    return jsonify(result_Editoriales)
+
 
 #<----------------------------------------------------------------->
 #<--------------------------CRUD AUTORES--------------------------->
@@ -360,14 +373,6 @@ def eliminarautores(id):
     db.session.commit()
     return jsonify(autor_schema.dump(rol))
 
-@app.route('/saveautores', methods=['POST'] )
-def guardar_autores():
-    autores = request.json['nombre', 'nacionalidad']
-    print(autores)
-    new_autor = autores(autores)
-    db.session.add(new_autor)
-    db.session.commit()
-    return redirect('/autores')
 
 @app.route('/actualizarautores', methods=['POST'] )
 def actualizarautores():
@@ -423,6 +428,10 @@ def actualizar_estadosolicitud():
     estadosolicitud.id_solicitudes = id_solicitudes
     estadosolicitud.fecha_devolucion = fecha_devoluciones
     estadosolicitud.dias_atraso = dias_atrasos
+    
+    
+    
+    
     estadosolicitud.estado = estados
     db.session.commit()
     return redirect('/estadosolicitud')
