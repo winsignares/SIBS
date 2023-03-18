@@ -51,13 +51,8 @@ solicitud_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
 #TABLA Proveedores
-<<<<<<< HEAD
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
-=======
-Proveedores_schema = ProveedoresSchema()
-Proveedores_schema = ProveedoresSchema(many=True)
->>>>>>> 5d00fc9061b1d4ded7360446d1bcb9db3b66dfee
 
 
 #Datos de la tabla autores
