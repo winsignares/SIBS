@@ -15,7 +15,11 @@ from Model.estadosolicitud import estadosolicitud, estadoSchema
 from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 from Model.autores import autores, AutoresSchema
+from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
 
+#Datos de la tabla detalles_autores
+Deta_autor_schema = detallesAutoresSchema()
+Detalles_autores_Schema = detallesAutoresSchema(many=True)
 #Datos de la tabla autores
 
 autor_schema = AutoresSchema()
@@ -47,6 +51,13 @@ def autores():
     returnall = autores.query.all()
     result_autores = autores_Schema.dump(returnall)
     return jsonify(result_autores)
+
+#Datos de la tabla Detalles_autores
+@app.route('/detalles_autores', methods=['GET'])
+def detalles_autores():    
+    returnall = DetallesAutores.query.all()
+    result_detaautores = Detalles_autores_Schema.dump(returnall)
+    return jsonify(result_detaautores)
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -303,6 +314,7 @@ def actualizarautores():
     nacionalidad = request.json['nacionalidad']
     rautores = autores.query.get(id)
     rautores.autores = nombre
+    rautores.autores = nacionalidad
     db.session.commit()
     return redirect('/autores')
 
@@ -379,7 +391,37 @@ def actualizar_estadosolicitud():
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
 
+#<----------------------------------------------------------------->
+#<--------------------------CRUD DETALLES_AUTORES--------------------------->
+@app.route('/eliminarDautores/<id>', methods=['GET'] )
+def eliminardetalles (id):
+    Dautor = DetallesAutores.query.get(id)
+    db.session.delete(Dautor)
+    db.session.commit()
+    return jsonify(Deta_autor_schema.dump(Dautor))
 
+@app.route('/saveDautores', methods=['POST'] )
+def guardar_detalles():
+    Dautores = request.json['id_libros', 'id_autores']
+    print(Dautores)
+    new_Dautor = detalles_autores(Dautores)
+    db.session.add(new_Dautor)
+    db.session.commit()
+    return redirect('/detalles_autores')
+
+@app.route('/actualizarautores', methods=['POST'] )
+def actualizar_detalles():
+    id = request.json['id']
+    id_libros = request.json['id_libros']
+    id_autores = request.json['id_autores']
+    Dautores = detalles_autores.query.get(id)
+    Dautores.detalles_autores = id_libros
+    Dautores.detalles_autores = id_autores
+    db.session.commit()
+    return redirect('/detalles_autores')
+
+
+#<----------------------------------------------------------------->
 
 
 
