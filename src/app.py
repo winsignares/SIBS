@@ -423,6 +423,24 @@ def actualizar_detalles():
     Dautores.detalles_autores = id_autores
     db.session.commit()
     return redirect('/detalles_autores')
+
+'''#crud de usuarios
+@app.route('/eliminar/<id>', methods=['GET'] )
+def eliminar(id):
+    #id = request.args.get('id')
+    #id = request.json['id']
+    full_name = Users.query.get(id)
+    Email = Users.query.get(id)
+    telefono = Users.query.get(id)
+    especialidad = Users.query.get(id)
+    jornada = Users.query.get(id)
+    direccion = Users.query.get(id)
+    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
+'''
+
+
 #<----------------------------------------------------------------->
 '''
 @app.route('/consultar3tabla', methods=['GET'])
