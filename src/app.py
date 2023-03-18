@@ -4,6 +4,8 @@
 
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
+
+from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
@@ -332,7 +334,13 @@ def actualizarCat():
     db.session.commit()
     return redirect('/Categorias')
 
+from dotenv import load_dotenv
+
+
+app.register_blueprint(routes_user, url_prefix="/api")
+
 if __name__ == '__main__':
+    load_dotenv()
     app.run(debug=True, port=5000, host='0.0.0.0')
 # Datos de la tabla de Editoriales
 
