@@ -1,7 +1,7 @@
 from config.db import db, app, ma 
 
 class Solicitudes(db.Model):
-    __tablename__ = "tbSolicitudes"
+    __tablename__ = "tblSolicitudes"
 
     id = db.Column (db.Integer, primary_key = True)
     fecha_solicitud = db.Column(db.DateTime)
