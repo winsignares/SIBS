@@ -65,8 +65,49 @@ Autores
 Roles
 Proveedores
 '''
+#USUARIOS
+#-------SAVE/CREAR------------
 
 
+#Categoria
+#--------SAVE/CREAR-----------
+@app.route('/saveCat', methods=['POST'] )
+def guardar_categoria():
+    categori = request.json['N_cat']
+    print(categori)
+    new_Cat = Categorias(categori)
+    db.session.add(new_Cat)
+    db.session.commit()
+    return redirect('/Categorias')
+#Autores
+#---------SAVE/CREAR------------
+@app.route('/saveautores', methods=['POST'] )
+def guardar_autores():
+    autores = request.json['nombre', 'nacionalidad']
+    print(autores)
+    new_autor = autores(autores)
+    db.session.add(new_autor)
+    db.session.commit()
+    return redirect('/autores')
+#Roles
+#---------SAVE/CREAR------------
+@app.route('/saveroles', methods=['POST'] )
+def guardar_roles():
+    roles = request.json['roles']
+    print(roles)
+    new_rol = RolesUsuarios(roles)
+    db.session.add(new_rol)
+    db.session.commit()
+    return redirect('/rusuarios')
+#Proveedores
+#---------SAVE/CREAR------------
+@app.route('/saveProveedores', methods=['POST'])
+def guardar_Proveedores():    
+    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    new_pro = Proveedores(newProveedores)
+    db.session.add(new_pro)
+    db.session.commit()
+    return redirect('/Proveedores')
 '''
 Detalle categorias
 Detalle Autores
@@ -189,14 +230,6 @@ def Proveedores():
     resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
 
-@app.route('/saveProveedores', methods=['POST'])
-def guardar_Proveedores():    
-    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    new_pro = Proveedores(newProveedores)
-    db.session.add(new_pro)
-    db.session.commit()
-    return redirect('/Proveedores')
-
 @app.route('/eliminarProveedores/<id>', methods=['GET'] )
 def eliminarP(id):
     prov = Proveedores.query.get(id)
@@ -226,18 +259,6 @@ def usuarios():
    
     resultado_usuarios = Usuarios_Schema.dump(returnall)
     return jsonify(resultado_usuarios)
-
-
-
-
-@app.route('/saveroles', methods=['POST'] )
-def guardar_roles():
-    roles = request.json['roles']
-    print(roles)
-    new_rol = RolesUsuarios(roles)
-    db.session.add(new_rol)
-    db.session.commit()
-    return redirect('/rusuarios')
 
 @app.route('/eliminar/<id>', methods=['GET'] )
 def eliminar(id):
@@ -273,15 +294,6 @@ def Categorias():
     #print(result_rolesusuaiors)
     return jsonify(result_Categorias)
 
-#Guardar - Categoria
-@app.route('/saveCat', methods=['POST'] )
-def guardar_categoria():
-    categori = request.json['N_cat']
-    print(categori)
-    new_Cat = Categorias(categori)
-    db.session.add(new_Cat)
-    db.session.commit()
-    return redirect('/Categorias')
 
 #Eliminar - Categoria
 @app.route('/clearCat', methods=['GET'] )
@@ -329,14 +341,6 @@ def eliminarautores(id):
     db.session.commit()
     return jsonify(autor_schema.dump(rol))
 
-@app.route('/saveautores', methods=['POST'] )
-def guardar_autores():
-    autores = request.json['nombre', 'nacionalidad']
-    print(autores)
-    new_autor = autores(autores)
-    db.session.add(new_autor)
-    db.session.commit()
-    return redirect('/autores')
 
 @app.route('/actualizarautores', methods=['POST'] )
 def actualizarautores():
