@@ -113,7 +113,27 @@ Detalle categorias
 Detalle Autores
 Editorial
 '''
-
+#tblcategorias
+@app.route('/Categorias', methods=['GET'])
+def Categorias():    
+    returnall = Categorias.query.all()
+   
+    result_Categorias = CategoriasSchema.dump(returnall)
+    #print(result_rolesusuaiors)
+    return jsonify(result_Categorias)
+#tbldetalleautores
+@app.route('/detalles_autores', methods=['GET'])
+def detalles_autores():    
+    returnall = DetallesAutores.query.all()
+    result_detaautores = Detalles_autores_Schema.dump(returnall)
+    return jsonify(result_detaautores)
+#tbledioriales
+@app.route('/Editoriales', methods=['GET'])
+def Editoriales():    
+    returnall = Editoriales.query.all()
+   
+    result_Editoriales = EditorialesSchema.dump(returnall)
+    return jsonify(result_Editoriales)
 '''
 Libros
 Solicitud
@@ -199,11 +219,7 @@ def autores():
     return jsonify(result_autores)
 
 #Datos de la tabla Detalles_autores
-@app.route('/detalles_autores', methods=['GET'])
-def detalles_autores():    
-    returnall = DetallesAutores.query.all()
-    result_detaautores = Detalles_autores_Schema.dump(returnall)
-    return jsonify(result_detaautores)
+
 
 @app.route('/rusuarios', methods=['GET'])
 def rusuario():    
@@ -286,13 +302,7 @@ def index():
     return "Hola Mundo!! Dulfran   xD"
 
 #URL/ Categorias
-@app.route('/Categorias', methods=['GET'])
-def Categorias():    
-    returnall = Categorias.query.all()
-   
-    result_Categorias = CategoriasSchema.dump(returnall)
-    #print(result_rolesusuaiors)
-    return jsonify(result_Categorias)
+
 
 
 #Eliminar - Categoria
@@ -325,12 +335,7 @@ def actualizarCat():
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
 # Datos de la tabla de Editoriales
-@app.route('/Editoriales', methods=['GET'])
-def Editoriales():    
-    returnall = Editoriales.query.all()
-   
-    result_Editoriales = EditorialesSchema.dump(returnall)
-    return jsonify(result_Editoriales)
+
 
 #<----------------------------------------------------------------->
 #<--------------------------CRUD AUTORES--------------------------->
