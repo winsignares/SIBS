@@ -54,6 +54,30 @@ solicitudes_schema = SolicitudesSchema(many=True)
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
+'''
+Usuario
+Categoria
+Autores
+Roles
+Proveedores
+'''
+
+
+'''
+Detalle categorias
+Detalle Autores
+Editorial
+'''
+
+'''
+Libros
+Solicitud
+'''
+
+'''
+Estado de Solicitud
+Detalle Solicitud
+'''
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
@@ -153,11 +177,6 @@ def eliminarL(id):
     db.session.commit()
     return jsonify(libros_Schema.dump(libro)) 
 
-#fin
-
-
-#fin
-
 #metodo para solicitudes
 
 @app.route('/solicitudes', methods=['GET'])
@@ -199,9 +218,6 @@ def actualizarS():
     db.session.commit()
     return redirect('/updatesolicitudes')
 
-
-
-#fin
 
 #datos de usuarios listo
 Usuario_Schema= UsuariosSchema()
