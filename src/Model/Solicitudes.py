@@ -6,7 +6,7 @@ class Solicitudes(db.Model):
     id = db.Column (db.Integer, primary_key = True)
     fecha_solicitud = db.Column(db.DateTime)
     cantidad = db.Column(db.Integer)
-    Id_usu = db.Column(db.Integer, db.ForeignKey('Usuarios.id'))
+    Id_usu = db.Column(db.Integer, db.ForeignKey('TblUsuarios.id'))
 
   #  id_usu = db.Columm (db.integer) 
     
