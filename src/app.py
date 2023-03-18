@@ -337,13 +337,6 @@ def actualizarautores():
     db.session.commit()
     return redirect('/autores')
 
-
-#<----------------------------------------------------------------->
-
-
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
 #------------------datos de estado de solicitud------------------------>
 
 # datos de estado de solicitud 
@@ -402,12 +395,7 @@ def actualizar_estadosolicitud():
     estadosolicitud.estado = estados
     db.session.commit()
     return redirect('/estadosolicitud')
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
-#---------------------------------------------------------------------->
 
-#<----------------------------------------------------------------->
 #<--------------------------CRUD DETALLES_AUTORES--------------------------->
 @app.route('/eliminarDautores/<id>', methods=['GET'] )
 def eliminardetalles (id):
@@ -435,25 +423,22 @@ def actualizar_detalles():
     Dautores.detalles_autores = id_autores
     db.session.commit()
     return redirect('/detalles_autores')
-
-
 #<----------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
+@app.route('/consultar3tabla', methods=['GET'])
+def consultar3tablas():
+    datos= {}
+    resultado = db.session.query(Employee,Department, Company). \
+        select_from(Employee).join(Department).join(Company).all()
+    i=0
+    for employee,department,company  in resultado:
+        i+=1
+        datos[i]={
+           
+                'Ename': employee.name,
+                'Dname': department.name,
+                'Cname': company.name          
+        }
+    print(datos)
+    return "Algo"
+'''
