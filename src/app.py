@@ -1,5 +1,5 @@
 #10.230.16.229
-
+#10.230.16.238
 #10.230.16.196
 
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
@@ -376,9 +376,6 @@ def guardar_estadosolicitud():
 
 @app.route('/actualizar_estadosolicitud', methods=['POST'] )
 def actualizar_estadosolicitud():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']git 
     id = request.json['id']
     fechas = request.json['fechas']
     id_solicitudes = request.json['id_solicitud']
@@ -398,24 +395,5 @@ def actualizar_estadosolicitud():
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->

@@ -11,8 +11,8 @@ class Libros(db.Model):
     copias = db.Column(db.Integer)
     estado = db.Column(db.String(50))
     ubicacion = db.Column(db.String(50))
-    id_deta_cat = db.Column(db.Integer, db.ForeignKey(''))
-    id_autor = db.Column(db.Integer, db.ForeignKey(''))
+    id_deta_cat = db.Column(db.Integer)
+    id_autor = db.Column(db.Integer)
     id_editoral = db.Column(db.Integer, db.ForeignKey('Editoriales.id'))
     id_proov = db.Column(db.Integer, db.ForeignKey('proveedores.id'))
     
