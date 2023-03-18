@@ -12,7 +12,7 @@ from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
-
+from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 from Model.autores import autores, AutoresSchema
@@ -54,6 +54,11 @@ solicitudes_schema = SolicitudesSchema(many=True)
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
+#detalles de solicitudes
+detalleSolicitud_schema= Det_SolicitudesSchema()
+detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
+
+
 '''
 Usuario
 Categoria
@@ -78,6 +83,27 @@ Solicitud
 Estado de Solicitud
 Detalle Solicitud
 '''
+#------------------datos de estado de solicitud------------------------>
+
+# datos de estado de solicitud 
+estadosolicitud_schema = estadoSchema()
+estadosolicitudes_Schema = estadoSchema(many=True)
+
+
+#metodo de estado de solicitudes
+@app.route('/estadosolicitud', methods=['GET'])
+def estado():    
+    returnall = estadosolicitud.query.all()
+    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
+    return jsonify(resultado_estadosolicitud)
+
+
+@app.route('/detallesoli', methods=['GET'])
+def det_solicitudes():    
+    returnall = Det_Solicitud.query.all()
+    resultado_det_soli = detalleSolicitudes_schema.dump(returnall)
+    return jsonify(resultado_det_soli)
+
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
@@ -233,6 +259,8 @@ def usuarios():
 
 
 
+
+
 @app.route('/saveroles', methods=['POST'] )
 def guardar_roles():
     roles = request.json['roles']
@@ -352,19 +380,7 @@ def actualizarautores():
     db.session.commit()
     return redirect('/autores')
 
-#------------------datos de estado de solicitud------------------------>
 
-# datos de estado de solicitud 
-estadosolicitud_schema = estadoSchema()
-estadosolicitudes_Schema = estadoSchema(many=True)
-
-
-#metodo de estado de solicitudes
-@app.route('/estadosolicitud', methods=['GET'])
-def estado():    
-    returnall = estadosolicitud.query.all()
-    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
-    return jsonify(resultado_estadosolicitud)
    
 
 @app.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
