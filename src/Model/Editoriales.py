@@ -6,7 +6,7 @@ class Editoriales(db.Model):
     
     id  = db.Column(db.Integer, primary_key=True)
     N_Edi = db.Column(db.String(50))
-    id_Prov = db.Column(db.String(50))
+    id_Prov = db.Column(db.String(50),db.ForeignKey("tblproveedores.id"))
     
     
 
