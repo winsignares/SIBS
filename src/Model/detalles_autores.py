@@ -4,8 +4,8 @@ class DetallesAutores(db.Model):
     __tablename__ = "tbldeta_autores"
     
     id = db.Column(db.Integer, primary_key=True)
-    id_libros = db.Column(db.Integer, db.ForeignKey('Libros.id'))
-    id_autores= db.Column(db.Integer, db.ForeignKey('autores.id'))
+    id_libros = db.Column(db.Integer, db.ForeignKey('tbllibros.id'))
+    id_autores= db.Column(db.Integer, db.ForeignKey('tblautores.id'))
     
     def __init__(self, id_libros, id_autores):
         self.id_libros = id_libros
