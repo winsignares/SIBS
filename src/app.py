@@ -38,7 +38,7 @@ rolesusuarios_schema = RolesSchema(many=True)
 
 #Datos de la tabla categorias
 Categoria_schema = CategoriasSchema()
-Categoria_schema = CategoriasSchema(many=True)
+Categorias_schema = CategoriasSchema(many=True)
 
 
 #Datos de la tabla Detalles de categorias
@@ -51,13 +51,37 @@ libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
 #Valores Intermediarios de la TABLA SOLICITUDES
-solicitudes_schema = SolicitudesSchema()
+solicitud_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
 #TABLA Proveedores
-Proveedores_schema = SolicitudesSchema()
+Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
+'''
+Usuario
+Categoria
+Autores
+Roles
+Proveedores
+'''
+
+
+'''
+Detalle categorias
+Detalle Autores
+Editorial
+'''
+
+'''
+Libros
+Solicitud
+'''
+
+'''
+Estado de Solicitud
+Detalle Solicitud
+'''
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
@@ -158,11 +182,6 @@ def eliminarL(id):
     db.session.commit()
     return jsonify(libros_Schema.dump(libro)) 
 
-#fin
-
-
-#fin
-
 #metodo para solicitudes
 
 @app.route('/solicitudes', methods=['GET'])
@@ -204,9 +223,6 @@ def actualizarS():
     db.session.commit()
     return redirect('/updatesolicitudes')
 
-
-
-#fin
 
 #datos de usuarios listo
 Usuario_Schema= UsuariosSchema()
@@ -304,7 +320,6 @@ def actualizarCat():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
-
 # Datos de la tabla de Editoriales
 @app.route('/Editoriales', methods=['GET'])
 def Editoriales():    

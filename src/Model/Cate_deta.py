@@ -6,7 +6,7 @@ class cate_deta(db.Model):
     
     id  = db.Column(db.Integer, primary_key=True)
     id_cate = db.Column(db.Date)
-    id_li = db.Column(db.Integer, db.ForeignKey(''))
+    id_li = db.Column(db.Integer, db.ForeignKey('tbllibros.id'))
     
 
     def __init__(self, id_cate, id_li):
