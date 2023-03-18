@@ -393,6 +393,10 @@ def actualizar_estadosolicitud():
     estadosolicitud.id_solicitudes = id_solicitudes
     estadosolicitud.fecha_devolucion = fecha_devoluciones
     estadosolicitud.dias_atraso = dias_atrasos
+    
+    
+    
+    
     estadosolicitud.estado = estados
     db.session.commit()
     return redirect('/estadosolicitud')
