@@ -362,9 +362,6 @@ def guardar_estadosolicitud():
 
 @app.route('/actualizar_estadosolicitud', methods=['POST'] )
 def actualizar_estadosolicitud():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']git 
     id = request.json['id']
     fechas = request.json['fechas']
     id_solicitudes = request.json['id_solicitud']
@@ -384,24 +381,5 @@ def actualizar_estadosolicitud():
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->

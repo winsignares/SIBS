@@ -29,6 +29,7 @@ class Libros(db.Model):
         self.id_editoral = id_editoral
         self.id_proov = id_proov
         
+        
 
         
     
