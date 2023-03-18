@@ -20,17 +20,27 @@ from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 
 from Model.autores import autores, AutoresSchema
+from Model.Cate_deta import cate_deta, cate_detaSchema
+
 
 #Datos de la tabla autores
-
 autor_schema = AutoresSchema()
 autores_Schema = AutoresSchema(many=True)
 
+
+#Datos de la tabla roles
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
 
+
+#Datos de la tabla categorias
 Categoria_schema = CategoriasSchema()
 Categoria_schema = CategoriasSchema(many=True)
+
+
+#Datos de la tabla Detalles de categorias
+cate_detaSchema = cate_detaSchema()
+categ_detaSchema = cate_detaSchema(many=True)
 
 #Datos de la tabla libros listo
 
@@ -61,6 +71,15 @@ def rusuario():
     result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
     #print(result_rolesusuaiors)
     return jsonify(result_rolesusuaiors)
+
+
+#Datos de la tabla Datos de categorias
+@app.route('/deta_cate', methods=['GET'])
+def cate_deta():    
+    returnall = cate_deta.query.all()
+    result_cate_deta = cate_detaSchema.dump(returnall)
+    return jsonify(result_cate_deta)
+
 
 #metodos para Proveedores inicio
 @app.route('/Proveedores', methods=['GET'])
