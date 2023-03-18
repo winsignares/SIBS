@@ -12,6 +12,7 @@ from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.estadosolicitud import estadosolicitud, estadoSchema
+
 from Model.Usuarios import Users,UsuariosSchema
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
 from Model.autores import autores, AutoresSchema
@@ -289,7 +290,7 @@ def eliminarautores(id):
 
 @app.route('/saveautores', methods=['POST'] )
 def guardar_autores():
-    autores = request.json['autores']
+    autores = request.json['nombre', 'nacionalidad']
     print(autores)
     new_autor = autores(autores)
     db.session.add(new_autor)
@@ -356,9 +357,6 @@ def guardar_estadosolicitud():
 
 @app.route('/actualizar_estadosolicitud', methods=['POST'] )
 def actualizar_estadosolicitud():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']git 
     id = request.json['id']
     fechas = request.json['fechas']
     id_solicitudes = request.json['id_solicitud']
@@ -378,24 +376,5 @@ def actualizar_estadosolicitud():
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
 #---------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#---------------------------------------------------------------------->
+#---------------------------------------------------------------------->
