@@ -77,7 +77,73 @@ Editorial
 Libros
 Solicitud
 '''
+#----------------------------crud libros
+#metodo para libros
+@app.route('/libros', methods=['GET'])
+def libros():    
+    returnall = Libros.query.all()
+    resultado_libros = libros_Schema.dump(returnall)
+    return jsonify(resultado_libros)
 
+@app.route('/savelibros', methods=['POST'] )
+def guardar_Libros():
+    addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
+    print(addlibros)
+    new_libro = Libros(addlibros)
+    db.session.add(new_libro)
+    db.session.commit()
+    return redirect('/libros')
+
+@app.route('/actualizarlibros', methods=['POST'] )
+def actualizarL():
+
+    id = request.json['id']
+    libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
+    nlibros = Libros.query.get(id)
+    nlibros.libro = libro
+    db.session.commit()
+    return redirect('/libros')
+
+@app.route('/eliminarlibros/<id>', methods=['GET'] )
+def eliminarL(id):
+
+    libro = Libros.query.get(id)
+    db.session.delete(libro)
+    db.session.commit()
+    return jsonify(libros_Schema.dump(libro)) 
+#fin
+#----------------------CRUD SOLICITUDES--------------------------------
+#metodo para solicitudes
+@app.route('/solicitudes', methods=['GET'])
+def solicitudes():
+    returnall = Solicitudes.query.all()
+    resultado_solicitudes = solicitudes_schema.dump(returnall)
+    return jsonify(resultado_solicitudes)
+#guardar solicitudes 
+@app.route('/savesolicitudes', methods=['POST'])
+def guardar_solicitudes():
+    solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
+    print(solicitudes)
+    new_soli = Solicitudes(solicitudes)
+    db.session.add(new_soli)
+    db.session.commit()
+    return redirect('/savesolicitudes')
+#Eliminar   solicitudes
+@app.route('/deletesolicitudes/<id>', methods=['GET'] )
+def eliminarD(id):
+    solicitudes = Libros.query.get(id)
+    db.session.delete(solicitudes)
+    db.session.commit()
+    return jsonify(solicitudes_schema.dump(solicitudes)) 
+#Actualizar Solicitudes
+@app.route('/updatesolicitudes', methods=['POST'] )
+def actualizarS():
+    id = request.json['id']
+    solicitudes = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
+    pusuario = Proveedores.query.get(id)
+    pusuario.cantidad = solicitudes
+    db.session.commit()
+    return redirect('/updatesolicitudes')
 '''
 Estado de Solicitud
 Detalle Solicitud
@@ -148,80 +214,6 @@ def actualizarP():
     return redirect('/Proveedores')
 #metodos para Proveedores final 
 
-#metodo para libros
-@app.route('/libros', methods=['GET'])
-def libros():    
-    returnall = Libros.query.all()
-    resultado_libros = libros_Schema.dump(returnall)
-    return jsonify(resultado_libros)
-
-@app.route('/savelibros', methods=['POST'] )
-def guardar_Libros():
-    addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
-    print(addlibros)
-    new_libro = Libros(addlibros)
-    db.session.add(new_libro)
-    db.session.commit()
-    return redirect('/libros')
-
-@app.route('/actualizarlibros', methods=['POST'] )
-def actualizarL():
-
-    id = request.json['id']
-    libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
-    nlibros = Libros.query.get(id)
-    nlibros.libro = libro
-    db.session.commit()
-    return redirect('/libros')
-
-@app.route('/eliminarlibros/<id>', methods=['GET'] )
-def eliminarL(id):
-
-    libro = Libros.query.get(id)
-    db.session.delete(libro)
-    db.session.commit()
-    return jsonify(libros_Schema.dump(libro)) 
-
-#metodo para solicitudes
-
-@app.route('/solicitudes', methods=['GET'])
-def solicitudes():
-    returnall = Solicitudes.query.all()
-    resultado_solicitudes = solicitudes_schema.dump(returnall)
-    return jsonify(resultado_solicitudes)
-
-
-#guardar solicitudes 
-
-@app.route('/savesolicitudes', methods=['POST'])
-def guardar_solicitudes():
-    solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
-    print(solicitudes)
-    new_soli = Solicitudes(solicitudes)
-    db.session.add(new_soli)
-    db.session.commit()
-    return redirect('/savesolicitudes')
-
-#Eliminar   solicitudes
-
-@app.route('/deletesolicitudes/<id>', methods=['GET'] )
-def eliminarD(id):
-
-    solicitudes = Libros.query.get(id)
-    db.session.delete(solicitudes)
-    db.session.commit()
-    return jsonify(solicitudes_schema.dump(solicitudes)) 
-
-#Actualizar Solicitudes
-
-@app.route('/updatesolicitudes', methods=['POST'] )
-def actualizarS():
-    id = request.json['id']
-    solicitudes = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    pusuario = Proveedores.query.get(id)
-    pusuario.cantidad = solicitudes
-    db.session.commit()
-    return redirect('/updatesolicitudes')
 
 
 #datos de usuarios listo
