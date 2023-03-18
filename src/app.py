@@ -34,7 +34,7 @@ rolesusuarios_schema = RolesSchema(many=True)
 
 #Datos de la tabla categorias
 Categoria_schema = CategoriasSchema()
-Categoria_schema = CategoriasSchema(many=True)
+Categorias_schema = CategoriasSchema(many=True)
 
 
 #Datos de la tabla Detalles de categorias
@@ -51,8 +51,8 @@ solicitudes_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
 #TABLA Proveedores
-Proveedores_schema = SolicitudesSchema()
-Proveedores_schema = SolicitudesSchema(many=True)
+Proveedores_schema = ProveedoresSchema()
+Proveedores_schema = ProveedoresSchema(many=True)
 
 
 #Datos de la tabla autores
