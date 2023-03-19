@@ -6,7 +6,6 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 
 routes_roles = Blueprint("routes_rol", __name__)
-from common.auth import decoradorvalidaciontoken
 
 #Roles
 rolesusuario_schema = RolesSchema()
