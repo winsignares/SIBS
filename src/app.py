@@ -9,11 +9,9 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 from config.db import db, app, ma
 
 from Model.Categorias import Categorias, CategoriasSchema
-from Model.RolesUsuarios import RolesUsuarios, RolesSchema
+
 from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.autores import autores, AutoresSchema
-
-from Model.Usuarios import Users,UsuariosSchema
 
 from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
@@ -26,7 +24,11 @@ from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 
 from dotenv import load_dotenv
 
+from api.user import routes_user
+from api.roles import routes_roles
+
 app.register_blueprint(routes_user, url_prefix="/api")
+app.register_blueprint(routes_roles, url_prefix="/api")
 
 
 
@@ -36,16 +38,11 @@ Categorias_schema = CategoriasSchema(many=True)
 #Autores
 autor_schema = AutoresSchema()
 autores_Schema = AutoresSchema(many=True)
-#Roles
-rolesusuario_schema = RolesSchema()
-rolesusuarios_schema = RolesSchema(many=True)
+
 #Proveedores
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
-#usuario
-Usuario_Schema= UsuariosSchema()
-Usuarios_Schema= UsuariosSchema(many=True)
 
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
@@ -88,16 +85,6 @@ def guardar_autores():
     db.session.add(new_autor)
     db.session.commit()
     return redirect('/autores')
-#Roles
-#---------SAVE/CREAR------------
-@app.route('/saveroles', methods=['POST'] )
-def guardar_roles():
-    roles = request.json['roles']
-    print(roles)
-    new_rol = RolesUsuarios(roles)
-    db.session.add(new_rol)
-    db.session.commit()
-    return redirect('/rusuarios')
 #Proveedores
 #---------SAVE/CREAR------------
 @app.route('/saveProveedores', methods=['POST'])
@@ -207,15 +194,6 @@ def obtenerautores():
     return jsonify(result_autores)
 
 #Datos de la tabla Detalles_autores
-
-
-@app.route('/rusuarios', methods=['GET'])
-def rusuario():    
-    returnall = RolesUsuarios.query.all()
-   
-    result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
-    #print(result_rolesusuaiors)
-    return jsonify(result_rolesusuaiors)
 
 
 #Datos de la tabla Datos de categorias
