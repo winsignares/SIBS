@@ -24,3 +24,4 @@ class SolicitudesSchema(ma.Schema):
     class meta:
         fields = ('id', 'fecha_solicitud','cantidad', 'Id_usu' )
 #a
+#e
