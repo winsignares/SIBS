@@ -38,7 +38,7 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 @app.route("/")
 def index():
-    return "Hola Mundo!! Dulfran   xD"
+    return render_template('index.html')
 
 # Datos de la tabla de Editoriales
 if __name__ == '__main__':
