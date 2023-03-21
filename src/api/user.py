@@ -65,6 +65,8 @@ def guardar_Users():
     print(full_name,Email,telefono,especialidad,jornada,direccion)
     new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion)
     db.session.add(new_Users)
+    db.session.commit()
+    return redirect('/Usuarios')
 
 @routes_user.route('/obtenerToken', methods=['GET'])
 def obtenertoken():
