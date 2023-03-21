@@ -18,6 +18,13 @@ def stadosolicitudes():
 
 #Roles
 #---------SAVE/CREAR------------
+@routes_stadosolicitud('/stadosolicitudes', methods=['GET'])
+def stadosolicitude():
+    returnall = stadosolicitudes.query.all()
+    resultado_stadosolicitudes = estadoSchema.dump(returnall)
+    return jsonify(resultado_stadosolicitudes)
+
+
 @routes_stadosolicitud.route('/saveestadosolicitud', methods=['POST'] )
 def guardar_estadosolicitud():
     fecha = request.json['fecha']
