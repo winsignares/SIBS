@@ -23,20 +23,30 @@ from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 
 from dotenv import load_dotenv
 
+#importar routes
 from api.user import routes_user
 from api.roles import routes_roles
+from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
+from api.Det_Solicitud import routes_Dsolicitudes
+from api.categoria import routes_category
 
 
+
+#ubicacion del api 
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
+app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
+app.register_blueprint(routes_category, url_prefix="/api")
+
 
 from api.proveedor import routes_proveedores
 
 #blue-print proveedores
-app.register_blueprint(routes_proveedores, url_prefix="/api")
+app.register_blueprint(routes_proveedores, url_prefix="/api") 
 
+app.register_blueprint(routes_Libros, url_prefix="/api")
 
 #Autores
 autor_schema = AutoresSchema()
@@ -57,8 +67,7 @@ editoriales_Schema = EditorialesSchema(many=True)
 solicitud_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
-Estado_schema = estadoSchema()
-Estados_schema = estadoSchema(many=True)
+
 detalleSolicitud_schema= Det_SolicitudesSchema()
 detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
@@ -156,34 +165,8 @@ def category():
 #metodos para Proveedores final 
 
 
-@app.route('/Usuarios', methods=['GET'])
-def usuarios():    
-    returnall = Users.query.all()
-   
-    resultado_usuarios = Usuarios_Schema.dump(returnall)
-    return jsonify(resultado_usuarios)
 
 
-@app.route('/eliminar/<id>', methods=['GET'] )
-def eliminar(id):
-    #id = request.args.get('id')
-    #id = request.json['id']
-    rol = RolesUsuarios.query.get(id)
-    db.session.delete(rol)
-    db.session.commit()
-    return jsonify(rolesusuario_schema.dump(rol)) 
-
-@app.route('/actualizar', methods=['POST'] )
-def actualizar():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']git 
-    id = request.json['id']
-    rol = request.json['roles']
-    rusuario = RolesUsuarios.query.get(id)
-    rusuario.roles = rol
-    db.session.commit()
-    return redirect('/rusuarios')
 
 @app.route("/")
 def index():
@@ -213,58 +196,6 @@ def actualizarautores():
     rautores.autores = nacionalidad
     db.session.commit()
     return redirect('/autores')
-
-
-   
-
-@app.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
-def eliminaestadosoli(id):
-    fecha = estadosolicitud.query.get(id)
-    id_solicitud = estadosolicitud.query.get(id)
-    fecha_devolucion = estadosolicitud.query.get(id)
-    dias_atraso = estadosolicitud.query.get(id)
-    estado = estadosolicitud.query.get(id)
-    
-    db.session.delete(fecha,id_solicitud,fecha_devolucion, dias_atraso,estado)
-    db.session.commit()
-    return jsonify(estadoSchema.dump(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado))
-
-@app.route('/saveestadosolicitud', methods=['POST'] )
-def guardar_estadosolicitud():
-    fecha = request.json['fecha']
-    id_solicitud = request.json['id_solicitud']
-    fecha_devolucion = request.json['fecha_devolucion']
-    dias_atraso = request.json['dias_atraso']
-    estado = request.json['estado']
-    print(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado)
-    new_estadosolicitud = estadosolicitud(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado)
-    db.session.add(new_estadosolicitud)
-    db.session.commit()
-    return redirect('/estadosolicitud')
-
-
-@app.route('/actualizar_estadosolicitud', methods=['POST'] )
-def actualizar_estadosolicitud():
-    id = request.json['id']
-    fechas = request.json['fechas']
-    id_solicitudes = request.json['id_solicitud']
-    fecha_devoluciones = request.json['fecha_devolucion']
-    dias_atrasos = request.json['dias_atraso']
-    estados = request.json['estado']
-    
-    estadosolicitud = estadosolicitud.query.get(id)
-    estadosolicitud.fechas = fechas 
-    estadosolicitud.id_solicitudes = id_solicitudes
-    estadosolicitud.fecha_devolucion = fecha_devoluciones
-    estadosolicitud.dias_atraso = dias_atrasos
-    
-    
-    
-    
-    estadosolicitud.estado = estados
-    db.session.commit()
-    return redirect('/estadosolicitud')
-
 #<--------------------------CRUD DETALLES_AUTORES--------------------------->
 @app.route('/eliminarDautores/<id>', methods=['GET'] )
 def eliminardetalles (id):
@@ -293,21 +224,6 @@ def actualizar_detalles():
     db.session.commit()
     return redirect('/detalles_autores')
 
-'''#crud de usuarios
-@app.route('/eliminar/<id>', methods=['GET'] )
-def eliminar(id):
-    #id = request.args.get('id')
-    #id = request.json['id']
-    full_name = Users.query.get(id)
-    Email = Users.query.get(id)
-    telefono = Users.query.get(id)
-    especialidad = Users.query.get(id)
-    jornada = Users.query.get(id)
-    direccion = Users.query.get(id)
-    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
-    db.session.commit()
-    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
-'''
 
 
 #<----------------------------------------------------------------->
