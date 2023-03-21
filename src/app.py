@@ -44,52 +44,15 @@ app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 
-#Categoria
-Categoria_schema = CategoriasSchema()
-Categorias_schema = CategoriasSchema(many=True)
-
-
-
-#Proveedores (alguien modifico esto ?)
-Proveedor_schema = SolicitudesSchema()
-Proveedores_schema = SolicitudesSchema(many=True)
-
-
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
 
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
 
-
-
-#Autores
-#---------SAVE/CREAR------------
-@app.route('/saveautores', methods=['POST'] )
-def guardar_autores():
-    autores = request.json['nombre', 'nacionalidad']
-    print(autores)
-    new_autor = autores(autores)
-    db.session.add(new_autor)
-    db.session.commit()
-    return redirect('/autores')
 #Proveedores
 #---------SAVE/CREAR------------
 
-#Datos de la tabla autores
-@app.route('/autores', methods=['GET'])
-def autores():    
-    returnall = autores.query.all()
-    result_autores = autores_Schema.dump(returnall)
-    return jsonify(result_autores)
-
-#Datos de la tabla Detalles_autores
-@app.route('/detalles_autores', methods=['GET'])
-def detalles_autores():    
-    returnall = DetallesAutores.query.all()
-    result_detaautores = Detalles_autores_Schema.dump(returnall)
-    return jsonify(result_detaautores)
-#tbledioriales
 @app.route('/Editoriales', methods=['GET'])
 def Editoriales():    
     returnall = Editoriales.query.all()
@@ -97,24 +60,12 @@ def Editoriales():
     result_Editoriales = EditorialesSchema.dump(returnall)
     return jsonify(result_Editoriales)
 #----------------------CRUD SOLICITUDES--------------------------------
-
-
-
-
-
 #Datos de la tabla Datos de categorias
 @app.route('/deta_cate', methods=['GET'])
 def category():    
     returnall = cate_deta.query.all()
     result_cate_deta = categorias_detaSchema.dump(returnall)
     return jsonify(result_cate_deta)
-
-
-#metodos para Proveedores inicio
-#metodos para Proveedores final 
-
-
-
 
 
 @app.route("/")
@@ -126,57 +77,6 @@ if __name__ == '__main__':
     load_dotenv()
     app.run(debug=True, port=5000, host='0.0.0.0')
     
-# Datos de la tabla de Editoriales
-@app.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
-def eliminaestadosoli(id):
-    fecha = estadosolicitud.query.get(id)
-    id_solicitud = estadosolicitud.query.get(id)
-    fecha_devolucion = estadosolicitud.query.get(id)
-    dias_atraso = estadosolicitud.query.get(id)
-    estado = estadosolicitud.query.get(id)
-    
-    db.session.delete(fecha,id_solicitud,fecha_devolucion, dias_atraso,estado)
-    db.session.commit()
-    return jsonify(estadoSchema.dump(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado))
-
-@app.route('/saveestadosolicitud', methods=['POST'] )
-def guardar_estadosolicitud():
-    fecha = request.json['fecha']
-    id_solicitud = request.json['id_solicitud']
-    fecha_devolucion = request.json['fecha_devolucion']
-    dias_atraso = request.json['dias_atraso']
-    estado = request.json['estado']
-    print(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado)
-    new_estadosolicitud = estadosolicitud(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado)
-    db.session.add(new_estadosolicitud)
-    db.session.commit()
-    return redirect('/estadosolicitud')
-
-
-@app.route('/actualizar_estadosolicitud', methods=['POST'] )
-def actualizar_estadosolicitud():
-    id = request.json['id']
-    fechas = request.json['fechas']
-    id_solicitudes = request.json['id_solicitud']
-    fecha_devoluciones = request.json['fecha_devolucion']
-    dias_atrasos = request.json['dias_atraso']
-    estados = request.json['estado']
-    
-    estadosolicitud = estadosolicitud.query.get(id)
-    estadosolicitud.fechas = fechas 
-    estadosolicitud.id_solicitudes = id_solicitudes
-    estadosolicitud.fecha_devolucion = fecha_devoluciones
-    estadosolicitud.dias_atraso = dias_atrasos
-    
-    
-    
-    
-    estadosolicitud.estado = estados
-    db.session.commit()
-    return redirect('/estadosolicitud')
-
-
-
 
 
 #<----------------------------------------------------------------->
