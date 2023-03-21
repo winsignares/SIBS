@@ -27,6 +27,7 @@ from dotenv import load_dotenv
 from api.user import routes_user
 from api.roles import routes_roles
 from api.estadosoli import routes_stadosolicitud
+from api.Libros import routes_Libros
 from api.proveedor import routes_proveedores
 
 #ubicacion del api 
@@ -34,6 +35,7 @@ app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
+app.register_blueprint(routes_Libros, url_prefix="/api")
 
 #Categoria
 Categoria_schema = CategoriasSchema()
@@ -54,8 +56,6 @@ Detalles_autores_Schema = detallesAutoresSchema(many=True)
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
 
-libro_schema = LibrosSchema()
-libros_Schema = LibrosSchema(many=True)
 solicitud_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
@@ -110,42 +110,6 @@ def Editoriales():
    
     result_Editoriales = EditorialesSchema.dump(returnall)
     return jsonify(result_Editoriales)
-
-#----------------------------crud libros
-#metodo para libros
-@app.route('/libros', methods=['GET'])
-def libros():    
-    returnall = Libros.query.all()
-    resultado_libros = libros_Schema.dump(returnall)
-    return jsonify(resultado_libros)
-
-@app.route('/savelibros', methods=['POST'] )
-def guardar_Libros():
-    addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
-    print(addlibros)
-    new_libro = Libros(addlibros)
-    db.session.add(new_libro)
-    db.session.commit()
-    return redirect('/libros')
-
-@app.route('/actualizarlibros', methods=['POST'] )
-def actualizarL():
-
-    id = request.json['id']
-    libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
-    nlibros = Libros.query.get(id)
-    nlibros.libro = libro
-    db.session.commit()
-    return redirect('/libros')
-
-@app.route('/eliminarlibros/<id>', methods=['GET'] )
-def eliminarL(id):
-
-    libro = Libros.query.get(id)
-    db.session.delete(libro)
-    db.session.commit()
-    return jsonify(libros_Schema.dump(libro)) 
-#fin
 #----------------------CRUD SOLICITUDES--------------------------------
 #metodo para solicitudes
 @app.route('/solicitudes', methods=['GET'])
