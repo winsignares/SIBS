@@ -5,7 +5,7 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
-routes_stadosolicitud = Blueprint("routes_tadosolicitud", __name__)
+routes_stadosolicitud = Blueprint("routes_stadosolicitud", __name__)
 
 #Roles
 Estado_schema = estadoSchema()
@@ -19,7 +19,7 @@ def stadosolicitudes():
 #Roles
 #---------SAVE/CREAR------------
 @routes_stadosolicitud.route('/stadosolicitudes', methods=['GET'])
-def stadosolicitudes():
+def crear_stadosolicitudes():
     returnall = stadosolicitudes.query.all()
     resultado_stadosolicitudes = estadoSchema.dump(returnall)
     return jsonify(resultado_stadosolicitudes)
