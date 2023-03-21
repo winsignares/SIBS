@@ -14,11 +14,11 @@ class Users(db.Model):
     
     def __init__(self,full_name,Email,telefono,especialidad,jornada,direccion):
        self.full_name= full_name
-       self.full_name= Email
-       self.full_name= telefono
-       self.full_name= especialidad
-       self.full_name= jornada
-       self.full_name= direccion
+       self.Email= Email
+       self.telefono= telefono
+       self.especialidad= especialidad
+       self.jornada= jornada
+       self.direccion= direccion
        
        with app.app_context():
            db.create_all()

@@ -23,15 +23,26 @@ from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 
 from dotenv import load_dotenv
 
+#importar routes
 from api.user import routes_user
 from api.roles import routes_roles
+from api.estadosoli import routes_stadosolicitud
+from api.Libros import routes_Libros
 from api.proveedor import routes_proveedores
+from api.autores import routes_autores
+from api.detalles_autores import routes_Deautores
 
+
+#ubicacion del api 
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
+app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
+
 #blue-print proveedores
 app.register_blueprint(routes_proveedores, url_prefix="/api")
-
+app.register_blueprint(routes_Libros, url_prefix="/api")
+app.register_blueprint(routes_autores,  url_prefix="/api")
+app.register_blueprint(routes_Deautores,  url_prefix="/api")
 
 
 #Categoria
@@ -51,13 +62,10 @@ categorias_detaSchema = cate_detaSchema(many=True)
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
 
-libro_schema = LibrosSchema()
-libros_Schema = LibrosSchema(many=True)
 solicitud_schema = SolicitudesSchema()
 solicitudes_schema = SolicitudesSchema(many=True)
 
-Estado_schema = estadoSchema()
-Estados_schema = estadoSchema(many=True)
+
 detalleSolicitud_schema= Det_SolicitudesSchema()
 detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
@@ -80,42 +88,6 @@ def Editoriales():
    
     result_Editoriales = EditorialesSchema.dump(returnall)
     return jsonify(result_Editoriales)
-
-#----------------------------crud libros
-#metodo para libros
-@app.route('/libros', methods=['GET'])
-def libros():    
-    returnall = Libros.query.all()
-    resultado_libros = libros_Schema.dump(returnall)
-    return jsonify(resultado_libros)
-
-@app.route('/savelibros', methods=['POST'] )
-def guardar_Libros():
-    addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
-    print(addlibros)
-    new_libro = Libros(addlibros)
-    db.session.add(new_libro)
-    db.session.commit()
-    return redirect('/libros')
-
-@app.route('/actualizarlibros', methods=['POST'] )
-def actualizarL():
-
-    id = request.json['id']
-    libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
-    nlibros = Libros.query.get(id)
-    nlibros.libro = libro
-    db.session.commit()
-    return redirect('/libros')
-
-@app.route('/eliminarlibros/<id>', methods=['GET'] )
-def eliminarL(id):
-
-    libro = Libros.query.get(id)
-    db.session.delete(libro)
-    db.session.commit()
-    return jsonify(libros_Schema.dump(libro)) 
-#fin
 #----------------------CRUD SOLICITUDES--------------------------------
 #metodo para solicitudes
 @app.route('/solicitudes', methods=['GET'])
@@ -165,34 +137,8 @@ def category():
 #metodos para Proveedores final 
 
 
-@app.route('/Usuarios', methods=['GET'])
-def usuarios():    
-    returnall = Users.query.all()
-   
-    resultado_usuarios = Usuarios_Schema.dump(returnall)
-    return jsonify(resultado_usuarios)
 
 
-@app.route('/eliminar/<id>', methods=['GET'] )
-def eliminar(id):
-    #id = request.args.get('id')
-    #id = request.json['id']
-    rol = RolesUsuarios.query.get(id)
-    db.session.delete(rol)
-    db.session.commit()
-    return jsonify(rolesusuario_schema.dump(rol)) 
-
-@app.route('/actualizar', methods=['POST'] )
-def actualizar():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']git 
-    id = request.json['id']
-    rol = request.json['roles']
-    rusuario = RolesUsuarios.query.get(id)
-    rusuario.roles = rol
-    db.session.commit()
-    return redirect('/rusuarios')
 
 @app.route("/")
 def index():
@@ -284,21 +230,6 @@ def actualizar_estadosolicitud():
 
 
 
-'''#crud de usuarios
-@app.route('/eliminar/<id>', methods=['GET'] )
-def eliminar(id):
-    #id = request.args.get('id')
-    #id = request.json['id']
-    full_name = Users.query.get(id)
-    Email = Users.query.get(id)
-    telefono = Users.query.get(id)
-    especialidad = Users.query.get(id)
-    jornada = Users.query.get(id)
-    direccion = Users.query.get(id)
-    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
-    db.session.commit()
-    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
-'''
 
 
 #<----------------------------------------------------------------->
