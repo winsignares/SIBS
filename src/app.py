@@ -47,20 +47,6 @@ app.register_blueprint(routes_proveedores, url_prefix="/api")
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
 
-editorial_Schema = EditorialesSchema()
-editoriales_Schema = EditorialesSchema(many=True)
-
-#Proveedores
-#---------SAVE/CREAR------------
-
-@app.route('/Editoriales', methods=['GET'])
-def Editoriales():    
-    returnall = Editoriales.query.all()
-   
-    result_Editoriales = EditorialesSchema.dump(returnall)
-    return jsonify(result_Editoriales)
-#----------------------CRUD SOLICITUDES--------------------------------
-#Datos de la tabla Datos de categorias
 @app.route('/deta_cate', methods=['GET'])
 def category():    
     returnall = cate_deta.query.all()
