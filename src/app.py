@@ -29,6 +29,7 @@ from api.roles import routes_roles
 from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
 from api.Det_Solicitud import routes_Dsolicitudes
+from api.categoria import routes_category
 from api.proveedor import routes_proveedores
 from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
@@ -39,14 +40,23 @@ app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
+app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
+<<<<<<< HEAD
+app.register_blueprint(routes_autores,  url_prefix="/api")
+app.register_blueprint(routes_Deautores,  url_prefix="/api")
+=======
 
 
 #Categoria
 Categoria_schema = CategoriasSchema()
 Categorias_schema = CategoriasSchema(many=True)
 
+>>>>>>> 6b702cbfd5639202f3da3530e3fc12322c73ace0
 
+#Autores
+autor_schema = AutoresSchema()
+autores_Schema = AutoresSchema(many=True)
 
 #Proveedores (alguien modifico esto ?)
 Proveedor_schema = SolicitudesSchema()
@@ -66,17 +76,33 @@ detalleSolicitud_schema= Det_SolicitudesSchema()
 detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
 
-#--------SAVE/CREAR-----------
-@app.route('/saveCat', methods=['POST'] )
-def guardar_categoria():
-    categori = request.json['N_cat']
-    print(categori)
-    new_Cat = Categorias(categori)
-    db.session.add(new_Cat)
+
+#Autores
+#---------SAVE/CREAR------------
+@app.route('/saveautores', methods=['POST'] )
+def guardar_autores():
+    autores = request.json['nombre', 'nacionalidad']
+    print(autores)
+    new_autor = autores(autores)
+    db.session.add(new_autor)
     db.session.commit()
-    return redirect('/Categorias')
+    return redirect('/autores')
+#Proveedores
+#---------SAVE/CREAR------------
 
+#Datos de la tabla autores
+@app.route('/autores', methods=['GET'])
+def autores():    
+    returnall = autores.query.all()
+    result_autores = autores_Schema.dump(returnall)
+    return jsonify(result_autores)
 
+#Datos de la tabla Detalles_autores
+@app.route('/detalles_autores', methods=['GET'])
+def detalles_autores():    
+    returnall = DetallesAutores.query.all()
+    result_detaautores = Detalles_autores_Schema.dump(returnall)
+    return jsonify(result_detaautores)
 #tbledioriales
 @app.route('/Editoriales', methods=['GET'])
 def Editoriales():    
@@ -109,37 +135,7 @@ def category():
 def index():
     return "Hola Mundo!! Dulfran   xD"
 
-#URL/ Categorias
-
-
-
-#Eliminar - Categoria
-@app.route('/clearCat', methods=['GET'] )
-def eliminarCat(id):
-    #id = request.args.get('id')
-    #id = request.json['id']
-    Cat = Categorias.query.get(id)
-    db.session.delete(Cat)
-    db.session.commit()
-    return jsonify(CategoriasSchema.dump(Cat)) 
-
-#Actualizar - Categoria
-@app.route('/updateCat', methods=['POST'] )
-def actualizarCat():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']
-    id = request.json['id']
-    N_cat = request.json['N_cat']
-    Descripcion = request.json['Descripcion']
-
-    updateCat = Categorias.query.get(id)
-    updateCat.nameCat = N_cat
-    updateCat.descripCat = Descripcion
-
-    db.session.commit()
-    return redirect('/Categorias')
-
+# Datos de la tabla de Editoriales
 if __name__ == '__main__':
     load_dotenv()
     app.run(debug=True, port=5000, host='0.0.0.0')
