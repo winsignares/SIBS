@@ -34,7 +34,7 @@ from api.detalles_autores import routes_Deautores
 
 
 #ubicacion del api 
-app.register_blueprint(router_)
+app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
