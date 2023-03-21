@@ -42,8 +42,17 @@ app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
+<<<<<<< HEAD
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
+=======
+
+
+#Categoria
+Categoria_schema = CategoriasSchema()
+Categorias_schema = CategoriasSchema(many=True)
+
+>>>>>>> 6b702cbfd5639202f3da3530e3fc12322c73ace0
 
 #Autores
 autor_schema = AutoresSchema()
