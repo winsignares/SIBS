@@ -5,7 +5,7 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 
-routes_stadosolicitud = Blueprint("routes_stadosolicitud", __name__)
+routes_stadosolicitud = Blueprint("routes_tadosolicitud", __name__)
 
 #Roles
 Estado_schema = estadoSchema()

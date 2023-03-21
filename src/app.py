@@ -42,11 +42,9 @@ app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
-<<<<<<< HEAD
-app.register_blueprint(routes_proveedores, url_prefix="/api")
-=======
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
+<<<<<<< HEAD
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
 <<<<<<< HEAD
@@ -69,44 +67,12 @@ Categorias_schema = CategoriasSchema(many=True)
 <<<<<<< HEAD
 >>>>>>> 6b702cbfd5639202f3da3530e3fc12322c73ace0
 >>>>>>> da60a920a646006bc435e8791c21a4e1b5ae09dc
-
-#Autores
-autor_schema = AutoresSchema()
-autores_Schema = AutoresSchema(many=True)
 =======
+>>>>>>> d1bf489f12b23e61b406a15007c68cbfb80e2d97
 
->>>>>>> 5cde1d05c24b893e591fe5737ca2c1a8a1f28e9d
-
-#Proveedores (alguien modifico esto ?)
-Proveedor_schema = SolicitudesSchema()
-Proveedores_schema = SolicitudesSchema(many=True)
-
-<<<<<<< HEAD
-=======
-app.register_blueprint(routes_stadosolicitud,  url_prefix="/api")
->>>>>>> 5326bb1272420e02e3b2466e93df3a41a5547e64
-=======
->>>>>>> 5cde1d05c24b893e591fe5737ca2c1a8a1f28e9d
-
-=======
->>>>>>> 7e7b247339fe9981b2dc6d7dc8214e9c05c37afa
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
 
-editorial_Schema = EditorialesSchema()
-editoriales_Schema = EditorialesSchema(many=True)
-
-#Proveedores
-#---------SAVE/CREAR------------
-
-@app.route('/Editoriales', methods=['GET'])
-def Editoriales():    
-    returnall = Editoriales.query.all()
-   
-    result_Editoriales = EditorialesSchema.dump(returnall)
-    return jsonify(result_Editoriales)
-#----------------------CRUD SOLICITUDES--------------------------------
-#Datos de la tabla Datos de categorias
 @app.route('/deta_cate', methods=['GET'])
 def category():    
     returnall = cate_deta.query.all()
