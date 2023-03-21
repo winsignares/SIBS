@@ -1,3 +1,4 @@
+
 from flask import Blueprint, request, jsonify, json
 from common.Toke import *
 from config.db import db, app, ma
@@ -6,7 +7,6 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 
 routes_roles = Blueprint("routes_rol", __name__)
-
 #Roles
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -36,7 +36,7 @@ def rusuario():
     token = token.replace(" ","")
     vf = verificar_token(token)
     if vf['error'] == False:
-        returnall = RolesUsuarios.query.all()    
+        returnall = RolesUsuarios.query.all()
         result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
         return jsonify(result_rolesusuaiors)
     else:
