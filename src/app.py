@@ -8,17 +8,6 @@ from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
-from Model.Categorias import Categorias, CategoriasSchema
-
-from Model.Editoriales import Editoriales, EditorialesSchema
-from Model.Libros import Libros, LibrosSchema
-
-from Model.Cate_deta import cate_deta, cate_detaSchema
-
-
-from Model.estadosolicitud import estadosolicitud, estadoSchema
-from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
-
 from dotenv import load_dotenv
 
 #importar routes
@@ -31,6 +20,7 @@ from api.categoria import routes_category
 from api.proveedor import routes_proveedores
 from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
+from api.Editoriales import routes_Editorial
 
 
 #ubicacion del api 
@@ -43,34 +33,12 @@ app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
-
-categoria_detaSchema = cate_detaSchema()
-categorias_detaSchema = cate_detaSchema(many=True)
-
-editorial_Schema = EditorialesSchema()
-editoriales_Schema = EditorialesSchema(many=True)
-
-#Proveedores
-#---------SAVE/CREAR------------
-
-@app.route('/Editoriales', methods=['GET'])
-def Editoriales():    
-    returnall = Editoriales.query.all()
-   
-    result_Editoriales = EditorialesSchema.dump(returnall)
-    return jsonify(result_Editoriales)
-#----------------------CRUD SOLICITUDES--------------------------------
-#Datos de la tabla Datos de categorias
-@app.route('/deta_cate', methods=['GET'])
-def category():    
-    returnall = cate_deta.query.all()
-    result_cate_deta = categorias_detaSchema.dump(returnall)
-    return jsonify(result_cate_deta)
+app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 
 @app.route("/")
 def index():
-    return "Hola Mundo!! Dulfran   xD"
+    return render_template('/main/login.html')
 
 # Datos de la tabla de Editoriales
 if __name__ == '__main__':

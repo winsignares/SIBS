@@ -19,7 +19,7 @@ def stadosolicitudes():
 #Roles
 #---------SAVE/CREAR------------
 @routes_stadosolicitud.route('/stadosolicitudes', methods=['GET'])
-def stadosolicitudes():
+def crear_stadosolicitudes():
     returnall = stadosolicitudes.query.all()
     resultado_stadosolicitudes = estadoSchema.dump(returnall)
     return jsonify(resultado_stadosolicitudes)

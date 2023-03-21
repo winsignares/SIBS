@@ -18,7 +18,7 @@ def libros():
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
 
-@routes_Libros.route('/savelibros', methods=['POST'] )
+@routes_Libros.route('/', methods=['POST'] )
 def guardar_Libros():
     addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
     print(addlibros)
