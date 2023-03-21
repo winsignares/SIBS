@@ -31,6 +31,7 @@ from api.categoria import routes_category
 from api.proveedor import routes_proveedores
 from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
+from api.Editoriales import routes_Editorial
 
 
 #ubicacion del api 
@@ -43,6 +44,7 @@ app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
+app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
