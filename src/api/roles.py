@@ -42,3 +42,24 @@ def rusuario():
     else:
         return vf
 
+
+@routes_roles.route('/eliminar/<id>', methods=['GET'] )
+def eliminar(id):
+    #id = request.args.get('id')
+    #id = request.json['id']
+    rol = RolesUsuarios.query.get(id)
+    db.session.delete(rol)
+    db.session.commit()
+    return jsonify(rolesusuario_schema.dump(rol)) 
+
+@routes_roles.route('/actualizar', methods=['POST'] )
+def actualizar():
+    #id = request.form['id']
+    #Nombre = request.form['Nombre']
+    #Precio = request.form['Precio']git 
+    id = request.json['id']
+    rol = request.json['roles']
+    rusuario = RolesUsuarios.query.get(id)
+    rusuario.roles = rol
+    db.session.commit()
+    return redirect('/rusuarios')
