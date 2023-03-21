@@ -11,7 +11,7 @@ routes_Editorial = Blueprint("routes_Editorial", __name__)
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
 
-@app.route('/Editoriales', methods=['GET'])
+@routes_Editorial.route('/Editoriales', methods=['GET'])
 def Editoriales():    
     returnall = Editoriales.query.all()
    
