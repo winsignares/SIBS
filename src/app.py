@@ -10,14 +10,12 @@ from config.db import db, app, ma
 
 from Model.Categorias import Categorias, CategoriasSchema
 
-
-
 from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
 
 from Model.Cate_deta import cate_deta, cate_detaSchema
 
-from Model.Solicitudes import Solicitudes, SolicitudesSchema
+
 from Model.estadosolicitud import estadosolicitud, estadoSchema
 from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 
@@ -45,9 +43,9 @@ app.register_blueprint(routes_proveedores, url_prefix="/api")
 =======
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
-<<<<<<< HEAD
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
+<<<<<<< HEAD
 =======
 >>>>>>> df019a7e77d152bd8d2d5e91126c01bf45e169fa
 
@@ -66,19 +64,15 @@ autores_Schema = AutoresSchema(many=True)
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
+=======
+app.register_blueprint(routes_stadosolicitud,  url_prefix="/api")
+>>>>>>> 5326bb1272420e02e3b2466e93df3a41a5547e64
 
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
 
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
-
-solicitud_schema = SolicitudesSchema()
-solicitudes_schema = SolicitudesSchema(many=True)
-
-
-detalleSolicitud_schema= Det_SolicitudesSchema()
-detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
 
 
@@ -116,37 +110,6 @@ def Editoriales():
     result_Editoriales = EditorialesSchema.dump(returnall)
     return jsonify(result_Editoriales)
 #----------------------CRUD SOLICITUDES--------------------------------
-#metodo para solicitudes
-@app.route('/solicitudes', methods=['GET'])
-def solicitudes():
-    returnall = Solicitudes.query.all()
-    resultado_solicitudes = solicitudes_schema.dump(returnall)
-    return jsonify(resultado_solicitudes)
-#guardar solicitudes 
-@app.route('/savesolicitudes', methods=['POST'])
-def guardar_solicitudes():
-    solicitudes = request.json['fecha_solicitud', 'cantidad','Id_usu' ]
-    print(solicitudes)
-    new_soli = Solicitudes(solicitudes)
-    db.session.add(new_soli)
-    db.session.commit()
-    return redirect('/savesolicitudes')
-#Eliminar   solicitudes
-@app.route('/deletesolicitudes/<id>', methods=['GET'] )
-def eliminarD(id):
-    solicitudes = Libros.query.get(id)
-    db.session.delete(solicitudes)
-    db.session.commit()
-    return jsonify(solicitudes_schema.dump(solicitudes)) 
-#Actualizar Solicitudes
-@app.route('/updatesolicitudes', methods=['POST'] )
-def actualizarS():
-    id = request.json['id']
-    solicitudes = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    pusuario = Proveedores.query.get(id)
-    pusuario.cantidad = solicitudes
-    db.session.commit()
-    return redirect('/updatesolicitudes')
 
 
 
