@@ -29,7 +29,7 @@ from api.roles import routes_roles
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 #blue-print proveedores
-app.register_blueprint(routes_proveedores, url_prefix="/api")
+app.register_blueprint(routes_proveedor, url_prefix="/api")
 
 
 
