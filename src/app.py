@@ -27,23 +27,13 @@ from api.Editoriales import routes_Editorial
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
-app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
-app.register_blueprint(routes_autores,  url_prefix="/api")
-app.register_blueprint(routes_Deautores,  url_prefix="/api")
-
-#Categoria
-Categoria_schema = CategoriasSchema()
-Categorias_schema = CategoriasSchema(many=True)
-
-
 app.register_blueprint(routes_Editorial, url_prefix="/api")
-
 
 
 @app.route("/")
