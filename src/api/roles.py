@@ -1,3 +1,4 @@
+
 from flask import Blueprint, request, jsonify, json
 from common.Toke import *
 from config.db import db, app, ma
@@ -6,7 +7,6 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 
 routes_roles = Blueprint("routes_rol", __name__)
-
 #Roles
 rolesusuario_schema = RolesSchema()
 rolesusuarios_schema = RolesSchema(many=True)
@@ -36,9 +36,30 @@ def rusuario():
     token = token.replace(" ","")
     vf = verificar_token(token)
     if vf['error'] == False:
-        returnall = RolesUsuarios.query.all()    
+        returnall = RolesUsuarios.query.all()
         result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
         return jsonify(result_rolesusuaiors)
     else:
         return vf
 
+
+@routes_roles.route('/eliminar/<id>', methods=['GET'] )
+def eliminar(id):
+    #id = request.args.get('id')
+    #id = request.json['id']
+    rol = RolesUsuarios.query.get(id)
+    db.session.delete(rol)
+    db.session.commit()
+    return jsonify(rolesusuario_schema.dump(rol)) 
+
+@routes_roles.route('/actualizar', methods=['POST'] )
+def actualizar():
+    #id = request.form['id']
+    #Nombre = request.form['Nombre']
+    #Precio = request.form['Precio']git 
+    id = request.json['id']
+    rol = request.json['roles']
+    rusuario = RolesUsuarios.query.get(id)
+    rusuario.roles = rol
+    db.session.commit()
+    return redirect('/rusuarios')
