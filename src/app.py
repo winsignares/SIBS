@@ -10,8 +10,6 @@ from config.db import db, app, ma
 
 from Model.Categorias import Categorias, CategoriasSchema
 
-
-
 from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
 
@@ -43,38 +41,15 @@ app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
-<<<<<<< HEAD
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
-=======
-
-
-#Categoria
-Categoria_schema = CategoriasSchema()
-Categorias_schema = CategoriasSchema(many=True)
-
->>>>>>> 6b702cbfd5639202f3da3530e3fc12322c73ace0
-
-#Autores
-autor_schema = AutoresSchema()
-autores_Schema = AutoresSchema(many=True)
-
-#Proveedores (alguien modifico esto ?)
-Proveedor_schema = SolicitudesSchema()
-Proveedores_schema = SolicitudesSchema(many=True)
-
+app.register_blueprint(routes_stadosolicitud,  url_prefix="/api")
 
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
 
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
-
-
-
-
-detalleSolicitud_schema= Det_SolicitudesSchema()
-detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
 
 
