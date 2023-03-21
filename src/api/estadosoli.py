@@ -11,9 +11,14 @@ routes_stadosolicitud = Blueprint("routes_stadosolicitud", __name__)
 Estado_schema = estadoSchema()
 Estados_schema = estadoSchema(many=True)
 
+@routes_stadosolicitud.route("/")
+def stadosolicitudes():
+    return "stadosolicitudes"
+
+
 #Roles
 #---------SAVE/CREAR------------
-@app.route('/saveestadosolicitud', methods=['POST'] )
+@routes_stadosolicitud.route('/saveestadosolicitud', methods=['POST'] )
 def guardar_estadosolicitud():
     fecha = request.json['fecha']
     id_solicitud = request.json['id_solicitud']
@@ -25,8 +30,9 @@ def guardar_estadosolicitud():
     db.session.add(new_estadosolicitud)
     db.session.commit()
     return redirect('/estadosolicitud')
+
 # eliminar
-@app.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
+@routes_stadosolicitud.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
 def eliminaestadosoli(id):
     fecha = estadosolicitud.query.get(id)
     id_solicitud = estadosolicitud.query.get(id)
@@ -39,7 +45,7 @@ def eliminaestadosoli(id):
     return jsonify(estadoSchema.dump(fecha,id_solicitud,fecha_devolucion,dias_atraso,estado))
 
 # actualizar
-@app.route('/actualizar_estadosolicitud', methods=['POST'] )
+@routes_stadosolicitud.route('/actualizar_estadosolicitud', methods=['POST'] )
 def actualizar_estadosolicitud():
     id = request.json['id']
     fechas = request.json['fechas']
@@ -57,16 +63,3 @@ def actualizar_estadosolicitud():
     db.session.commit()
     return redirect('/estadosolicitud')
 
-#token
-@routes_stadosolicitud.route('/stadosolicitud', methods=['GET'])
-def stadosolicitud():    
-    token = request.headers['Authorization']
-    token = token.replace("Bearer","")
-    token = token.replace(" ","") 
-    vf = verificar_token(token)
-    if vf['error'] == False:
-        returnall = estadoSchema.query.all()    
-        result_rolesusuaiors = estadoSchema.dump(returnall)
-        return jsonify(result_rolesusuaiors)
-    else:
-        return vf

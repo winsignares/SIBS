@@ -10,7 +10,6 @@ from config.db import db, app, ma
 
 from Model.Categorias import Categorias, CategoriasSchema
 
-from Model.Proveedores  import Proveedores, ProveedoresSchema
 from Model.autores import autores, AutoresSchema
 
 from Model.Editoriales import Editoriales, EditorialesSchema
@@ -24,17 +23,17 @@ from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
 
 from dotenv import load_dotenv
 
+#importar routes
 from api.user import routes_user
 from api.roles import routes_roles
 from api.estadosoli import routes_stadosolicitud
+from api.proveedor import routes_proveedores
 
+#ubicacion del api 
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
-
-
-
-
+app.register_blueprint(routes_proveedores, url_prefix="/api")
 
 #Categoria
 Categoria_schema = CategoriasSchema()
@@ -43,7 +42,7 @@ Categorias_schema = CategoriasSchema(many=True)
 autor_schema = AutoresSchema()
 autores_Schema = AutoresSchema(many=True)
 
-#Proveedores
+#Proveedores (alguien modifico esto ?)
 Proveedor_schema = SolicitudesSchema()
 Proveedores_schema = SolicitudesSchema(many=True)
 
@@ -90,14 +89,6 @@ def guardar_autores():
     return redirect('/autores')
 #Proveedores
 #---------SAVE/CREAR------------
-@app.route('/saveProveedores', methods=['POST'])
-def guardar_Proveedores():    
-    newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    new_pro = Proveedores(newProveedores)
-    db.session.add(new_pro)
-    db.session.commit()
-    return redirect('/Proveedores')
-
 
 #Datos de la tabla autores
 @app.route('/autores', methods=['GET'])
@@ -208,28 +199,6 @@ def category():
 
 
 #metodos para Proveedores inicio
-@app.route('/Proveedores', methods=['GET'])
-def obtenerproveedor():    
-    returnall = Proveedores.query.all()
-   
-    resultado_Proveedores = ProveedoresSchema.dump(returnall)
-    return jsonify(resultado_Proveedores)
-
-@app.route('/eliminarProveedores/<id>', methods=['GET'] )
-def eliminarP(id):
-    prov = Proveedores.query.get(id)
-    db.session.delete(prov)
-    db.session.commit()
-    return jsonify(Proveedores_schema.dump(prov)) 
-
-@app.route('/actualizarProveedores', methods=['POST'] )
-def actualizarP():
-    id = request.json['id']
-    prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
-    pusuario = Proveedores.query.get(id)
-    pusuario.Nombre_proveedor = prov
-    db.session.commit()
-    return redirect('/Proveedores')
 #metodos para Proveedores final 
 
 
