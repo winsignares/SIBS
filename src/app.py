@@ -28,17 +28,17 @@ from api.user import routes_user
 from api.roles import routes_roles
 from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
+from api.Det_Solicitud import routes_Dsolicitudes
 from api.proveedor import routes_proveedores
 
 
 #ubicacion del api 
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
-app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
-
-#blue-print proveedores
-app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
+app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
+app.register_blueprint(routes_proveedores, url_prefix="/api")
+
 
 #Categoria
 Categoria_schema = CategoriasSchema()
