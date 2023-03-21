@@ -34,7 +34,7 @@ from api.detalles_autores import routes_Deautores
 
 
 #ubicacion del api 
-app.register_blueprint(router_)
+app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
@@ -43,9 +43,17 @@ app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
-app.register_blueprint(routes_autores,  url_prefix="/api")
-app.register_blueprint(routes_Deautores,  url_prefix="/api")
-app.register_blueprint(routes_stadosolicitud,  url_prefix="/api")
+
+#Categoria
+Categoria_schema = CategoriasSchema()
+Categorias_schema = CategoriasSchema(many=True)
+
+
+
+#Proveedores (alguien modifico esto ?)
+Proveedor_schema = SolicitudesSchema()
+Proveedores_schema = SolicitudesSchema(many=True)
+
 
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
