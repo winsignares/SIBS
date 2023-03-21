@@ -38,13 +38,8 @@ from api.detalles_autores import routes_Deautores
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
-<<<<<<< HEAD
-app.register_blueprint(routes_autores,  url_prefix="/api")
-app.register_blueprint(routes_Deautores,  url_prefix="/api")
-=======
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
->>>>>>> 65d5dcdee6ae46b2df6e125e4911d76098244f90
 #blue-print proveedores
 app.register_blueprint(routes_proveedor, url_prefix="/api")
 
