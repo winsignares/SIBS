@@ -30,10 +30,13 @@ from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
 from api.proveedor import routes_proveedores
 
+
 #ubicacion del api 
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
+
+#blue-print proveedores
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
 
