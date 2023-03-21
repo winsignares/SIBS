@@ -10,11 +10,11 @@ from config.db import db, app, ma
 
 from Model.Categorias import Categorias, CategoriasSchema
 
-from Model.autores import autores, AutoresSchema
+
 
 from Model.Editoriales import Editoriales, EditorialesSchema
 from Model.Libros import Libros, LibrosSchema
-from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
+
 from Model.Cate_deta import cate_deta, cate_detaSchema
 
 from Model.Solicitudes import Solicitudes, SolicitudesSchema
@@ -37,9 +37,8 @@ app.register_blueprint(routes_proveedores, url_prefix="/api")
 #Categoria
 Categoria_schema = CategoriasSchema()
 Categorias_schema = CategoriasSchema(many=True)
-#Autores
-autor_schema = AutoresSchema()
-autores_Schema = AutoresSchema(many=True)
+
+
 
 #Proveedores (alguien modifico esto ?)
 Proveedor_schema = SolicitudesSchema()
@@ -48,8 +47,7 @@ Proveedores_schema = SolicitudesSchema(many=True)
 
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
-Deta_autor_schema = detallesAutoresSchema()
-Detalles_autores_Schema = detallesAutoresSchema(many=True)
+
 editorial_Schema = EditorialesSchema()
 editoriales_Schema = EditorialesSchema(many=True)
 
@@ -63,11 +61,7 @@ Estados_schema = estadoSchema(many=True)
 detalleSolicitud_schema= Det_SolicitudesSchema()
 detalleSolicitudes_schema= Det_SolicitudesSchema(many=True)
 
-#USUARIOS
-#-------SAVE/CREAR------------
 
-
-#Categoria
 #--------SAVE/CREAR-----------
 @app.route('/saveCat', methods=['POST'] )
 def guardar_categoria():
@@ -77,32 +71,8 @@ def guardar_categoria():
     db.session.add(new_Cat)
     db.session.commit()
     return redirect('/Categorias')
-#Autores
-#---------SAVE/CREAR------------
-@app.route('/saveautores', methods=['POST'] )
-def guardar_autores():
-    autores = request.json['nombre', 'nacionalidad']
-    print(autores)
-    new_autor = autores(autores)
-    db.session.add(new_autor)
-    db.session.commit()
-    return redirect('/autores')
-#Proveedores
-#---------SAVE/CREAR------------
 
-#Datos de la tabla autores
-@app.route('/autores', methods=['GET'])
-def autores():    
-    returnall = autores.query.all()
-    result_autores = autores_Schema.dump(returnall)
-    return jsonify(result_autores)
 
-#Datos de la tabla Detalles_autores
-@app.route('/detalles_autores', methods=['GET'])
-def detalles_autores():    
-    returnall = DetallesAutores.query.all()
-    result_detaautores = Detalles_autores_Schema.dump(returnall)
-    return jsonify(result_detaautores)
 #tbledioriales
 @app.route('/Editoriales', methods=['GET'])
 def Editoriales():    
@@ -179,15 +149,8 @@ def actualizarS():
     db.session.commit()
     return redirect('/updatesolicitudes')
 
-#Datos de la tabla autores
-@app.route('/autores', methods=['GET'])
-def obtenerautores():    
-    returnall = autores.query.all()
-   
-    result_autores = autores_Schema.dump(returnall)
-    return jsonify(result_autores)
 
-#Datos de la tabla Detalles_autores
+
 
 
 #Datos de la tabla Datos de categorias
@@ -269,33 +232,8 @@ def actualizarCat():
 if __name__ == '__main__':
     load_dotenv()
     app.run(debug=True, port=5000, host='0.0.0.0')
+    
 # Datos de la tabla de Editoriales
-
-
-#<----------------------------------------------------------------->
-#<--------------------------CRUD AUTORES--------------------------->
-@app.route('/eliminarautores/<id>', methods=['GET'] )
-def eliminarautores(id):
-    rol = autores.query.get(id)
-    db.session.delete(rol)
-    db.session.commit()
-    return jsonify(autor_schema.dump(rol))
-
-
-@app.route('/actualizarautores', methods=['POST'] )
-def actualizarautores():
-    id = request.json['id']
-    nombre = request.json['nombre']
-    nacionalidad = request.json['nacionalidad']
-    rautores = autores.query.get(id)
-    rautores.autores = nombre
-    rautores.autores = nacionalidad
-    db.session.commit()
-    return redirect('/autores')
-
-
-   
-
 @app.route('/eliminarestadosolicitud/<id>', methods=['GET'] )
 def eliminaestadosoli(id):
     fecha = estadosolicitud.query.get(id)
@@ -344,33 +282,7 @@ def actualizar_estadosolicitud():
     db.session.commit()
     return redirect('/estadosolicitud')
 
-#<--------------------------CRUD DETALLES_AUTORES--------------------------->
-@app.route('/eliminarDautores/<id>', methods=['GET'] )
-def eliminardetalles (id):
-    Dautor = DetallesAutores.query.get(id)
-    db.session.delete(Dautor)
-    db.session.commit()
-    return jsonify(Deta_autor_schema.dump(Dautor))
 
-@app.route('/saveDautores', methods=['POST'] )
-def guardar_detalles():
-    Dautores = request.json['id_libros', 'id_autores']
-    print(Dautores)
-    new_Dautor = detalles_autores(Dautores)
-    db.session.add(new_Dautor)
-    db.session.commit()
-    return redirect('/detalles_autores')
-
-@app.route('/actualizarautores', methods=['POST'] )
-def actualizar_detalles():
-    id = request.json['id']
-    id_libros = request.json['id_libros']
-    id_autores = request.json['id_autores']
-    Dautores = detalles_autores.query.get(id)
-    Dautores.detalles_autores = id_libros
-    Dautores.detalles_autores = id_autores
-    db.session.commit()
-    return redirect('/detalles_autores')
 
 '''#crud de usuarios
 @app.route('/eliminar/<id>', methods=['GET'] )
