@@ -12,7 +12,7 @@ libro_schema = LibrosSchema()
 libros_Schema = LibrosSchema(many=True)
 
 
-@routes_Libros('/libros', methods=['GET'])
+@routes_Libros.route('/libros', methods=['GET'])
 def libros():    
     returnall = Libros.query.all()
     resultado_libros = libros_Schema.dump(returnall)
