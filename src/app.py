@@ -8,17 +8,6 @@ from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
-from Model.Categorias import Categorias, CategoriasSchema
-
-from Model.Editoriales import Editoriales, EditorialesSchema
-from Model.Libros import Libros, LibrosSchema
-
-from Model.Cate_deta import cate_deta, cate_detaSchema
-
-
-from Model.estadosolicitud import estadosolicitud, estadoSchema
-from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
-
 from dotenv import load_dotenv
 
 #importar routes
