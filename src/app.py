@@ -8,17 +8,6 @@ from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
-from Model.Categorias import Categorias, CategoriasSchema
-
-from Model.Editoriales import Editoriales, EditorialesSchema
-from Model.Libros import Libros, LibrosSchema
-
-from Model.Cate_deta import cate_deta, cate_detaSchema
-
-
-from Model.estadosolicitud import estadosolicitud, estadoSchema
-from Model.Det_Solicitud import Det_Solicitud, Det_SolicitudesSchema
-
 from dotenv import load_dotenv
 
 #importar routes
@@ -55,15 +44,6 @@ Categorias_schema = CategoriasSchema(many=True)
 
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 
-
-categoria_detaSchema = cate_detaSchema()
-categorias_detaSchema = cate_detaSchema(many=True)
-
-@app.route('/deta_cate', methods=['GET'])
-def category():    
-    returnall = cate_deta.query.all()
-    result_cate_deta = categorias_detaSchema.dump(returnall)
-    return jsonify(result_cate_deta)
 
 
 @app.route("/")
