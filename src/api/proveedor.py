@@ -13,7 +13,7 @@ Proveedores_schema = ProveedoresSchema(many=True)
 
 #metodos para Proveedores inicio
 #---------SAVE/CREAR------------
-@app.route('/saveProveedores', methods=['POST'])
+@routes_proveedores.route('/saveProveedores', methods=['POST'])
 def guardar_Proveedores():    
     newProveedores = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
     new_pro = Proveedores(newProveedores)
@@ -21,21 +21,21 @@ def guardar_Proveedores():
     db.session.commit()
     return redirect('/Proveedores')
 
-@app.route('/Proveedores', methods=['GET'])
+@routes_proveedores.route('/Proveedores', methods=['GET'])
 def obtenerproveedor():    
     returnall = Proveedores.query.all()
    
     resultado_Proveedores = ProveedoresSchema.dump(returnall)
     return jsonify(resultado_Proveedores)
 
-@app.route('/eliminarProveedores/<id>', methods=['GET'] )
+@routes_proveedores.route('/eliminarProveedores/<id>', methods=['GET'] )
 def eliminarP(id):
     prov = Proveedores.query.get(id)
     db.session.delete(prov)
     db.session.commit()
     return jsonify(Proveedores_schema.dump(prov)) 
 
-@app.route('/actualizarProveedores', methods=['POST'] )
+@routes_proveedores.route('/actualizarProveedores', methods=['POST'] )
 def actualizarP():
     id = request.json['id']
     prov = request.json['Nombre_proveedor','Telefono','Direccion','Descripcion']
