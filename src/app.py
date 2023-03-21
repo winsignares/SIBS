@@ -30,7 +30,7 @@ from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.categoria import routes_category
-
+from api.proveedor import routes_proveedores
 
 
 #ubicacion del api 
@@ -39,14 +39,8 @@ app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
+app.register_blueprint(routes_proveedores, url_prefix="/api")
 
-
-from api.proveedor import routes_proveedores
-
-#blue-print proveedores
-app.register_blueprint(routes_proveedores, url_prefix="/api") 
-
-app.register_blueprint(routes_Libros, url_prefix="/api")
 
 #Autores
 autor_schema = AutoresSchema()
