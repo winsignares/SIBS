@@ -1,7 +1,14 @@
 from flask import Blueprint, request, jsonify, json
 from common.Toke import *
 
+from Model.Usuarios import Users,UsuariosSchema
+
 routes_user = Blueprint("routes_user", __name__)
+
+#usuario
+Usuario_Schema= UsuariosSchema()
+Usuarios_Schema= UsuariosSchema(many=True)
+
 
 @routes_user.route("/")
 def index():
