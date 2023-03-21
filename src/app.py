@@ -46,14 +46,6 @@ app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 
-categoria_detaSchema = cate_detaSchema()
-categorias_detaSchema = cate_detaSchema(many=True)
-
-@app.route('/deta_cate', methods=['GET'])
-def category():    
-    returnall = cate_deta.query.all()
-    result_cate_deta = categorias_detaSchema.dump(returnall)
-    return jsonify(result_cate_deta)
 
 
 @app.route("/")
