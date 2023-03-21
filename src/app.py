@@ -25,6 +25,7 @@ from dotenv import load_dotenv
 
 from api.user import routes_user
 from api.roles import routes_roles
+from api.proveedor import routes_proveedores
 
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
