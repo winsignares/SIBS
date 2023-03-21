@@ -11,7 +11,7 @@ autor_schema = AutoresSchema()
 autores_Schema = AutoresSchema(many=True)
 
 #Datos de la tabla autores
-@app.route('/autores', methods=['GET'])
+@routes_autores.route('/autores', methods=['GET'])
 def obtenerautores():    
     returnall = autores.query.all()
     result_autores = autores_Schema.dump(returnall)
@@ -19,14 +19,14 @@ def obtenerautores():
 
 #<----------------------------------------------------------------->
 #<--------------------------CRUD AUTORES--------------------------->
-@app.route('/eliminarautores/<id>', methods=['GET'] )
+@routes_autores.route('/eliminarautores/<id>', methods=['GET'] )
 def eliminarautores(id):
     rol = autores.query.get(id)
     db.session.delete(rol)
     db.session.commit()
     return jsonify(autor_schema.dump(rol))
 
-@app.route('/actualizarautores', methods=['POST'] )
+@routes_autores.route('/actualizarautores', methods=['POST'] )
 def actualizarautores():
     id = request.json['id']
     nombre = request.json['nombre']
@@ -37,7 +37,7 @@ def actualizarautores():
     db.session.commit()
     return redirect('/autores')
 
-@app.route('/saveautores', methods=['POST'] )
+@routes_autores.route('/saveautores', methods=['POST'] )
 def guardar_autores():
     autores = request.json['nombre', 'nacionalidad']
     print(autores)

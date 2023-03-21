@@ -10,21 +10,21 @@ routes_Deautores = Blueprint("routes_Dautor", __name__)
 Deta_autor_schema = detallesAutoresSchema()
 Detalles_autores_Schema = detallesAutoresSchema(many=True)
 
-@app.route('/detalles_autores', methods=['GET'])
+@routes_Deautores.route('/detalles_autores', methods=['GET'])
 def detalles_autores():    
     returnall = DetallesAutores.query.all()
     result_detaautores = Detalles_autores_Schema.dump(returnall)
     return jsonify(result_detaautores)
 
 #<--------------------------CRUD DETALLES_AUTORES--------------------------->
-@app.route('/eliminarDautores/<id>', methods=['GET'] )
-def eliminardetalles (id):
+@routes_Deautores.route('/eliminarDautores/<id>', methods=['GET'] )
+def eliminardetalles(id):
     Dautor = DetallesAutores.query.get(id)
     db.session.delete(Dautor)
     db.session.commit()
     return jsonify(Deta_autor_schema.dump(Dautor))
 
-@app.route('/saveDautores', methods=['POST'] )
+@routes_Deautores.route('/saveDautores', methods=['POST'] )
 def guardar_detalles():
     Dautores = request.json['id_libros', 'id_autores']
     print(Dautores)
@@ -33,7 +33,7 @@ def guardar_detalles():
     db.session.commit()
     return redirect('/detalles_autores')
 
-@app.route('/actualizarautores', methods=['POST'] )
+@routes_Deautores.route('/actualizarautores', methods=['POST'] )
 def actualizar_detalles():
     id = request.json['id']
     id_libros = request.json['id_libros']
