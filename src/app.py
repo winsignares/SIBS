@@ -41,9 +41,49 @@ app.register_blueprint(routes_Libros, url_prefix="/api")
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
+<<<<<<< HEAD
+app.register_blueprint(routes_proveedores, url_prefix="/api")
+=======
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
+<<<<<<< HEAD
+app.register_blueprint(routes_autores,  url_prefix="/api")
+app.register_blueprint(routes_Deautores,  url_prefix="/api")
+<<<<<<< HEAD
+=======
+>>>>>>> df019a7e77d152bd8d2d5e91126c01bf45e169fa
 
+=======
+>>>>>>> 5cde1d05c24b893e591fe5737ca2c1a8a1f28e9d
+
+<<<<<<< HEAD
+#Categoria
+Categoria_schema = CategoriasSchema()
+Categorias_schema = CategoriasSchema(many=True)
+
+<<<<<<< HEAD
+>>>>>>> 6b702cbfd5639202f3da3530e3fc12322c73ace0
+
+#Autores
+autor_schema = AutoresSchema()
+autores_Schema = AutoresSchema(many=True)
+=======
+
+>>>>>>> 5cde1d05c24b893e591fe5737ca2c1a8a1f28e9d
+
+#Proveedores (alguien modifico esto ?)
+Proveedor_schema = SolicitudesSchema()
+Proveedores_schema = SolicitudesSchema(many=True)
+
+<<<<<<< HEAD
+=======
+app.register_blueprint(routes_stadosolicitud,  url_prefix="/api")
+>>>>>>> 5326bb1272420e02e3b2466e93df3a41a5547e64
+=======
+>>>>>>> 5cde1d05c24b893e591fe5737ca2c1a8a1f28e9d
+
+=======
+>>>>>>> 7e7b247339fe9981b2dc6d7dc8214e9c05c37afa
 categoria_detaSchema = cate_detaSchema()
 categorias_detaSchema = cate_detaSchema(many=True)
 
