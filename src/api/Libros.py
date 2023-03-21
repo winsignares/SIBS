@@ -18,7 +18,7 @@ def libros():
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
 
-@routes_Libros('/savelibros', methods=['POST'] )
+@routes_Libros.route('/savelibros', methods=['POST'] )
 def guardar_Libros():
     addlibros = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
     print(addlibros)
@@ -27,7 +27,7 @@ def guardar_Libros():
     db.session.commit()
     return redirect('/libros')
 
-@routes_Libros('/actualizarlibros', methods=['POST'] )
+@routes_Libros.route('/actualizarlibros', methods=['POST'] )
 def actualizarL():
 
     id = request.json['id']
@@ -37,7 +37,7 @@ def actualizarL():
     db.session.commit()
     return redirect('/libros')
 
-@routes_Libros('/eliminarlibros/<id>', methods=['GET'] )
+@routes_Libros.route('/eliminarlibros/<id>', methods=['GET'] )
 def eliminarL(id):
 
     libro = Libros.query.get(id)
