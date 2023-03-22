@@ -10,7 +10,7 @@
         <div class="nav-lateral-divider full-reset"></div>
         <div class="full-reset" style="padding: 10px 0; color:#fff;">
             <figure>
-                <img src="{{url_for('static', filename='assets/img/logo.png')}}" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                <img src= "{{url_for('static', filename="assets/img/logo.png")}} "alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
             </figure>
             <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
         </div>
@@ -65,7 +65,7 @@
     <nav class="navbar-user-top full-reset">
         <ul class="list-unstyled full-reset">
             <figure>
-               <img src="{{url_for('static', filename='assets/img/user01.png')}}" alt="user-picture" class="img-responsive img-circle center-box">
+               <img src= "{{url_for('static', filename="assets/img/user01.png")}} " alt="user-picture" class="img-responsive img-circle center-box">
             </figure>
             <li style="color:#fff; cursor:default;">
                 <span class="all-tittles">Admin Name</span>
@@ -89,169 +89,120 @@
     </nav>
     <div class="container">
         <div class="page-header">
-          <h1 class="all-tittles">Sistema bibliotecario <small>Añadir libro</small></h1>
+          <h1 class="all-tittles">Sistema bibliotecario <small>Administración Usuarios</small></h1>
         </div>
+    </div>
+    <div class="conteiner-fluid">
+        <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
+            <li role="presentation"><a href="admin.html">Administradores</a></li>
+            <li role="presentation"><a href="teacher.html">Docentes</a></li>
+            <li role="presentation"><a href="student.html">Estudiantes</a></li>
+            <li role="presentation" class="active"><a href="personal.html">Personal administrativo</a></li>
+        </ul>
     </div>
     <div class="container-fluid"  style="margin: 50px 0;">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3">
-                <img src="{{url_for('static', filename='assets/img/flat-book.png')}}" alt="pdf" class="img-responsive center-box" style="max-width: 110px;">
+                <img src="assets/img/user05.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
             </div>
             <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                Bienvenido a la sección para agregar nuevos libros a la biblioteca, deberas de llenar todos los campos para poder registrar el libro
+                Bienvenido a la sección para registrar nuevo personal administrativo. Para registrar el personal administrativo debes de llenar todos los campos del siguiente formulario.
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 lead">
+                <ol class="breadcrumb">
+                  <li class="active">Nuevo personal ad.</li>
+                  <li><a href="listpersonal.html">Listado de personal ad.</a></li>
+                </ol>
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="container-flat-form">
-            <div class="title-flat-form title-flat-blue">Nuevo libro</div>
+            <div class="title-flat-form title-flat-blue">Registrar nuevo personal administrativo</div>
             <form class="form-padding">
                 <div class="row">
                     <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información básica</legend><br>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el código correlativo del libro" pattern="[0-9]{1,20}" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe el código correlativo del libro, solamente números">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Código correlativo</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el título o nombre del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el título o nombre del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Título</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el autor del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del autor del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Autor</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el país del libro" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el país del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>País</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-bookmark-outline"></i> &nbsp; Categoría</legend><br>
+                        <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos básicos</legend><br>
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <span>Categoría</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
-                                <option value="" disabled="" selected="">Selecciona una categoría</option>
-                                <option value="categoria">Categoría</option>
-                                <option value="categoria">Categoría</option>
-                                <option value="categoria">Categoría</option>
-                            </select>
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de DUI del personal administrativo" pattern="[0-9-]{1,10}" required="" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solamente números y guiones, 10 dígitos">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Número de DUI</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los nombres del personal administrativo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los nombres del personal administrativo, solamente letras">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombres</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los apellidos del personal administrativo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los apellidos del personal administrativo, solamente letras">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Apellidos</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de teléfono del personal administrativo" pattern="[0-9]{8,8}" required="" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solamente 8 números">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Teléfono</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el cargo del personal administrativo" required="" maxlength="30" data-toggle="tooltip" data-placement="top" title="Cargo del personal administrativo">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Cargo</label>
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-label"></i> &nbsp; Otros datos</legend><br>
+                        <legend><i class="zmdi zmdi-lock"></i> &nbsp; Datos de la cuenta</legend><br>
                     </div>
                     <div class="col-xs-12">
-                        <div class="group-material">
-                            <span>Proveedor</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el proveedor del libro">
-                                <option value="" disabled="" selected="">Selecciona un proveedor</option>
-                                <option value="proveedor">Proveedor</option>
-                                <option value="proveedor">Proveedor</option>
-                                <option value="proveedor">Proveedor</option>
-                            </select>
-                        </div>
+                       <div class="group-material">
+                            <input type="text" class="material-control tooltips-general input-check-user" placeholder="Nombre de usuario" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escribe un nombre de usuario sin espacios, que servira para iniciar sesión">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombre de usuario</label>
+                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                           <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el año del libro" required="" pattern="[0-9]{1,4}" maxlength="4" data-toggle="tooltip" data-placement="top" title="Solamente números, sin espacios">
+                            <input type="password" class="material-control tooltips-general" placeholder="Contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Escribe una contraseña">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>Año</label>
+                            <label>Contraseña</label>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la editorial del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Editorial del libro">
+                       <div class="group-material">
+                            <input type="password" class="material-control tooltips-general" placeholder="Repite la contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Repite la contraseña">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>Editorial</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la edición del libro" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Edición del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Edición</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general"  placeholder="Escribe aquí la cantidad de libros que registraras" required=" "pattern="[0-9]{1,7}" maxlength="7" data-toggle="tooltip" data-placement="top" title="¿Cuántos libros registraras?">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Ejemplares</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-map"></i> &nbsp; Estado físico, ubicación y valor</legend><br>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                           <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la ubicación del libro" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="¿Dónde se ubicara el libro?">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Ubicación</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el precio estimado del libro" required="" pattern="[0-9.]{1,7}" maxlength="7" data-toggle="tooltip" data-placement="top" title="Sólo números y un punto si el valor posee decimales. Ejemplo: 7.79">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Estimado</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="group-material">
-                            <span>Cargo</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el cargo del libro">
-                                <option value="" disabled="" selected="">Selecciona el cargo del libro</option>
-                                <option value="1-1">Entrega del ministerio</option>
-                                <option value="1-2">Donaciones</option>
-                                <option value="1-3">Compras con fondos propios</option>
-                                <option value="1-4">Presupuesto escolar</option>
-                                <option value="1-5">Otros</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="group-material">
-                            <span>Estado</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el estado del libro">
-                                <option value="" disabled="" selected="">Selecciona el estado del libro</option>
-                                <option value="Bueno">Bueno</option>
-                                <option value="Deteriorado">Deteriorado</option>
-                            </select>
-                        </div>
+                            <label>Repetir contraseña</label>
+                       </div>
                     </div>
                    <div class="col-xs-12">
                         <p class="text-center">
                             <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
                             <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
-                        </p>
-                   </div>
+                        </p> 
+                    </div>
                 </div>
-           </form>
+            </form>
         </div>
     </div>
     <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
