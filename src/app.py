@@ -38,7 +38,7 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 @app.route("/")
 def index():
-    return render_template('/main/listprovider.html')
+    return render_template('/main/login.html')
 
 @app.route("/algo")
 def otr():
