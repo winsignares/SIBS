@@ -51,7 +51,7 @@ from rutas.book import routes_book
 #Jasson
 
 #Sthiwar
-
+from rutas.loan import routes_loan
 #Hader
 
 #Jean
