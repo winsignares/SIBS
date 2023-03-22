@@ -27,7 +27,7 @@ from rutas.home import routes_home
 #Santiago
 
 #luis
-
+from rutas.advancesettings import routes_advancesettings
 #dainer
 
 #Gonzalo
