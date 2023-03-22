@@ -29,7 +29,7 @@ from rutas.home import routes_home
 #dainer
 
 #Gonzalo
-
+from rutas.book import routes_book
 
 
 #ubicacion del api 
@@ -45,6 +45,7 @@ app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 #ubicación rutas
+app.register_blueprint(routes_home, url_prefix="/fronted")
 app.register_blueprint(routes_home, url_prefix="/fronted")
 
 @app.route("/")
