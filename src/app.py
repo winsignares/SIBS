@@ -30,7 +30,8 @@ from rutas.home import routes_home
 
 #Gonzalo
 
-
+#camilo
+from rutas.reports import routes_report
 
 #ubicacion del api 
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
@@ -46,6 +47,9 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 #ubicación rutas
 app.register_blueprint(routes_home, url_prefix="/fronted")
+app.register_blueprint(routes_report, url_prefix="/fronted")
+
+
 
 @app.route("/")
 def index():
