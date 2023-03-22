@@ -22,6 +22,15 @@ from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
 from api.Editoriales import routes_Editorial
 
+#rutas
+from rutas.home import routes_home
+#luis
+
+#dainer
+
+#Gonzalo
+
+
 
 #ubicacion del api 
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
@@ -35,10 +44,13 @@ app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 
+#ubicación rutas
+app.register_blueprint(routes_home, url_prefix="/fronted")
 
 @app.route("/")
 def index():
-    return render_template('/main/login.html')
+    titulo= "Pagina Princiapl"
+    return render_template('/main/login.html', titles=titulo)
 
 @app.route("/algo")
 def otr():
