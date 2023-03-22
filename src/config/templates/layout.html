@@ -14,17 +14,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" href="{{url_for('static', filename='assets/icons/book.ico')}}">
-    
     <link rel="stylesheet" href="css/sweet-alert.css">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
-=======
     <link rel="stylesheet" href="{{url_for('static', filename='css/material-design-iconic-font.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
     <link rel="stylesheet" href="css/bootstrap.min.css">
->>>>>>> c0f3422945be514f05ce09d4a0f1b161ec1abde3
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
    
@@ -40,6 +33,6 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/sweet-alert.min.js"></script>
+  <script src="{{url_for('static', filename='js/sweet-alert.min.js')}}"></script>
 </body>
 </html>
