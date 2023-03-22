@@ -111,7 +111,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Jasson
 
 #Sthiwar
-
+app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
 
 #Jean
