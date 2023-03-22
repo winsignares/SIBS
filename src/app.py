@@ -57,7 +57,7 @@ from rutas.loan import routes_loan
 #Jean
 
 #Ivan
-
+from rutas.personal import routes_personal
 #Ivan villalobos
 
 #Saray
@@ -117,7 +117,7 @@ app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Jean
 
 #Ivan
-
+app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
 
 #Saray
