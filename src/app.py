@@ -25,7 +25,7 @@ from api.Editoriales import routes_Editorial
 #rutas
 from rutas.home import routes_home
 #Santiago
-from ruta
+from ruta.admin import routes_admin
 #luis
 from rutas.advancesettings import routes_advancesettings
 #dainer
