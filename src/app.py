@@ -24,14 +24,52 @@ from api.Editoriales import routes_Editorial
 
 #rutas
 from rutas.home import routes_home
+#Santiago
+
 #luis
-
+from rutas.advancesettings import routes_advancesettings
 #dainer
-
+from rutas.home import routes_Admin
 #Gonzalo
+from rutas.book import routes_book
+#David
 
-#camilo
+
+#Antonio
+
+#Edwin
+
+#Alejo
+
+#Alet
+
+#Julieth
+
+#Wilches
+
+#Benedetty
+
+#Jasson
+
+#Sthiwar
+from rutas.loan import routes_loan
+#Hader
+
+#Jean
+
+#Ivan
+
+#Ivan villalobos
+
+#Saray
+
+#Camilo
 from rutas.reports import routes_report
+#Jonathan
+
+#Jorge
+
+#-------------------------------fin-------------------------------
 
 #ubicacion del api 
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
@@ -47,9 +85,54 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 #ubicación rutas
 app.register_blueprint(routes_home, url_prefix="/fronted")
+
+
+
+#Santiago
+
+#luis
+
+#dainer
+app.register_blueprint(routes_Admin, url_prefix="/fronted")
+#Gonzalo
+app.register_blueprint(routes_book, url_prefix="/fronted")
+#David
+
+#Antonio
+
+#Edwin
+
+#Alejo
+
+#Alet
+
+#Julieth
+
+#Wilches
+
+#Benedetty
+
+#Jasson
+
+#Sthiwar
+
+#Hader
+
+#Jean
+
+#Ivan
+
+#Ivan villalobos
+
+#Saray
+
+#Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
+#Jonathan
 
+#Jorge
 
+#-------------------------------fin-------------------------------
 
 @app.route("/")
 def index():
