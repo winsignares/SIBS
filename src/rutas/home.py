@@ -9,3 +9,12 @@ def indexhome():
     
     return render_template('/main/Home.html')
 
+
+@routes_home.route('/indexadministrador', methods=['GET'] )
+def indexhome():
+    
+    return render_template('/main/administradores.html')
+
+
+
+
