@@ -34,6 +34,7 @@ from rutas.home import routes_Admin
 from rutas.book import routes_book
 #David
 
+
 #Antonio
 
 #Edwin
@@ -45,9 +46,9 @@ from rutas.book import routes_book
 #Julieth
 
 #Wilches
-
+from rutas.listprovider import routes_listprovider
 #Benedetty
-
+from rutas.listsesion import routes_listsesion
 #Jasson
 
 #Sthiwar
@@ -57,15 +58,15 @@ from rutas.loan import routes_loan
 #Jean
 
 #Ivan
-
+from rutas.personal import routes_personal
 #Ivan villalobos
 
 #Saray
 
 #Camilo
-
+from rutas.reports import routes_report
 #Jonathan
-
+from rutas.section import routes_section
 #Jorge
 
 #-------------------------------fin-------------------------------
@@ -84,6 +85,9 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 #ubicación rutas
 app.register_blueprint(routes_home, url_prefix="/fronted")
+
+
+
 #Santiago
 
 #luis
@@ -105,25 +109,25 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Julieth
 
 #Wilches
-
+app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
 
 #Jasson
 
 #Sthiwar
-
+app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
 
 #Jean
 
 #Ivan
-
+app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
 
 #Saray
 
 #Camilo
-
+app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
 
 #Jorge
