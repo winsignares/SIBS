@@ -117,7 +117,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Jean
 
 #Ivan
-
+app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
 
 #Saray

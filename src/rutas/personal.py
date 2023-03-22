@@ -4,7 +4,7 @@ from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, 
 routes_personal = Blueprint("routes_personal", __name__)
 
 
-@routes_home.route('/indexhome', methods=['GET'] )
-def indexhome():
+@routes_personal.route('/indexpersonal', methods=['GET'] )
+def indexpersonal():
     
-    return render_template('/main/Home.html')
+    return render_template('/main/personal.html')
