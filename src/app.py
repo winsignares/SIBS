@@ -40,6 +40,11 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 def index():
     return render_template('/main/login.html')
 
+@app.route("/algo")
+def otr():
+    return "hola Santiago"
+
+
 # Datos de la tabla de Editoriales
 if __name__ == '__main__':
     load_dotenv()
