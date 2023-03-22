@@ -57,7 +57,7 @@ from rutas.home import routes_home
 #Jean
 
 #Ivan
-
+from rutas.personal import routes_personal
 #Ivan villalobos
 
 #Saray
