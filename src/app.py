@@ -29,7 +29,7 @@ from rutas.home import routes_home
 #luis
 
 #dainer
-
+from rutas.home import routes_Admin
 #Gonzalo
 
 #David
@@ -89,7 +89,7 @@ app.register_blueprint(routes_home, url_prefix="/fronted")
 #luis
 
 #dainer
-
+app.register_blueprint(routes_Admin, url_prefix="/fronted")
 #Gonzalo
 
 #David
