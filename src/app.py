@@ -34,6 +34,7 @@ from rutas.home import routes_Admin
 from rutas.book import routes_book
 #David
 
+
 #Antonio
 
 #Edwin
@@ -63,7 +64,7 @@ from rutas.personal import routes_personal
 #Saray
 
 #Camilo
-
+from rutas.reports import routes_report
 #Jonathan
 
 #Jorge
@@ -84,6 +85,9 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 
 #ubicación rutas
 app.register_blueprint(routes_home, url_prefix="/fronted")
+
+
+
 #Santiago
 
 #luis
@@ -123,7 +127,7 @@ app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Saray
 
 #Camilo
-
+app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
 
 #Jorge
