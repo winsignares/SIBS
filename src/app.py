@@ -51,7 +51,7 @@ from rutas.listprovider import routes_listprovider
 #Jasson
 
 #Sthiwar
-
+from rutas.loan import routes_loan
 #Hader
 
 #Jean
