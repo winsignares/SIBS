@@ -46,7 +46,7 @@ from rutas.book import routes_book
 #Julieth
 
 #Wilches
-
+from rutas.listprovider import routes_listprovider
 #Benedetty
 from rutas.listsesion import routes_listsesion
 #Jasson
@@ -109,7 +109,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Julieth
 
 #Wilches
-
+app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
 
 #Jasson
