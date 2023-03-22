@@ -31,7 +31,7 @@ from rutas.advancesettings import routes_advancesettings
 #dainer
 
 #Gonzalo
-
+from rutas.book import routes_book
 #David
 
 #Antonio
@@ -91,7 +91,7 @@ app.register_blueprint(routes_home, url_prefix="/fronted")
 #dainer
 
 #Gonzalo
-
+app.register_blueprint(routes_book, url_prefix="/fronted")
 #David
 
 #Antonio
