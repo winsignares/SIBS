@@ -1,7 +1,7 @@
 #10.230.16.229
 #10.230.16.238
 #10.230.16.196
-
+#/10.230.16.210:5000
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
 from api.user import *
