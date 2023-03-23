@@ -91,7 +91,7 @@ app.register_blueprint(routes_home, url_prefix="/fronted")
 #Santiago
 
 #luis
-
+app.register_blueprint(routes_advancesettings, url_prefix="/fronted")
 #dainer
 app.register_blueprint(routes_Admin, url_prefix="/fronted")
 #Gonzalo
