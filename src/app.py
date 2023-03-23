@@ -42,7 +42,7 @@ from rutas.Categoria import routes_Categorias
 #Alejo
 
 #Alet
-
+from rutas.listcategory import routes_listcategory
 #Julieth
 from rutas.list_personal import routes_listpersonal
 #Wilches
@@ -107,7 +107,7 @@ app.register_blueprint(routes_Categorias, url_prefix="/fronted")
 #Alejo
 
 #Alet
-
+app.register_blueprint(routes_listcategory, url_prefix="/fronted")
 #Julieth
 app.register_blueprint(routes_listpersonal, url_prefix="/fronted")
 #Wilches
