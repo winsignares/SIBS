@@ -40,7 +40,7 @@ from rutas.Categoria import routes_Categorias
 #Edwin
 
 #Alejo
-
+from rutas.listadmin import routes_listadmin 
 #Alet
 from rutas.listcategory import routes_listcategory
 #Julieth
@@ -105,7 +105,7 @@ app.register_blueprint(routes_Categorias, url_prefix="/fronted")
 #Edwin
 
 #Alejo
-
+app.register_blueprint(routes_listadmin, url_prefix="/fronted")
 #Alet
 app.register_blueprint(routes_listcategory, url_prefix="/fronted")
 #Julieth
