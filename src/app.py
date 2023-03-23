@@ -111,7 +111,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Wilches
 app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
-
+app.register_blueprint(routes_listsesion, url_prefix="/fronted")
 #Jasson
 
 #Sthiwar
