@@ -132,6 +132,7 @@
                         <div class="group-material">
                             <span>Año</span>
                             <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige el año">
+                                <!-- Create JcBox in JS [BD]-->
                                 <option value="" disabled="" selected="">Selecciona una opción</option>
                                 <option value="1° año ">1°</option>
                                 <option value="2° año ">2°</option>
@@ -143,6 +144,7 @@
                         <div class="group-material">
                             <span>Especialidad</span>
                             <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige la especialidad">
+                                <!-- Create JcBox in JS [BD]-->
                                 <option value="" disabled="" selected="">Selecciona una opción</option>
                                 <option value="Asistente.Ad. ">Asistente Ad.</option>
                                 <option value="Contador ">Contador</option>
@@ -158,6 +160,7 @@
                         <div class="group-material">
                             <span>Sección</span>
                             <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige la sección">
+                                <!-- Create JcBox in JS [BD]-->
                                 <option value="" disabled="" selected="">Selecciona una opción</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>
@@ -212,4 +215,5 @@
         <div class="footer-copyright full-reset all-tittles">© 2018 Carlos Alfaro</div>
     </footer>
 </div>
+<script src="{{url_for('static', filename='js/BIJS/section.js')}}"></script><!--JavaScripts-->
 {% endblock %}
