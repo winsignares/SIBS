@@ -137,8 +137,11 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 
 #Jorge
 
+#Julieth
 app.register_blueprint(routes_teacher, url_prefix="/fronted")
+#Saray
 
+#------------------------------------------------
 @app.route("/")
 def index():
     titulo= "Pagina Princiapl"
