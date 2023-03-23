@@ -24,12 +24,12 @@ def indexdocentes():
 def indexpersonaladministrativo():
 
     return render_template('/main/personaladministrativo.html')
-#-----------------LIBROS----------------------------------
+#-----------------LIBROS--------------------------------------
 @routes_home.route('/indexlibros', methods=['GET'])
 def indexlibros():
 
-    return  render_template('/main/libros.html')
-
+    return  render_template('/main/book.html')
+#--------------------------------------------------------------
 
 
 
