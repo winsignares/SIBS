@@ -38,6 +38,7 @@ from rutas.book import routes_book
 #Antonio
 
 #Edwin
+from rutas.institution import routes_institution
 
 #Alejo
 from rutas.listadmin import routes_listadmin
@@ -102,9 +103,10 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Antonio
 
 #Edwin
+app.register_blueprint(routes_institution, url_prefix="/fronted")
 
 #Alejo
-app.register_blueprint(routes_listadmin, url_prefix="/api")
+app.register_blueprint(routes_listadmin, url_prefix="/fronted")
 
 #Alet
 app.register_blueprint(routes_listcategory, url_prefix="/fronted")
@@ -113,6 +115,7 @@ app.register_blueprint(routes_listpersonal, url_prefix="/fronted")
 #Wilches
 app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
+app.register_blueprint(routes_listsesion, url_prefix="/fronted")
 
 #Jasson
 
