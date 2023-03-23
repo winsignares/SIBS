@@ -68,7 +68,7 @@ from rutas.reports import routes_report
 #Jonathan
 from rutas.section import routes_section
 #Jorge
-
+from rutas.SearchBooks import routes_searchbooks 
 from rutas.teacher import routes_teacher
 
 #ubicacion del api 
@@ -134,7 +134,7 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
 
 #Jorge
-
+app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
 app.register_blueprint(routes_teacher, url_prefix="/fronted")
 #Saray
