@@ -51,11 +51,11 @@ from rutas.listprovider import routes_listprovider
 #Benedetty
 from rutas.listsesion import routes_listsesion
 #Jasson
-
+from rutas.liststudent import routes_liststudent
 #Sthiwar
 from rutas.loan import routes_loan
 #Hader
-
+from rutas.listteacher import routes_listteacher
 #Jean
 from rutas.loanpending import routes_PresPendientes
 #Ivan
@@ -99,7 +99,7 @@ app.register_blueprint(routes_Admin, url_prefix="/fronted")
 #Gonzalo
 app.register_blueprint(routes_book, url_prefix="/fronted")
 #David
-
+app.register_blueprint(routes_catalogo, url_prefix="/fronted")
 #Antonio
 
 #Edwin
@@ -118,11 +118,11 @@ app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 app.register_blueprint(routes_listsesion, url_prefix="/fronted")
 
 #Jasson
-
+app.register_blueprint(routes_liststudent, url_prefix="/fronted") 
 #Sthiwar
 app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
-
+app.register_blueprint(routes_listteacher, url_prefix="/fronted")
 #Jean
 app.register_blueprint(routes_PresPendientes, url_prefix="/fronted")
 #Ivan
