@@ -40,7 +40,6 @@ def actualizarautores():
 @routes_autores.route('/saveautores', methods=['POST'] )
 def guardar_autores():
     autores = request.json['nombre', 'nacionalidad']
-    print(autores)
     new_autor = autores(autores)
     db.session.add(new_autor)
     db.session.commit()
