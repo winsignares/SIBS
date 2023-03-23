@@ -1,7 +1,7 @@
 #10.230.16.229
 #10.230.16.238
 #10.230.16.196
-#/10.230.16.210:5000
+
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
 from api.user import *
@@ -22,7 +22,6 @@ from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
 from api.Editoriales import routes_Editorial
 from api.solicitudes import routes_solicitudes
-
 #rutas
 from rutas.home import routes_home
 #Santiago
@@ -84,7 +83,6 @@ app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 app.register_blueprint(routes_solicitudes, url_prefix="/api")
-
 #ubicación rutas
 app.register_blueprint(routes_home, url_prefix="/fronted")
 
@@ -93,7 +91,7 @@ app.register_blueprint(routes_home, url_prefix="/fronted")
 #Santiago
 
 #luis
-app.register_blueprint(routes_advancesettings, url_prefix="/fronted")
+
 #dainer
 app.register_blueprint(routes_Admin, url_prefix="/fronted")
 #Gonzalo
@@ -113,7 +111,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Wilches
 app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
-app.register_blueprint(routes_listsesion, url_prefix="/fronted")
+
 #Jasson
 
 #Sthiwar
