@@ -25,11 +25,11 @@ from api.Editoriales import routes_Editorial
 #rutas
 from rutas.home import routes_home
 #Santiago
-from ruta.admin import routes_admin
+
 #luis
 from rutas.advancesettings import routes_advancesettings
 #dainer
-from rutas.home import routes_Admin
+from rutas.Admin import routes_Admin
 #Gonzalo
 from rutas.book import routes_book
 #David

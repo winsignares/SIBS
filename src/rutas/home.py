@@ -10,10 +10,10 @@ def indexhome():
     return render_template('/main/Home.html')
 
 
-@routes_home.route('/indexadministradores', methods=['GET'] )
-def indexhome():
+#@routes_home.route('/indexadministradores', methods=['GET'] )
+#def indexhome():
     
-    return render_template('/main/administradores.html')
+    #return render_template('/main/administradores.html')
 
 
 
