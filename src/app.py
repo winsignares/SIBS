@@ -22,6 +22,54 @@ from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
 from api.Editoriales import routes_Editorial
 
+#rutas
+from rutas.home import routes_home
+#Santiago
+
+#luis
+from rutas.advancesettings import routes_advancesettings
+#dainer
+from rutas.Admin import routes_Admin
+#Gonzalo
+from rutas.book import routes_book
+#David
+
+
+#Antonio
+
+#Edwin
+
+#Alejo
+
+#Alet
+
+#Julieth
+
+#Wilches
+from rutas.listprovider import routes_listprovider
+#Benedetty
+from rutas.listsesion import routes_listsesion
+#Jasson
+
+#Sthiwar
+from rutas.loan import routes_loan
+#Hader
+
+#Jean
+
+#Ivan
+from rutas.personal import routes_personal
+#Ivan villalobos
+
+#Saray
+
+#Camilo
+from rutas.reports import routes_report
+#Jonathan
+from rutas.section import routes_section
+#Jorge
+
+#-------------------------------fin-------------------------------
 
 #ubicacion del api 
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
@@ -35,10 +83,66 @@ app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 
+#ubicación rutas
+app.register_blueprint(routes_home, url_prefix="/fronted")
+
+
+
+#Santiago
+
+#luis
+app.register_blueprint(routes_advancesettings, url_prefix="/fronted")
+#dainer
+app.register_blueprint(routes_Admin, url_prefix="/fronted")
+#Gonzalo
+app.register_blueprint(routes_book, url_prefix="/fronted")
+#David
+
+#Antonio
+
+#Edwin
+
+#Alejo
+
+#Alet
+
+#Julieth
+
+#Wilches
+app.register_blueprint(routes_listprovider, url_prefix="/fronted")
+#Benedetty
+app.register_blueprint(routes_listsesion, url_prefix="/fronted")
+#Jasson
+
+#Sthiwar
+app.register_blueprint(routes_loan, url_prefix="/fronted")
+#Hader
+
+#Jean
+
+#Ivan
+app.register_blueprint(routes_personal, url_prefix="/fronted")
+#Ivan villalobos
+
+#Saray
+
+#Camilo
+app.register_blueprint(routes_report, url_prefix="/fronted")
+#Jonathan
+
+#Jorge
+
+#-------------------------------fin-------------------------------
 
 @app.route("/")
 def index():
-    return render_template('/main/login.html')
+    titulo= "Pagina Princiapl"
+    return render_template('/main/login.html', titles=titulo)
+
+@app.route("/algo")
+def otr():
+    return "hola Santiago"
+
 
 # Datos de la tabla de Editoriales
 if __name__ == '__main__':

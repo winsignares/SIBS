@@ -44,15 +44,3 @@ def actualizar_detalles():
     db.session.commit()
     return redirect('/detalles_autores')
 
-@routes_Deautores.route('/detalles_autores', methods=['GET'])
-def det_autores():
-    token = request.headers['Authorization']
-    token = token.replace("Bearer","")
-    token = token.replace(" ","")
-    vf = verificar_token(token)
-    if vf['error'] == False:
-        returnall = DetallesAutores.query.all()
-        result_det_autores = detallesAutoresSchema.dump(returnall)
-        return jsonify(result_det_autores)
-    else:
-        return vf

@@ -17,7 +17,7 @@ def obtenerautores():
     result_autores = autores_Schema.dump(returnall)
     return jsonify(result_autores)
 
-#<----------------------------------------------------------------->
+
 #<--------------------------CRUD AUTORES--------------------------->
 @routes_autores.route('/eliminarautores/<id>', methods=['GET'] )
 def eliminarautores(id):
@@ -45,15 +45,3 @@ def guardar_autores():
     db.session.commit()
     return redirect('/autores')
 
-@routes_autores.route('/autores', methods=['GET'])
-def tautores():    
-    token = request.headers['Authorization']
-    token = token.replace("Bearer","")
-    token = token.replace(" ","")
-    vf = verificar_token(token)
-    if vf['error'] == False:
-        returnall = autores.query.all()
-        result_autores = autores_Schema.dump(returnall)
-        return jsonify(result_autores)
-    else:
-        return vf
