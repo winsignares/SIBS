@@ -42,7 +42,7 @@ from rutas.book import routes_book
 #Alejo
 
 #Alet
-
+from rutas.listcategory import routes_listcategory
 #Julieth
 
 #Wilches
@@ -105,7 +105,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #Alejo
 
 #Alet
-
+app.register_blueprint(routes_listcategory, url_prefix="/fronted")
 #Julieth
 
 #Wilches
