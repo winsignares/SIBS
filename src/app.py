@@ -21,7 +21,7 @@ from api.proveedor import routes_proveedores
 from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
 from api.Editoriales import routes_Editorial
-
+from api.solicitudes import routes_solicitudes
 #rutas
 from rutas.home import routes_home
 #Santiago
@@ -83,7 +83,7 @@ app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
-
+app.register_blueprint(routes_solicitudes, url_prefix="/api")
 #ubicación rutas
 app.register_blueprint(routes_home, url_prefix="/fronted")
 
