@@ -33,7 +33,7 @@ from rutas.Admin import routes_Admin
 #Gonzalo
 from rutas.book import routes_book
 #David
-
+from rutas.catalogo import routes_catalogo
 
 #Antonio
 
