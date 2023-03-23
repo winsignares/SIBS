@@ -10,7 +10,7 @@
         <div class="nav-lateral-divider full-reset"></div>
         <div class="full-reset" style="padding: 10px 0; color:#fff;">
             <figure>
-                <img src="{{url_for('static', filename='assets/img/logo.png')}}" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                <img src="{{url_for('static', filename='assets/icons/book.ico')}}" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
             </figure>
             <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
         </div>
@@ -92,10 +92,10 @@
           <h1 class="all-tittles">Sistema bibliotecario <small>Administración Usuarios</small></h1>
         </div>
     </div>
-    <div class="conteiner-fluid">
+    <div class="container-fluid">
         <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
-            <li role="presentation"><a href="admin.html">Administradores</a></li>
-            <li role="presentation"  class="active"><a href="teacher.html">Docentes</a></li>
+            <li role="presentation"  class="active"><a href="admin.html">Administradores</a></li>
+            <li role="presentation"><a href="teacher.html">Docentes</a></li>
             <li role="presentation"><a href="student.html">Estudiantes</a></li>
             <li role="presentation"><a href="personal.html">Personal administrativo</a></li>
         </ul>
@@ -103,10 +103,10 @@
     <div class="container-fluid"  style="margin: 50px 0;">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3">
-                <img src="{{url_for('static', filename='assets/img/user02.png')}}" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                <img src="{{url_for('static', filename='assets/img/user01.png')}}" alt="user" class="img-responsive center-box" style="max-width: 110px;">
             </div>
             <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                Bienvenido a la sección para registrar nuevos docentes. Para registrar un docente debes de llenar todos los campos del siguiente formulario, también puedes ver el listado de docentes registrados
+                Bienvenido a la sección para registrar nuevos administradores del sistema, debes de llenar todos los campos del siguiente formulario para registrar un administrador
             </div>
         </div>
     </div>
@@ -114,81 +114,34 @@
         <div class="row">
             <div class="col-xs-12 lead">
                 <ol class="breadcrumb">
-                  <li class="active">Nuevo docente</li>
-                  <li><a href="listteacher.html">Listado de docentes</a></li>
+                  <li class="active">Nuevo administrador</li>
+                  <li><a href="listadmin.html">Listado de administradores</a></li>
                 </ol>
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="container-flat-form">
-            <div class="title-flat-form title-flat-blue">Registrar un nuevo docente</div>
+            <div class="title-flat-form title-flat-blue">Registrar un nuevo administrador</div>
             <form class="form-padding">
                 <div class="row">
                     <div class="col-xs-12">
                         <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos básicos</legend><br>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de DUI del docente" pattern="[0-9-]{1,10}" required="" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solamente números y guiones, 10 dígitos">
+                            <input type="text" class="material-control tooltips-general" placeholder="Nombre completo" required="" maxlength="70" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del administrador">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>Número de DUI</label>
+                            <label>Nombre completo</label>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los nombres del docente" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los nombres del docente, solamente letras">
+                            <input type="email" class="material-control tooltips-general" placeholder="E-mail"  maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el Email del administrador">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>Nombres</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los apellidos del docente" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los apellidos del docente, solamente letras">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Apellidos</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de teléfono del docente" pattern="[0-9]{8,8}" required="" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solamente 8 números">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Teléfono</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                       <legend><i class="zmdi zmdi-group"></i> &nbsp; Especialidad, Turno y Sección encargada</legend><br>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la especialidad del docente" required="" maxlength="40" data-toggle="tooltip" data-placement="top" title="Especialidad del docente">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Especialidad</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <span>Turno</span>
-                            <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige el turno que labora el docente">
-                                <option value="Mañana">Mañana</option>
-                                <option value="Tarde">Tarde</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <span>Sección encargada</span>
-                            <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige la sección encargada del docente">
-                                <option value="" disabled="" selected="">Selecciona una sección</option>
-                                <option value="Seccion">Sección</option>
-                                <option value="Seccion">Sección</option>
-                                <option value="Seccion">Sección</option>
-                            </select>
+                            <label>Email</label>
                         </div>
                     </div>
                     <div class="col-xs-12">
@@ -223,8 +176,8 @@
                             <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
                             <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
                         </p> 
-                    </div>
-                </div>
+                   </div>
+               </div>
             </form>
         </div>
     </div>

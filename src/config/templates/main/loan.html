@@ -89,143 +89,133 @@
     </nav>
     <div class="container">
         <div class="page-header">
-          <h1 class="all-tittles">Sistema bibliotecario <small>Administración Usuarios</small></h1>
+          <h1 class="all-tittles">Sistema bibliotecario <small>préstamos y reservaciones</small></h1>
         </div>
     </div>
     <div class="conteiner-fluid">
         <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
-            <li role="presentation"><a href="admin.html">Administradores</a></li>
-            <li role="presentation"  class="active"><a href="teacher.html">Docentes</a></li>
-            <li role="presentation"><a href="student.html">Estudiantes</a></li>
-            <li role="presentation"><a href="personal.html">Personal administrativo</a></li>
+            <li class="active"><a href="loan.html">Todos los préstamos</a></li>
+            <li><a href="loanpending.html">Devoluciones pendientes</a></li>
+            <li><a href="loanreservation.html">Reservaciones</a></li>
         </ul>
     </div>
     <div class="container-fluid"  style="margin: 50px 0;">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3">
-                <img src="{{url_for('static', filename='assets/img/user02.png')}}" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+
+                
+                <img src="{{url_for('static', filename='assets/img/calendar_book.png')}}" alt="calendar" class="img-responsive center-box" style="max-width: 110px;">
             </div>
             <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                Bienvenido a la sección para registrar nuevos docentes. Para registrar un docente debes de llenar todos los campos del siguiente formulario, también puedes ver el listado de docentes registrados
+                Bienvenido a esta sección, aquí se muestran todos los préstamos de libros realizados hasta la fecha y que ya se entregaron satisfactoriamente
             </div>
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 lead">
-                <ol class="breadcrumb">
-                  <li class="active">Nuevo docente</li>
-                  <li><a href="listteacher.html">Listado de docentes</a></li>
-                </ol>
+        <h2 class="text-center all-tittles">Listado de préstamos</h2>
+        <div class="table-responsive">
+            <div class="div-table" style="margin:0 !important;">
+                <div class="div-table-row div-table-row-list" style="background-color:#DFF0D8; font-weight:bold;">
+                    <div class="div-table-cell" style="width: 6%;">#</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
+                    <div class="div-table-cell" style="width: 10%;">Tipo</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
+                    <div class="div-table-cell" style="width: 8%;">Eliminar</div>
+                    <div class="div-table-cell" style="width: 8%;">Ver Ficha</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <div class="container-flat-form">
-            <div class="title-flat-form title-flat-blue">Registrar un nuevo docente</div>
-            <form class="form-padding">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos básicos</legend><br>
+        <div class="table-responsive">
+            <div class="div-table" style="margin:0 !important;">
+                <div class="div-table-row div-table-row-list">
+                    <div class="div-table-cell" style="width: 6%;">#</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Libro</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Usuario</div>
+                    <div class="div-table-cell" style="width: 10%;">Tipo</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
                     </div>
-                    <div class="col-xs-12">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de DUI del docente" pattern="[0-9-]{1,10}" required="" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solamente números y guiones, 10 dígitos">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Número de DUI</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los nombres del docente" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los nombres del docente, solamente letras">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Nombres</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los apellidos del docente" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los apellidos del docente, solamente letras">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Apellidos</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de teléfono del docente" pattern="[0-9]{8,8}" required="" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solamente 8 números">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Teléfono</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                       <legend><i class="zmdi zmdi-group"></i> &nbsp; Especialidad, Turno y Sección encargada</legend><br>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la especialidad del docente" required="" maxlength="40" data-toggle="tooltip" data-placement="top" title="Especialidad del docente">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Especialidad</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <span>Turno</span>
-                            <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige el turno que labora el docente">
-                                <option value="Mañana">Mañana</option>
-                                <option value="Tarde">Tarde</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <span>Sección encargada</span>
-                            <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige la sección encargada del docente">
-                                <option value="" disabled="" selected="">Selecciona una sección</option>
-                                <option value="Seccion">Sección</option>
-                                <option value="Seccion">Sección</option>
-                                <option value="Seccion">Sección</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-lock"></i> &nbsp; Datos de la cuenta</legend><br>
-                    </div>
-                    <div class="col-xs-12">
-                       <div class="group-material">
-                            <input type="text" class="material-control tooltips-general input-check-user" placeholder="Nombre de usuario" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escribe un nombre de usuario sin espacios, que servira para iniciar sesión">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Nombre de usuario</label>
-                       </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="password" class="material-control tooltips-general" placeholder="Contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Escribe una contraseña">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Contraseña</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                       <div class="group-material">
-                            <input type="password" class="material-control tooltips-general" placeholder="Repite la contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Repite la contraseña">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Repetir contraseña</label>
-                       </div>
-                    </div>
-                   <div class="col-xs-12">
-                        <p class="text-center">
-                            <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
-                            <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
-                        </p> 
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-info"><i class="zmdi zmdi-file-text"></i></button>
                     </div>
                 </div>
-            </form>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div class="div-table" style="margin:0 !important;">
+                <div class="div-table-row div-table-row-list">
+                    <div class="div-table-cell" style="width: 6%;">#</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Libro</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Usuario</div>
+                    <div class="div-table-cell" style="width: 10%;">Tipo</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                    </div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-info"><i class="zmdi zmdi-file-text"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div class="div-table" style="margin:0 !important;">
+                <div class="div-table-row div-table-row-list">
+                    <div class="div-table-cell" style="width: 6%;">#</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Libro</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Usuario</div>
+                    <div class="div-table-cell" style="width: 10%;">Tipo</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                    </div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-info"><i class="zmdi zmdi-file-text"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div class="div-table" style="margin:0 !important;">
+                <div class="div-table-row div-table-row-list">
+                    <div class="div-table-cell" style="width: 6%;">#</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Libro</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Usuario</div>
+                    <div class="div-table-cell" style="width: 10%;">Tipo</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                    </div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-info"><i class="zmdi zmdi-file-text"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div class="div-table" style="margin:0 !important;">
+                <div class="div-table-row div-table-row-list">
+                    <div class="div-table-cell" style="width: 6%;">#</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Libro</div>
+                    <div class="div-table-cell" style="width: 22%;">Nombre de Usuario</div>
+                    <div class="div-table-cell" style="width: 10%;">Tipo</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
+                    <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                    </div>
+                    <div class="div-table-cell" style="width: 8%;">
+                        <button class="btn btn-info"><i class="zmdi zmdi-file-text"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
@@ -262,6 +252,6 @@
             </div>
         </div>
         <div class="footer-copyright full-reset all-tittles">© 2018 Carlos Alfaro</div>
-    </footer>
+    </footer>   
 </div>
 {% endblock %}
