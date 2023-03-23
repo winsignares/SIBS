@@ -115,6 +115,7 @@ app.register_blueprint(routes_listpersonal, url_prefix="/fronted")
 #Wilches
 app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
+app.register_blueprint(routes_listsesion, url_prefix="/fronted")
 
 #Jasson
 
