@@ -54,7 +54,7 @@ from rutas.liststudent import routes_liststudent
 #Sthiwar
 from rutas.loan import routes_loan
 #Hader
-
+from rutas.listteacher import routes_listteacher
 #Jean
 
 #Ivan
@@ -119,7 +119,7 @@ app.register_blueprint(routes_liststudent, url_prefix="/fronted")
 #Sthiwar
 app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
-
+app.register_blueprint(routes_listteacher, url_prefix="/fronted")
 #Jean
 
 #Ivan
