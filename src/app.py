@@ -50,7 +50,7 @@ from rutas.listprovider import routes_listprovider
 #Benedetty
 from rutas.listsesion import routes_listsesion
 #Jasson
-
+from rutas.liststudent import routes_liststudent
 #Sthiwar
 from rutas.loan import routes_loan
 #Hader
@@ -115,7 +115,7 @@ app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
 
 #Jasson
-
+app.register_blueprint(routes_liststudent, url_prefix="/fronted") 
 #Sthiwar
 app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
