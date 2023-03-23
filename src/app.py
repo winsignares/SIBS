@@ -1,203 +1,173 @@
 #10.230.16.229
-
+#10.230.16.238
 #10.230.16.196
 
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
+from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
-from Model.Categorias import Categorias, CategoriasSchema
 from config.db import db, app, ma
 
-from Model.RolesUsuarios import RolesUsuarios, RolesSchema
-from Model.Editoriales import Editoriales, EditorialesSchema
+from dotenv import load_dotenv
 
-from Model.Libros import Libros, LibrosSchema
-from Model.Proveedores  import Proveedores, ProveedoresSchema
-from Model.estadosolicitud import estadosolicitud, estadoSchema
+#importar routes
+from api.user import routes_user
+from api.roles import routes_roles
+from api.estadosoli import routes_stadosolicitud
+from api.Libros import routes_Libros
+from api.Det_Solicitud import routes_Dsolicitudes
+from api.categoria import routes_category
+from api.proveedor import routes_proveedores
+from api.autores import routes_autores
+from api.detalles_autores import routes_Deautores
+from api.Editoriales import routes_Editorial
+from api.solicitudes import routes_solicitudes
+#rutas
+from rutas.home import routes_home
+#Santiago
 
-from Model.Usuarios import Users,UsuariosSchema
-from Model.Solicitudes import Solicitudes, SolicitudesSchema
-
-from Model.autores import autores, AutoresSchema
-
-#Datos de la tabla autores
-
-autor_schema = AutoresSchema()
-autores_Schema = AutoresSchema(many=True)
-
-rolesusuario_schema = RolesSchema()
-rolesusuarios_schema = RolesSchema(many=True)
-
-Categoria_schema = CategoriasSchema()
-Categoria_schema = CategoriasSchema(many=True)
-
-#Datos de la tabla libros listo
-
-libro_schema = LibrosSchema()
-libros_Schema = LibrosSchema(many=True)
-
-#Valores Intermediarios de la TABLA SOLICITUDES
-solicitudes_schema = SolicitudesSchema()
-solicitudes_schema = SolicitudesSchema(many=True)
-
-#TABLA Proveedores
-Proveedores_schema = SolicitudesSchema()
-Proveedores_schema = SolicitudesSchema(many=True)
+#luis
+from rutas.advancesettings import routes_advancesettings
+#dainer
+from rutas.Admin import routes_Admin
+#Gonzalo
+from rutas.book import routes_book
+#David
 
 
-# datos de estado de solicitud 
-estadosolicitud_schema = estadoSchema()
-estadosolicitudes_Schema = estadoSchema(many=True)
+#Antonio
 
-#Datos de la tabla autores
-@app.route('/autores', methods=['GET'])
-def autores():    
-    returnall = autores.query.all()
-   
-    result_autores = autores_Schema.dump(returnall)
-    return jsonify(result_autores)
+#Edwin
 
-@app.route('/rusuarios', methods=['GET'])
-def rusuario():    
-    returnall = RolesUsuarios.query.all()
-   
-    result_rolesusuaiors = rolesusuarios_schema.dump(returnall)
-    #print(result_rolesusuaiors)
-    return jsonify(result_rolesusuaiors)
+#Alejo
+from rutas.listadmin import routes_listadmin
+#Alet
 
-#metodos para Proveedores inicio
-@app.route('/Proveedores', methods=['GET'])
-def Proveedores():    
-    returnall = Proveedores.query.all()
-   
-    resultado_Proveedores = ProveedoresSchema.dump(returnall)
-    return jsonify(resultado_Proveedores)
-#metodos para Proveedores final 
+#Julieth
 
-#metodo para libros
-@app.route('/libros', methods=['GET'])
-def libros():    
-    returnall = Libros.query.all()
-    resultado_libros = libros_Schema.dump(returnall)
-    return jsonify(resultado_libros)
+#Wilches
+from rutas.listprovider import routes_listprovider
+#Benedetty
+from rutas.listsesion import routes_listsesion
+#Jasson
 
-#fin
-#metodo de estado de solicitudes
-@app.route('/estadosolicitud', methods=['GET'])
-def estado():    
-    returnall = estadosolicitud.query.all()
-    resultado_estadosolicitud = estadosolicitudes_Schema.dump(returnall)
-    return jsonify(resultado_estadosolicitud)
-   
-#fin
+#Sthiwar
+from rutas.loan import routes_loan
+#Hader
 
-#datos de usuarios listo
-Usuario_Schema= UsuariosSchema()
-Usuarios_Schema= UsuariosSchema(many=True)
+#Jean
 
-@app.route('/Usuarios', methods=['GET'])
-def usuarios():    
-    returnall = Ussers.query.all()
-   
-    resultado_usuarios = Usuarios_Schema.dump(returnall)
-    return jsonify(resultado_usuarios)
+#Ivan
+from rutas.personal import routes_personal
+#Ivan villalobos
+
+#Saray
+
+#Camilo
+from rutas.reports import routes_report
+#Jonathan
+from rutas.section import routes_section
+#Jorge
+
+#-------------------------------fin-------------------------------
+
+#ubicacion del api 
+app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
+app.register_blueprint(routes_user, url_prefix="/api")
+app.register_blueprint(routes_roles, url_prefix="/api")
+app.register_blueprint(routes_Libros, url_prefix="/api")
+app.register_blueprint(routes_autores,  url_prefix="/api")
+app.register_blueprint(routes_Deautores,  url_prefix="/api")
+app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
+app.register_blueprint(routes_category, url_prefix="/api")
+app.register_blueprint(routes_proveedores, url_prefix="/api")
+app.register_blueprint(routes_Editorial, url_prefix="/api")
+app.register_blueprint(routes_solicitudes, url_prefix="/api")
+#ubicación rutas
+app.register_blueprint(routes_home, url_prefix="/fronted")
 
 
 
-   
-@app.route('/saveroles', methods=['POST'] )
-def guardar_roles():
-    roles = request.json['roles']
-    print(roles)
-    new_rol = RolesUsuarios(roles)
-    db.session.add(new_rol)
-    db.session.commit()
-    return redirect('/rusuarios')
+#Santiago
 
-@app.route('/eliminar/<id>', methods=['GET'] )
-def eliminar(id):
-    #id = request.args.get('id')
-    #id = request.json['id']
-    rol = RolesUsuarios.query.get(id)
-    db.session.delete(rol)
-    db.session.commit()
-    return jsonify(rolesusuario_schema.dump(rol)) 
+#luis
 
-@app.route('/actualizar', methods=['POST'] )
-def actualizar():
-    #id = request.form['id']
-    #Nombre = request.form['Nombre']
-    #Precio = request.form['Precio']
-    id = request.json['id']
-    rol = request.json['roles']
-    rusuario = RolesUsuarios.query.get(id)
-    rusuario.roles = rol
-    db.session.commit()
-    return redirect('/rusuarios')
+#dainer
+app.register_blueprint(routes_Admin, url_prefix="/fronted")
+#Gonzalo
+app.register_blueprint(routes_book, url_prefix="/fronted")
+#David
+
+#Antonio
+
+#Edwin
+
+#Alejo
+app.register_blueprint(routes_listadmin, url_prefix="/api")
+
+#Alet
+
+#Julieth
+
+#Wilches
+app.register_blueprint(routes_listprovider, url_prefix="/fronted")
+#Benedetty
+
+#Jasson
+
+#Sthiwar
+app.register_blueprint(routes_loan, url_prefix="/fronted")
+#Hader
+
+#Jean
+
+#Ivan
+app.register_blueprint(routes_personal, url_prefix="/fronted")
+#Ivan villalobos
+
+#Saray
+
+#Camilo
+app.register_blueprint(routes_report, url_prefix="/fronted")
+#Jonathan
+
+#Jorge
+
+#-------------------------------fin-------------------------------
 
 @app.route("/")
 def index():
-    return "Hola Mundo!! Dulfran   xD"
+    titulo= "Pagina Princiapl"
+    return render_template('/main/login.html', titles=titulo)
 
-@app.route('/Categorias', methods=['GET'])
-def Categorias():    
-    returnall = Categorias.query.all()
-   
-    result_Categorias = CategoriasSchema.dump(returnall)
-    #print(result_rolesusuaiors)
-    return jsonify(result_Categorias)
+@app.route("/algo")
+def otr():
+    return "hola Santiago"
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='0.0.0.0')
 
 # Datos de la tabla de Editoriales
-@app.route('/Editoriales', methods=['GET'])
-def Editoriales():    
-    returnall = Editoriales.query.all()
-   
-    result_Editoriales = EditorialesSchema.dump(returnall)
-    return jsonify(result_Editoriales)
+if __name__ == '__main__':
+    load_dotenv()
+    app.run(debug=True, port=5000, host='0.0.0.0')
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#<----------------------------------------------------------------->
+'''
+@app.route('/consultar3tabla', methods=['GET'])
+def consultar3tablas():
+    datos= {}
+    resultado = db.session.query(Employee,Department, Company). \
+        select_from(Employee).join(Department).join(Company).all()
+    i=0
+    for employee,department,company  in resultado:
+        i+=1
+        datos[i]={
+           
+                'Ename': employee.name,
+                'Dname': department.name,
+                'Cname': company.name          
+        }
+    print(datos)
+    return "Algo"
+'''
