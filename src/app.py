@@ -134,6 +134,7 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jorge
 
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
+
 #-------------------------------fin-------------------------------
 
 @app.route("/")
