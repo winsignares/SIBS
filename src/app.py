@@ -99,7 +99,7 @@ app.register_blueprint(routes_Admin, url_prefix="/fronted")
 #Gonzalo
 app.register_blueprint(routes_book, url_prefix="/fronted")
 #David
-
+app.register_blueprint(routes_catalogo, url_prefix="/fronted")
 #Antonio
 
 #Edwin
