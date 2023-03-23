@@ -68,6 +68,7 @@ from rutas.reports import routes_report
 #Jonathan
 from rutas.section import routes_section
 #Jorge
+from rutas.SearchBooks import routes_searchbooks 
 
 #-------------------------------fin-------------------------------
 
@@ -132,6 +133,7 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 
 #Jorge
 
+app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #-------------------------------fin-------------------------------
 
 @app.route("/")
