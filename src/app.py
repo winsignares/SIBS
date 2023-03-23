@@ -42,7 +42,7 @@ from rutas.book import routes_book
 #Alejo
 from rutas.listadmin import routes_listadmin
 #Alet
-
+from rutas.listcategory import routes_listcategory
 #Julieth
 
 #Wilches
@@ -68,6 +68,7 @@ from rutas.reports import routes_report
 #Jonathan
 from rutas.section import routes_section
 #Jorge
+from rutas.SearchBooks import routes_searchbooks 
 
 #-------------------------------fin-------------------------------
 
@@ -106,7 +107,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 app.register_blueprint(routes_listadmin, url_prefix="/api")
 
 #Alet
-
+app.register_blueprint(routes_listcategory, url_prefix="/fronted")
 #Julieth
 
 #Wilches
@@ -133,6 +134,7 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 
 #Jorge
 
+app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #-------------------------------fin-------------------------------
 
 @app.route("/")
