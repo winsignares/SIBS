@@ -42,9 +42,9 @@ from rutas.Categoria import routes_Categorias
 #Alejo
 
 #Alet
-
+from rutas.listcategory import routes_listcategory
 #Julieth
-
+from rutas.list_personal import routes_listpersonal
 #Wilches
 from rutas.listprovider import routes_listprovider
 #Benedetty
@@ -69,7 +69,7 @@ from rutas.reports import routes_report
 from rutas.section import routes_section
 #Jorge
 
-#-------------------------------fin-------------------------------
+from rutas.teacher import routes_teacher
 
 #ubicacion del api 
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
@@ -107,9 +107,9 @@ app.register_blueprint(routes_Categorias, url_prefix="/fronted")
 #Alejo
 
 #Alet
-
+app.register_blueprint(routes_listcategory, url_prefix="/fronted")
 #Julieth
-
+app.register_blueprint(routes_listpersonal, url_prefix="/fronted")
 #Wilches
 app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
@@ -134,8 +134,11 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 
 #Jorge
 
-#-------------------------------fin-------------------------------
+#Julieth
+app.register_blueprint(routes_teacher, url_prefix="/fronted")
+#Saray
 
+#------------------------------------------------
 @app.route("/")
 def index():
     titulo= "Pagina Princiapl"
