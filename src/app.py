@@ -56,7 +56,7 @@ from rutas.loan import routes_loan
 #Hader
 
 #Jean
-
+from rutas.loanpending import routes_PresPendientes
 #Ivan
 from rutas.personal import routes_personal
 #Ivan villalobos
@@ -121,7 +121,7 @@ app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
 
 #Jean
-
+app.register_blueprint(routes_PresPendientes, url_prefix="/fronted")
 #Ivan
 app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
