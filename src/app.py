@@ -60,7 +60,7 @@ from rutas.listteacher import routes_listteacher
 #Ivan
 from rutas.personal import routes_personal
 #Ivan villalobos
-
+from rutas.loanreservation import routes_loanreservation
 #Saray
 
 #Camilo
@@ -125,7 +125,7 @@ app.register_blueprint(routes_listteacher, url_prefix="/fronted")
 #Ivan
 app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
-
+app.register_blueprint(routes_loanreservation, url_prefix="/fronted")
 #Saray
 
 #Camilo
