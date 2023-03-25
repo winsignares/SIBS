@@ -1,8 +1,7 @@
-
-from flask import Blueprint, request, jsonify, json
+from flask import Flask, Blueprint,  redirect, request, jsonify, json, session, render_template
 from common.Toke import *
 from config.db import db, app, ma
-from flask import Flask,  redirect, request, jsonify, json, session, render_template
+
 from Model.autores import autores, AutoresSchema
 
 routes_autores = Blueprint("routes_autor", __name__)
@@ -39,8 +38,8 @@ def actualizarautores():
 
 @routes_autores.route('/saveautores', methods=['POST'] )
 def guardar_autores():
-    autores = request.json['nombre', 'nacionalidad']
-    new_autor = autores(autores)
+    autor = request.json['nombre', 'nacionalidad']
+    new_autor = autores(autor)
     db.session.add(new_autor)
     db.session.commit()
     return redirect('/autores')

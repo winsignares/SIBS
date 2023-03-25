@@ -56,7 +56,7 @@ from rutas.loan import routes_loan
 #Hader
 from rutas.listteacher import routes_listteacher
 #Jean
-
+from rutas.loanpending import routes_PresPendientes
 #Ivan
 from rutas.personal import routes_personal
 #Ivan villalobos
@@ -68,7 +68,7 @@ from rutas.reports import routes_report
 #Jonathan
 from rutas.section import routes_section
 #Jorge
-
+from rutas.SearchBooks import routes_searchbooks 
 from rutas.teacher import routes_teacher
 
 #ubicacion del api 
@@ -122,7 +122,7 @@ app.register_blueprint(routes_loan, url_prefix="/fronted")
 #Hader
 app.register_blueprint(routes_listteacher, url_prefix="/fronted")
 #Jean
-
+app.register_blueprint(routes_PresPendientes, url_prefix="/fronted")
 #Ivan
 app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
@@ -134,7 +134,7 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
 
 #Jorge
-
+app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
 app.register_blueprint(routes_teacher, url_prefix="/fronted")
 #Saray
