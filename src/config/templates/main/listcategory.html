@@ -135,8 +135,8 @@
                     <div class="div-table-cell">#</div>
                     <div class="div-table-cell">Código</div>
                     <div class="div-table-cell">Nombre</div>
-                    <div class="div-table-cell">
-                        <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
+                    <div class="div-table-cell">  
+                        <button onclick="listcategory()" class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                     </div>
                     <div class="div-table-cell">
                         <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
@@ -225,4 +225,5 @@
         </footer>
     </div>
     
+    <script src="{{url_for('static', filename='js/BIJS/listcategory.js')}}"></script>
 {% endblock %}
