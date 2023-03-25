@@ -5,6 +5,8 @@ function GuardarInstructor() {
     const telinstructor = document.getElementById('celinstructor');
     const espeinstructor = document.getElementById('espeinstruc');
     const usernameintruc = document.getElementById('usernameinstructor');
+    const turnoinstruc = document.getElementById('jornadainstruc');    
+    const secinstruc = document.getElementById('seccioninstruc');
     const passintruc = document.getElementById('passinstructor');
     const passinstruc = document.getElementById('passinstructor2');
 
@@ -13,7 +15,8 @@ function GuardarInstructor() {
         fullname: nameinstructor.value,
         Email: emailadmin.value,
         Telefono: telinstructor.value,
-        Especialidad: espeinstructor.value,        
+        Especialidad: espeinstructor.value,
+        Jornada: turnoinstruc.value        
         //orders: [1, 2, 3],
         //photo: document.querySelector('#fileInput').files
     }, {
