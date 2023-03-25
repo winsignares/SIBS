@@ -11,7 +11,7 @@ def indexinstitution():
 
 
 
-@routes_Admin.route('/guardarinstitution',methods=['POST'])
+@routes_institution.route('/guardarinstitution',methods=['POST'])
 def saveinstitution():
     #request.form['title']
 
