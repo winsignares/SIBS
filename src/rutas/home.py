@@ -63,9 +63,13 @@ def indexsecciones():
 @routes_home.route('/indexreservaciones', methods=['GET'])
 def indexreservaciones():
     
-    return render_template('/main/loan.html', methods=['GET'])
+    return render_template('/main/loan.html')
 
-#---------------------------
+#---------------------------DEVOLUCIONES PENDIENTES--------------------------------------
+@routes_home.route('/indexdevolucionespendientes', methods=['GET'])
+def indexdevolucionespendientes():
+    
+    return render_template('/main/loanpending.html')
 
 
 
