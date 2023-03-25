@@ -20,20 +20,39 @@ def indexdocentes():
 
     return render_template('/main/docentes.html')
 #-----------------PERSONAL ADMINISTRATIVO---------------------
-@routes_home.route('/indexpersonal administrativo', methods=['GET'])
+@routes_home.route('/indexpersonaladministrativo', methods=['GET'])
 def indexpersonaladministrativo():
 
-    return render_template('/main/personaladministrativo.html')
+    return render_template('/main/personal.html')
 #-----------------LIBROS--------------------------------------
 @routes_home.route('/indexlibros', methods=['GET'])
 def indexlibros():
 
     return  render_template('/main/book.html')
-#--------------------------------------------------------------
+#----------------------------CONFIGURACION AVANZADA---------------------------------
 @routes_home.route('/indexconfiguracionesavanzadas', methods=['GET'])
 def indexconfiguracionesavanzadas():
     
     return render_template('/main/advancesettings.html')
+
+#-----------------------------ESTUDIANTES---------------------------------------------
+@routes_home.route('/indexestudiantes', methods=['GET'])
+def indexestudiantes():
+    
+    return render_template('/main/estudiante.html')
+
+#-----------------------------PROVEEDORES---------------------------------------------
+@routes_home.route('/indexproveedores', methods=['GET'])
+def indexproveedores():
+    
+    return render_template('/main/provider.html')
+
+#-----------------------------CATEGORÍA------------------------------------------------
+@routes_home.route('/indexcategoria', methods=['GET'])
+def indexcategoria():
+    
+    return render_template('/main/Categoria.html')
+
 
 
 
