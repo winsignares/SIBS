@@ -28,7 +28,7 @@ def eliminardetalles(id):
 def guardar_detalles():
     Dautores = request.json['id_libros', 'id_autores']
     print(Dautores)
-    new_Dautor = detalles_autores(Dautores)
+    new_Dautor = DetallesAutores(Dautores)
     db.session.add(new_Dautor)
     db.session.commit()
     return redirect('/detalles_autores')
@@ -38,7 +38,7 @@ def actualizar_detalles():
     id = request.json['id']
     id_libros = request.json['id_libros']
     id_autores = request.json['id_autores']
-    Dautores = detalles_autores.query.get(id)
+    Dautores = DetallesAutores.query.get(id)
     Dautores.detalles_autores = id_libros
     Dautores.detalles_autores = id_autores
     db.session.commit()
