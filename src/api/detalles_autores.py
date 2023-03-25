@@ -42,4 +42,21 @@ def actualizar_detalles():
     Dautores.detalles_autor = id_autores
     db.session.commit()
     return redirect('/detalles_autores')
-
+'''
+@app.route('/consultar3tabla', methods=['GET'])
+def consultar3tablas():
+    datos= {}
+    resultado = db.session.query(Users, roles). \
+        select_from(Users).join(roles).()
+    i=0
+    for employee,department,company  in resultado:
+        i+=1
+        datos[i]={
+           
+                'Ename': employee.name,
+                'Dname': department.name,
+                'Cname': company.name          
+        }
+    print(datos)
+    return "Algo"
+'''
