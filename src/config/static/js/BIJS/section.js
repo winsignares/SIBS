@@ -1,15 +1,20 @@
 var row="";
-var filas = [1,2,3];
+var filas = ["XD","X2","X3"];
 function viewSectionEdad() {
+    row = ""
+    //alert(filas.length)
+    const getOptionEdad = document.getElementById('getOptionEdad');
     const addOptionEdad = document.getElementById('addOptionEdad');
+    var principal = `<option value="" disabled="" selected="">Selecciona una opción</option>`
     for (let iterar = 0; iterar < filas.length; iterar++) {
-        row += `<option value="${iterar++}° año">${iterar}°</option>`
-        iterar--
-        filas.push(row);
+        
+        row += `<option value="${iterar}° año">${filas[iterar]}°</option><br>`
+        iterar
     }    
-    addOptionEdad.innerHTML = row;
+    principal += row;
+    getOptionEdad.innerHTML = principal;
 }
-
+//----------------------------------------------------------------
 function addSection() {
   const addOptionEdad = document.getElementById('addOptionEdad');
   row += `<option value="1° año ">1°</option>`
