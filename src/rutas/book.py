@@ -8,3 +8,12 @@ routes_book = Blueprint("routes_book", __name__)
 def indexbook():
     
     return render_template('/main/book.html')
+
+@routes_book.route('/guardarbook',methods=['POST'])
+def savebook():
+    title = request.form['fullname']
+    console.log(fullname)
+    new_book = libros(title)
+    #db.session.add(new_book)
+    #db.session.commit()
+    return title
