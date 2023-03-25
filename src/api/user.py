@@ -87,3 +87,18 @@ def verificartoken():
     print("vf =>", vf)
     return vf
 
+@routes_user.route('/consultar3tabla', methods=['GET'])
+def consultar3tablas():
+    datos= {}
+    resultado = db.session.query(TblUsuarios,tblrolesusuarios). \
+        select_from(TblUsuarios).join(tblrolesusuarios).all()
+    i=0
+    for TblUsuarios,tblrolesusuarios in resultado:
+        i+=1
+        datos[i]={
+                
+                'Uname': TblUsuarios.name,
+                'Rname': tblrolesusuarios.name
+        }
+    print(datos)
+    return datos
