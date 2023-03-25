@@ -9,3 +9,12 @@ def indexsection():
     
     return render_template('/main/Section.html')
 
+@routes_section.route('/saveDatos',methods=['POST'])
+def saveadmin():
+    #request.form['title']
+    fullname = request.form['fullname']
+    print(fullname)
+    new_rol = RolesUsuarios(fullname)
+    db.session.add(new_rol)
+    db.session.commit()
+    return fullname

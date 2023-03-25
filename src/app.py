@@ -132,7 +132,7 @@ app.register_blueprint(routes_loanreservation, url_prefix="/fronted")
 #Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
-
+app.register_blueprint(routes_section, url_prefix="/fronted") 
 #Jorge
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
