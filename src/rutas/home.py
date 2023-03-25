@@ -71,11 +71,6 @@ def indexdevolucionespendientes():
     
     return render_template('/main/loanpending.html')
 
-#----------------------------MENU CONFIGURACIONES AVANZADAS------------------------------
-@routes_home.route('/indexconfiguracionesavanzadas', methods=['GET'])
-def indexconfiguracionesavanzadas():
-    
-    return render_template('/main/advancesettings.html')
 
 
 
