@@ -1,7 +1,6 @@
-from flask import Blueprint, request,jsonify, json
 from common.Toke import *
 from config.db import db, app, ma
-from flask import Flask,  redirect, request, jsonify, json, session, render_template
+from flask import Flask, Blueprint, redirect, request, jsonify, json, session, render_template
 from Model.Usuarios import Users,UsuariosSchema
 
 routes_user = Blueprint("routes_user", __name__)
