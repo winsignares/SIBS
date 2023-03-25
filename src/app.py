@@ -33,12 +33,11 @@ from rutas.Admin import routes_Admin
 #Gonzalo
 from rutas.book import routes_book
 #David
-
+from rutas.catalogo import routes_catalogo
 #Antonio
 from rutas.Categoria import routes_Categorias 
-
 #Edwin
-
+from rutas.institution import routes_institution
 #Alejo
 from rutas.listadmin import routes_listadmin 
 #Alet
@@ -83,13 +82,11 @@ app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 app.register_blueprint(routes_solicitudes, url_prefix="/api")
+
 #ubicación rutas
-app.register_blueprint(routes_home, url_prefix="/fronted")
-
-
 
 #Santiago
-
+app.register_blueprint(routes_home, url_prefix="/fronted")
 #luis
 
 #dainer
@@ -97,13 +94,11 @@ app.register_blueprint(routes_Admin, url_prefix="/fronted")
 #Gonzalo
 app.register_blueprint(routes_book, url_prefix="/fronted")
 #David
-
+app.register_blueprint(routes_catalogo, url_prefix="/fronted")
 #Antonio
 app.register_blueprint(routes_Categorias, url_prefix="/fronted")
-
-
 #Edwin
-
+app.register_blueprint(routes_institution, url_prefix="/fronted")
 #Alejo
 app.register_blueprint(routes_listadmin, url_prefix="/fronted")
 #Alet
@@ -114,7 +109,6 @@ app.register_blueprint(routes_listpersonal, url_prefix="/fronted")
 app.register_blueprint(routes_listprovider, url_prefix="/fronted")
 #Benedetty
 app.register_blueprint(routes_listsesion, url_prefix="/fronted")
-
 #Jasson
 app.register_blueprint(routes_liststudent, url_prefix="/fronted") 
 #Sthiwar
@@ -137,7 +131,6 @@ app.register_blueprint(routes_report, url_prefix="/fronted")
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
 app.register_blueprint(routes_teacher, url_prefix="/fronted")
-#Saray
 
 #------------------------------------------------
 @app.route("/")
