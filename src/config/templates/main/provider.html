@@ -130,7 +130,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Nombre de proveedor" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del proveedor">
+                            <input id="nombreprovider" type="text" class="material-control tooltips-general" placeholder="Nombre de proveedor" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del proveedor">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Nombre del proveedor</label>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="email" class="material-control tooltips-general" placeholder="Email de proveedor" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el Email del proveedor">
+                            <input id="emailprovider" type="email" class="material-control tooltips-general" placeholder="Email de proveedor" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el Email del proveedor">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Email</label>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Dirección de proveedor" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe la dirección del proveedor">
+                            <input id="dirreccionprovider" type="text" class="material-control tooltips-general" placeholder="Dirección de proveedor" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe la dirección del proveedor">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Dirección</label>
@@ -154,7 +154,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Teléfono de proveedor" required="" pattern="[0-9]{8,8}" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solo números, mínimo 8 dígitos">
+                            <input id="telprovider" type="text" class="material-control tooltips-general" placeholder="Teléfono de proveedor" required="" pattern="[0-9]{8,8}" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solo números, mínimo 8 dígitos">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Teléfono</label>
@@ -162,7 +162,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Responsable de atención" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Responsable de atención">
+                            <input id="resprovider" type="text" class="material-control tooltips-general" placeholder="Responsable de atención" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Responsable de atención">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Responsable de atención</label>
@@ -214,4 +214,6 @@
         <div class="footer-copyright full-reset all-tittles">© 2018 Carlos Alfaro</div>
     </footer>
 </div>
+
+<script src="{{url_for('static', filename='js/BIJS/provider.js')}}"></script>
 {% endblock %}
