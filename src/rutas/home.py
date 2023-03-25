@@ -53,6 +53,21 @@ def indexcategoria():
     
     return render_template('/main/Categoria.html')
 
+#---------------------------SECCIONES---------------------------------------------------
+@routes_home.route('/indexsecciones', methods=['GET'])
+def indexsecciones():
+    
+    return render_template('/main/section.html')
+
+#---------------------------RESERVACIONES-----------------------------------------------
+@routes_home.route('/indexreservaciones', methods=['GET'])
+def indexreservaciones():
+    
+    return render_template('/main/loan.html', methods=['GET'])
+
+#---------------------------
+
+
 
 
 
