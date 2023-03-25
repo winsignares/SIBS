@@ -30,6 +30,10 @@ def indexlibros():
 
     return  render_template('/main/book.html')
 #--------------------------------------------------------------
+@routes_home.route('/indexconfiguracionesavanzadas', methods=['GET'])
+def indexconfiguracionesavanzadas():
+    
+    return render_template('/main/advancesettings.html')
 
 
 
