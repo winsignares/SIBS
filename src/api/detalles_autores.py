@@ -1,7 +1,6 @@
-from flask import Blueprint, request, jsonify, json
+from flask import Flask, Blueprint,  redirect, request, jsonify, json, session, render_template
 from common.Toke import *
 from config.db import db, app, ma
-from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
 from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
 
@@ -40,7 +39,7 @@ def actualizar_detalles():
     id_autores = request.json['id_autores']
     Dautores = DetallesAutores.query.get(id)
     Dautores.detalles_autores = id_libros
-    Dautores.detalles_autores = id_autores
+    Dautores.detalles_autor = id_autores
     db.session.commit()
     return redirect('/detalles_autores')
 
