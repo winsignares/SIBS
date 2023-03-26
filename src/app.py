@@ -11,17 +11,17 @@ from config.db import db, app, ma
 #from dotenv import load_dotenv
 
 #importar routes
-from api.user import routes_user
 from api.roles import routes_roles
-from api.estadosoli import routes_stadosolicitud
-from api.Libros import routes_Libros
-from api.Det_Solicitud import routes_Dsolicitudes
 from api.categoria import routes_category
-from api.proveedor import routes_proveedores
 from api.autores import routes_autores
-from api.detalles_autores import routes_Deautores
+from api.proveedor import routes_proveedores
 from api.Editoriales import routes_Editorial
 from api.solicitudes import routes_solicitudes
+from api.estadosoli import routes_stadosolicitud
+from api.Det_Solicitud import routes_Dsolicitudes
+from api.Libros import routes_Libros
+from api.detalles_autores import routes_Deautores
+from api.user import routes_user
 #rutas
 from rutas.home import routes_home
 #Santiago
