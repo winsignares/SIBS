@@ -8,7 +8,7 @@ from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 #importar routes
 from api.user import routes_user
