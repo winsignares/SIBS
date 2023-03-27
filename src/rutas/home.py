@@ -81,7 +81,7 @@ def indexprestamos():
 @routes_home.route('/indexreportesyestadisticas', methods=['GET'])
 def indexreportesyprestamos():
 
-    return render_template('/main/reports')
+    return render_template('/main/report.html')
 
 #--------------------AQUI EMPIEZA EL MENU EN LA PARTE IZQUIERDA---------------------------------------------
 
