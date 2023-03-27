@@ -130,10 +130,10 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el NIE del alumno" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="NIE de estudiante">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la cedula del alumno" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Cedula del estudiante">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>NIE</label>
+                            <label>Cedula</label>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -154,45 +154,51 @@
                     </div>
                     <div class="col-xs-12">
                        <div class="group-material">
-                            <span>Sección</span>
-                            <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige la sección a la que pertenece el alumno">
-                                <option value="" disabled="" selected="">Selecciona una sección</option>
-                                <option value="seccion">Sección</option>
-                                <option value="seccion">Sección</option>
-                                <option value="seccion">Sección</option>
+                            <span>Formación</span>
+                            <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige la Formación a la que pertenece el alumno">
+                                <option value="" disabled="" selected="">Selecciona una Formación</option>
+                                <option value="ADSO">Formación</option>
+                                <option value="DIM">Formación</option>
+                                <option value="TEI">Formación</option>
+                                <option value="MEC">Formación</option>
+                                <option value="TMA">Formación</option>
+                                <option value="TS">Formación</option>
+                                <option value="TMMI">Formación</option>
                             </select>
                         </div>
+
+
                     </div>
                     <div class="col-xs-12">
-                        <legend><i class="zmdi zmdi-mood"></i> &nbsp; Datos del encargado</legend><br>
+                        <legend><i class="zmdi zmdi-mood"></i> &nbsp; Datos del instructor</legend><br>
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general check-representative" placeholder="Escribe aquí el número de DUI del encargado" pattern="[0-9-]{1,10}" required="" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solamente números y guiones, 10 dígitos">
+                            <input type="text" class="material-control tooltips-general check-representative" placeholder="Escribe aquí el número de Ficha" pattern="[0-9-]{1,10}" required="" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solamente números y guiones, 10 dígitos">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>Número de DUI del encargado</label>
+                            <label>Número de Ficha</label>
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Nombre del encargado" required="" pattern="[a-zA-ZéíóúáñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombre del encargado del estudiante">
+                            <input type="text" class="material-control tooltips-general" placeholder="Nombre del instructor encargado" required="" pattern="[a-zA-ZéíóúáñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombre del instructor encargado">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>Nombre completo del encargado</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Parentesco" required="" pattern="[a-zA-ZéíóúáñÑ ]{1,30}" maxlength="30" data-toggle="tooltip" data-placement="top" title="Parentesco">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Parentesco</label>
+                            <label>Nombre del instructor encargado</label>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input type="text" class="material-control tooltips-general" placeholder="Teléfono" pattern="[0-9]{8,8}" required="" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solamente 8 números">
+                            <input type="text" class="material-control tooltips-general" placeholder="Genero" required="" pattern="[a-zA-ZéíóúáñÑ ]{1,30}" maxlength="30" data-toggle="tooltip" data-placement="top" title="Genero">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Genero</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Teléfono" pattern="[0-9]{8,8}" required="" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solamente 10 números">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Teléfono</label>
