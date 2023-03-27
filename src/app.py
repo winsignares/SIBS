@@ -18,11 +18,15 @@ from api.autores import routes_autores
 from api.proveedor import routes_proveedores
 from api.Editoriales import routes_Editorial
 from api.solicitudes import routes_solicitudes
+<<<<<<< HEAD
 from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
 from api.cate_deta import routes_Catego_deta
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.detalles_autores import routes_Deautores
+=======
+from api.section import routes_section
+>>>>>>> section
 #rutas
 from rutas.home import routes_home
 #Santiago
@@ -128,7 +132,7 @@ app.register_blueprint(routes_student, url_prefix="/fronted")
 #Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
-
+app.register_blueprint(routes_section, url_prefix="/fronted") 
 #Jorge
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
