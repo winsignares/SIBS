@@ -1,17 +1,17 @@
 //----------------------------------------------------------------
-function GuardarSection() {
-    const Inputname = document.getElementById('nombreadmin');
-    const emailadmin = document.getElementById('emailadmin');
-    const userInputname = document.getElementById('userInputname');
-    const passadmin = document.getElementById('passadmin');
-    const passadmin2 = document.getElementById('passadmin2');
+function addSection() {
+    const OpYear = document.getElementById('getOptionYear');
+    const OpEspecialidad = document.getElementById('getOptionEspecialidad');
+    const OpSeccion = document.getElementById('getOptionSeccion');
 
     //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${Inputname.value} ${emailadmin.value}${userInputname.value} ${passadmin.value}`): alert('los campos son diferentes');
-    axios.post('guardaradmin', {
-            fullname: Inputname.value,
-            Email: emailadmin.value
-                //orders: [1, 2, 3],
-                //photo: document.querySelector('#fileInput').files
+    axios.post('guardarsection', {
+            year: OpYear.value,
+            especialidad: OpEspecialidad.value,
+            seccion: OpSeccion.value
+
+            //orders: [1, 2, 3],
+            //photo: document.querySelector('#fileInput').files
         }, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -24,6 +24,3 @@ function GuardarSection() {
             console.error(error)
         })
 }
-/**
- * year
- */
