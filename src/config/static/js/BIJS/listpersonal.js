@@ -14,17 +14,14 @@ function listpersonal(){
             fila += x.Dui;
             fila += "</div>"
 
-            fila += "<div>"
-            fila += x.Nombre;
-            fila += "</div>"
 
-            fila += "<div>"
-            fila += x.Telefono;
-            fila += "</div>"
+                fila += "<div>"
+                fila += x.Nombre;
+                fila += "</div>"
 
-            fila += "<div>"
-            fila += x.Cargo;
-            fila += "</div>"
+                fila += "<div>"
+                fila += x.Telefono;
+                fila += "</div>"
 
             fila += "</div>"
             crear += fila;
