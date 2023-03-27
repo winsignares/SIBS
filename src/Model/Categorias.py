@@ -17,4 +17,5 @@ with app.app_context():
 
 class CategoriasSchema(ma.Schema):
     class Meta:
-        fields = ('id','N_Cat','Descripcion')
+        fields = ('id','N_Cat','Descripción')
+        

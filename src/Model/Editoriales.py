@@ -6,8 +6,7 @@ class Editoriales(db.Model):
     
     id  = db.Column(db.Integer, primary_key=True)
     N_Edi = db.Column(db.String(50))
-    id_Prov = db.Column(db.String(50))
-    
+    id_Prov = db.Column(db.Integer,db.ForeignKey("tblproveedores.id"))
     
 
     def __init__(self, N_Edi, id_Prov):

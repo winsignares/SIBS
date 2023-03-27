@@ -1,12 +1,12 @@
 from config.db import db, app, ma 
 
 class Solicitudes(db.Model):
-    __tablename__ = "tbSolicitudes"
+    __tablename__ = "tblSolicitudes"
 
     id = db.Column (db.Integer, primary_key = True)
     fecha_solicitud = db.Column(db.DateTime)
     cantidad = db.Column(db.Integer)
-    Id_usu = db.Column(db.Integer, db.ForeignKey('Usuarios.id'))
+    Id_usu = db.Column(db.Integer, db.ForeignKey('TblUsuarios.id'))
 
   #  id_usu = db.Columm (db.integer) 
     
@@ -23,3 +23,5 @@ with app.app_context():
 class SolicitudesSchema(ma.Schema):
     class meta:
         fields = ('id', 'fecha_solicitud','cantidad', 'Id_usu' )
+#a
+#e

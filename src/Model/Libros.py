@@ -11,11 +11,11 @@ class Libros(db.Model):
     copias = db.Column(db.Integer)
     estado = db.Column(db.String(50))
     ubicacion = db.Column(db.String(50))
-    id_deta_cat = db.Column(db.Integer, db.ForeignKey(''))
-    id_autor = db.Column(db.Integer, db.ForeignKey(''))
-    id_editoral = db.Column(db.Integer, db.ForeignKey('Editoriales.id'))
-    id_proov = db.Column(db.Integer, db.ForeignKey('proveedores.id'))
-    
+    id_deta_cat = db.Column(db.Integer)
+    id_autor = db.Column(db.Integer)
+    id_editoral = db.Column(db.Integer, db.ForeignKey('tbEditoriales.id'))
+    id_proov = db.Column(db.Integer, db.ForeignKey('tblproveedores.id'))
+  
 
     def __init__(self, titulo, pais, ano_publicado, copias, estado, ubicacion, id_deta_cat, id_autor, id_editoral, id_proov):
         self.titulo = titulo
@@ -28,6 +28,7 @@ class Libros(db.Model):
         self.id_autor = id_autor
         self.id_editoral = id_editoral
         self.id_proov = id_proov
+        
         
 
         
