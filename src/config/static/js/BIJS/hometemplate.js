@@ -1,13 +1,13 @@
 // Definimos el componente
 class Component {
-  constructor(id, template) {
-    this.element = document.getElementById(id);
-    this.template = template;
-  }
+    constructor(id, template) {
+        this.element = document.getElementById(id);
+        this.template = template;
+    }
 
-  render() {
-    this.element.innerHTML = this.template.innerHTML;
-  }
+    render() {
+        this.element.innerHTML = this.template.innerHTML;
+    }
 }
 
 // Creamos una instancia del componente
@@ -16,12 +16,20 @@ const templateContainer = new Component('template-container', document.getElemen
 // Cambiamos la plantilla en respuesta a un evento
 const changeTemplateBtn = document.getElementById('change-template-btn');
 changeTemplateBtn.addEventListener('click', () => {
-  templateContainer.template = document.getElementById('template2');
-  templateContainer.render();
+    templateContainer.template = document.getElementById('template2');
+    templateContainer.render();
 });
 
 
-function incorporarplantilla(id, ruta){
+function incorporarplantilla(id, ruta) {
     const objto = document.getElementById(id);
-    objto.innerHTML = ruta    
-}
+    fetch(ruta)
+      .then(response => response.text())
+      .then(data => {
+        objto.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error al cargar el archivo:', error);
+      });
+  }
+  
