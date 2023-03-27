@@ -21,15 +21,25 @@ changeTemplateBtn.addEventListener('click', () => {
 });
 
 
-function incorporarplantilla(id, ruta) {
-    const objto = document.getElementById(id);
-    fetch(ruta)
-      .then(response => response.text())
-      .then(data => {
-        objto.innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Error al cargar el archivo:', error);
-      });
-  }
+//////function incorporarplantilla(id, ruta) {
+    //////const objto = document.getElementById(id);
+    //////fetch(ruta)
+      //////.then(response => response.text())
+      //////.then(data => {
+       ////// objto.innerHTML = data;
+      //////})
+      //////.catch(error => {
+      //////  console.error('Error al cargar el archivo:', error);
+     ////// });
+  //////}
+
+  
+
+  // Obtener el contenido de la página HTML
+  fetch('Home.html')
+  .then(response => response.text())
+  .then(data => {
+    // Insertar el contenido en el div
+    document.getElementById('miDiv').innerHTML = data;
+  });
   
