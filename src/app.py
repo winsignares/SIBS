@@ -22,6 +22,7 @@ from api.autores import routes_autores
 from api.detalles_autores import routes_Deautores
 from api.Editoriales import routes_Editorial
 from api.solicitudes import routes_solicitudes
+from api.section import routes_section
 #rutas
 from rutas.home import routes_home
 #Santiago

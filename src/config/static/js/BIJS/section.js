@@ -1,38 +1,45 @@
-var row="";
-var filas = ["XD","X2","X3"];
+var row = "";
+var filas = ["XD", "X2", "X3"];
+
 function viewSectionEdad() {
     row = ""
-    //alert(filas.length)
+        //alert(filas.length)
     const getOptionEdad = document.getElementById('getOptionEdad');
     const addOptionEdad = document.getElementById('addOptionEdad');
     var principal = `<option value="" disabled="" selected="">Selecciona una opción</option>`
     for (let iterar = 0; iterar < filas.length; iterar++) {
-        
+
         row += `<option value="${iterar}° año">${filas[iterar]}°</option><br>`
         iterar
-    }    
+    }
     principal += row;
     getOptionEdad.innerHTML = principal;
 }
 //----------------------------------------------------------------
-function addSection() {
-  const addOptionEdad = document.getElementById('addOptionEdad');
-  row += `<option value="1° año ">1°</option>`
-              /*<th scope="row">${addOptionEdad.value}</th>
-              <td>${descripcion.value}</td>
-            </tr>*/
-  filas.push(row);
+function GuardarSection() {
+    const Inputname = document.getElementById('nombreadmin');
+    const emailadmin = document.getElementById('emailadmin');
+    const userInputname = document.getElementById('userInputname');
+    const passadmin = document.getElementById('passadmin');
+    const passadmin2 = document.getElementById('passadmin2');
 
-  //addr.innerHTML = row;
-  
-  row= `<tr class=${filas.length %2 == 0? "table-success": "table-danger"}>
-              <th scope="row">${addOptionEdad.value}</th>
-              <td>${descripcion.value}</td>
-              <td><a class="btn btn-primary">actualizar</a></td>
-              <td><a class="btn btn-danger">Eliminar</a></td>
-            </tr>`;
-  filas.push(row);
-  addr.innerHTML = row;
+    //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${Inputname.value} ${emailadmin.value}${userInputname.value} ${passadmin.value}`): alert('los campos son diferentes');
+    axios.post('guardaradmin', {
+            fullname: Inputname.value,
+            Email: emailadmin.value
+                //orders: [1, 2, 3],
+                //photo: document.querySelector('#fileInput').files
+        }, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+
+            }
+        }).then((res) => {
+            console.log(res.data)
+        })
+        .catch((error) => {
+            console.error(error)
+        })
 }
 
 /*
@@ -88,15 +95,15 @@ selpokemon.addEventListener('change', function() {
 }, false);
 
 function GuardarAdministrador() {
-    const nameadmin = document.getElementById('nombreadmin');
+    const Inputname = document.getElementById('nombreadmin');
     const emailadmin = document.getElementById('emailadmin');
-    const usernameadmin = document.getElementById('usernameadmin');
+    const userInputname = document.getElementById('userInputname');
     const passadmin = document.getElementById('passadmin');
     const passadmin2 = document.getElementById('passadmin2');
 
-    //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${nameadmin.value} ${emailadmin.value}${usernameadmin.value} ${passadmin.value}`): alert('los campos son diferentes');
+    //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${Inputname.value} ${emailadmin.value}${userInputname.value} ${passadmin.value}`): alert('los campos son diferentes');
     axios.post('guardaradmin', {
-        fullname: nameadmin.value,
+        fullname: Inputname.value,
         Email: emailadmin.value
         //orders: [1, 2, 3],
         //photo: document.querySelector('#fileInput').files
