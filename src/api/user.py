@@ -90,15 +90,15 @@ def verificartoken():
 def consullist():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.cedula, TblUsuarios.fullname, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
     i=0
     for TblUsuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'DUI':TblUsuarios.cedula,
-		'Nombre':TblUsuarios.fullname,
+        'DUI':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
 		'Telefono':TblUsuarios.telefono,
 		'Cargo': TblUsuarios.cargo                      
         }
     print(datos)
-    return datos
+    return jsonify(datos)

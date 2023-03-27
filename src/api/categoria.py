@@ -52,10 +52,8 @@ def actualizar_Cat():
     id = request.json['id']
     N_cat = request.json['N_cat']
     Descripcion = request.json['Descripcion']
-
     updateCat = Categorias.query.get(id)
     updateCat.nameCat = N_cat
     updateCat.descripCat = Descripcion
-
     db.session.commit()
     return redirect('/Categorias')
