@@ -10,7 +10,7 @@
         <div class="nav-lateral-divider full-reset"></div>
         <div class="full-reset" style="padding: 10px 0; color:#fff;">
             <figure>
-                <img src="{{url_for('static', filename='assets/img/logo.png')}}" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                <img src= "{{url_for('static', filename="assets/img/logo.png")}} "alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
             </figure>
             <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
         </div>
@@ -65,7 +65,7 @@
     <nav class="navbar-user-top full-reset">
         <ul class="list-unstyled full-reset">
             <figure>
-               <img src="{{url_for('static', filename='assets/img/user01.png')}}" alt="user-picture" class="img-responsive img-circle center-box">
+               <img src= "{{url_for('static', filename="assets/img/user01.png")}} " alt="user-picture" class="img-responsive img-circle center-box">
             </figure>
             <li style="color:#fff; cursor:default;">
                 <span class="all-tittles">Admin Name</span>
@@ -89,101 +89,122 @@
     </nav>
     <div class="container">
         <div class="page-header">
-          <h1 class="all-tittles">Sistema bibliotecario <small>configuraciones avanzadas</small></h1>
+          <h1 class="all-tittles">Sistema bibliotecario <small>Administración Usuarios</small></h1>
         </div>
     </div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="active"><a href="#security" aria-controls="security" role="tab" data-toggle="tab">Seguridad</a></li>
-        <li role="presentation"><a href="#others" aria-controls="others" role="tab" data-toggle="tab">Otras opciones</a></li>
-    </ul>
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="security">
-            <div class="container-fluid"  style="margin: 50px 0;">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <p class="text-center text-danger"><i class="zmdi zmdi-shield-security zmdi-hc-5x"></i></p>
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                        Puedes realizar copias de seguridad de la base de datos en cualquier momento, también puedes restaurar el sistema a un punto de restauración que hayas creado previamente.
-                    </div>
-                </div>
-            </div>  
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-cloud-download zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">realizar copia de seguridad</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-cloud-upload zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">restaurar el sistema</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-cloud-off zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">borrar copias de seguridad</h3>
-                        </div>
-                    </div>
-                </div>
+    <div class="conteiner-fluid">
+        <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
+            <li role="presentation"><a href="admin.html">Administradores</a></li>
+            <li role="presentation"><a href="teacher.html">Docentes</a></li>
+            <li role="presentation"><a href="student.html">Estudiantes</a></li>
+            <li role="presentation" class="active"><a href="personal.html">Personal administrativo</a></li>
+        </ul>
+    </div>
+    <div class="container-fluid"  style="margin: 50px 0;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <img src="assets/img/user05.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                Bienvenido a la sección para registrar nuevo personal administrativo. Para registrar el personal administrativo debes de llenar todos los campos del siguiente formulario.
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="others">
-            <div class="container-fluid"  style="margin: 50px 0;">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <p class="text-center text-danger"><i class="zmdi zmdi-fire zmdi-hc-5x"></i></p>
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                        En esta sección se muestran opciones avanzadas para eliminar grandes cantidades de datos. Eliminarás todos los datos registrados en el sistema de la opción que elijas. .
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-calendar-close zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">eliminar préstamos</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-male-alt zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">eliminar docentes</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-accounts-alt zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">eliminar estudiantes</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-male-female zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">eliminar personal ad.</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-book zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">eliminar libros</h3>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="report-content">
-                            <p class="text-center"><i class="zmdi zmdi-time-restore-setting zmdi-hc-4x"></i></p>
-                            <h3 class="text-center all-tittles">eliminar bitacora</h3>
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 lead">
+                <ol class="breadcrumb">
+                  <li class="active">Nuevo personal ad.</li>
+                  <li><a href="listpersonal.html">Listado de personal ad.</a></li>
+                </ol>
             </div>
         </div>
-    </div>      
+    </div>
+    <div class="container-fluid">
+        <div class="container-flat-form">
+            <div class="title-flat-form title-flat-blue">Registrar nuevo personal administrativo</div>
+            <form class="form-padding">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos básicos</legend><br>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de DUI del personal administrativo" pattern="[0-9-]{1,10}" required="" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solamente números y guiones, 10 dígitos">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Número de DUI</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los nombres del personal administrativo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los nombres del personal administrativo, solamente letras">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombres</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los apellidos del personal administrativo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe los apellidos del personal administrativo, solamente letras">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Apellidos</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el número de teléfono del personal administrativo" pattern="[0-9]{8,8}" required="" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solamente 8 números">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Teléfono</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el cargo del personal administrativo" required="" maxlength="30" data-toggle="tooltip" data-placement="top" title="Cargo del personal administrativo">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Cargo</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <legend><i class="zmdi zmdi-lock"></i> &nbsp; Datos de la cuenta</legend><br>
+                    </div>
+                    <div class="col-xs-12">
+                       <div class="group-material">
+                            <input type="text" class="material-control tooltips-general input-check-user" placeholder="Nombre de usuario" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escribe un nombre de usuario sin espacios, que servira para iniciar sesión">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombre de usuario</label>
+                       </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="group-material">
+                            <input type="password" class="material-control tooltips-general" placeholder="Contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Escribe una contraseña">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                       <div class="group-material">
+                            <input type="password" class="material-control tooltips-general" placeholder="Repite la contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Repite la contraseña">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Repetir contraseña</label>
+                       </div>
+                    </div>
+                   <div class="col-xs-12">
+                        <p class="text-center">
+                            <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
+                            <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+                        </p> 
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
