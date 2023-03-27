@@ -5,7 +5,7 @@ class cate_deta(db.Model):
 
     
     id  = db.Column(db.Integer, primary_key=True)
-    id_cate = db.Column(db.Date)
+    id_cate = db.Column(db.Integer, db.ForeignKey('tblcategorias.id'))
     id_li = db.Column(db.Integer, db.ForeignKey('tbllibros.id'))
     
 
