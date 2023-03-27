@@ -12,7 +12,6 @@ function GuardarInstructor() {
 
     axios.post('guardaradmin', {
         fullname: nameinstructor.value,
-        Email: emailadmin.value,
         Telefono: telinstructor.value,
         Especialidad: espeinstructor.value,
         Jornada: turnoinstruc.value        

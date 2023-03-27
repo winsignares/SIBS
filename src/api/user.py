@@ -86,18 +86,19 @@ def verificartoken():
     print("vf =>", vf)
     return vf
 
-@routes_user.route('/consultar3tabla', methods=['GET'])
-def consultar3tablas():
+@routes_user.route('/conlistpersonal', methods=['GET'])
+def consullist():
     datos= {}
-    resultado = db.session.query(TblUsuarios,tblrolesusuarios). \
-        select_from(TblUsuarios).join(tblrolesusuarios).all()
+    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
+        select_from(TblUsuarios.cedula, TblUsuarios.fullname, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
     i=0
     for TblUsuarios,tblrolesusuarios in resultado:
-        i+=1
-        datos[i]={
-                
-                'Uname': TblUsuarios.name,
-                'Rname': tblrolesusuarios.name
+        i+=1	       
+        datos[i] = {
+        'DUI':TblUsuarios.cedula,
+		'Nombre':TblUsuarios.fullname,
+		'Telefono':TblUsuarios.telefono,
+		'Cargo': TblUsuarios.cargo                      
         }
     print(datos)
     return datos

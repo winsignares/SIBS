@@ -10,14 +10,14 @@
         <div class="nav-lateral-divider full-reset"></div>
         <div class="full-reset" style="padding: 10px 0; color:#fff;">
             <figure>
-                <img src="assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                <img src="{{url_for('static', filename='assets/img/user01.png')}}" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
             </figure>
             <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
         </div>
         <div class="nav-lateral-divider full-reset"></div>
         <div class="full-reset nav-lateral-list-menu">
             <ul class="list-unstyled">
-                <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                <li><a href="indexhome"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio 3</a></li>
                 <li>
                     <div class="dropdown-menu-button"><i class="zmdi zmdi-case zmdi-hc-fw"></i>&nbsp;&nbsp; Administración <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                     <ul class="list-unstyled">
@@ -56,7 +56,7 @@
                     </ul>
                 </li>
                 <li><a href="report.html"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes y estadísticas</a></li>
-                <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp;Configuraciones avanzadas<a/></li>
+                <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp;Configuraciones avanzadas</a></li>
             </ul>
         </div>
     </div>
@@ -140,17 +140,17 @@
         </article>
         <article class="tile">
             <div class="tile-icon full-reset"><i class="zmdi zmdi-time-restore"></i></div>
-            <div class="tile-name all-tittles" style="width: 90%;"><a href="indexdevolucionespendientes">devoluciones pendientes</div>
+            <div class="tile-name all-tittles" style="width: 90%;"><a href="indexdevolucionespendientes">devoluciones pendientes</a></div>
             <div class="tile-num full-reset">9</div>
         </article>
         <article class="tile">
             <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
-            <div class="tile-name all-tittles">préstamos</div>
+            <div class="tile-name all-tittles"><a href="indexprestamos">préstamos</a></div>
             <div class="tile-num full-reset">7</div>
         </article>
         <article class="tile">
             <div class="tile-icon full-reset"><i class="zmdi zmdi-trending-up"></i></div>
-            <div class="tile-name all-tittles" style="width: 90%;">reportes y estadísticas</div>
+            <div class="tile-name all-tittles" style="width: 90%;"><a href="indexreportesyestadisticas">reportes y estadísticas</a></div>
             <div class="tile-num full-reset">&nbsp;</div>
         </article>
     </section>

@@ -59,17 +59,35 @@ def indexsecciones():
     
     return render_template('/main/section.html')
 
-#---------------------------RESERVACIONES-----------------------------------------------
+#---------------------------Reservaciones----------------------------------------------
 @routes_home.route('/indexreservaciones', methods=['GET'])
 def indexreservaciones():
     
-    return render_template('/main/loan.html')
+    return render_template('/main/loanreservation.html')
 
 #---------------------------DEVOLUCIONES PENDIENTES--------------------------------------
 @routes_home.route('/indexdevolucionespendientes', methods=['GET'])
 def indexdevolucionespendientes():
     
     return render_template('/main/loanpending.html')
+
+#---------------------------PRESTAMOS----------------------------------------------------
+@routes_home.route('/indexprestamos', methods=['GET'])
+def indexprestamos():
+
+    return render_template('/main/loan.html')
+
+#---------------------------REPORTES Y PRESTAMOS----------------------------------------------------
+@routes_home.route('/indexreportesyestadisticas', methods=['GET'])
+def indexreportesyprestamos():
+
+    return render_template('/main/report.html')
+
+#--------------------AQUI EMPIEZA EL MENU EN LA PARTE IZQUIERDA---------------------------------------------
+
+
+
+
 
 
 

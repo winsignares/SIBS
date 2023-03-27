@@ -3,7 +3,8 @@ function listcategory(){
         responseType: 'json'
     })
     .then(function(res){
-        console.log(res);
+        console.log(res['id']);
+        
     })
     .catch(function(err){
         console.log(err);

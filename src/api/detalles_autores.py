@@ -60,3 +60,4 @@ def consultar3tablas():
     print(datos)
     return "Algo"
 '''
+

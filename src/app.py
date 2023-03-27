@@ -61,7 +61,7 @@ from rutas.personal import routes_personal
 #Ivan villalobos
 from rutas.loanreservation import routes_loanreservation
 #Saray
-
+from rutas.student import routes_student
 #Camilo
 from rutas.reports import routes_report
 #Jonathan
@@ -122,7 +122,7 @@ app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
 app.register_blueprint(routes_loanreservation, url_prefix="/fronted")
 #Saray
-
+app.register_blueprint(routes_student, url_prefix="/fronted")
 #Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
@@ -145,7 +145,7 @@ def otr():
 
 # Datos de la tabla de Editoriales
 if __name__ == '__main__':
-    load_dotenv()
+   # load_dotenv()
     app.run(debug=True, port=5000, host='0.0.0.0')
     
 
