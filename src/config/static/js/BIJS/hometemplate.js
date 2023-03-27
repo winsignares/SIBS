@@ -36,7 +36,7 @@ changeTemplateBtn.addEventListener('click', () => {
   
 
   // Obtener el contenido de la página HTML
-  fetch('Home.html')
+  fetch('Home.Home/main home.html')
   .then(response => response.text())
   .then(data => {
     // Insertar el contenido en el div
