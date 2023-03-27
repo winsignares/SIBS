@@ -2,6 +2,7 @@ function GuardarInstructor() {
     const ccinstructor = document.getElementById('idinstructor');
     const nameinstructor = document.getElementById('nombreinstructor');
     const apeinstructor = document.getElementById('apellidoinstructor');
+    const full = nameinstructor + apeinstructor;
     const telinstructor = document.getElementById('celinstructor');
     const espeinstructor = document.getElementById('espeinstruc');
     const usernameintruc = document.getElementById('usernameinstructor');
@@ -10,11 +11,14 @@ function GuardarInstructor() {
     const passintruc = document.getElementById('passinstructor');
     const passinstruc = document.getElementById('passinstructor2');
 
-    axios.post('guardaradmin', {
-        fullname: nameinstructor.value,
+    axios.post('save_Users', {
+        full_name: full.value,
+        Email: usernameintruc.value,
         Telefono: telinstructor.value,
         Especialidad: espeinstructor.value,
-        Jornada: turnoinstruc.value        
+        Jornada: turnoinstruc.value,
+        password: passintruc.value,
+        Cedula: ccinstructor.value                
        
     }, {
         headers: {
