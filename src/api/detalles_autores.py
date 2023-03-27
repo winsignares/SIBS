@@ -1,7 +1,6 @@
-from flask import Blueprint, request, jsonify, json
+from flask import Flask, Blueprint,  redirect, request, jsonify, json, session, render_template
 from common.Toke import *
 from config.db import db, app, ma
-from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
 from Model.detalles_autores import DetallesAutores, detallesAutoresSchema
 
@@ -28,7 +27,7 @@ def eliminardetalles(id):
 def guardar_detalles():
     Dautores = request.json['id_libros', 'id_autores']
     print(Dautores)
-    new_Dautor = detalles_autores(Dautores)
+    new_Dautor = DetallesAutores(Dautores)
     db.session.add(new_Dautor)
     db.session.commit()
     return redirect('/detalles_autores')
@@ -38,9 +37,27 @@ def actualizar_detalles():
     id = request.json['id']
     id_libros = request.json['id_libros']
     id_autores = request.json['id_autores']
-    Dautores = detalles_autores.query.get(id)
+    Dautores = DetallesAutores.query.get(id)
     Dautores.detalles_autores = id_libros
-    Dautores.detalles_autores = id_autores
+    Dautores.detalles_autor = id_autores
     db.session.commit()
     return redirect('/detalles_autores')
+'''
+@app.route('/consultar3tabla', methods=['GET'])
+def consultar3tablas():
+    datos= {}
+    resultado = db.session.query(Users, roles). \
+        select_from(Users).join(roles).()
+    i=0
+    for employee,department,company  in resultado:
+        i+=1
+        datos[i]={
+           
+                'Ename': employee.name,
+                'Dname': department.name,
+                'Cname': company.name          
+        }
+    print(datos)
+    return "Algo"
+'''
 

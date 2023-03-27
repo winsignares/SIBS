@@ -21,6 +21,7 @@ def indexRoles():
 #---------SAVE/CREAR------------
 @routes_roles.route('/saveroles', methods=['POST'] )
 def guardar_roles():
+    #request.form['title']
     roles = request.json['roles']
     print(roles)
     new_rol = RolesUsuarios(roles)
