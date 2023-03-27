@@ -84,11 +84,7 @@ def indexreportesyprestamos():
     return render_template('/main/reports')
 
 #--------------------AQUI EMPIEZA EL MENU EN LA PARTE IZQUIERDA---------------------------------------------
-#Opcion 1: INICIO:
-@routes_home.route('/indexhome', methods=['GET'])
-def indexhome ():
-
-    return render_template('/main/Home.html')
+@routes_home.route('/index')
 
 
 
