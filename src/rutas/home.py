@@ -84,8 +84,11 @@ def indexreportesyprestamos():
     return render_template('/main/report.html')
 
 #--------------------AQUI EMPIEZA EL MENU EN LA PARTE IZQUIERDA---------------------------------------------
+#OPCION 2: ADMINISTRACION>DATOS INSTITUCION
+@routes_home.route('/indexinstitution', methods=['GET'])
+def indexinstitution():
 
-
+    return render_template('/main/institution.html')
 
 
 
