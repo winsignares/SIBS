@@ -78,7 +78,7 @@ def indexprestamos():
     return render_template('/main/loan.html')
 
 #---------------------------REPORTES Y PRESTAMOS----------------------------------------------------
-@routes_home.route('/indexreportesyprestamos', methods=['GET'])
+@routes_home.route('/indexreportesyestadisticas', methods=['GET'])
 def indexreportesyprestamos():
 
     return render_template('/main/reports')
