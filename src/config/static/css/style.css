@@ -669,3 +669,45 @@ input.material-control:focus ~ .highlight {
 /* col-lg */
 @media (min-width: 1200px) {
 }
+
+
+
+/*VENTANA MODAL DE CATALOGO. DAVID*/
+.modal_info {
+    width: 100%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_info {
+    /*ESTA ES LA VENTANA EMERGENTE*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 550ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn-modal-info:checked~.modal_info {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contenedor_modal {
+    width: 737px;
+    height: 529px;
+    margin: 386px 0px 0px 44px;
+    background: #fff;
+    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+    transition: all 500ms ease;
+    position: relative;
+    border-radius: 20px;
+}
+.btn-modal-info:checked~.modal_info .contenedor_modal {
+    transform: translateY(-40%);
+}
