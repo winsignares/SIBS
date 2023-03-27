@@ -83,6 +83,9 @@ def indexreportesyprestamos():
 
     return render_template('/main/reports')
 
+#--------------------AQUI EMPIEZA EL MENU EN LA PARTE IZQUIERDA---------------------------------------------
+@routes_home.route('/index')
+
 
 
 
