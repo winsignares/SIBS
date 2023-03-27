@@ -19,3 +19,9 @@ changeTemplateBtn.addEventListener('click', () => {
   templateContainer.template = document.getElementById('template2');
   templateContainer.render();
 });
+
+
+function incorporarplantilla(id, ruta){
+    const objto = document.getElementById(id);
+    objto.innerHTML = ruta    
+}
