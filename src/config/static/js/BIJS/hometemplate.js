@@ -23,5 +23,5 @@ changeTemplateBtn.addEventListener('click', () => {
 
 function incorporarplantilla(id, ruta){
     const objto = document.getElementById(id);
-    objto.innerHTML = ruta    
+    objto.innerHTML = "hola"    
 }
