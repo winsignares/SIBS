@@ -39,7 +39,7 @@ def indexconfiguracionesavanzadas():
 @routes_home.route('/indexestudiantes', methods=['GET'])
 def indexestudiantes():
     
-    return render_template('/main/estudiante.html')
+    return render_template('/main/student.html')
 
 #-----------------------------PROVEEDORES---------------------------------------------
 @routes_home.route('/indexproveedores', methods=['GET'])
@@ -81,14 +81,7 @@ def indexprestamos():
 @routes_home.route('/indexreportesyestadisticas', methods=['GET'])
 def indexreportesyprestamos():
 
-    return render_template('/main/reports')
-
-#--------------------AQUI EMPIEZA EL MENU EN LA PARTE IZQUIERDA---------------------------------------------
-@routes_home.route('/index')
-
-
-
-
+    return render_template('/main/report.html')
 
 
 

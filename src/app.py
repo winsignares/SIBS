@@ -13,15 +13,16 @@ from config.db import db, app, ma
 #importar routes
 from api.user import routes_user
 from api.roles import routes_roles
-from api.estadosoli import routes_stadosolicitud
-from api.Libros import routes_Libros
-from api.Det_Solicitud import routes_Dsolicitudes
 from api.categoria import routes_category
-from api.proveedor import routes_proveedores
 from api.autores import routes_autores
-from api.detalles_autores import routes_Deautores
+from api.proveedor import routes_proveedores
 from api.Editoriales import routes_Editorial
 from api.solicitudes import routes_solicitudes
+from api.estadosoli import routes_stadosolicitud
+from api.Libros import routes_Libros
+from api.cate_deta import routes_Catego_deta
+from api.Det_Solicitud import routes_Dsolicitudes
+from api.detalles_autores import routes_Deautores
 #rutas
 from rutas.home import routes_home
 #Santiago
@@ -61,7 +62,7 @@ from rutas.personal import routes_personal
 #Ivan villalobos
 from rutas.loanreservation import routes_loanreservation
 #Saray
-
+from rutas.student import routes_student
 #Camilo
 from rutas.reports import routes_report
 #Jonathan
@@ -75,6 +76,7 @@ app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
+app.register_blueprint(routes_Catego_deta, url_prefix="/api")
 app.register_blueprint(routes_autores,  url_prefix="/api")
 app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
@@ -122,7 +124,7 @@ app.register_blueprint(routes_personal, url_prefix="/fronted")
 #Ivan villalobos
 app.register_blueprint(routes_loanreservation, url_prefix="/fronted")
 #Saray
-
+app.register_blueprint(routes_student, url_prefix="/fronted")
 #Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
@@ -145,7 +147,7 @@ def otr():
 
 # Datos de la tabla de Editoriales
 if __name__ == '__main__':
-    load_dotenv()
+   # load_dotenv()
     app.run(debug=True, port=5000, host='0.0.0.0')
     
 
