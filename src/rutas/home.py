@@ -39,7 +39,7 @@ def indexconfiguracionesavanzadas():
 @routes_home.route('/indexestudiantes', methods=['GET'])
 def indexestudiantes():
     
-    return render_template('/main/estudiante.html')
+    return render_template('/main/student.html')
 
 #-----------------------------PROVEEDORES---------------------------------------------
 @routes_home.route('/indexproveedores', methods=['GET'])
