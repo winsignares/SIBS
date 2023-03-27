@@ -14,15 +14,6 @@ function Guardarlibros() {
     //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${nameadmin.value} ${emailadmin.value}${usernameadmin.value} ${passadmin.value}`): alert('los campos son diferentes');
     axios.post('guardarbook', {
         titulo: titulobook.value,
-        pais: paisbook.value,
-        año_publicado: ano_publicadobook.value,
-        copias: copiasbook.value,
-        estado: estadobook.value,
-        ubicacion: ubicacionbook.value,
-        id_deta_cat: id_deta_catbook.value,
-        id_autor: id_autorbook.value,
-        id_editorial: id_editorialbook.value,
-        id_proov: id_proovbook.value
     }, {
         headers: {
         'Content-Type': 'multipart/form-data'
@@ -31,6 +22,8 @@ function Guardarlibros() {
     }
     ).then((res) => {
         console.log(res.data)
+
+
     })
     .catch((error) => {
         console.error(error)
