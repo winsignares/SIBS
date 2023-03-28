@@ -117,6 +117,44 @@ def indexadmin():
 def indexlistasecciones():
     return render_template('/main/listsection.html')
 
+#---------------------LISTA ESTUDIANTE-------------------------------------------------------------
+@routes_home.route('/indexlistaestudiantes', methods=['GET'])
+def indexlistaestudiantes():
+
+    return render_template('/main/liststudent.html')
+
+#---------------------LISTA ADMINISTRADORES(ADMIN)--------------------------------------------------------
+@routes_home.route('/indexlistaadministradores', methods=['GET'])
+def indexlistaadministradores():
+
+    return render_template('/main/listadmin.html')
+
+#---------------------LISTA PROFESORES-------------------------------------------------------------
+@routes_home.route('/indexlistaprofesores', methods=['GET'])
+def indexlistaprofesores():
+    return render_template('/main/listteacher.html')
+
+#---------------------LISTA PERSONAL ADMINISTRATIVO-------------------------------------------------
+@routes_home.route('/indexlistapersonala', methods=['GET'])
+def indexlistapersonala():
+
+    return render_template('/main/listpersonal.html')
+
+#---------------------LISTA PERSONAL ADMINISTRATIVO-------------------------------------------------
+@routes_home.route('/indexpersonal', methods=['GET'])
+def indexpersonal():
+
+    return render_template('/main/personal.html')
+
+#---------------------CATALOGO-------------------------------------------------
+@routes_home.route('/indexcatalogo', methods=['GET'])
+def indexcatalogo():
+
+    return render_template('/main/catalogo.html')
+
+
+
+
 
 
 
