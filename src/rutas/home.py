@@ -101,6 +101,12 @@ def indexlistacategorias():
 
     return render_template('/main/listcategory.html')
 
+#-------------------------LOGIN---------------------------------------------------------------------
+@routes_home.route('/indexlogin', methods=['GET'])
+def indexlogin():
+
+    return render_template('/main/login.html')
+
 
 
 
