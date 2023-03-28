@@ -83,6 +83,12 @@ def indexreportesyprestamos():
 
     return render_template('/main/report.html')
 
+#---------------------------MENU IZQUIERDA------------------------------------------------------------
+@routes_home.route('/indexinstitution', methods=['GET'])
+def indexinstitution():
+
+    return render_template('/main/institution.html')
+
 
 
 
