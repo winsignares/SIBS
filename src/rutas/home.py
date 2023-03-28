@@ -112,6 +112,11 @@ def indexlogin():
 def indexadmin():
     return render_template('/main/Admin.html')
 
+#----------------------LISTA SECCIONES------------------------------------------------------------
+@routes_home.route('/indexlistasecciones', methods=['GET'])
+def indexlistasecciones():
+    return render_template('/main/listsection.html')
+
 
 
 
