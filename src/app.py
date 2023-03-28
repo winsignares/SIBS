@@ -4,7 +4,7 @@
 
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
-from api.user import *
+#from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
