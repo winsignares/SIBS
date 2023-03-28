@@ -1,7 +1,7 @@
 import Axios from 'axios';
 divcategory = document.getElementById('tablas')
 function listcategory(){
-  Axios.get('http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=adso&table=tblcategorias', {
+  Axios.get('/viewlistcategory', {
     responseType: 'json'
 })
 .then(function(response) {

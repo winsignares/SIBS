@@ -12,4 +12,4 @@ def indexlistcategory():
 def viewlistcategory():
         returnall = Categorias.query.all()
         result_Categoria = CategoriasSchema.dump(returnall)
-        return result_Categoria 
+        return result_Categoria
