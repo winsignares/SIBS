@@ -92,20 +92,12 @@ def verificartoken():
 def consullist():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-<<<<<<< HEAD
         select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
-=======
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.especialidad, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
->>>>>>> 1986965363b3f88519598706e406b12933b98d4f
     i=0
     for TblUsuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-<<<<<<< HEAD
         'DUI':TblUsuarios.Cedula,
-=======
-        'Dui':TblUsuarios.Cedula,
->>>>>>> 1986965363b3f88519598706e406b12933b98d4f
 		'Nombre':TblUsuarios.full_name,
 		'Telefono':TblUsuarios.telefono,
 		'Cargo': TblUsuarios.especialidad                      
