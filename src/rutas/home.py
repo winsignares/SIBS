@@ -36,9 +36,9 @@ def indexconfiguracionesavanzadas():
     return render_template('/main/advancesettings.html')
 
 #-----------------------------ESTUDIANTES---------------------------------------------
-@routes_home.route('/indexestudiantes', methods=['GET'])
-def indexestudiantes():
-    
+@routes_home.route('/indexestudiante', methods=['GET'])
+def indexestudiante():
+
     return render_template('/main/student.html')
 
 #-----------------------------PROVEEDORES---------------------------------------------
