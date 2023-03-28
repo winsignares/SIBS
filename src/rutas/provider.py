@@ -9,15 +9,16 @@ def indexprovider():
     
     return render_template('/main/provider.html')
 
-@routes_provider.route('/saveproveedor', methods=['POST'] )
-def guardarprovedo():
+@routes_provider.route('/guardarprovider', methods=['POST'] )
+def saveprovider():
+    
     Nombre_proveedor = request.json['Nombre_proveedor']
     Telefono = request.json['Telefono']
     Direccion = request.json['Direccion']
     Descripcion = request.json['Descripcion']
     
-    print(Nombre_proveedor,Telefono,Direccion,Descripcion)
+    print(Nombre_proveedor)
     new_provider = Proveedores(Nombre_proveedor,Telefono,Direccion,Descripcion)
     db.session.add(new_provider)
     db.session.commit()
-    return redirect('/proveedores')
+    return "OK"
