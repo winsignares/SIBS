@@ -79,7 +79,7 @@ def indexprestamos():
 
 #---------------------------REPORTES Y PRESTAMOS----------------------------------------------------
 @routes_home.route('/indexreportesyestadisticas', methods=['GET'])
-def indexreportesyprestamos():
+def indexreportesyestadisticas():
 
     return render_template('/main/report.html')
 
