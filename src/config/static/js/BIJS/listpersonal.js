@@ -5,7 +5,7 @@ function viewpersonal() {
             responseType: 'json'
         })
         .then(function(response) {
-            const pico = response.datos
+            const datos = response.data
             let listper = '';
             for (let DUI in datos) {
                 listper += `<div class="table-responsive">
@@ -32,4 +32,8 @@ function viewpersonal() {
             console.log(err);
         })
         .then(function() {});
+}
+
+function eliminarpersonal(){
+    
 }

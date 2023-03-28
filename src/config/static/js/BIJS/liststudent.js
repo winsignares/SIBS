@@ -5,7 +5,7 @@ function listaestudiantes() {
             responseType: 'json'
         })
         .then(function(response) {
-            const data = response.datos
+            const datos = response.data
             let estudiante = '';
             for (let NIM in datos) {
                 estudiante += `<div class="table-responsive">
