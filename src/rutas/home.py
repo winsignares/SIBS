@@ -117,6 +117,17 @@ def indexadmin():
 def indexlistasecciones():
     return render_template('/main/listsection.html')
 
+#---------------------LISTA ESTUDIANTE-------------------------------------------------------------
+@routes_home.route('/indexlistaestudiantes', methods=['GET'])
+def indexlistaestudiantes():
+
+    return render_template('/main/liststudent.html')
+
+#---------------------LISTA ADMINISTRADORES--------------------------------------------------------
+@routes_home.route('/indexlistaadministradores', methods=['GET'])
+def indexlistaadministradores():
+
+    return render_template('/main/listadmin.html')
 
 
 
