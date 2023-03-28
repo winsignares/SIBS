@@ -129,6 +129,11 @@ def indexlistaadministradores():
 
     return render_template('/main/listadmin.html')
 
+#---------------------LISTA PROFESORES-------------------------------------------------------------
+@routes_home.route('/indexlistaprofesores', methods=['GET'])
+def indexlistaprofesores():
+    return render_template('/main/listteacher.html')
+
 
 
 
