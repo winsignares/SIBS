@@ -5,6 +5,6 @@ routes_listteacher = Blueprint("routes_listteacher", __name__)
 
 
 @routes_listteacher.route('/indexlistteacher', methods=['GET'] )
-def indexlistsesion():
+def indexlistteacher():
     
     return render_template('/main/listteacher.html')
