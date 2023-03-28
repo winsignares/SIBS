@@ -1,10 +1,10 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
 
-routes_Categorias = Blueprint("routes_Categorias", __name__)
+routes_categorias = Blueprint("routes_categorias", __name__)
 
 
-@routes_Categorias.route('/indexCategorias', methods=['GET'] )
-def indexCategorias():
+@routes_categorias.route('/indexcategorias', methods=['GET'])
+def indexcategorias():
     
     return render_template('/main/Categoria.html')
