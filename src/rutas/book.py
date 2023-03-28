@@ -1,7 +1,7 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model.Libros import Libros
-
+from Model.Libros import Libros, LibrosSchema
+from Model.Categorias import Categorias, CategoriasSchema
 routes_book = Blueprint("routes_book", __name__)
 
 
@@ -18,3 +18,9 @@ def savebook():
     db.session.add(new_libro)
     db.session.commit()
     return book
+
+@routes_book.route('/libros', methods=['GET'])
+def libros():    
+    returnall = Libros.query.all()
+    resultado_libros = LibrosSchema.dump(returnall)
+    return jsonify(resultado_libros)
