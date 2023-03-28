@@ -84,21 +84,10 @@ def indexreportesyprestamos():
     return render_template('/main/report.html')
 
 #---------------------------MENU IZQUIERDA------------------------------------------------------------
-#Opcion 2: INSTITUCION
 @routes_home.route('/indexinstitution', methods=['GET'])
 def indexinstitution():
 
     return render_template('/main/institution.html')
-
-#--------------------------MENU IZQUIERDA---------------------------------------------------------------
-#Opcion 1: INICIO
-@routes_home.route('/indexhomeINS', methods=['GET'])
-def indexinstitution():
-
-    return render_template('/main/Home.html')
-
-
-
 
 
 
