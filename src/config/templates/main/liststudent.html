@@ -1,5 +1,4 @@
-{% extends "./layout.html" %} 
-{% block body %}
+{% extends "./layout.html" %} {% block body %}
 <div class="navbar-lateral full-reset">
     <div class="visible-xs font-movile-menu mobile-menu-button"></div>
     <div class="full-reset container-menu-movile nav-lateral-scroll">
@@ -275,4 +274,6 @@
         <div class="footer-copyright full-reset all-tittles ">© 2018 Carlos Alfaro</div>
     </footer>
 </div>
+
+<script src="{{url_for('static', filename='js/BIJS/liststudent.js')}}"></script>
 {% endblock %}
