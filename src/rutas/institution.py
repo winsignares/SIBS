@@ -7,7 +7,7 @@ routes_institution = Blueprint("routes_institution", __name__)
 @routes_institution.route('/indexinstitution', methods=['GET'] )
 def indexinstitution():
     
-    return render_template('/main/institurion.html')
+    return render_template('/main/institution.html')
 
 
 
@@ -16,12 +16,15 @@ def saveinstitution():
     #request.form['title']
 
     #en el fullname va el dato de la db y en Roles de usuarios va la tbala donde se sacan los datos de la db
-    addinstitucion = request.json['codigo_infraestructura','nombre_institucion', 'distrito', 'telefono','año']
-    print(addinstitucion)
-    new_insti = institucion(addinstitucion)
+    codigoinfra = request.form['codigo_infraestructura']
+    nombreinsti = request.form['nombre_institucion']
+    distrito = request.form['distrito']
+    telefono = request.form['telefono']
+    año = request.form['año']
+    print(codigoinfra,nombreinsti,distrito,telefono,año)
+    new_insti = institucion(codigoinfra)
     db.session.add(new_insti)
     db.session.commit()
-    return redirect('/institucion')
-
+    return new_insti
 
 

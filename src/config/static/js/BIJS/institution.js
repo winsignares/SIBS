@@ -7,7 +7,7 @@ function Guardarinstitution() {
     const año = document.getElementById('año');
 
     //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${nameadmin.value} ${emailadmin.value}${usernameadmin.value} ${passadmin.value}`): alert('los campos son diferentes');
-    axios.post('guardarinstitution', {
+    axios.post('guardarinsti', {
         //en el fullname va el dato de la base de datos
         codigo_infraestructura: codigoinfra.value,
         nombre_institucion: nombreinsti.value,
