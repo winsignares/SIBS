@@ -61,8 +61,10 @@ def guardar_Users():
     especialidad = request.json['especialidad']
     jornada = request.json['jornada']
     direccion= request.json['direccion']
+    password = request.json['password']
+    cedula = request.json['Cedula']
     print(full_name,Email,telefono,especialidad,jornada,direccion)
-    new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion)
+    new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion, password, cedula)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
@@ -90,32 +92,17 @@ def verificartoken():
 def consullist():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.cedula, TblUsuarios.fullname, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
     i=0
     for TblUsuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'DUI':TblUsuarios.cedula,
-		'Nombre':TblUsuarios.fullname,
+        'DUI':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
 		'Telefono':TblUsuarios.telefono,
-		'Cargo': TblUsuarios.cargo                      
+		'Cargo': TblUsuarios.especialidad                      
         }
     print(datos)
     return datos
 
 
-@routes_user.route('/conliststudiantes', methods=['GET'])
-def consullist2():
-    datos= {}
-    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.cedula, TblUsuarios.fullname,  TblUsuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
-    i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
-        i+=1	       
-        datos[i] = {
-        'NIE':TblUsuarios.cedula,
-		'Nombre':TblUsuarios.fullname,
-		'Seccion':TblUsuarios.seccion,                     
-        }
-    print(datos)
-    return datos

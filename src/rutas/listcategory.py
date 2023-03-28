@@ -14,4 +14,4 @@ def indexlistsesion():
 def viewlistcategory():
         returnall = Categorias.query.all()
         result_Categoria = CategoriasSchema.dump(returnall)
-        return result_Categoria
+        return jsonify(result_Categoria) 

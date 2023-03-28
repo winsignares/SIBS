@@ -23,10 +23,11 @@ from api.Libros import routes_Libros
 from api.cate_deta import routes_Catego_deta
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.detalles_autores import routes_Deautores
+from api.section import routes_section
 #rutas
-from rutas.home import routes_home
-#Santiago
 
+#Santiago
+from rutas.home import routes_home
 #luis
 from rutas.advancesettings import routes_advancesettings
 #dainer
@@ -128,7 +129,7 @@ app.register_blueprint(routes_student, url_prefix="/fronted")
 #Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
-
+app.register_blueprint(routes_section, url_prefix="/fronted") 
 #Jorge
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
