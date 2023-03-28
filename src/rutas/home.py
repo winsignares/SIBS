@@ -48,8 +48,8 @@ def indexproveedores():
     return render_template('/main/provider.html')
 
 #-----------------------------CATEGORÍA------------------------------------------------
-@routes_home.route('/indexcategoria', methods=['GET'])
-def indexcategoria():
+@routes_home.route('/indexcategorias', methods=['GET'])
+def indexcategorias():
     
     return render_template('/main/Categoria.html')
 
