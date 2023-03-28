@@ -7,7 +7,7 @@ function listaestudiantes() {
         .then(function(response) {
             const data = response.datos
             let estudiante = '';
-            for (let NIM in datos) {
+            for (let NIM in data) {
                 estudiante += `<div class="table-responsive">
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
@@ -26,7 +26,7 @@ function listaestudiantes() {
                     </div>
                 </div>`;
             }
-            morfismo.innerHTML = estudiante
+            divestudiante.innerHTML = estudiante
         })
         .catch(function(err) {
             console.log(err);
