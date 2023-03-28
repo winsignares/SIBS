@@ -146,6 +146,14 @@ def indexpersonal():
 
     return render_template('/main/personal.html')
 
+#---------------------CATALOGO-------------------------------------------------
+@routes_home.route('/indexcatalogo', methods=['GET'])
+def indexcatalogo():
+
+    return render_template('/main/catalogo.html')
+
+
+
 
 
 
