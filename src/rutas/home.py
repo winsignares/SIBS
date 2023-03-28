@@ -50,7 +50,7 @@ def indexproveedores():
 #-----------------------------CATEGORÍA------------------------------------------------
 @routes_home.route('/indexcategorias', methods=['GET'])
 def indexcategorias():
-    
+
     return render_template('/main/Categoria.html')
 
 #---------------------------SECCIONES---------------------------------------------------
