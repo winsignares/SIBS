@@ -24,9 +24,9 @@ from api.cate_deta import routes_Catego_deta
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.detalles_autores import routes_Deautores
 #rutas
-from rutas.home import routes_home
-#Santiago
 
+#Santiago
+from rutas.home import routes_home
 #luis
 from rutas.advancesettings import routes_advancesettings
 #dainer
