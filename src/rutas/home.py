@@ -95,6 +95,12 @@ def indexlistaproveedores():
 
     return render_template('/main/listprovider.html')
 
+#-------------------------LISTAO CATEGORIA--------------------------------------------------------------
+@routes_home.route('/indexlistacategorias', methods=['GET'])
+def indexlistacategorias():
+
+    return render_template('/main/listcategory.html')
+
 
 
 
