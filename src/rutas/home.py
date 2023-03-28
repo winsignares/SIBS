@@ -18,12 +18,12 @@ def indexadministradores():
 @routes_home.route('/indexdocentes', methods=['GET'] )
 def indexdocentes():
 
-    return render_template('/main/docentes.html')
+    return render_template('/main/teacher.html')
 #-----------------PERSONAL ADMINISTRATIVO---------------------
 @routes_home.route('/indexpersonaladministrativo', methods=['GET'])
 def indexpersonaladministrativo():
 
-    return render_template('/main/teacher.html')
+    return render_template('/main/personal.html')
 #-----------------LIBROS--------------------------------------
 @routes_home.route('/indexlibros', methods=['GET'])
 def indexlibros():
