@@ -107,6 +107,11 @@ def indexlogin():
 
     return render_template('/main/login.html')
 
+#------------------------ADMIN---------------------------------------------------------------------
+@routes_home.route('/indexadmin', methods=['GET'])
+def indexadmin():
+    return render_template('/main/Admin.html')
+
 
 
 
