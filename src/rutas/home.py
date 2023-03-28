@@ -89,6 +89,12 @@ def indexinstitution():
 
     return render_template('/main/institution.html')
 
+#--------------------------LISTADO PROVEEODRES---------------------------------------------------------
+@routes_home.route('indexlistaproveedores', methods=['GET'])
+def indexlistaproveedores():
+
+    return render_template('/main/listprovider.html')
+
 
 
 
