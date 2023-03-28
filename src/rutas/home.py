@@ -18,12 +18,12 @@ def indexadministradores():
 @routes_home.route('/indexdocentes', methods=['GET'] )
 def indexdocentes():
 
-    return render_template('/main/docentes.html')
+    return render_template('/main/teacher.html')
 #-----------------PERSONAL ADMINISTRATIVO---------------------
 @routes_home.route('/indexpersonaladministrativo', methods=['GET'])
 def indexpersonaladministrativo():
 
-    return render_template('/main/teacher.html')
+    return render_template('/main/personal.html')
 #-----------------LIBROS--------------------------------------
 @routes_home.route('/indexlibros', methods=['GET'])
 def indexlibros():
@@ -36,9 +36,9 @@ def indexconfiguracionesavanzadas():
     return render_template('/main/advancesettings.html')
 
 #-----------------------------ESTUDIANTES---------------------------------------------
-@routes_home.route('/indexestudiantes', methods=['GET'])
-def indexestudiantes():
-    
+@routes_home.route('/indexestudiante', methods=['GET'])
+def indexestudiante():
+
     return render_template('/main/student.html')
 
 #-----------------------------PROVEEDORES---------------------------------------------
@@ -48,9 +48,9 @@ def indexproveedores():
     return render_template('/main/provider.html')
 
 #-----------------------------CATEGORÍA------------------------------------------------
-@routes_home.route('/indexcategoria', methods=['GET'])
-def indexcategoria():
-    
+@routes_home.route('/indexcategorias', methods=['GET'])
+def indexcategorias():
+
     return render_template('/main/Categoria.html')
 
 #---------------------------SECCIONES---------------------------------------------------
@@ -79,9 +79,43 @@ def indexprestamos():
 
 #---------------------------REPORTES Y PRESTAMOS----------------------------------------------------
 @routes_home.route('/indexreportesyestadisticas', methods=['GET'])
-def indexreportesyprestamos():
+def indexreportesyestadisticas():
 
-    return render_template('/main/report.html')
+    return render_template('/main/reports.html')
+
+#---------------------------MENU IZQUIERDA------------------------------------------------------------
+@routes_home.route('/indexinstitution', methods=['GET'])
+def indexinstitution():
+
+    return render_template('/main/institution.html')
+
+#--------------------------LISTADO PROVEEODRES---------------------------------------------------------
+@routes_home.route('indexlistaproveedores', methods=['GET'])
+def indexlistaproveedores():
+
+    return render_template('/main/listprovider.html')
+
+#-------------------------LISTAO CATEGORIA--------------------------------------------------------------
+@routes_home.route('/indexlistacategorias', methods=['GET'])
+def indexlistacategorias():
+
+    return render_template('/main/listcategory.html')
+
+#-------------------------LOGIN---------------------------------------------------------------------
+@routes_home.route('/indexlogin', methods=['GET'])
+def indexlogin():
+
+    return render_template('/main/login.html')
+
+#------------------------ADMIN---------------------------------------------------------------------
+@routes_home.route('/indexadmin', methods=['GET'])
+def indexadmin():
+    return render_template('/main/Admin.html')
+
+#----------------------LISTA SECCIONES------------------------------------------------------------
+@routes_home.route('/indexlistasecciones', methods=['GET'])
+def indexlistasecciones():
+    return render_template('/main/listsection.html')
 
 
 
