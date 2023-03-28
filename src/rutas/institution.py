@@ -1,6 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-
+from Model import institucion
 routes_institution = Blueprint("routes_institution", __name__)
 
 
@@ -16,13 +16,12 @@ def saveinstitution():
     #request.form['title']
 
     #en el fullname va el dato de la db y en Roles de usuarios va la tbala donde se sacan los datos de la db
-    fullname = request.form['fullname']
-    nombre = request.form['nombre']
-    distrito = request.form['distrito']
-    telefono = request.form['telefono']
-    año = request.form['año']
-    print(fullname,nombre,distrito,telefono,año)
-    new_rol = RolesUsuarios(fullname)
-    db.session.add(new_rol)
+    addinstitucion = request.json['codigo_infraestructura','nombre_institucion', 'distrito', 'telefono','año']
+    print(addinstitucion)
+    new_insti = institucion(addinstitucion)
+    db.session.add(new_insti)
     db.session.commit()
-    return fullname
+    return redirect('/institucion')
+
+
+

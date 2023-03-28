@@ -24,6 +24,7 @@ from api.cate_deta import routes_Catego_deta
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.detalles_autores import routes_Deautores
 from api.section import routes_section
+from api.institution import routes_institucion
 #rutas
 
 #Santiago
@@ -85,6 +86,7 @@ app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
 app.register_blueprint(routes_Editorial, url_prefix="/api")
 app.register_blueprint(routes_solicitudes, url_prefix="/api")
+app.register_blueprint(routes_institucion, url_prefix="/api")
 
 #ubicación rutas
 
