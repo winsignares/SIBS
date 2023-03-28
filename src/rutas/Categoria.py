@@ -4,7 +4,7 @@ from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, 
 routes_categorias = Blueprint("routes_categorias", __name__)
 
 
-@routes_categorias.route('/indexcategorias', methods=['GET'] )
+@routes_categorias.route('/indexcategorias', methods=['GET'])
 def indexcategorias():
     
     return render_template('/main/Categoria.html')
