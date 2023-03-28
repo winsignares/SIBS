@@ -1,6 +1,6 @@
 const morfismo = document.getElementById('poli');
 
-function listaestudiantes() {
+function viewpersonal() {
     axios.get('/conlistpersonal', {
             responseType: 'json'
         })
