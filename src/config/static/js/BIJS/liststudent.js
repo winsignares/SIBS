@@ -26,7 +26,7 @@ function listaestudiantes() {
                     </div>
                 </div>`;
             }
-            divestudiante.innerHTML = estudiante
+            morfismo.innerHTML = estudiante
         })
         .catch(function(err) {
             console.log(err);
