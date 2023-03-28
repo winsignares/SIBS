@@ -12,9 +12,11 @@ def indexsection():
 @routes_section.route('/guardarsection',methods=['POST'])
 def saveSection():
     #request.form['title']
-    fullname = request.form['year','especialidad', 'seccion']
-    print(fullname)
-    new_section = Section(fullname)
+    year = request.form['year']
+    especialidad = request.form['especialidad']
+    seccion = request.form['seccion'] 
+    print(year)
+    new_section = Section(year, especialidad, seccion)
     db.session.add(new_section)
     db.session.commit()
-    return fullname
+    return "ok"
