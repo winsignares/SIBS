@@ -20,9 +20,7 @@ from api.Editoriales import routes_Editorial
 from api.solicitudes import routes_solicitudes
 from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
-from api.cate_deta import routes_Catego_deta
 from api.Det_Solicitud import routes_Dsolicitudes
-from api.detalles_autores import routes_Deautores
 from api.section import routes_section
 from api.institution import routes_institucion
 #rutas
@@ -78,9 +76,7 @@ app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
 app.register_blueprint(routes_user, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Libros, url_prefix="/api")
-app.register_blueprint(routes_Catego_deta, url_prefix="/api")
 app.register_blueprint(routes_autores,  url_prefix="/api")
-app.register_blueprint(routes_Deautores,  url_prefix="/api")
 app.register_blueprint(routes_Dsolicitudes, url_prefix="/api")
 app.register_blueprint(routes_category, url_prefix="/api")
 app.register_blueprint(routes_proveedores, url_prefix="/api")
