@@ -15,7 +15,7 @@ function Guardarperonal() {
         ApellidosAdmin: ApellAdmin.value,
         TelefonoAdmin: TelAdmin.value,
         CargoAdmin: CargAdmin.value,
-        NomUsuario: NomUsuario.value,
+        NombreUsuario: NomUsuario.value,
         ContraseñaAdmin: ContraseñaAdmin.value,
         ContraseñaAdmin2: ContraseñaAdmin2.value
       
