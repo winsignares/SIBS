@@ -122,7 +122,7 @@ def consullist2():
     print(datos)
     return datos
 
-@routes_user.route('/eliminarlibros/<id>', methods=['GET'] )
+@routes_user.route('/eliminarpersonal', methods=['GET'] )
 def eliminarU(id):
 
     usu = Users.query.get(id)

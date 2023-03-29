@@ -39,5 +39,18 @@ window.onload = function viewpersonal() {
 function eliminarpersonal(){
     const nose = document.getElementById('${i}');
     const id = nose.textContent;
-    axios
+    axios.post('eliminarpersonal',{
+        p: id.value, 
+    }, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+        }
+    }
+    ).then((res) => {
+        console.log(res.data)
+    })
+    .catch((error) => {
+        console.error(error)
+    
+    })
 }
