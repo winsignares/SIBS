@@ -1,23 +1,21 @@
-import Axios from 'axios';
-divcategory = document.getElementById('tablas')
-function listcategory(){
-  Axios.get('/viewlistcategory', {
+const divcategory = document.getElementById('llenar')
+function listsection(){
+    alert('fdsfds')
+  Axios.get('/listasection', {
     responseType: 'json'
 })
 .then(function(response) {
     const datos = response.data
-    let category = '';
+    let section = '';
     for (let id in datos) {
-      category += `<div class="div-table-row">
+        section += `<div class="div-table-row">
       <div class="div-table-cell">${id}</div>
-      <div class="div-table-cell">${datos.N_cat}</div>
-      <div class="div-table-cell">${datos.Descripcion}</div>
+      <div class="div-table-cell">${datos.nombre}</div>
+      <div class="div-table-cell">${datos.elimar}</div>
       <div class="div-table-cell">  
-          <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
+          <button class="btn btn-success">eliminar<i class="zmdi zmdi-refresh"></i></button>
       </div>
-      <div class="div-table-cell">
-          <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-      </div>
+      
   </div>`;
     }
     divcategory.innerHTML = category
@@ -28,4 +26,3 @@ function listcategory(){
 .then(function() {});
 
 }
-

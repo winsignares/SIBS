@@ -24,7 +24,7 @@ function listcategory(){
 })
 .catch(function(err) {
     console.log(err);
-    console.log()
+    
 })
 .then(function() {});
 
