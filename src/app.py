@@ -26,15 +26,8 @@ from api.detalles_autores import routes_Deautores
 from api.section import routes_section
 #rutas
 
-<<<<<<< HEAD
-#rutas
-from rutas.home import routes_home
-#Santiago
-
-=======
 #Santiago
 from rutas.home import routes_home
->>>>>>> a6fabb5d3635af4ea5a8a043194983e81e57e6fe
 #luis
 from rutas.advancesettings import routes_advancesettings
 #dainer
@@ -42,20 +35,6 @@ from rutas.Admin import routes_Admin
 #Gonzalo
 from rutas.book import routes_book
 #David
-<<<<<<< HEAD
-
-
-#Antonio
-
-#Edwin
-
-#Alejo
-
-#Alet
-
-#Julieth
-
-=======
 from rutas.catalogo import routes_catalogo
 #Antonio
 from rutas.Categoria import routes_categorias 
@@ -67,27 +46,11 @@ from rutas.listadmin import routes_listadmin
 from rutas.listcategory import routes_listcategory
 #Julieth
 from rutas.list_personal import routes_listpersonal
->>>>>>> a6fabb5d3635af4ea5a8a043194983e81e57e6fe
 #Wilches
 from rutas.listprovider import routes_listprovider
 #Benedetty
 from rutas.listsesion import routes_listsesion
 #Jasson
-<<<<<<< HEAD
-
-#Sthiwar
-from rutas.loan import routes_loan
-#Hader
-
-#Jean
-
-#Ivan
-from rutas.personal import routes_personal
-#Ivan villalobos
-
-#Saray
-
-=======
 from rutas.liststudent import routes_liststudent
 #Sthiwar
 from rutas.loan import routes_loan
@@ -101,21 +64,13 @@ from rutas.personal import routes_personal
 from rutas.loanreservation import routes_loanreservation
 #Saray
 from rutas.student import routes_student
->>>>>>> a6fabb5d3635af4ea5a8a043194983e81e57e6fe
 #Camilo
 from rutas.reports import routes_report
 #Jonathan
 from rutas.section import routes_section
-<<<<<<< HEAD
-
-#Jorge
-from rutas.SearchBooks import routes_searchbooks 
-#-------------------------------fin-------------------------------
-=======
 #Jorge
 from rutas.SearchBooks import routes_searchbooks 
 from rutas.teacher import routes_teacher
->>>>>>> a6fabb5d3635af4ea5a8a043194983e81e57e6fe
 
 #ubicacion del api 
 app.register_blueprint(routes_stadosolicitud, url_prefix="/api")
@@ -132,58 +87,6 @@ app.register_blueprint(routes_Editorial, url_prefix="/api")
 app.register_blueprint(routes_solicitudes, url_prefix="/api")
 
 #ubicación rutas
-<<<<<<< HEAD
-app.register_blueprint(routes_home, url_prefix="/fronted")
-
-
-
-#Santiago
-
-#luis
-
-#dainer
-app.register_blueprint(routes_Admin, url_prefix="/fronted")
-#Gonzalo
-app.register_blueprint(routes_book, url_prefix="/fronted")
-#David
-
-#Antonio
-
-#Edwin
-
-#Alejo
-
-#Alet
-
-#Julieth
-
-#Wilches
-app.register_blueprint(routes_listprovider, url_prefix="/fronted")
-#Benedetty
-
-#Jasson
-
-#Sthiwar
-app.register_blueprint(routes_loan, url_prefix="/fronted")
-#Hader
-
-#Jean
-
-#Ivan
-app.register_blueprint(routes_personal, url_prefix="/fronted")
-#Ivan villalobos
-
-#Saray
-
-#Camilo
-app.register_blueprint(routes_report, url_prefix="/fronted")
-#Jonathan
-
-#Jorge
-app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
-#-------------------------------fin-------------------------------
-=======
->>>>>>> a6fabb5d3635af4ea5a8a043194983e81e57e6fe
 
 #Santiago
 app.register_blueprint(routes_home, url_prefix="/fronted")
