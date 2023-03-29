@@ -8,9 +8,9 @@ function addprovedor() {
     axios.post('guardarprovider', {
         
         Nombre_proveedor: poNombre_proveedor,
-        Telefono: poTelefono,
-        Direccion: poDireccion,
-        Descripcion: poDescripcion,
+        Telefono: poTelefono.value,
+        Direccion: poDireccion.value,
+        Descripcion: poDescripcion.value
         
 
     }, {
@@ -18,8 +18,7 @@ function addprovedor() {
         'Content-Type': 'multipart/form-data'
 
         }
-    }
-    ).then((res) => {
+    }).then((res) => {
         console.log(res.data)
     })
     .catch((error) => {
