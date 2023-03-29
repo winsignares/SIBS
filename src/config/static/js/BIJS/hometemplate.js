@@ -56,51 +56,29 @@
     //}
   //}
   function mostrarContenido(id) {
-    // Ocultar todos los mosaicos
-    var tiles = document.getElementsByClassName("tile");
-    for (var i = 0; i < tiles.length; i++) {
-      tiles[i].style.display = "none";
-    }
-  
-    // Mostrar el iframe correspondiente
-    var contenido = document.getElementById(id);
-    contenido.style.display = "block";
-  }
-  
-  function ocultarContenido(id) {
-    // Ocultar el iframe correspondiente
-    var contenido = document.getElementById(id);
-    contenido.style.display = "none";
-  
-    // Mostrar todos los mosaicos
-    var tiles = document.getElementsByClassName("tile");
-    for (var i = 0; i < tiles.length; i++) {
-      tiles[i].style.display = "block";
-    }
-  }
-  
-  // Agregar clase de posición original a cada tile
-var tiles = document.getElementsByClassName("tile");
-for (var i = 0; i < tiles.length; i++) {
-  tiles[i].classList.add("original-position-" + i);
-}
-
-// Función para restablecer la posición original de los tiles
-function resetTilePositions() {
+  // Ocultar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
-    var originalPositionClass = "original-position-" + i;
-    if (tiles[i].classList.contains(originalPositionClass)) {
-      tiles[i].style.top = "";
-      tiles[i].style.left = "";
-    }
+    tiles[i].style.display = "none";
   }
+
+  // Mostrar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "block";
 }
 
-// Llamar a la función resetTilePositions() cuando se haga clic en el botón "volver"
-var volverButton = document.getElementById("volverButton");
-volverButton.addEventListener("click", resetTilePositions);
+function ocultarContenido(id) {
+  // Ocultar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "none";
 
+  // Mostrar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "block";
+  }
+}
+  
   
   
 
