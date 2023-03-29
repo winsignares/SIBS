@@ -1,8 +1,8 @@
 .contenido-iframe iframe {
     width: 100%;
-    height: 600%;
+    height: 600px;
   }
-  .tiles-container {
+  .tiles {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
