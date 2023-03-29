@@ -13,9 +13,11 @@ class Libros(db.Model):
     ano_publicado = db.Column(db.Date)
     editoral = db.Column(db.String(100))
     ubicacion = db.Column(db.String(50))
+    estimado = db.Column(db.String(50))
+    cargo = db.Column(db.String(50))
     estado = db.Column(db.String(50))
 
-    def __init__(self, titulo, id_autor, pais, id_Categoria, id_proovedor, ano_publicado, editoral, ubicacion, estado):
+    def __init__(self, titulo, id_autor, pais, id_Categoria, id_proovedor, ano_publicado, editoral, ubicacion, estimado, cargo, estado):
         self.titulo = titulo
         self.id_autor = id_autor
         self.pais = pais
@@ -24,6 +26,8 @@ class Libros(db.Model):
         self.ano_publicado = ano_publicado
         self.editoral = editoral
         self.ubicacion = ubicacion
+        self.estimado = estimado 
+        self.cargo = cargo 
         self.estado = estado 
         
     
@@ -32,4 +36,4 @@ with app.app_context():
 
 class LibrosSchema(ma.Schema):
     class Meta:
-        fields = ('id','titulo', 'id_autor', 'pais', 'id_Categoria', 'id_proovedor', 'ano_publicado', 'editoral', 'ubicacion', 'estado')
+        fields = ('id','titulo', 'id_autor', 'pais', 'id_Categoria', 'id_proovedor', 'ano_publicado', 'editoral', 'ubicacion', 'estimado', 'cargo' 'estado')

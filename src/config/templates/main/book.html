@@ -119,11 +119,14 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
+                        <span disabled style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal" >Autor</span>
                         <div class="group-material">
-                            <input id="autorlibro" type="text" class="tooltips-general material-control" placeholder="Escribe aquí el autor del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del autor del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Autor</label>
+                            <select id="autorlibro" class="tooltips-general material-control" data-toggle="tooltip" placeholder="top" title="Elige el autor del libro">
+                                <option value="" disabled="" selected="">Selecciona un Autor</option>
+                                <option value="proveedor">Autor</option>
+                                <option value="proveedor">Autor</option>
+                                <option value="proveedor">Autor</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -139,7 +142,7 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <span>Categoría</span>
+                            <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Categoría</span>
                             <select id="categoriaibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro" onclick="mostrarcategoriabook()">
                                 <option value="" disabled="" selected="">Selecciona una categoría</option>
                                 <option value="categoria">Categoría</option>
@@ -153,7 +156,7 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <span>Proveedor</span>
+                            <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Proveedor</span>
                             <select id="proveedorlibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el proveedor del libro" onclick="mostrarproveedorbook()">
                                 <option value="" disabled="" selected="">Selecciona un proveedor</option>
                                 <option value="proveedor">Proveedor</option>
@@ -199,7 +202,7 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <span>Cargo</span>
+                            <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Cargo</span>
                             <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el cargo del libro">
                                 <option value="" disabled="" selected="">Selecciona el cargo del libro</option>
                                 <option value="1-1">Entrega del ministerio</option>
@@ -212,7 +215,7 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-                            <span>Estado</span>
+                            <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Estado</span>
                             <select id="estadolibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el estado del libro">
                                 <option value="" disabled="" selected="">Selecciona el estado del libro</option>
                                 <option value="Bueno">Bueno</option>
