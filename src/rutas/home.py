@@ -152,6 +152,12 @@ def indexcatalogo():
 
     return render_template('/main/catalogo.html')
 
+#CAMBIIO DINÁMICO-------ADMIN--------------------------------------------------
+@routes_home.route('indexadminH', methods=['GET'])
+def indexadminH():
+
+    return render_template('/main/Home-Admin.html')
+
 
 
 
