@@ -121,3 +121,11 @@ def consullist2():
         }
     print(datos)
     return datos
+
+@routes_user.route('/eliminarlibros/<id>', methods=['GET'] )
+def eliminarU(id):
+
+    usu = Users.query.get(id)
+    db.session.delete(usu)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(usu)) 
