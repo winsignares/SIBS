@@ -1,5 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
+from Model.Usuarios import Users, UsuariosSchema
 
 routes_teacher = Blueprint("routes_teacher", __name__)
 
