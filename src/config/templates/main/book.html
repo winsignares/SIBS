@@ -148,7 +148,7 @@
                     <div class="col-xs-12">
                         <div class="group-material">
                             <span>Categoría</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
+                            <select id="categoriaibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro" onclick="mostrarcategoriabook()">
                                 <option value="" disabled="" selected="">Selecciona una categoría</option>
                                 <option value="categoria">Categoría</option>
                                 <option value="categoria">Categoría</option>
@@ -162,7 +162,7 @@
                     <div class="col-xs-12">
                         <div class="group-material">
                             <span>Proveedor</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el proveedor del libro">
+                            <select id="proveedorlibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el proveedor del libro" onclick="mostrarproveedorbook()">
                                 <option value="" disabled="" selected="">Selecciona un proveedor</option>
                                 <option value="proveedor">Proveedor</option>
                                 <option value="proveedor">Proveedor</option>
@@ -237,7 +237,7 @@
                     <div class="col-xs-12">
                         <div class="group-material">
                             <span>Estado</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el estado del libro">
+                            <select id="estadolibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el estado del libro">
                                 <option value="" disabled="" selected="">Selecciona el estado del libro</option>
                                 <option value="Bueno">Bueno</option>
                                 <option value="Deteriorado">Deteriorado</option>
