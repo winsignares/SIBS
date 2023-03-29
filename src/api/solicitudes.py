@@ -25,9 +25,9 @@ def guardar_solicitudes():
     db.session.commit()
     return redirect('/savesolicitudes')
 #Eliminar   solicitudes
-@app.route('/deletesolicitudes/<id>', methods=['GET'] )
-def eliminarD(id):
-    solicitudes = Solicitudes.query.get(id)
+@app.route('/deletesolicitudes', methods=['GET'] )
+def eliminarD():
+    solicitudes = Solicitudes.query.get(all)
     db.session.delete(solicitudes)
     db.session.commit()
     return jsonify(solicitudes_schema.dump(solicitudes)) 
