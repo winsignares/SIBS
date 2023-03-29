@@ -7,7 +7,7 @@ function listaestudiantes() {
         .then(function(response) {
             const datos = response.data
             let estudiante = '';
-            for (let NIE in data) {
+            for (let NIE in datos) {
                 estudiante += `<div class="table-responsive">
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
