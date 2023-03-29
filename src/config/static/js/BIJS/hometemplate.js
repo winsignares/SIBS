@@ -9,6 +9,28 @@
        //console.error('Error al cargar el archivo:', error);
       //});
   //
+function mostrarContenido(idContenido) {
+  // Obtener la referencia al elemento div correspondiente al contenido
+  var contenido = document.getElementById(idContenido);
+  
+  // Obtener las referencias a los enlaces
+  var enlaces = document.querySelectorAll('.tile-name.all-tittles a');
+  
+  // Ocultar todos los contenidos excepto el que se quiere mostrar
+  for (var i = 0; i < enlaces.length; i++) {
+    var enlace = enlaces[i];
+    var idContenidoActual = enlace.getAttribute('href').substring(1);
+    var contenidoActual = document.getElementById(idContenidoActual);
+    
+    if (idContenidoActual === idContenido) {
+      // Si es el contenido que se quiere mostrar, se muestra
+      contenidoActual.style.display = 'block';
+    } else {
+      // Si no es el contenido que se quiere mostrar, se oculta
+      contenidoActual.style.display = 'none';
+    }
+  }
+}
   
 
   
