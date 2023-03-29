@@ -79,6 +79,28 @@
     }
   }
   
+  // Agregar clase de posición original a cada tile
+var tiles = document.getElementsByClassName("tile");
+for (var i = 0; i < tiles.length; i++) {
+  tiles[i].classList.add("original-position-" + i);
+}
+
+// Función para restablecer la posición original de los tiles
+function resetTilePositions() {
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    var originalPositionClass = "original-position-" + i;
+    if (tiles[i].classList.contains(originalPositionClass)) {
+      tiles[i].style.top = "";
+      tiles[i].style.left = "";
+    }
+  }
+}
+
+// Llamar a la función resetTilePositions() cuando se haga clic en el botón "volver"
+var volverButton = document.getElementById("volverButton");
+volverButton.addEventListener("click", resetTilePositions);
+
   
   
 
