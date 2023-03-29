@@ -2,14 +2,14 @@ from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Proveedores import Proveedores
 
-routes_provider = Blueprint("routes_provider", __name__)
+routes_proveedores = Blueprint("routes_proveedores", __name__)
 
-@routes_provider.route('/indexprovider', methods=['GET'] )
+@routes_proveedores.route('/indexprovider', methods=['GET'] )
 def indexprovider():
     
     return render_template('/main/provider.html')
 
-@routes_provider.route('/guardarprovider', methods=['POST'] )
+@routes_proveedores.route('/guardarprovider', methods=['POST'] )
 def saveprovider():
     
     Nombre_proveedor = request.json['Nombre_proveedor']

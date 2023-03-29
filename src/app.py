@@ -22,6 +22,7 @@ from api.estadosoli import routes_stadosolicitud
 from api.Libros import routes_Libros
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.section import routes_section
+
 #rutas
 
 #Santiago
@@ -45,7 +46,7 @@ from rutas.listcategory import routes_listcategory
 #Julieth
 from rutas.list_personal import routes_listpersonal
 #Wilches
-from rutas.listprovider import routes_listprovider
+from rutas.provider import routes_proveedores
 #Benedetty
 from rutas.listsesion import routes_listsesion
 #Jasson
@@ -105,7 +106,7 @@ app.register_blueprint(routes_listcategory, url_prefix="/fronted")
 #Julieth
 app.register_blueprint(routes_listpersonal, url_prefix="/fronted")
 #Wilches
-app.register_blueprint(routes_listprovider, url_prefix="/fronted")
+app.register_blueprint(rot, url_prefix="/fronted")
 #Benedetty
 app.register_blueprint(routes_listsesion, url_prefix="/fronted")
 #Jasson
@@ -130,6 +131,7 @@ app.register_blueprint(routes_section, url_prefix="/fronted")
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
 app.register_blueprint(routes_teacher, url_prefix="/fronted")
+app.register_blueprint(routes_proveedores, url_prefix="/fronted")
 
 #------------------------------------------------
 @app.route("/")

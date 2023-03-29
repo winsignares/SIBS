@@ -3,7 +3,7 @@ function addprovedor() {
     const poTelefono = document.getElementById('telprovider');
     const poDireccion = document.getElementById('dirreccionprovider');
     const poDescripcion = document.getElementById('telprovider');
-   
+   alert('a')
 
     axios.post('guardarprovider', {
         
