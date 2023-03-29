@@ -64,3 +64,4 @@ def actualizar():
     rusuario.roles = rol
     db.session.commit()
     return redirect('/rusuarios')
+

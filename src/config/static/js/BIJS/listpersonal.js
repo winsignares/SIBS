@@ -1,6 +1,6 @@
 const morfismo = document.getElementById('poli');
-
-function viewpersonal() {
+const i = 0;
+window.onload = function viewpersonal() {
     axios.get('/conlistpersonal', {
             responseType: 'json'
         })
@@ -37,5 +37,20 @@ function viewpersonal() {
 }
 
 function eliminarpersonal(){
+    const nose = document.getElementById('${i}');
+    //const id = nose.textContent;
+    axios.post('eliminarpersonal',{
+        id: nose.textContent, 
+    }, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+        }
+    }
+    ).then((res) => {
+        console.log(res.data)
+    })
+    .catch((error) => {
+        console.error(error)
     
+    })
 }

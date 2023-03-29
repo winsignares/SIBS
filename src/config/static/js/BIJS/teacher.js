@@ -2,12 +2,11 @@ function GuardarInstructor() {
     const ccinstructor = document.getElementById('idinstructor');
     const nameinstructor = document.getElementById('nombreinstructor');
     const apeinstructor = document.getElementById('apellidoinstructor');
-    const full = nameinstructor + apeinstructor;
+    const full = nameinstructor+ "" + apeinstructor;
     const telinstructor = document.getElementById('celinstructor');
     const espeinstructor = document.getElementById('espeinstruc');
     const usernameintruc = document.getElementById('usernameinstructor');
     const turnoinstruc = document.getElementById('jornadainstruc');    
-    const secinstruc = document.getElementById('seccioninstruc');
     const passintruc = document.getElementById('passinstructor');
     const passinstruc = document.getElementById('passinstructor2');
 
@@ -18,7 +17,7 @@ function GuardarInstructor() {
         Especialidad: espeinstructor.value,
         Jornada: turnoinstruc.value,
         password: passintruc.value,
-        Cedula: ccinstructor.value                
+        Cedula: ccinstructor.value
        
     }, {
         headers: {

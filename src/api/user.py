@@ -106,3 +106,26 @@ def consullist():
     return datos
 
 
+@routes_user.route('/conliststudiantes', methods=['GET'])
+def consullist2():
+    datos= {}
+    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+    i=0
+    for TblUsuarios,tblrolesusuarios in resultado:
+        i+=1	       
+        datos[i] = {
+        'NIE':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
+		'Seccion':TblUsuarios.seccion,                    
+        }
+    print(datos)
+    return datos
+
+@routes_user.route('/eliminarpersonal', methods=['GET'] )
+def eliminarU(id):
+
+    usu = Users.query.get(id)
+    db.session.delete(usu)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(usu)) 
