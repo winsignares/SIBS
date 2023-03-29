@@ -33,24 +33,49 @@
       //}
     //}
   //}
-  function mostrarContenido(id) {
+
+
+  //function mostrarContenido(id) {
     // Ocultar todos los elementos con la clase "contenido-iframe"
-    var iframes = document.getElementsByClassName("contenido-iframe");
-    for (var i = 0; i < iframes.length; i++) {
-      iframes[i].style.display = "none";
-    }
+    //var iframes = document.getElementsByClassName("contenido-iframe");
+    //for (var i = 0; i < iframes.length; i++) {
+      //iframes[i].style.display = "none";
+    //}
   
     // Mostrar el elemento correspondiente
-    var contenido = document.getElementById(id);
-    contenido.style.display = "block";
+    //var contenido = document.getElementById(id);
+    //contenido.style.display = "block";
   
     // Ocultar los demás enlaces
+    //var tiles = document.getElementsByClassName("tile");
+    //for (var i = 0; i < tiles.length; i++) {
+      //var enlace = tiles[i].getElementsByTagName("a")[0];
+      //if (enlace.getAttribute("href") != "#" + id) {
+        //tiles[i].style.display = "none";
+      //}
+    //}
+  //}
+  function mostrarContenido(id) {
+    // Ocultar todos los mosaicos
     var tiles = document.getElementsByClassName("tile");
     for (var i = 0; i < tiles.length; i++) {
-      var enlace = tiles[i].getElementsByTagName("a")[0];
-      if (enlace.getAttribute("href") != "#" + id) {
-        tiles[i].style.display = "none";
-      }
+      tiles[i].style.display = "none";
+    }
+  
+    // Mostrar el iframe correspondiente
+    var contenido = document.getElementById(id);
+    contenido.style.display = "block";
+  }
+  
+  function ocultarContenido(id) {
+    // Ocultar el iframe correspondiente
+    var contenido = document.getElementById(id);
+    contenido.style.display = "none";
+  
+    // Mostrar todos los mosaicos
+    var tiles = document.getElementsByClassName("tile");
+    for (var i = 0; i < tiles.length; i++) {
+      tiles[i].style.display = "block";
     }
   }
   
