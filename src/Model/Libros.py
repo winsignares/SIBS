@@ -6,31 +6,25 @@ class Libros(db.Model):
     
     id  = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(50))
+    id_autor = db.Column(db.Integer, db.ForeignKey('tblautores.id'))
     pais = db.Column(db.String(50))
+    id_Categoria = db.Column(db.Integer, db.ForeignKey('tblcategorias.id'))
+    id_proovedor = db.Column(db.Integer, db.ForeignKey('tblproveedores.id'))
     ano_publicado = db.Column(db.Date)
-    copias = db.Column(db.Integer)
-    estado = db.Column(db.String(50))
+    editoral = db.Column(db.String(100))
     ubicacion = db.Column(db.String(50))
-    id_deta_cat = db.Column(db.Integer)
-    id_autor = db.Column(db.Integer)
-    id_editoral = db.Column(db.Integer, db.ForeignKey('tbEditoriales.id'))
-    id_proov = db.Column(db.Integer, db.ForeignKey('tblproveedores.id'))
-  
+    estado = db.Column(db.String(50))
 
-    def __init__(self, titulo, pais, ano_publicado, copias, estado, ubicacion, id_deta_cat, id_autor, id_editoral, id_proov):
+    def __init__(self, titulo, id_autor, pais, id_Categoria, id_proovedor, ano_publicado, editoral, ubicacion, estado):
         self.titulo = titulo
-        self.pais = pais
-        self.ano_publicado = ano_publicado
-        self.copias = copias
-        self.estado = estado
-        self.ubicacion = ubicacion
-        self.id_deta_cat = id_deta_cat
         self.id_autor = id_autor
-        self.id_editoral = id_editoral
-        self.id_proov = id_proov
-        
-        
-
+        self.pais = pais
+        self.id_Categoria = id_Categoria
+        self.id_proovedor = id_proovedor
+        self.ano_publicado = ano_publicado
+        self.editoral = editoral
+        self.ubicacion = ubicacion
+        self.estado = estado 
         
     
 with app.app_context():
@@ -38,4 +32,4 @@ with app.app_context():
 
 class LibrosSchema(ma.Schema):
     class Meta:
-        fields = ('id','titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov')
+        fields = ('id','titulo', 'id_autor', 'pais', 'id_Categoria', 'id_proovedor', 'ano_publicado', 'editoral', 'ubicacion', 'estado')
