@@ -6,7 +6,7 @@ class Users(db.Model):
     
     id = db.Column(db.Integer,primary_key=True)
     full_name= db.Column(db.String(200))
-    password= db.column(db.String(200))
+    password= db.Column(db.String(200))
     Email= db.Column(db.String(200))
     telefono= db.Column(db.Integer)
     especialidad= db.Column(db.String(200))
