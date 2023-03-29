@@ -45,13 +45,15 @@
     contenido.style.display = "block";
   
     // Ocultar los demás enlaces
-    var tiles = document.getElementsByClassName("tile-name");
+    var tiles = document.getElementsByClassName("tile");
     for (var i = 0; i < tiles.length; i++) {
-      if (tiles[i].getElementsByTagName("a")[0].getAttribute("href") != "#" + id) {
+      var enlace = tiles[i].getElementsByTagName("a")[0];
+      if (enlace.getAttribute("href") != "#" + id) {
         tiles[i].style.display = "none";
       }
     }
   }
+  
   
   
 
