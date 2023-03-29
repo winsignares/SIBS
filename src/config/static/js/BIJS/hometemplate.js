@@ -56,28 +56,28 @@
     //}
   //}
   function mostrarContenido(id) {
-    // Ocultar todos los mosaicos
-    var tiles = document.getElementsByClassName("tile");
-    for (var i = 0; i < tiles.length; i++) {
-      tiles[i].style.display = "none";
-    }
-  
-    // Mostrar el iframe correspondiente
-    var contenido = document.getElementById(id);
-    contenido.style.display = "block";
+  // Ocultar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "none";
   }
-  
-  function ocultarContenido(id) {
-    // Ocultar el iframe correspondiente
-    var contenido = document.getElementById(id);
-    contenido.style.display = "none";
-  
-    // Mostrar todos los mosaicos
-    var tiles = document.getElementsByClassName("tile");
-    for (var i = 0; i < tiles.length; i++) {
-      tiles[i].style.display = "block";
-    }
+
+  // Mostrar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "block";
+}
+
+function ocultarContenido(id) {
+  // Ocultar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "none";
+
+  // Mostrar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "block";
   }
+}
   
   
   
