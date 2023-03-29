@@ -1,6 +1,6 @@
 .contenido-iframe iframe {
-    width: 200px;
-    height: 100px;
+    width: 100%;
+    height: auto;
   }
   .tiles-container {
     display: flex;
