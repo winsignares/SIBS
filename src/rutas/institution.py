@@ -1,6 +1,6 @@
 from config.db import db, app, ma
-from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model import institucion
+from flask import Blueprint, Flask,  redirect, request, jsonify, session, render_template
+from Model.institucion import institucion
 routes_institution = Blueprint("routes_institution", __name__)
 
 
@@ -14,17 +14,16 @@ def indexinstitution():
 @routes_institution.route('/guardarinstitution',methods=['POST'])
 def saveinstitution():
     #request.form['title']
-
-    #en el fullname va el dato de la db y en Roles de usuarios va la tbala donde se sacan los datos de la db
-    codigoinfra = request.form['codigo_infraestructura']
-    nombreinsti = request.form['nombre_institucion']
-    distrito = request.form['distrito']
-    telefono = request.form['telefono']
-    año = request.form['año']
-    print(codigoinfra,nombreinsti,distrito,telefono,año)
-    new_insti = institucion(codigoinfra)
-    db.session.add(new_insti)
+    codigo_infraestructura = request.form['codigo_infraestructura']
+    nombre_institucion = request.form['nombre_institucion']
+    distrito = request.form['distrito'] 
+    telefono = request.form['telefono'] 
+    año = request.form['año'] 
+    print(codigo_infraestructura)
+    new_institution = institucion(codigo_infraestructura, nombre_institucion, distrito,telefono,año)
+    db.session.add(new_institution)
     db.session.commit()
-    return new_insti
+    return "listo"
+
 
 

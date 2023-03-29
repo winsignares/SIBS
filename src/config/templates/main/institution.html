@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input id="codigoinfra" type="text" class="material-control tooltips-general" placeholder="Código de infraestructura" required="" pattern="[0-9]{1,10}" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 10 caracteres">
+                            <input id="codigo_infra" type="text" class="material-control tooltips-general" placeholder="Código de infraestructura" required="" pattern="[0-9]{1,10}" maxlength="10" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 10 caracteres">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Código infraestructura</label>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input id="nombreinsti" type="text" class="material-control tooltips-general" placeholder="Nombre de la institución" required="" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el nombre de la institución">
+                            <input id="nombre_insti" type="text" class="material-control tooltips-general" placeholder="Nombre de la institución" required="" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el nombre de la institución">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Nombre de la institución</label>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input id="distrito" type="text" class="material-control tooltips-general" placeholder="Distrito de la institución" required="" pattern="[0-9]{1,20}" maxlength="20" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 20 caracteres">
+                            <input id="distritos" type="text" class="material-control tooltips-general" placeholder="Distrito de la institución" required="" pattern="[0-9]{1,20}" maxlength="20" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 20 caracteres">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Distrito</label>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input id="telefono" type="text" class="material-control tooltips-general" placeholder="Teléfono de la institución" required="" pattern="[0-9]{8,8}" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solo 8 números">
+                            <input id="telefonos" type="text" class="material-control tooltips-general" placeholder="Teléfono de la institución" required="" pattern="[0-9]{8,8}" maxlength="8" data-toggle="tooltip" data-placement="top" title="Solo 8 números">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Teléfono</label>
@@ -154,7 +154,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                            <input id="año" type="text" class="material-control tooltips-general" placeholder="Año lectivo" required="" pattern="[0-9]{1,4}" maxlength="4" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 4 caracteres">
+                            <input id="años" type="text" class="material-control tooltips-general" placeholder="Año lectivo" required="" pattern="[0-9]{1,4}" maxlength="4" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 4 caracteres">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Año</label>
@@ -206,5 +206,6 @@
         <div class="footer-copyright full-reset all-tittles">© 2018 Carlos Alfaro</div>
     </footer>
 </div>
-<scipt src="/src/config/static/js/BIJS/institution.js"></scipt>
+<script src="{{url_for('static', filename='js/BIJS/institution.js')}}"></script>
+
 {% endblock %}
