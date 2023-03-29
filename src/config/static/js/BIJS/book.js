@@ -41,6 +41,36 @@ function Guardarlibros() {
     })*/
 }
 
-window.onload = function mostrardatos() {
+window.onload = function () {
+    mostaratorbook();
+}
+function mostaratorbook() {
+    const selectautor = document.getElementById("autorlibro");
 
+    axios.get('libros', {
+
+
+        /* var option = document.createElement("option");
+         option.text = dato.nombre;
+         option.value = dato.id;
+         select.appendChild(option);*/
+    }, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+
+        }
+    }
+    ).then((res) => {
+        console.log(res.data)
+
+
+    })
+        .catch((error) => {
+            console.error(error)
+        })
+}
+
+function eliminarFila() {
+    const div = document.getElementById("hola");
+    div.parentNode.removeChild(div);
 }
