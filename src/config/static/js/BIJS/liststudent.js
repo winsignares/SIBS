@@ -7,14 +7,13 @@ function listaestudiantes() {
         .then(function(response) {
             const datos = response.data
             let estudiante = '';
-            for (let NIE in data) {
+            for (let NIE in datos) {
                 estudiante += `<div class="table-responsive">
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
                             <div class="div-table-cell" style="width: 6%;">#</div>
                             <div class="div-table-cell" style="width: 18%;">${NIE}</div>
-                            <div class="div-table-cell" style="width: 18%;">${datos.Apellidos}</div>
-                            <div class="div-table-cell" style="width: 18%;">${datos.Nombres}</div>
+                            <div class="div-table-cell" style="width: 18%;">${datos.full_name}</div>
                             <div class="div-table-cell" style="width: 18%;">${datos.Seccion}</div>
                             <div class="div-table-cell" style="width: 9%;">
                                 <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>

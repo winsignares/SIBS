@@ -9,16 +9,16 @@ function GuardarInstructor() {
     const turnoinstruc = document.getElementById('jornadainstruc');    
     const passintruc = document.getElementById('passinstructor');
     const passinstruc = document.getElementById('passinstructor2');
-
-    axios.post('save_Users', {
+   
+    axios.post('saveinstructor', {
         full_name: full.value,
-        Email: usernameintruc.value,
-        Telefono: telinstructor.value,
-        Especialidad: espeinstructor.value,
-        Jornada: turnoinstruc.value,
         password: passintruc.value,
-        Cedula: ccinstructor.value
-       
+        Email: usernameintruc.value,
+        telefono: telinstructor.value,
+        especialidad: espeinstructor.value,
+        jornada: turnoinstruc.value,
+        id_roles: 4,        
+        Cedula: ccinstructor.value       
     }, {
         headers: {
         'Content-Type': 'multipart/form-data'
@@ -28,7 +28,7 @@ function GuardarInstructor() {
     ).then((res) => {
         console.log(res.data)
     })
-    .catch((error) => {
-        console.error(error)
+    .catch((err) => {
+        console.log(err);
     })
 }

@@ -12,7 +12,7 @@ def indexbook():
 
 @routes_book.route('/guardarbook',methods=['POST'])
 def savebook():
-    book = request.form['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
+    book = request.form['id','titulo', 'id_autor', 'pais', 'id_Categoria', 'id_proovedor', 'ano_publicado', 'editoral', 'ubicacion', 'estimado', 'cargo', 'estado']
     print(book)
     new_libro = Libros(book)
     db.session.add(new_libro)
