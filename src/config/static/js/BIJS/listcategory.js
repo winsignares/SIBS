@@ -1,6 +1,6 @@
 import Axios from 'axios';
 divcategory = document.getElementById('tablas')
-function listcategory(){
+ function listcategory(){
   Axios.get('/viewlistcategory', {
     responseType: 'json'
 })
