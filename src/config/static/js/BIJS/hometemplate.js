@@ -43,6 +43,14 @@
     // Mostrar el elemento correspondiente
     var contenido = document.getElementById(id);
     contenido.style.display = "block";
+  
+    // Ocultar los demás enlaces
+    var tiles = document.getElementsByClassName("tile-name");
+    for (var i = 0; i < tiles.length; i++) {
+      if (tiles[i].getElementsByTagName("a")[0].getAttribute("href") != "#" + id) {
+        tiles[i].style.display = "none";
+      }
+    }
   }
   
   
