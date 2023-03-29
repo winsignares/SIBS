@@ -1,5 +1,5 @@
 const morfismo = document.getElementById('poli');
-
+const i = 0;
 window.onload = function viewpersonal() {
     axios.get('/conlistpersonal', {
             responseType: 'json'
@@ -7,7 +7,7 @@ window.onload = function viewpersonal() {
         .then(function(response) {
             const datos = response.data
             let listper = '';
-            i = 0
+            
             for (let DUI in datos) {
                 i += 1
                 listper += `<div class="table-responsive">
@@ -37,5 +37,7 @@ window.onload = function viewpersonal() {
 }
 
 function eliminarpersonal(){
-    
+    const nose = document.getElementById('${i}');
+    const id = nose.textContent;
+    axios
 }
