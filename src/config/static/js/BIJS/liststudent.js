@@ -1,4 +1,5 @@
 const divestudiante = document.getElementById('reemplazable');
+const GEtestudiante = document.getElementById('Rbusqueda');
 
 function listaestudiantes() {
     axios.get('/conliststudiantes', {
@@ -33,3 +34,24 @@ function listaestudiantes() {
         .then(function() {});
 }
 listaestudiantes();
+
+function Busca_estudiantes() {
+    axios.get('/conliststudiantes', {
+            responseType: 'json'
+        })
+        .then(function(response) {
+            const datos = response.data
+            const estudiantes = document.getElementById('buscador');
+            for (estudiantes in datos) {
+                comodin += `<li class="list-catalog ">${This.estudiantes.Nombre}</li>
+                <li class="list-catalog ">${This.estudiantes.Seccion}</li>
+                <li class="list-catalog ">${This.estudiantes.NIE}</li>
+                <br>`
+            }
+            GEtestudiante.innerHTML = comodin
+        })
+        .catch(function(err) {
+            console.log(err);
+        })
+        .then(function() {});
+}
