@@ -3,7 +3,7 @@ function GuardarCategoria() {
     const Descripcion = document.getElementById('description');
 
     axios.post('guardarcategoria', {
-            NombreCategoria: N_cat.value,
+            NumeroCategoria: N_cat.value,
             descripcion: Descripcion.value
         }, {
             headers: {

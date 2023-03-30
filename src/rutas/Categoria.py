@@ -10,13 +10,16 @@ def indexCategoria():
     
     return render_template('/main/Categoria.html')
 
+
 @routes_categorias.route('/guardarcategoria',methods=['POST'])
 def savecategoria():
-   
+     
  #request.form['title']
-    NombreCategoria = request.form['fullname']
-    print(NombreCategoria)
-    new_rol = Categorias(NombreCategoria)
-    db.session.add(new_rol)
+    NumeroCategoria = request.form['NumeroCategoria']
+    descripcion = request.form['descripcion']
+
+    print(NumeroCategoria)
+    new_category = Categorias(NumeroCategoria,descripcion)
+    db.session.add(new_category)
     db.session.commit()
-    return NombreCategoria
+    return 'ok'
