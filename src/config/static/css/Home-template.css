@@ -17,8 +17,8 @@
   }
   .boton-volver {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 500px;
+    right: 700px;
   }
   /*
   #boton-volver {
