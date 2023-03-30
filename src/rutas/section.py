@@ -9,6 +9,8 @@ def indexsection():
     
     return render_template('/main/Section.html')
 
+
+
 @routes_section.route('/guardarsection',methods=['POST'])
 def saveSection():
     #request.form['title']
@@ -21,4 +23,11 @@ def saveSection():
     new_section = Section(year, especialidad, seccion)
     db.session.add(new_section)
     db.session.commit()
+<<<<<<< HEAD
     return redirect('/proveedores')
+=======
+    return "ok"
+
+
+ 
+>>>>>>> fa40e94ccd5d185fa9d56c544280915e9dcd07f5

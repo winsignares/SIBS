@@ -9,12 +9,11 @@ function addprovedor() {
 
     axios.post('guardarprovider', {
         
-        Nombre_proveedor: Nombre_proveedorr,
+        Nombre_proveedor: Nombre_proveedorr.value,
         correo: correoprovider.value,
         Direccion: Direccionprovider.value,
         telefono: telefonoprovider.value,
         Descripcion: responsableprovider.value
-       // Descripcion: responsableprovider.value
         
 
     }, {

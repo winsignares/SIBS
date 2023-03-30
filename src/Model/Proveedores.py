@@ -6,7 +6,7 @@ class Proveedores(db.Model):
     
     id  = db.Column(db.Integer, primary_key=True)
     Nombre_proveedor = db.Column(db.String(50))
-    correo = db.Column(db.Integer)
+    correo = db.Column(db.String(100))
     Direccion = db.Column(db.String(50))
     telefono = db.Column(db.Integer)
     Descripcion = db.Column(db.Text)
