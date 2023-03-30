@@ -84,6 +84,12 @@ function animarEtiqueta() {
   etiqueta.style.opacity = 1;
   etiqueta.style.fontSize = '30px';
 }
+function revertirAnimacion() {
+  var etiqueta = document.querySelector('.animacion');
+  etiqueta.style.opacity = 0.5;
+  etiqueta.style.fontSize = '20px';
+}
+
 
 
 //Este es un codigo llamativo
