@@ -15,11 +15,6 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
-  .boton-volver {
-    position: absolute;
-    top: 500px;
-    right: 700px;
-  }
   /*
   #boton-volver {
     position: relative;
