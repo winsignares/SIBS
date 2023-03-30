@@ -118,10 +118,11 @@ document.getElementById("volver-admin").addEventListener("click", function() {
   // activar la clase 'link' en la etiqueta 'h1'
   document.querySelector(".all-tittles").classList.add("link");
 });
-document.getElementById("volver-admin").addEventListener("click", function() {
-  // activar la clase 'link' en la etiqueta 'h1'
-  document.querySelector(".all-tittles").classList.add("link");
+document.getElementById("volver-atras").addEventListener("click", function() {
+  // eliminar la clase 'link' de la etiqueta 'h1'
+  document.querySelector(".all-tittles").classList.remove("link");
 });
+
 
 
 
