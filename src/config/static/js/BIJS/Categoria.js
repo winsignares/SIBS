@@ -1,16 +1,10 @@
 function GuardarCategoria() {
-    const id = document.getElementById('codcategory');
     const N_cat = document.getElementById('name');
     const Descripcion = document.getElementById('description');
 
-
-
-    axios.post('guardarcat', {
-            id: id.value,
-            N_cat: N_cat.value,
-            Descripcion: Descripcion.value,
-
-
+    axios.post('guardarcategoria', {
+            NombreCategoria: N_cat.value,
+            descripcion: Descripcion.value
         }, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -22,8 +16,5 @@ function GuardarCategoria() {
         .catch((error) => {
             console.error(error)
         })
-}
 
-function mostrar() {
-    alert("Hola");
 }
