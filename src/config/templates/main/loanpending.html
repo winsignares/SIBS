@@ -125,7 +125,7 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">
+            <div class="table-responsive">
             <div id="hola" class="div-table" style="margin:0 !important;">
                 <div class="div-table-row div-table-row-list">
                     <div class="div-table-cell" style="width: 6%;">#</div>
@@ -135,10 +135,10 @@
                     <div class="div-table-cell" style="width: 10%;">Dias de atraso</div>
                     <div class="div-table-cell" style="width: 10%;">Estado</div>
                     <div class="div-table-cell" style="width: 8%;">
-                        <button class="btn btn-success" onclick="eliminarFila()" ><i class="zmdi zmdi-time-restore"></i></button>
+                        <button class="btn btn-success" onclick="Listo()" ><i class="zmdi zmdi-time-restore"></i></button>
                     </div>
                     <div class="div-table-cell" style="width: 8%;">
-                        <button onclick="EliminarEstudiantes()" class="btn btn-info" ><i class="zmdi zmdi-file-text"></i></button>
+                        <button onclick="fmodal()" class="btn btn-info" ><i class="zmdi zmdi-file-text"></i></button>
                     </div>
                 </div>
             </div>
@@ -153,10 +153,10 @@
                     <div class="div-table-cell" style="width: 10%;">Dias de atraso</div>
                     <div class="div-table-cell" style="width: 10%;">Estado</div>
                     <div class="div-table-cell" style="width: 8%;">
-                        <button class="btn btn-danger" onclick="eliminarFila()" ><i class="zmdi zmdi-time-restore"></i></button>
+                        <button class="btn btn-success" onclick="Listo()" ><i class="zmdi zmdi-time-restore"></i></button>
                     </div>
                     <div class="div-table-cell" style="width: 8%;">
-                        <button class="btn btn-info" ><i class="zmdi zmdi-file-text"></i></button>
+                        <button onclick="fmodal()" class="btn btn-info" ><i class="zmdi zmdi-file-text"></i></button>
                     </div>
                 </div>
             </div>
@@ -252,11 +252,7 @@
         <div class="footer-copyright full-reset all-tittles">© 2018 Carlos Alfaro</div>
     </footer>
 </div>
-<<<<<<< HEAD
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{url_for('static', filename='js/BIJS/loanpending.js')}}"></script>
-=======
-<script src="{{url_for('static', filename='js/BIJS/loan.js')}}"></script>
-
->>>>>>> 4cc9b948dcad115da5c41eeebfd5404107d4ee56
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 {% endblock %}
