@@ -89,10 +89,15 @@ function revertirAnimacion() {
   etiqueta.style.opacity = 1;
   etiqueta.style.fontSize = '30px';
 }
-function reducirTitulo() {
-  var titulo = document.querySelector('.animacion1');
-  titulo.style.fontSize = '1px';
+function reducirTamano() {
+  document.getElementById("header").style.fontSize = "24px";
 }
+
+function aumentarTamano() {
+  document.getElementById("header").style.fontSize = "36px";
+}
+
+
 
 
 
