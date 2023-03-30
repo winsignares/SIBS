@@ -24,19 +24,10 @@ def usuarios():
 #crud de usuarios
 @routes_user.route('/eliminar_Users/<id>', methods=['GET'] )
 def eliminar_users(id):
-<<<<<<< HEAD
-    #id = request.args.get('id')
-    #id = request.json['id']
-    user = Users.query.get(id)
-    db.session.delete(user)
-    db.session.commit()
-    return jsonify(UsuariosSchema.dump(user)) 
-=======
     usuarios = Users.query.get(id)
     db.session.delete(usuarios)
     db.session.commit()
     return jsonify(UsuariosSchema.dump(usuarios)) 
->>>>>>> 01ebcafbdb4dec1c056891ca22f50aa4ce67ae2b
 
 @routes_user.route('/actualizarUsers', methods=['POST'] )
 def actualizar_users():

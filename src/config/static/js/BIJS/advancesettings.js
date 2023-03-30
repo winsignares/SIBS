@@ -5,10 +5,6 @@ function Eliminarlibro() {
         html:
             'ingrese el id que desea eliminar' +
             '<input id="id_instructor" class="swal2-input">',
-<<<<<<< HEAD
-
-=======
->>>>>>> e04952e63f4a64c44b7aac550974f1269fdcb57b
     })
 
 }
@@ -16,39 +12,6 @@ function Eliminarlibro() {
 //Eliminar aprendiz
 function EliminarEstudiantes() {
     Swal.fire({
-<<<<<<< HEAD
-        icon: 'warning',
-        title: 'Eliminar Estudiantes',
-        html:
-        '<input id="EliminarAprendiz" class="swal2-input" placeholder="Escribe aqui el id del usuario">',
-      showCancelButton: true,
-      confirmButtonText: 'Enviar',
-      cancelButtonText: 'Cancelar',
-        
-    }).then((result) => {
-        if (result.isConfirmed) {
-          const eliminarAprendiz = document.getElementById('EliminarAprendiz');
-          axios.get('api/eliminar_Users', {
-            
-            id: eliminarAprendiz.value
-          }, {
-            headers: {
-            'Content-Type': 'multipart/form-data'
-    
-            }
-        }
-        ).then((res) => {
-            console.log(res.data)
-        })
-        .catch((error) => {
-            console.error(error)
-        })
-
-          
-      }}  
-      )};
-      
-=======
         title: 'Eliminar Estudiantes',
         html:
             '<input id="EliminarAprendiz" class="swal2-input" placeholder="Escribe tu consulta aquí">',
@@ -57,16 +20,33 @@ function EliminarEstudiantes() {
         cancelButtonText: 'Cancelar',
     }).then((result) => {
         if (result.isConfirmed) {
-            const EliminarAprendiz = document.getElementById('EliminarAprendiz').value;
+            const eliminarAprendiz = document.getElementById('EliminarAprendiz');
+            axios.get('api/eliminar_Users', {
+            id: eliminarAprendiz.value
+
+            }, {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+        
+                }
+            }
+            ).then((res) => {
+                console.log(res.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+          }  }
+            ) 
+            
 
             
             // Aquí puedes consumir el API utilizando la consulta
-        }
-    });
+        };
+    
 
 
-};
->>>>>>> e04952e63f4a64c44b7aac550974f1269fdcb57b
+
 
 
 //Eliminar Instructor
