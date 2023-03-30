@@ -5,7 +5,10 @@ function Eliminarlibro() {
         html:
             'ingrese el id que desea eliminar' +
             '<input id="id_instructor" class="swal2-input">',
+<<<<<<< HEAD
 
+=======
+>>>>>>> e04952e63f4a64c44b7aac550974f1269fdcb57b
     })
 
 }
@@ -13,6 +16,7 @@ function Eliminarlibro() {
 //Eliminar aprendiz
 function EliminarEstudiantes() {
     Swal.fire({
+<<<<<<< HEAD
         icon: 'warning',
         title: 'Eliminar Estudiantes',
         html:
@@ -44,6 +48,25 @@ function EliminarEstudiantes() {
       }}  
       )};
       
+=======
+        title: 'Eliminar Estudiantes',
+        html:
+            '<input id="EliminarAprendiz" class="swal2-input" placeholder="Escribe tu consulta aquí">',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const EliminarAprendiz = document.getElementById('EliminarAprendiz').value;
+
+            
+            // Aquí puedes consumir el API utilizando la consulta
+        }
+    });
+
+
+};
+>>>>>>> e04952e63f4a64c44b7aac550974f1269fdcb57b
 
 
 //Eliminar Instructor

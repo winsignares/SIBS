@@ -107,14 +107,14 @@ def consullist():
 def consullist2():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.jornada, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
     i=0
     for TblUsuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
         'NIE':TblUsuarios.Cedula,
 		'Nombre':TblUsuarios.full_name,
-		'Seccion':TblUsuarios.seccion,                    
+		'Jornada':TblUsuarios.jornada,                    
         }
     print(datos)
     return datos

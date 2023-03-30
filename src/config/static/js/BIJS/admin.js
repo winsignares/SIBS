@@ -24,3 +24,13 @@ function GuardarAdministrador() {
         console.error(error)
     })
 }
+function DatoSeguro() {
+    Swal.fire({
+        title: 'Deseas Guardar este dato',
+        text: 'Recuerda que este dato será almacenado',
+        confirmButtonText: 'confirmar',
+        showCancelButton: true,
+        icon: 'warning'
+
+    })
+};
