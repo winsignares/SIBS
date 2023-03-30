@@ -91,7 +91,7 @@ function revertirAnimacion() {
 }
 function reducirTitulo() {
   var titulo = document.querySelector('.animacion1');
-  titulo.style.fontSize = '20px';
+  titulo.style.fontSize = '1px';
 }
 
 
