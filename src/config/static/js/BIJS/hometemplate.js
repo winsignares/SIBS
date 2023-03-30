@@ -120,11 +120,8 @@ function volverAtras() {
   return false;
 }
 function volverAtras() {
-  if (window.location.href.includes('#contenidoAdmin')) {
-    ocultarContenido('contenidoAdmin');
-  } else {
-    window.history.back();
-  }
+  ocultarContenido('contenidoAdmin');
+  document.getElementById('volver-atras').removeAttribute('href');
 }
 
 
