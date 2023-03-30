@@ -37,7 +37,7 @@ function Guardarlibros() {
         estado: estadobook.value
     }, {
         headers: {
-        'Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data'
 
         }
     }
@@ -46,19 +46,18 @@ function Guardarlibros() {
 
 
     })
-    .catch((error) => {
-        console.error(error)
-    })
+        .catch((error) => {
+            console.error(error)
+        })
 }
-
-window.onload = function () {
-    mostaratorbook();
-}
-
-const selautorlibro = document.getElementById('autorlibro');
-//const axios = require('axios');
-
-selautorlibro.addEventListener('change', function () {
+// FUNCION PARA MOSTRAR LOS AUTORES
+document.addEventListener("DOMContentLoaded", function () {
+    mostrarautor()
+    mostrarcategoria()
+    mostrarproveedor()
+});
+function mostrarautor() {
+    const selautorlibro = document.getElementById('autorlibro');
     // Hacer una petición para un usuario con ID especifico
     axios.get('/api/autores')
         .then(function (response) {
@@ -66,11 +65,11 @@ selautorlibro.addEventListener('change', function () {
             console.log(response.data);
             const data = response.data
             for (items in data) {
-                alert(data[items].nombre)
+                //alert(data[items].nombre)
                 const opcion = document.createElement('option');
                 opcion.value = data[items].id;
                 opcion.text = data[items].nombre;
-                selautorlibro.appendChild(selautorlibro);            
+                selautorlibro.appendChild(opcion);
             }
         })
         .catch(function (error) {
@@ -81,30 +80,52 @@ selautorlibro.addEventListener('change', function () {
             // siempre sera executado
             console.log("Ejcucion Finalizada");
         });
-}, false);
-
-
-
-function mostaratorbook() {
-    const selectautor = document.getElementById("autorlibro");
-        axios.get('/libros')
+}
+// FUNCION PARA MOSTRAR LOS AUTORES
+function mostrarcategoria() {
+    const selcategorialibro = document.getElementById('categorialibro');
+    axios.get('/api/Categorias')
         .then(function (response) {
-            alert(response.data)
-          const options = response.data;
-          const select = document.getElementById('autorlibro');
-          options.map(function(option) {
-            const el = document.createElement("option");
-            el.text = option[1];
-            el.value = option[0];
-            select.add(el);
-          });
+            // manejar respuesta exitosa
+            console.log(response.data);
+            const data = response.data
+            for (items in data) {
+                const opcion = document.createElement('option');
+                opcion.value = data[items].id;
+                opcion.text = data[items].nombre;
+                selcategorialibro.appendChild(opcion);
+            }
         })
         .catch(function (error) {
-          console.log(error);
+            // manejar error
+            console.log(error);
+        })
+        .finally(function () {
+            // siempre sera executado
+            console.log("Ejcucion Finalizada");
         });
 }
-
-function eliminar() {
-    const div = document.getElementById("hola");
-    div.parentNode.removeChild(div);
+// FUNCION PARA MOSTRAR LOS AUTORES
+function mostrarproveedor() {
+    const selproveedorlibro = document.getElementById('proveedorlibro');
+    axios.get('/api/Proveedores')
+        .then(function (response) {
+            // manejar respuesta exitosa
+            console.log(response.data);
+            const data = response.data
+            for (items in data) {
+                const opcion = document.createElement('option');
+                opcion.value = data[items].id;
+                opcion.text = data[items].Nombre_proveedor;
+                selproveedorlibro.appendChild(opcion);
+            }
+        })
+        .catch(function (error) {
+            // manejar error
+            console.log(error);
+        })
+        .finally(function () {
+            // siempre sera executado
+            console.log("Ejcucion Finalizada");
+        });
 }
