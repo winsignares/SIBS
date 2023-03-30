@@ -1,11 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-<<<<<<< HEAD
-from Model.Libros import Libros
-
-=======
 from Model.Libros import Libros, LibrosSchema
->>>>>>> main
 routes_book = Blueprint("routes_book", __name__)
 
 
@@ -16,14 +11,6 @@ def indexbook():
 
 @routes_book.route('/guardarbook',methods=['POST'])
 def savebook():
-<<<<<<< HEAD
-    book = request.form['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion', 'id_deta_cat', 'id_autor', 'id_editoral', 'id_proov']
-    print(book)
-    new_libro = Libros(book)
-    db.session.add(new_libro)
-    db.session.commit()
-    return book
-=======
     titulo = request.form['titulo']
     id_autor = request.form['id_autor']
     pais = request.form['pais']
@@ -49,4 +36,3 @@ def libros():
     returnall = Libros.query.all()
     resultado_libros = LibrosSchema.dump(returnall)
     return jsonify(resultado_libros)
->>>>>>> main

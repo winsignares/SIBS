@@ -68,9 +68,9 @@ selautorlibro.addEventListener('change', function () {
             for (items in data) {
                 alert(data[items].nombre)
                 const opcion = document.createElement('option');
-                opcion.value = data[items];
+                opcion.value = data[items].id;
                 opcion.text = data[items].nombre;
-                selautorlibro.append(selautorlibro);            
+                selautorlibro.appendChild(selautorlibro);            
             }
         })
         .catch(function (error) {
