@@ -5,7 +5,7 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.Categorias import Categorias, CategoriasSchema
 
-routes_category = Blueprint("routes_categorias", __name__)
+routes_category = Blueprint("routes_categorias ", __name__)
 
 #Categoria - Schema
 Categoria_schema = CategoriasSchema()
@@ -19,7 +19,7 @@ def indexCategoria():
 #---------SAVE/CREAR------------
 @routes_category.route('/savecategoria', methods=['POST'] )
 def guardar_categoria():
-    categori = request.json['N_cat']
+    categori = request.json['categori']
     print(categori)
     new_Cat = Categorias(categori)
     db.session.add(new_Cat)
