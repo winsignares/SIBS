@@ -20,6 +20,10 @@
     font-size: 30px; /* Reducción de tamaño de fuente */
     transition: all 3s ease; /* Duración y tipo de animación */
   }
+  .animacion {
+    font-size: 36px;
+    transition: font-size 0.3s ease-out;
+  }
   /*
   #boton-volver {
     position: relative;
