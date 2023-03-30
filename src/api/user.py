@@ -24,15 +24,10 @@ def usuarios():
 #crud de usuarios
 @app.route('/eliminar_Users/<id>', methods=['GET'] )
 def eliminar_users(id):
-    full_name = Users.query.get(id)
-    Email = Users.query.get(id)
-    telefono = Users.query.get(id)
-    especialidad = Users.query.get(id)
-    jornada = Users.query.get(id)
-    direccion = Users.query.get(id)
-    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
+    usuarios = Users.query.get(id)
+    db.session.delete(usuarios)
     db.session.commit()
-    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
+    return jsonify(UsuariosSchema.dump(usuarios)) 
 
 @app.route('/actualizarUsers', methods=['POST'] )
 def actualizar_users():
@@ -55,16 +50,9 @@ def actualizar_users():
 
 @app.route('/save_Users', methods=['POST'] )
 def guardar_Users():
-    full_name = request.json['full_name']
-    Email = request.json['Email']
-    telefono = request.json['telefono']
-    especialidad = request.json['especialidad']
-    jornada = request.json['jornada']
-    id_roles = request.json['id_roles']
-    password = request.json['password']
-    cedula = request.json['Cedula']
-    print(full_name,Email,telefono,especialidad,jornada)
-    new_Users = Users(full_name,Email,telefono,especialidad,jornada, password, cedula)
+    usuarios = request.json['full_name,Email,password,telefono,especialidad,jornada,direccion,id_roles']
+    print(usuarios)
+    new_Users = Users(usuarios)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
@@ -90,15 +78,15 @@ def consullist():
 @routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
-    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
-        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.jornada, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
     i=0
     for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'NIE':tblusuarios.Cedula,
-		'Nombre':tblusuarios.full_name,
-		'Seccion':tblusuarios.seccion,                    
+        'NIE':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
+		'Jornada':TblUsuarios.jornada,                    
         }
     print(datos)
     return datos

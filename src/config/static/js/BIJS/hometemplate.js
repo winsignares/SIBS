@@ -101,9 +101,6 @@ function revertirAnimacion() {
 }
 
 
-
-
-
 //Este es un codigo llamativo
 /*function mostrarContenido(id) {
   // Ocultar todos los mosaicos
