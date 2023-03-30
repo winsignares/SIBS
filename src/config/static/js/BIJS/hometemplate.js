@@ -89,13 +89,6 @@ function revertirAnimacion() {
   etiqueta.style.opacity = 1;
   etiqueta.style.fontSize = '30px';
 }
-function reducirTamano() {
-  document.getElementById("header").style.fontSize = "4px";
-}
-
-function aumentarTamano() {
-  document.getElementById("header").style.fontSize = "36px";
-}
 
 
 

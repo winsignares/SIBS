@@ -92,19 +92,19 @@
         </ul>
     </nav>
     <div class="container">
-        <div class="page-header animacion" id="header">
+        <div class="page-header"style="transition: all 0.5s ease; font-size: 20px; opacity: 0.7;">
           <h1 class="all-tittles">Sistema bibliotecario <small>Inicio</small></h1>
         </div>
     </div>
     <div id="contenidoAdmin" class="contenido-iframe" style="display:none;">
         <iframe src="indexadminH"></iframe>
-        <div class="containervolver"><button id="boton-volver" style="background-color: #555; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;" onclick="ocultarContenido('contenidoAdmin');aumentarTamano();">Volver</button></div>
+        <div class="containervolver"><button id="boton-volver" style="background-color: #555; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;" onclick="ocultarContenido('contenidoAdmin');">Volver</button></div>
       </div>   
       <section class="full-reset text-center" style="padding: 40px 0;">
         <article class="tile">
           <div class="tile-icon full-reset"><i class="zmdi zmdi-face"></i></div>
           <div class="tile-name all-tittles">
-            <a href="#contenidoAdmin" onclick="mostrarContenido('contenidoAdmin');animarEtiqueta(); reducirTamano();return false;">administradores</a>
+            <a href="#contenidoAdmin" onclick="mostrarContenido('contenidoAdmin');animarEtiqueta(); return false;">administradores</a>
           </div>
           <div class="tile-num full-reset">7</div>
         </article>
