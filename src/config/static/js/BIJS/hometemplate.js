@@ -88,7 +88,7 @@ function mostrarContenido(id) {
   }
 
   // Ocultar el menú lateral
-  var menuLateral = document.getElementsByClassName("container-menu-movile")[0];
+  var menuLateral = document.getElementsByClassName("logo full-reset all-tittles")[0];
   menuLateral.style.display = "none";
 
   // Mostrar el iframe correspondiente
@@ -98,7 +98,7 @@ function mostrarContenido(id) {
 
 function ocultarContenido(id) {
   // Mostrar el menú lateral
-  var menuLateral = document.getElementsByClassName("container-menu-movile")[0];
+  var menuLateral = document.getElementsByClassName("logo full-reset all-tittles")[0];
   menuLateral.style.display = "block";
 
   // Ocultar el iframe correspondiente
