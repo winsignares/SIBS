@@ -4,7 +4,7 @@
 
 #https://docs.sqlalchemy.org/en/14/core/type_basics.html
 #https://flask.palletsprojects.com/en/2.2.x/
-from api.user import *
+#from api.user import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
@@ -23,10 +23,11 @@ from api.Libros import routes_Libros
 from api.cate_deta import routes_Catego_deta
 from api.Det_Solicitud import routes_Dsolicitudes
 from api.detalles_autores import routes_Deautores
+from api.section import routes_section
 #rutas
-from rutas.home import routes_home
-#Santiago
 
+#Santiago
+from rutas.home import routes_home
 #luis
 from rutas.advancesettings import routes_advancesettings
 #dainer
@@ -36,7 +37,7 @@ from rutas.book import routes_book
 #David
 from rutas.catalogo import routes_catalogo
 #Antonio
-from rutas.Categoria import routes_Categorias 
+from rutas.Categoria import routes_categorias 
 #Edwin
 from rutas.institution import routes_institution
 #Alejo
@@ -98,7 +99,7 @@ app.register_blueprint(routes_book, url_prefix="/fronted")
 #David
 app.register_blueprint(routes_catalogo, url_prefix="/fronted")
 #Antonio
-app.register_blueprint(routes_Categorias, url_prefix="/fronted")
+app.register_blueprint(routes_categorias, url_prefix="/fronted")
 #Edwin
 app.register_blueprint(routes_institution, url_prefix="/fronted")
 #Alejo
@@ -128,7 +129,7 @@ app.register_blueprint(routes_student, url_prefix="/fronted")
 #Camilo
 app.register_blueprint(routes_report, url_prefix="/fronted")
 #Jonathan
-
+app.register_blueprint(routes_section, url_prefix="/fronted") 
 #Jorge
 app.register_blueprint(routes_searchbooks, url_prefix="/fronted")
 #Julieth
