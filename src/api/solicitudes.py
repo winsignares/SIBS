@@ -40,3 +40,7 @@ def actualizarS():
     pusuario.cantidad = solicitudes
     db.session.commit()
     return redirect('/updatesolicitudes')
+
+
+
+    

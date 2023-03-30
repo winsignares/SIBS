@@ -34,3 +34,12 @@ function DatoSeguro() {
 
     })
 };
+function limpiardatos() {
+    Swal.fire({
+        title: 'Desea limpiar estos datos',
+        confirmButtonText: 'confirmar',
+        showCancelButton: true,
+        icon: 'warning'
+
+    })
+};
