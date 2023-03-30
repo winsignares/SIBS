@@ -1,22 +1,13 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-<<<<<<< HEAD
-
-routes_listsesion = Blueprint("routes_listsesion", __name__)
-
-=======
 from Model.section import * 
 
 
 routes_listsesion = Blueprint("routes_listsesion", __name__)
->>>>>>> main
 
 @routes_listsesion.route('/indexlistsesion', methods=['GET'] )
 def indexlistsesion():
     
-<<<<<<< HEAD
-    return render_template('/main/listsection.html')
-=======
     return render_template('/main/listsection.html')
 
 
@@ -34,4 +25,3 @@ def obtenersection():
     returnall = Section.query.all()
     result_section = sectionSchema.dump(returnall)
     return jsonify(result_section)
->>>>>>> main
