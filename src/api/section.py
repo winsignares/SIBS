@@ -8,15 +8,33 @@ routes_section = Blueprint("routes_section", __name__)
 section_Schema = sectionSchema()
 sections_Schema = sectionSchema(many=True)
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> main
 @routes_section.route('/section', methods=['GET'])
 def obtenersection():    
     returnall = Section.query.all()
     result_section = sections_Schema.dump(returnall)
     return jsonify(result_section)
 
+<<<<<<< HEAD
 #<--------------------------CRUD section--------------------------->
 @routes_section.route('/eliminarsection/<id>', methods=['GET'] )
 def eliminarsection(id):
+=======
+
+
+
+
+
+#<--------------------------CRUD section--------------------------->
+@routes_section.route('/eliminarsection/<id>', methods=['GET'] )
+def eliminarsection(id):
+    
+>>>>>>> main
     clear = Section.query.get(id)
     db.session.delete(clear)
     db.session.commit()

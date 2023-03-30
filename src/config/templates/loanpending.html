@@ -21,6 +21,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="navbar-lateral full-reset">
@@ -79,7 +81,7 @@
                         </ul>
                     </li>
                     <li><a href="report.html"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes y estadísticas</a></li>
-                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuraciones avanzadas</a></li>
+                    <li><a href="indexconfiguracionesavanzadas"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuraciones avanzadas</a></li>
                 </ul>
             </div>
         </div>
@@ -134,10 +136,10 @@
         </div>
         <div class="container-fluid">
             <h2 class="text-center all-tittles">Listado de devoluciones pendientes</h2>
-            <div class="table-responsive">
+            <div id="tabla" class="table-responsive">
                 <div class="div-table" style="margin:0 !important;">
                     <div class="div-table-row div-table-row-list" style="background-color:#DFF0D8; font-weight:bold;">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
+                        <div id="idt" class="div-table-cell" style="width: 6%;">#</div>
                         <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
                         <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
                         <div class="div-table-cell" style="width: 10%;">Tipo</div>
@@ -151,14 +153,41 @@
             <div class="table-responsive">
                 <div class="div-table" style="margin:0 !important;">
                     <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
+                        <div id="id" class="div-table-cell" style="width: 6%;">#</div>
                         <div class="div-table-cell" style="width: 22%;">Nombre de Libro</div>
                         <div class="div-table-cell" style="width: 22%;">Nombre de Usuario</div>
                         <div class="div-table-cell" style="width: 10%;">Tipo</div>
                         <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
                         <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
                         <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-time-restore"></i></button>
+                            <button onclick="abrir()" class="btn btn-success"><i class="zmdi zmdi-time-restore"></i>
+                                <script>
+                                function abrir() {
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                    }
+                                  })
+                                  
+                                  Toast.fire({
+                                    icon: 'success',
+                                    title: 'Recibido con Exito'
+                                  })
+                                  tabla.pop(idt)
+                                  
+                                }
+                                function eliminar() {
+                                    //document.getElementById('id').deletRow();
+                                    //alert("algo")
+                                    alert("algo")
+                                }
+                                </script> Recibir</button>
                         </div>
                         <div class="div-table-cell" style="width: 8%;">
                             <button class="btn btn-info" ><i class="zmdi zmdi-file-text"></i></button>

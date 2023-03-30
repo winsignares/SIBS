@@ -1,7 +1,6 @@
-from flask import Blueprint, request,jsonify, json
 from common.Toke import *
 from config.db import db, app, ma
-from flask import Flask,  redirect, request, jsonify, json, session, render_template
+from flask import Flask, Blueprint, redirect, request, jsonify, json, session, render_template
 from Model.Usuarios import Users,UsuariosSchema
 
 routes_user = Blueprint("routes_user", __name__)
@@ -62,8 +61,10 @@ def guardar_Users():
     especialidad = request.json['especialidad']
     jornada = request.json['jornada']
     direccion= request.json['direccion']
+    password = request.json['password']
+    cedula = request.json['Cedula']
     print(full_name,Email,telefono,especialidad,jornada,direccion)
-    new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion)
+    new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion, password, cedula)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
@@ -86,3 +87,37 @@ def verificartoken():
     vf = verificar_token(token)
     print("vf =>", vf)
     return vf
+
+@routes_user.route('/conlistpersonal', methods=['GET'])
+def consullist():
+    datos= {}
+    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
+    i=0
+    for TblUsuarios,tblrolesusuarios in resultado:
+        i+=1	       
+        datos[i] = {
+        'DUI':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
+		'Telefono':TblUsuarios.telefono,
+		'Cargo': TblUsuarios.especialidad                      
+        }
+    print(datos)
+    return datos
+
+
+@routes_user.route('/conliststudiantes', methods=['GET'])
+def consullist2():
+    datos= {}
+    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.jornada, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+    i=0
+    for TblUsuarios,tblrolesusuarios in resultado:
+        i+=1	       
+        datos[i] = {
+        'NIE':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
+		'Jornada':TblUsuarios.jornada,                    
+        }
+    print(datos)
+    return datos
