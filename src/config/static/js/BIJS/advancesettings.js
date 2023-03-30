@@ -22,32 +22,25 @@ function EliminarEstudiantes() {
         if (result.isConfirmed) {
             const eliminarAprendiz = document.getElementById('EliminarAprendiz');
             axios.get('api/eliminar_Users', {
-            id: eliminarAprendiz.value
+                id: eliminarAprendiz.value
 
             }, {
                 headers: {
-                'Content-Type': 'multipart/form-data'
-        
+                    'Content-Type': 'multipart/form-data'
+
                 }
             }
             ).then((res) => {
                 console.log(res.data)
             })
-            .catch((error) => {
-                console.error(error)
-            })
-          }  }
-            ) 
-            
-
-            
-            // Aquí puedes consumir el API utilizando la consulta
-        };
-    
-
-
-
-
+                .catch((error) => {
+                    console.error(error)
+                })
+        }
+    }
+    )
+    // Aquí puedes consumir el API utilizando la consult
+};
 
 //Eliminar Instructor
 function EliminarDocente() {
