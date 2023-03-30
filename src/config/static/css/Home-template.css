@@ -24,15 +24,15 @@
   
   .boton-volver {
     position: fixed;
-    top: 100px;
-    left: 500px;
+    top: 10px;
+    left: 10px;
     z-index: 99;
   }
   
   @media (max-width: 576px) {
     .boton-volver {
-      top: 5px;
-      left: 5px;
+      top: 300px;
+      left: 500px;
     }
   }
   
