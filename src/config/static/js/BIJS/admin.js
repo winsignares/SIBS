@@ -23,19 +23,14 @@ function GuardarAdministrador() {
     .catch((error) => {
         console.error(error)
     })
-} 
-function mostrarAlerta() {
+}
+function DatoSeguro() {
     Swal.fire({
-      title: '¿Estás seguro?',
-      text: '¡No podrás revertir esta acción!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.value) {
-        // Si el usuario hace clic en el botón "Sí", se llama a la función GuardarAdministrador
-        GuardarAdministrador();
-      }
+        title: 'Deseas Guardar este dato',
+        text: 'Recuerda que este dato será almacenado',
+        confirmButtonText: 'confirmar',
+        showCancelButton: true,
+        icon: 'warning'
+
     })
-  }
+};
