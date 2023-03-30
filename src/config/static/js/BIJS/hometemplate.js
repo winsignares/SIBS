@@ -90,7 +90,7 @@ function revertirAnimacion() {
   etiqueta.style.fontSize = '30px';
 }
 function reducirTamano() {
-  document.getElementById("header").style.fontSize = "24px";
+  document.getElementById("header").style.fontSize = "4px";
 }
 
 function aumentarTamano() {
