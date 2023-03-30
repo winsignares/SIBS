@@ -55,6 +55,7 @@
       //}
     //}
   //}
+  /*
   function mostrarContenido(id) {
   // Ocultar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
@@ -77,6 +78,22 @@ function ocultarContenido(id) {
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "block";
   }
+}
+*/
+function ocultarContenido(id) {
+  // Ocultar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "none";
+
+  // Mostrar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "block";
+  }
+
+  // Agregar la clase de animación al botón de "volver"
+  var btnVolver = document.getElementById("btnVolver");
+  btnVolver.classList.add("animate__animated", "animate__flip");
 }
   
   
