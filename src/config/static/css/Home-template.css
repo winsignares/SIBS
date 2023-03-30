@@ -60,14 +60,10 @@
     display: flex;
     justify-content: flex-end;
   }
-  /*
+  
   .boton-volver {
-    margin: -50px;
-  }*/
-  .boton-volver {
-    position: fixed;
-    top: -500px;
-    left: 20px;
+    margin: -500px;
   }
+  
   
   
