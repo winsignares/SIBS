@@ -56,26 +56,9 @@
     //}
   //}
   
-  // Guardar referencias a los elementos relevantes
-var volverAtras = document.getElementById("volver-atras");
-var contenidoAdmin = document.getElementById("contenidoAdmin");
-var tiles = document.getElementsByClassName("tile");
-
-// Agregar evento de clic al enlace "volver-atras"
-volverAtras.addEventListener("click", function(event) {
-  // Prevenir que se recargue la página
-  event.preventDefault();
-
-  // Ocultar el contenido del iframe y mostrar los mosaicos nuevamente
-  contenidoAdmin.style.display = "none";
-  for (var i = 0; i < tiles.length; i++) {
-    tiles[i].style.display = "block";
-  }
-});
-
-// Función para mostrar el contenido del iframe
-function mostrarContenido(id) {
+  function mostrarContenido(id) {
   // Ocultar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "none";
   }
@@ -95,6 +78,17 @@ function mostrarContenido(id) {
   };
 }
 
+function ocultarContenido(id) {
+  // Ocultar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "none";
+
+  // Mostrar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "block";
+  }
+}
 function animarEtiqueta() {
   var etiqueta = document.querySelector('.animacion');
   etiqueta.style.opacity = 0.1;
@@ -105,17 +99,6 @@ function revertirAnimacion() {
   etiqueta.style.opacity = 1;
   etiqueta.style.fontSize = '30px';
 }
-// Obtener el enlace de volver atrás
-var enlaceVolver = document.getElementById("volver-atras");
-
-// Agregar un evento de clic al enlace para ocultar el contenido
-enlaceVolver.addEventListener("click", function(event) {
-  event.preventDefault(); // Evitar que se actualice la página
-  ocultarContenido("contenidoAdmin"); // Ocultar el contenido
-});
-
-
-
 
 
 
