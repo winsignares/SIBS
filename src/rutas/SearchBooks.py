@@ -12,4 +12,4 @@ def indexsearchbooks():
 @routes_searchbooks.route('/indexbuscador', methods=['GET'] )
 def indexbuscador(): 
 
-    return render_template('/main/book.html')
+    return render_template('/main/catalogo.html')
