@@ -15,6 +15,56 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
+  .boton-volver {
+    background-color: #525251!important;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 6px 18px;
+    border: inherit;
+    
+}
+ 
+.boton-volver, .btn-chico, .btn-mediano, .btn-grande, .miboton:link, .miboton:visited {
+    color: #FFFFFF;
+    background-color: #525251;
+}
+ 
+.btn-chico {
+    font-size: 1rem;
+    display: inline-block;
+    width: calc(50% - 20px);
+    padding: 10px;
+    margin: 10px;
+    background-color: #5d6bea!important;
+    border-radius: 5px;    
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 6px 18px;
+}
+ 
+.btn-mediano {
+    font-size: 1rem;
+    display: inline-block;
+    width: calc(50% - 20px);
+    padding: 10px;
+    margin: 10px;
+    background-color: #79dd74!important;
+    border-radius: 5px;    
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 6px 18px;
+} 
+ 
+.btn-grande {
+    font-size: 1rem;
+    display: inline-block;
+    width: calc(50% - 20px);
+    padding: 10px;
+    margin: 10px;
+    background-color: #525251!important;
+    border-radius: 5px;    
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 6px 18px;
+}
   /*
   #boton-volver {
     position: relative;
@@ -22,11 +72,11 @@
     left: 500px;
   }*/
   
-  .boton-volver {
-    padding: 1000px 100ppx;
-    font-size: 3000px;
+  /*.boton-volver {
+    padding: 100px 100px;
+    font-size: 16px;
     border: none;
-    border-radius: 20px;
+    border-radius: 4px;
     cursor: pointer;
   }
   @media (max-width: 576px) {
@@ -62,8 +112,8 @@
   }
   
   .boton-volver {
-    margin: 700px;
-  }
+    margin: -300px;
+  }*/
   
 
 
