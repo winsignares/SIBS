@@ -29,7 +29,7 @@ class Users(db.Model):
 
 class UsuariosSchema(ma.Schema):
     class Meta:
-        fields = ('id','full_name','Email','telefono','especialidad','jornada','password','cedula')
+        fields = ('id','full_name','Email','telefono','especialidad','jornada','password','cedula', 'id_roles')
         
     
     

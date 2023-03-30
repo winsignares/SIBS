@@ -60,6 +60,7 @@ def guardar_Users():
     telefono = request.json['telefono']
     especialidad = request.json['especialidad']
     jornada = request.json['jornada']
+    id_roles = request.json['id_roles']
     password = request.json['password']
     cedula = request.json['Cedula']
     print(full_name,Email,telefono,especialidad,jornada)

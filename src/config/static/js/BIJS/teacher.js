@@ -16,9 +16,9 @@ function GuardarInstructor() {
         telefono: telinstructor.value,
         especialidad: espeinstructor.value,
         jornada: turnoinstruc.value,
+        id_roles: 4,
         password: passintruc.value,
-        Cedula: ccinstructor.value,
-        id_roles: 4
+        Cedula: ccinstructor.value
     }, {
         headers: {
         'Content-Type': 'multipart/form-data'
