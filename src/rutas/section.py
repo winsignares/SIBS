@@ -9,6 +9,8 @@ def indexsection():
     
     return render_template('/main/Section.html')
 
+
+
 @routes_section.route('/guardarsection',methods=['POST'])
 def saveSection():
     #request.form['title']
@@ -20,3 +22,6 @@ def saveSection():
     db.session.add(new_section)
     db.session.commit()
     return "ok"
+
+
+ 

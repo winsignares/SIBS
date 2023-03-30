@@ -1,7 +1,7 @@
 divcategory = document.getElementById('tablas')
 window.onload = listcategory;
 function listcategory(){
-  axios.get('/viewCategoria', {
+  axios.get('/viewlistcategory', {
     responseType: 'json'
 })
 .then(function(response) {
@@ -24,9 +24,10 @@ function listcategory(){
 })
 .catch(function(err) {
     console.log(err);
-    console.log()
+    
 })
 .then(function() {});
+
 }
 
 
