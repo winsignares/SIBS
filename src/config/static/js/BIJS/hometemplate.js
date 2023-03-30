@@ -80,6 +80,16 @@ function ocultarContenido(id) {
   }
 }
 
+// Selecciona el enlace de "Administradores"
+var adminLink = document.getElementById('admin-link').parentElement;
+
+// Agrega el evento click al enlace de "Administradores"
+adminLink.addEventListener('click', function() {
+  // Selecciona la etiqueta h1 de "Administración Usuarios"
+  var adminHeader = document.getElementById('admin-link');
+  // Agrega la clase CSS "admin-link-clicked"
+  adminHeader.classList.add('admin-link-clicked');
+});
 
 //Este es un codigo llamativo
 /*function mostrarContenido(id) {

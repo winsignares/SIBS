@@ -15,6 +15,12 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
+  .home-link-clicked {
+    font-size: 2em; /* Aumenta el tamaño de letra */
+    color: #ffc107; /* Cambia el color del texto */
+    text-shadow: 0 0 5px #ffc107; /* Agrega sombra de texto */
+  }
+  
   /*
   #boton-volver {
     position: relative;
