@@ -23,11 +23,19 @@ function GuardarAdministrador() {
     .catch((error) => {
         console.error(error)
     })
-} function mostrarAlerta() {
+} 
+function mostrarAlerta() {
     Swal.fire({
-      title: '¡Hola!',
-      text: 'Este es un mensaje de ejemplo.',
-      icon: 'success',
-      confirmButtonText: 'Aceptar'
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esta acción!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        // Si el usuario hace clic en el botón "Sí", se llama a la función GuardarAdministrador
+        GuardarAdministrador();
+      }
     })
   }
