@@ -1,12 +1,11 @@
-function eliminarFila() {
+function eliminar() {
     /*    const div = document.getElementById("hola");
         div.parentNode.removeChild(div);*/
     alert("algo")
-    console.log("algo")
 }
 
-function EliminarEstudiantes() {
-    /*const Toast = Swal.mixin({
+function Listo() {
+    const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
@@ -19,8 +18,8 @@ function EliminarEstudiantes() {
     })
 
     Toast.fire({
-        icon: 'success',
-        title: 'Signed in successfully'
-    })*/
-    tblestadosolicitud.ajax.reload(null, flase)
+            icon: 'success',
+            title: 'Recibido con Exito'
+        })
+        //  tblestadosolicitud.ajax.reload(null, flase)
 }
