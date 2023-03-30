@@ -55,7 +55,7 @@
       //}
     //}
   //}
-  /*
+  
   function mostrarContenido(id) {
   // Ocultar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
@@ -79,8 +79,10 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
-*/
-function mostrarContenido(id) {
+
+
+//Este es un codigo llamativo
+/*function mostrarContenido(id) {
   // Ocultar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
@@ -88,7 +90,7 @@ function mostrarContenido(id) {
   }
 
   // Ocultar el menú lateral
-  //var menuLateral = document.getElementsByClassName("container")[0];
+  var menuLateral = document.getElementsByClassName("container")[0];
   menuLateral.style.display = "none";
 
   // Mostrar el iframe correspondiente
@@ -98,7 +100,7 @@ function mostrarContenido(id) {
 
 function ocultarContenido(id) {
   // Mostrar el menú lateralS
-  //var menuLateral = document.getElementsByClassName("container")[0];
+  var menuLateral = document.getElementsByClassName("container")[0];
   menuLateral.style.display = "block";
 
   // Ocultar el iframe correspondiente
@@ -111,6 +113,7 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
+*/
 
   
   
