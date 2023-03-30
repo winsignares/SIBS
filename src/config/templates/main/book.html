@@ -70,17 +70,10 @@
             <li style="color:#fff; cursor:default;">
                 <span class="all-tittles">Admin Name</span>
             </li>
-<<<<<<< HEAD
-            <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
-                <i class="zmdi zmdi-power"></i>
-            </li>
-            <li  class="tooltips-general search-book-button" data-href="fronted/indexsearchbooks" data-placement="bottom" title="Buscar libro">
-=======
             <li  class="tooltips-general exit-system-button" data-href="indexlogin" data-placement="bottom" title="Salir del sistema">
                 <i class="zmdi zmdi-power"></i>
             </li>
             <li  class="tooltips-general search-book-button" data-href="indexsearchbooks" data-placement="bottom" title="Buscar libro">
->>>>>>> main
                 <i class="zmdi zmdi-search"></i>
             </li>
             <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
@@ -117,18 +110,7 @@
                     <div class="col-xs-12">
                         <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información básica</legend><br>
                     </div>
-<<<<<<< HEAD
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el código correlativo del libro" pattern="[0-9]{1,20}" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe el código correlativo del libro, solamente números">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Código correlativo</label>
-                        </div>
-                    </div>
-=======
                     <div id="formulario" class="form">
->>>>>>> main
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
                             <input id="titulolibro" type="text" class="tooltips-general material-control" placeholder="Escribe aquí el título o nombre del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el título o nombre del libro">
@@ -138,13 +120,6 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-<<<<<<< HEAD
-                        <div class="group-material">
-                            <input id="autorlibro" type="text" class="tooltips-general material-control" placeholder="Escribe aquí el autor del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del autor del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Autor</label>
-=======
                         <span disabled style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal" >Autor</span>
                         <div class="group-material">
                             <select id="autorlibro" class="tooltips-general material-control" data-toggle="tooltip" placeholder="top" title="Elige el autor del libro">
@@ -153,7 +128,6 @@
                                 <option value="2">Autor</option>
                                 <option value="3">Autor</option>
                             </select>
->>>>>>> main
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -169,21 +143,12 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-<<<<<<< HEAD
-                            <span>Categoría</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
-                                <option value="" disabled="" selected="">Selecciona una categoría</option>
-                                <option value="categoria">Categoría</option>
-                                <option value="categoria">Categoría</option>
-                                <option value="categoria">Categoría</option>
-=======
                             <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Categoría</span>
                             <select id="categorialibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro" onclick="mostrarcategoriabook()">
                                 <option value="" disabled="" selected="">Selecciona una categoría</option>
                                 <option value="1">Categoría</option>
                                 <option value="2">Categoría</option>
                                 <option value="3">Categoría</option>
->>>>>>> main
                             </select>
                         </div>
                     </div>
@@ -192,21 +157,12 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-<<<<<<< HEAD
-                            <span>Proveedor</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el proveedor del libro">
-                                <option value="" disabled="" selected="">Selecciona un proveedor</option>
-                                <option value="proveedor">Proveedor</option>
-                                <option value="proveedor">Proveedor</option>
-                                <option value="proveedor">Proveedor</option>
-=======
                             <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Proveedor</span>
                             <select id="proveedorlibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el proveedor del libro" onclick="mostrarproveedorbook()">
                                 <option value="" disabled="" selected="">Selecciona un proveedor</option>
                                 <option value="1">Proveedor</option>
                                 <option value="2">Proveedor</option>
                                 <option value="3">Proveedor</option>
->>>>>>> main
                             </select>
                         </div>
                     </div>
@@ -226,25 +182,6 @@
                             <label>Editorial</label>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input id="edicionlibro" type="text" class="material-control tooltips-general" placeholder="Escribe aquí la edición del libro" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Edición del libro">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Edición</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="group-material">
-                            <input id="ejemplareslibro" type="text" class="material-control tooltips-general"  placeholder="Escribe aquí la cantidad de libros que registraras" required=" "pattern="[0-9]{1,7}" maxlength="7" data-toggle="tooltip" data-placement="top" title="¿Cuántos libros registraras?">
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>Ejemplares</label>
-                        </div>
-                    </div>
-=======
->>>>>>> main
                     <div class="col-xs-12">
                         <legend><i class="zmdi zmdi-map"></i> &nbsp; Estado físico, ubicación y valor</legend><br>
                     </div>
@@ -266,13 +203,8 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-<<<<<<< HEAD
-                            <span>Cargo</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el cargo del libro">
-=======
                             <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Cargo</span>
                             <select id="cargobook" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el cargo del libro">
->>>>>>> main
                                 <option value="" disabled="" selected="">Selecciona el cargo del libro</option>
                                 <option value="1-1">Entrega del ministerio</option>
                                 <option value="1-2">Donaciones</option>
@@ -284,13 +216,8 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="group-material">
-<<<<<<< HEAD
-                            <span>Estado</span>
-                            <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el estado del libro">
-=======
                             <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Estado</span>
                             <select id="estadolibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el estado del libro">
->>>>>>> main
                                 <option value="" disabled="" selected="">Selecciona el estado del libro</option>
                                 <option value="Bueno">Bueno</option>
                                 <option value="Deteriorado">Deteriorado</option>
