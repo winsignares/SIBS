@@ -119,16 +119,13 @@ function volverAtras() {
   // Desactivar el comportamiento predeterminado del enlace
   return false;
 }
-var volverAtrasLink = document.getElementById("volver-atras");
-
-document.getElementById("indexadminH").addEventListener("click", function() {
-  volverAtrasLink.classList.remove("disabled-link");
-});
-
-volverAtrasLink.addEventListener("click", function(e) {
-  e.preventDefault();
-  ocultarContenido('contenidoAdmin');
-});
+function volverAtras() {
+  if (window.location.href.includes('indexadminH')) {
+    ocultarContenido('contenidoAdmin');
+  } else {
+    window.history.back();
+  }
+}
 
 
 
