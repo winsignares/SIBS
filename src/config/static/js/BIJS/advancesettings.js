@@ -23,10 +23,10 @@ function EliminarEstudiantes() {
         
     }).then((result) => {
         if (result.isConfirmed) {
-          const EliminarAprendiz = document.getElementById('EliminarAprendiz');
-          axios.get('/eliminar_Users/<id>', {
+          const eliminarAprendiz = document.getElementById('EliminarAprendiz');
+          axios.get('api/eliminar_Users', {
             
-            id: EliminarAprendiz.value,
+            id: eliminarAprendiz.value
           }, {
             headers: {
             'Content-Type': 'multipart/form-data'

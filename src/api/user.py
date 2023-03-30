@@ -14,7 +14,7 @@ Usuarios_Schema= UsuariosSchema(many=True)
 def index():
     return "index"
 
-@app.route('/Usuarios', methods=['GET'])
+@routes_user.route('/Usuariosd')
 def usuarios():    
     returnall = Users.query.all()
    
@@ -22,19 +22,16 @@ def usuarios():
     return jsonify(resultado_usuarios)
 
 #crud de usuarios
-@app.route('/eliminar_Users/<id>', methods=['GET'] )
+@routes_user.route('/eliminar_Users/<id>', methods=['GET'] )
 def eliminar_users(id):
-    full_name = Users.query.get(id)
-    Email = Users.query.get(id)
-    telefono = Users.query.get(id)
-    especialidad = Users.query.get(id)
-    jornada = Users.query.get(id)
-    direccion = Users.query.get(id)
-    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
+    #id = request.args.get('id')
+    #id = request.json['id']
+    user = Users.query.get(id)
+    db.session.delete(user)
     db.session.commit()
-    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
+    return jsonify(UsuariosSchema.dump(user)) 
 
-@app.route('/actualizarUsers', methods=['POST'] )
+@routes_user.route('/actualizarUsers', methods=['POST'] )
 def actualizar_users():
     id = request.json['id']
     full_name = request.json['full_name']
@@ -53,7 +50,7 @@ def actualizar_users():
     db.session.commit()
     return redirect('/Usuarios')
 
-@app.route('/save_Users', methods=['POST'] )
+@routes_user.route('/save_Users', methods=['POST'] )
 def guardar_Users():
     full_name = request.json['full_name']
     Email = request.json['Email']
