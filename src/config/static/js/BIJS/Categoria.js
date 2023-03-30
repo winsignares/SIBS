@@ -1,6 +1,6 @@
 function GuardarCategoria() {
-    const N_cat = document.getElementById('name');
-    const Descripcion = document.getElementById('description');
+    const N_cat = document.getElementById('numero');
+    const Descripcion = document.getElementById('name');
 
     axios.post('guardarcategoria', {
             NumeroCategoria: N_cat.value,
