@@ -15,34 +15,15 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
-  .containervolver {
+  .ccontainervolver {
     position: relative;
-    height: 400px;
   }
   
   .boton-volver {
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    position: absolute;
+    top: 500px;
+    right: 700px;
   }
-  
-  @media (max-width: 767px) {
-    .boton-volver {
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  }
-  
-  /* Posicionamiento para pantallas grandes */
-  @media (min-width: 768px) {
-    .boton-volver {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-  }
-  
   /*
   #boton-volver {
     position: relative;
