@@ -3,28 +3,29 @@ function Eliminarlibro() {
     Swal.fire({
         icon: 'warning',
         html:
-        'ingrese el id que desea eliminar'    +  
-        '<input id="id_instructor" class="swal2-input">', 
+            'ingrese el id que desea eliminar' +
+            '<input id="id_instructor" class="swal2-input">',
     })
 }
 //Eliminar aprendiz
 function EliminarEstudiantes() {
     Swal.fire({
         title: 'Eliminar Estudiantes',
-        input: 'select',
-        icon: 'warning',
-        showCancelButton: true,
-        inputOptions: {
-            'Rol': {
-                Roles: 'Elige',
-                Aprendiz: 'Aprendiz'
-            },
-        },
         html:
-        'ingrese el id que desea eliminar'    +  
-        '<input id="id_instructor" class="swal2-input">',
+            '<input id="EliminarAprendiz" class="swal2-input" placeholder="Escribe tu consulta aquí">',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const EliminarAprendiz = document.getElementById('EliminarAprendiz').value;
 
-    }) 
+            
+            // Aquí puedes consumir el API utilizando la consulta
+        }
+    });
+
+
 };
 
 
@@ -42,12 +43,12 @@ function EliminarDocente() {
             },
         },
         html:
-        'ingrese el id que desea eliminar'    +  
-        '<input id="id_instructor" class="swal2-input">',
+            'ingrese el id que desea eliminar' +
+            '<input id="id_instructor" class="swal2-input">',
     })
 };
 // funcion eliminar bitacora
-function EliminarBitacora(){
+function EliminarBitacora() {
     Swal.fire({
         title: 'desea eliminar la bitacora',
         text: 'al momento de borrarse los datos no podran recuperarse',
@@ -71,7 +72,7 @@ function EliminarPadministrativo() {
             },
         },
         html:
-        'ingrese el id que desea eliminar'    +  
-        '<input id="id_instructor" class="swal2-input">',
+            'ingrese el id que desea eliminar' +
+            '<input id="id_instructor" class="swal2-input">',
     })
 }
