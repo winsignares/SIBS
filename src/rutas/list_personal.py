@@ -1,6 +1,7 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Usuarios import Users, UsuariosSchema
+from Model.RolesUsuarios import RolesUsuarios, RolesSchema
 
 routes_listpersonal = Blueprint("routes_listpersonal", __name__)
 
@@ -14,19 +15,21 @@ def indexlist_personal():
 @routes_listpersonal.route('/conpersonal', methods=['GET'])
 def consullist():
     print("Yisus, I trust you")
-    tblusuarios = None
+    tblusuarios = db.Table('tblusuarios', db.metadata, autoload=True, autoload_with=db.engine)
+    usuarios_alias = db.aliased(tblusuarios)
     datos= {}
-    resultado = db.session.query(tblusuarios, tblrolesusuarios).select_from(tblusuarios.cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.especialidad, tblrolesusuarios.roles).join(tblrolesusuarios).filter(tblrolesusuarios.roles == "Personal").all()
+    resultado = db.session.query(usuarios_alias).filter(usuarios_alias.id_roles == 4).all()
     i=0
-    for tblusuarios,tblrolesusuarios in resultado:
+    for usuarios in resultado:
         i+=1	       
         datos[i] = {
-        'dui':tblusuarios.cedula,
-		'nombre':tblusuarios.full_name,
-		'telefono':tblusuarios.telefono,
-		'cargo': tblusuarios.especialidad                      
+        'dui': usuarios.cedula,
+		'nombre': usuarios.full_name,
+		'telefono': usuarios.telefono,
+		'cargo': usuarios.especialidad,                       
         }
-    print(datos.dui)
+    for usuario in datos.values():
+        print(usuario)
     return "u rigth"
 '''
 @routes_listpersonal.route('/conpersonal', methods=['GET'])
