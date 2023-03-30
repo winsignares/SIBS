@@ -11,6 +11,8 @@ def indexsection():
     
     return render_template('/main/Section.html')
 
+
+
 @routes_section.route('/guardarsection',methods=['POST'])
 def saveSection():
     #request.form['title']
@@ -23,6 +25,7 @@ def saveSection():
     db.session.commit()
     return "ok"
 
+<<<<<<< HEAD
 @routes_section.route('/showsection', methods=['GET'])
 def obtenersection():    
     returnall = Section.query.all()
@@ -35,3 +38,7 @@ def eliminarsection(id):
     db.session.delete(clear)
     db.session.commit()
     return jsonify(section_Schema.dump(clear))
+=======
+
+ 
+>>>>>>> main

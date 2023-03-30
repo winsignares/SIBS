@@ -2,8 +2,7 @@ function GuardarStudent() {
     const ccestudiante = document.getElementById('idestudiante');
     const nameestudiante = document.getElementById('nombreestudiante');
     const apeestudiante = document.getElementById('apellidoestudiante');
-    const formaestudiante = document.getElementById('formaestudiante');
-    const numccinstructorencar = document.getElementById('numccinstructorencargado');  
+    const numficha = document.getElementById('numficha');  
     const fullnameinstructor = document.getElementById('fullnameinstructor');
     const generoestudiante = document.getElementById('generoestudiante');
     const telestudiante = document.getElementById('telestudiante');
@@ -17,7 +16,7 @@ function GuardarStudent() {
         ccestudiante: ccestudiante.value,
         fullname: nameestudiante.value,
         Apellido: apeestudiante.value,
-        formaestudiante: formaestudiante.value,
+        numficha: numficha.value,
         numccinstructorencar: numccinstructorencar.value,
         fullnameinstructor: fullnameinstructor.value,
         generoestudiante: generoestudiante.value,
@@ -43,7 +42,7 @@ function limpiarStudent() {
     const ccestudiante = document.getElementById('idestudiante');
     const nameestudiante = document.getElementById('nombreestudiante');
     const apeestudiante = document.getElementById('apellidoestudiante');
-    const formaestudiante = document.getElementById('formaestudiante');
+    const numficha = document.getElementById('numficha');
     const numccinstructorencar = document.getElementById('numccinstructorencargado');  
     const fullnameinstructor = document.getElementById('fullnameinstructor');
     const generoestudiante = document.getElementById('generoestudiante');
@@ -56,7 +55,7 @@ function limpiarStudent() {
     ccestudiante.value ="";
     nameestudiante.value ="";
     apeestudiante.value ="";
-    formaestudiante.value ="";
+    numficha.value ="";
     numccinstructorencar.value ="";
     fullnameinstructor.value ="";
     generoestudiante.value ="";
