@@ -2,7 +2,7 @@ from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Categorias import *
 
-routes_categorias = Blueprint("routes_categ", __name__)
+routes_categorias = Blueprint("routes_categorias", __name__)
 
 
 @routes_categorias.route('/indexCategoria', methods=['GET'] )

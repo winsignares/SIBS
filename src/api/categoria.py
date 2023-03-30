@@ -5,7 +5,7 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.Categorias import Categorias, CategoriasSchema
 
-routes_category = Blueprint("routes_categ", __name__)
+routes_category = Blueprint("routes_categorias", __name__)
 
 #Categoria - Schema
 Categoria_schema = CategoriasSchema()
