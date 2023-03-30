@@ -17,7 +17,7 @@ window.onload = function viewpersonal() {
                         <div id= "${i}" class="div-table-cell" style="width: 15%;">${DUI}</div>
                         <div class="div-table-cell" style="width: 15%;">${datos.Nombre}</div>
                         <div class="div-table-cell" style="width: 12%;">${datos.Telefono}</div>
-                        <div class="div-table-cell" style="width: 15%;">${datos.pan}</div>
+                        <div class="div-table-cell" style="width: 15%;">pan</div>
                         <div class="div-table-cell" style="width: 9%;">
                                 <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                             </div>
