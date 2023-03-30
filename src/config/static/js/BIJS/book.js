@@ -54,10 +54,42 @@ function Guardarlibros() {
 window.onload = function () {
     mostaratorbook();
 }
+
+const selautorlibro = document.getElementById('autorlibro');
+//const axios = require('axios');
+
+selautorlibro.addEventListener('change', function () {
+    // Hacer una petición para un usuario con ID especifico
+    axios.get('/api/autores')
+        .then(function (response) {
+            // manejar respuesta exitosa
+            console.log(response.data);
+            const data = response.data
+            for (items in data) {
+                alert(data[items].nombre)
+                const opcion = document.createElement('option');
+                opcion.value = data[items].id;
+                opcion.text = data[items].nombre;
+                selautorlibro.appendChild(selautorlibro);            
+            }
+        })
+        .catch(function (error) {
+            // manejar error
+            console.log(error);
+        })
+        .finally(function () {
+            // siempre sera executado
+            console.log("Ejcucion Finalizada");
+        });
+}, false);
+
+
+
 function mostaratorbook() {
-    /*const selectautor = document.getElementById("autorlibro");
+    const selectautor = document.getElementById("autorlibro");
         axios.get('/libros')
         .then(function (response) {
+            alert(response.data)
           const options = response.data;
           const select = document.getElementById('autorlibro');
           options.map(function(option) {
@@ -69,10 +101,10 @@ function mostaratorbook() {
         })
         .catch(function (error) {
           console.log(error);
-        });*/
+        });
 }
 
-function eliminarFila() {
+function eliminar() {
     const div = document.getElementById("hola");
     div.parentNode.removeChild(div);
 }
