@@ -68,8 +68,7 @@ def guardar_Users():
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
-
-@routes_user.route('/conlistpersonal', methods=['GET'])
+'''@routes_user.route('/conlistpersonal', methods=['GET'])
 def consullist():
     datos= {}
     resultado = db.session.query(tblusuarios, tblrolesusuarios). \
@@ -85,9 +84,10 @@ def consullist():
         }
     print(datos)
     return datos
+'''
 
 
-@routes_user.route('/conliststudiantes', methods=['GET'])
+'''@routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
     resultado = db.session.query(tblusuarios, tblrolesusuarios). \
@@ -102,6 +102,8 @@ def consullist2():
         }
     print(datos)
     return datos
+'''
+
 
 @routes_user.route('/eliminarpersonal', methods=['GET'] )
 def eliminarU(id):
