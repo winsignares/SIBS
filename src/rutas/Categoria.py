@@ -1,6 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model.Categorias import *
+from Model.Categorias import Categorias
 
 routes_categorias = Blueprint("routes_categorias", __name__)
 
