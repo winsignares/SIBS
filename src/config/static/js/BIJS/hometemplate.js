@@ -60,10 +60,8 @@
   var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "none";
-  var titulo = document.getElementsByClassName("Titulo");
-  for (var i = 0; i < titulo.length; i++) {
-    titulo[i].style.display = "none";
   }
+
   // Mostrar el iframe correspondiente
   var contenido = document.getElementById(id);
   contenido.style.display = "block";
