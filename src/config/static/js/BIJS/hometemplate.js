@@ -56,29 +56,9 @@
     //}
   //}
   
- // Guardar referencias a los elementos relevantes
-var volverAtras = document.getElementById("volver-atras");
-var contenidoAdmin = document.getElementById("contenidoAdmin");
-var tiles = document.getElementsByClassName("tile");
-
-// Agregar evento de clic al enlace "volver-atras"
-volverAtras.addEventListener("click", function(event) {
-  // Prevenir que se recargue la página
-  event.preventDefault();
-
-  // Ocultar el contenido del iframe y mostrar los mosaicos nuevamente
-  contenidoAdmin.style.display = "none";
-  for (var i = 0; i < tiles.length; i++) {
-    tiles[i].style.display = "block";
-  }
-  
-  // Habilitar el enlace de volver atrás en el encabezado
-  document.querySelector('.page-header h1 a').href = '#';
-});
-
-// Función para mostrar el contenido del iframe
-function mostrarContenido(id) {
+  function mostrarContenido(id) {
   // Ocultar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "none";
   }
@@ -96,142 +76,29 @@ function mostrarContenido(id) {
   }).onfinish = function() {
     contenido.style.transform = "";
   };
-  
-  // Deshabilitar el enlace de volver atrás en el encabezado
-  document.querySelector('.page-header h1 a').href = '';
 }
 
-// Función para ocultar el contenido del iframe
 function ocultarContenido(id) {
-  // Ocultar el contenido del iframe y mostrar los mosaicos nuevamente
+  // Ocultar el iframe correspondiente
   var contenido = document.getElementById(id);
   contenido.style.display = "none";
+
+  // Mostrar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "block";
   }
-  
-  // Habilitar el enlace de volver atrás en el encabezado
-  document.querySelector('.page-header h1 a').href = '#';
 }
-
-// Función para animar la etiqueta del título
 function animarEtiqueta() {
   var etiqueta = document.querySelector('.animacion');
   etiqueta.style.opacity = 0.1;
   etiqueta.style.fontSize = '10px';
 }
-
-// Función para revertir la animación de la etiqueta del título
 function revertirAnimacion() {
   var etiqueta = document.querySelector('.animacion');
   etiqueta.style.opacity = 1;
   etiqueta.style.fontSize = '30px';
 }
-
-// Agregar un evento de clic a todos los enlaces del menú
-var enlacesMenu = document.querySelectorAll('.tile-name a');
-for (var i = 0; i < enlacesMenu.length; i++) {
-  enlacesMenu[i].addEventListener("click", function(event) {
-    // Prevenir que se recargue la página
-    event.preventDefault();
-
-    // Mostrar el contenido del iframe y deshabilitar el enlace de volver atrás en el encabezado
-    mostrarContenido("contenidoAdmin");
-    
-    // Habilitar el enlace de volver atrás en el contenido del iframe
-    document.querySelector('#contenidoAdmin iframe').contentWindow.document.querySelector('#volver-atras').href = '#';
-  });
-}
-// Guardar referencias a los elementos relevantes
-var volverAtras = document.getElementById("volver-atras");
-var contenidoAdmin = document.getElementById("contenidoAdmin");
-var tiles = document.getElementsByClassName("tile");
-
-// Agregar evento de clic al enlace "volver-atras"
-volverAtras.addEventListener("click", function(event) {
-  // Prevenir que se recargue la página
-  event.preventDefault();
-
-  // Ocultar el contenido del iframe y mostrar los mosaicos nuevamente
-  contenidoAdmin.style.display = "none";
-  for (var i = 0; i < tiles.length; i++) {
-    tiles[i].style.display = "block";
-  }
-  
-  // Habilitar el enlace de volver atrás en el encabezado
-  document.querySelector('.page-header h1 a').href = '#';
-});
-
-// Función para mostrar el contenido del iframe
-function mostrarContenido(id) {
-  // Ocultar todos los mosaicos
-  for (var i = 0; i < tiles.length; i++) {
-    tiles[i].style.display = "none";
-  }
-  
-  // Animar el iframe correspondiente hacia arriba
-  var contenido = document.getElementById(id);
-  contenido.style.transform = "translateY(100%)";
-  contenido.style.display = "block";
-  contenido.animate([
-    { transform: "translateY(100%)" },
-    { transform: "translateY(0)" }
-  ], {
-    duration: 500,
-    easing: "ease-in-out"
-  }).onfinish = function() {
-    contenido.style.transform = "";
-  };
-  
-  // Deshabilitar el enlace de volver atrás en el encabezado
-  document.querySelector('.page-header h1 a').href = '';
-}
-
-// Función para ocultar el contenido del iframe
-function ocultarContenido(id) {
-  // Ocultar el contenido del iframe y mostrar los mosaicos nuevamente
-  var contenido = document.getElementById(id);
-  contenido.style.display = "none";
-  for (var i = 0; i < tiles.length; i++) {
-    tiles[i].style.display = "block";
-  }
-  
-  // Habilitar el enlace de volver atrás en el encabezado
-  document.querySelector('.page-header h1 a').href = '#';
-}
-
-// Función para animar la etiqueta del título
-function animarEtiqueta() {
-  var etiqueta = document.querySelector('.animacion');
-  etiqueta.style.opacity = 0.1;
-  etiqueta.style.fontSize = '10px';
-}
-
-// Función para revertir la animación de la etiqueta del título
-function revertirAnimacion() {
-  var etiqueta = document.querySelector('.animacion');
-  etiqueta.style.opacity = 1;
-  etiqueta.style.fontSize = '30px';
-}
-
-// Agregar un evento de clic a todos los enlaces del menú
-var enlacesMenu = document.querySelectorAll('.tile-name a');
-for (var i = 0; i < enlacesMenu.length; i++) {
-  enlacesMenu[i].addEventListener("click", function(event) {
-    // Prevenir que se recargue la página
-    event.preventDefault();
-
-    // Mostrar el contenido del iframe y deshabilitar el enlace de volver atrás en el encabezado
-    mostrarContenido("contenidoAdmin");
-    
-    // Habilitar el enlace de volver atrás en el contenido del iframe
-    document.querySelector('#contenidoAdmin iframe').contentWindow.document.querySelector('#volver-atras').href = '#';
-  });
-}
-
-
-
-
 
 
 //Este es un codigo llamativo
