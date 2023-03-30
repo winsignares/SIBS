@@ -77,8 +77,6 @@ function ocultarContenido(id) {
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "block";
   }
-  var btnVolver = document.getElementById("btnVolver");
-  btnVolver.classList.add("animate__animated", "animate__flip");
 }
   
   
