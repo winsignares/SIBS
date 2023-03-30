@@ -34,7 +34,7 @@ def view_categoria():
     vf = verificar_token(token)
     if vf['error'] == False:
         returnall = Categorias.query.all()    
-        result_Categoria = CategoriasSchema.dump(returnall)
+        result_Categoria = Categorias_schema.dump(returnall)
         return jsonify(result_Categoria)
     else:
         return vf
@@ -57,3 +57,10 @@ def actualizar_Cat():
     updateCat.descripCat = Descripcion
     db.session.commit()
     return redirect('/Categorias')
+
+@routes_category.route('/mostrarCategorias', methods=['GET'])
+def Categorias():    
+    returnall = Categorias.query.all()
+   
+    resultado_Categorias = Categorias_schema.dump(returnall)
+    return jsonify(resultado_Categorias)
