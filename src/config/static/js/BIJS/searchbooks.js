@@ -7,12 +7,12 @@ function buscarlibro() {
         .then(function(response) {
             const pico = response.datos
             let buslibro = '';
-            for (let DUI in datos) {
+            for (let id in datos) {
                 listper += `<div class="table-responsive">
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
                         <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 15%;">${DUI}</div>
+                        <div class="div-table-cell" style="width: 15%;">${id}</div>
                         <div class="div-table-cell" style="width: 15%;">${pico.titulo}</div>
                         <div class="div-table-cell" style="width: 15%;">${pico.id_autor}</div>
                         <div class="div-table-cell" style="width: 15%;">${pico.id_pais}</div>
