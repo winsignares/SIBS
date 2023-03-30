@@ -81,13 +81,13 @@ function ocultarContenido(id) {
 }
 function animarEtiqueta() {
   var etiqueta = document.querySelector('.animacion');
-  etiqueta.style.opacity = 1;
-  etiqueta.style.fontSize = '30px';
+  etiqueta.style.opacity = 0.5;
+  etiqueta.style.fontSize = '20px';
 }
 function revertirAnimacion() {
   var etiqueta = document.querySelector('.animacion');
-  etiqueta.style.opacity = 0.5;
-  etiqueta.style.fontSize = '20px';
+  etiqueta.style.opacity = 1;
+  etiqueta.style.fontSize = '30px';
 }
 
 
