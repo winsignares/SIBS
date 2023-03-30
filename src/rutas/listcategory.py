@@ -13,7 +13,17 @@ def indexlistcategory():
 
 
 @routes_listcategory.route('/viewlistcategory', methods=['GET'])
-def viewlistcategory():
-        returnall = Categorias.query.all()
-        result_Categoria = CategoriasSchema.dump(returnall)
-        return result_Categoria
+def viewlistcategor():
+    datos= {}
+    resultado = db.session.query(tblcategorias).select_from(tblcategorias.id, tblcategorias.N_cat, tblcategorias.Descripcion).all()
+    i=0
+    for tblcategorias in resultado:
+        i+=1	       
+        datos[i] = {
+        'id':tblcategorias.id,
+		'cat':tblcategorias.N_cat,
+		'descripcion':tblcategorias.Descripcion,                    
+        }
+    print(datos.id)
+    return "u right"
+        

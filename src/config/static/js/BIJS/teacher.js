@@ -17,7 +17,7 @@ function GuardarInstructor() {
         telefono: telinstructor,
         especialidad: espeinstructor,
         jornada: turnoinstruc,
-        id_roles: 1,
+        id_roles: 2,
         cedula: ccinstructor,
         password: passintruc
         

@@ -72,16 +72,16 @@ def guardar_Users():
 @routes_user.route('/conlistpersonal', methods=['GET'])
 def consullist():
     datos= {}
-    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
+    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
+        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
     i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
+    for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'DUI':TblUsuarios.Cedula,
-		'Nombre':TblUsuarios.full_name,
-		'Telefono':TblUsuarios.telefono,
-		'Cargo': TblUsuarios.especialidad                      
+        'DUI':tblusuarios.Cedula,
+		'Nombre':tblusuarios.full_name,
+		'Telefono':tblusuarios.telefono,
+		'Cargo': tblusuarios.especialidad                      
         }
     print(datos)
     return datos
@@ -90,15 +90,15 @@ def consullist():
 @routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
-    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
+        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
     i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
+    for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'NIE':TblUsuarios.Cedula,
-		'Nombre':TblUsuarios.full_name,
-		'Seccion':TblUsuarios.seccion,                    
+        'NIE':tblusuarios.Cedula,
+		'Nombre':tblusuarios.full_name,
+		'Seccion':tblusuarios.seccion,                    
         }
     print(datos)
     return datos
