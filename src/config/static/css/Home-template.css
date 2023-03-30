@@ -67,15 +67,15 @@
   .containervolver {
     position: fixed;
     top: 800px;
-    left: 700px;
-    z-index: 9999;
+    left: 500px;
+    z-index: 999;
   }
   
-  .boton-volver {
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  @media (max-width: 576px) {
+    .containervolver {
+      top: 5px;
+      left: 5px;
+    }
   }
   
   
