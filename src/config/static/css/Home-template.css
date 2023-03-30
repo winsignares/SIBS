@@ -15,7 +15,11 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
-  
+  .animacion {
+    opacity: 1; /* Transparencia */
+    font-size: 30px; /* Reducción de tamaño de fuente */
+    transition: all 10s ease; /* Duración y tipo de animación */
+  }
   /*
   #boton-volver {
     position: relative;

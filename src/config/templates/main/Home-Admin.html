@@ -1,5 +1,6 @@
 {% extends "./layout.html" %}
 {% block body %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/Home-template.css')}}">
 <div class="container">
     <div class="page-header">
       <h1 class="all-tittles">Sistema bibliotecario <small>Administración Usuarios</small></h1>
@@ -110,4 +111,5 @@
     </div>
   </div>
 </div>
+<script src="{{url_for('static', filename='js/BIJS/hometemplate.js')}}"> </script>
 {% endblock %}
