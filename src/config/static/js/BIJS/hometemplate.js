@@ -121,7 +121,7 @@ function volverAtras() {
 }
 var volverAtrasLink = document.getElementById("volver-atras");
 
-document.getElementById("indexadminLink").addEventListener("click", function() {
+document.getElementById("indexadminH").addEventListener("click", function() {
   volverAtrasLink.classList.remove("disabled-link");
 });
 
