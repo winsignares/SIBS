@@ -1,24 +1,24 @@
 function GuardarInstructor() {
-    const ccinstructor = document.getElementById('idinstructor');
-    const nameinstructor = document.getElementById('nombreinstructor');
-    const apeinstructor = document.getElementById('apellidoinstructor');
+    const ccinstructor = document.getElementById('idinstructor').value;
+    const nameinstructor = document.getElementById('nombreinstructor').value;
+    const apeinstructor = document.getElementById('apellidoinstructor').value;
     const full = nameinstructor + apeinstructor;
-    const telinstructor = document.getElementById('celinstructor');
-    const espeinstructor = document.getElementById('espeinstruc');
-    const usernameintruc = document.getElementById('usernameinstructor');
-    const turnoinstruc = document.getElementById('jornadainstruc');    
-    const secinstruc = document.getElementById('seccioninstruc');
-    const passintruc = document.getElementById('passinstructor');
-    const passinstruc = document.getElementById('passinstructor2');
+    const telinstructor = document.getElementById('celinstructor').value;
+    const espeinstructor = document.getElementById('espeinstruc').value;
+    const usernameintruc = document.getElementById('usernameinstructor').value;
+    const turnoinstruc = document.getElementById('jornadainstruc').value;    
+    const secinstruc = document.getElementById('seccioninstruc').value;
+    const passintruc = document.getElementById('passinstructor').value;
+    const passinstruc = document.getElementById('passinstructor2'.value);
 
-    axios.post('save_Users', {
-        full_name: full.value,
-        Email: usernameintruc.value,
-        Telefono: telinstructor.value,
-        Especialidad: espeinstructor.value,
-        Jornada: turnoinstruc.value,
-        password: passintruc.value,
-        Cedula: ccinstructor.value                
+    axios.post('saveinstructor', {
+        full_name: full,
+        email: usernameintruc,
+        telefono: telinstructor,
+        especialidad: espeinstructor,
+        Jornada: turnoinstruc,
+        password: passintruc,
+        Cedula: ccinstructor
        
     }, {
         headers: {
