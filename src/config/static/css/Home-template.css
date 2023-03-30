@@ -24,8 +24,8 @@
   
   .boton-volver {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 100px;
+    left: 500px;
     z-index: 99;
   }
   
