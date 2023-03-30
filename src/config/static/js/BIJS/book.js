@@ -56,27 +56,21 @@ window.onload = function () {
 }
 
 const selautorlibro = document.getElementById('autorlibro');
-const divpokeimagen = document.getElementById('pokeimagen');
 //const axios = require('axios');
 
-
 selautorlibro.addEventListener('change', function () {
-   //creamos nuestro endpoint
-    let endpoint = '../api/autores';
-    //alert(endpoint);
-
     // Hacer una petición para un usuario con ID especifico
-    axios.get(endpoint)
+    axios.get('/api/autores')
         .then(function (response) {
             // manejar respuesta exitosa
             console.log(response.data);
             const data = response.data
             for (items in data) {
-                const opcion = document.createElement('option');
                 alert(data[items].nombre)
+                const opcion = document.createElement('option');
                 opcion.value = data[items];
                 opcion.text = data[items].nombre;
-                select.appendChild(opcion);            
+                selautorlibro.append(selautorlibro);            
             }
         })
         .catch(function (error) {
