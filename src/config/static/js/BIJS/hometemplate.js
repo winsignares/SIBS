@@ -114,12 +114,6 @@ enlaceVolver.addEventListener("click", function(event) {
   ocultarContenido("contenidoAdmin"); // Ocultar el contenido
 });
 function volverAtras() {
-  // Retroceder una página en el historial del navegador
-  window.history.back();
-  // Desactivar el comportamiento predeterminado del enlace
-  return false;
-}
-function volverAtras() {
   ocultarContenido('contenidoAdmin');
   document.getElementById('volver-atras').removeAttribute('href');
 }
