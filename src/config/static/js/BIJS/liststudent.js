@@ -15,7 +15,7 @@ function listaestudiantes() {
                             <div class="div-table-cell" style="width: 6%;">#</div>
                             <div class="div-table-cell" style="width: 18%;">${NIE}</div>
                             <div class="div-table-cell" style="width: 18%;">${datos.full_name}</div>
-                            <div class="div-table-cell" style="width: 18%;">${datos.Seccion}</div>
+                            <div class="div-table-cell" style="width: 18%;">${datos.Jornada}</div>
                             <div class="div-table-cell" style="width: 9%;">
                                 <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                             </div>

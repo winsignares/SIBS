@@ -90,15 +90,15 @@ def consullist():
 '''@routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
-    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
-        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.jornada, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
     i=0
     for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'NIE':tblusuarios.Cedula,
-		'Nombre':tblusuarios.full_name,
-		'Seccion':tblusuarios.seccion,                    
+        'NIE':TblUsuarios.Cedula,
+		'Nombre':TblUsuarios.full_name,
+		'Jornada':TblUsuarios.jornada,                    
         }
     print(datos)
     return datos
