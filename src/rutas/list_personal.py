@@ -33,7 +33,7 @@ def consullist():
         print(usuario)
     return "u rigth"
 '''
-
+'''
 @routes_listpersonal.route('/conpersonal', methods=['GET'])
 def consullist():
     datos= {}
@@ -50,3 +50,14 @@ def consullist():
         print(datos)
         print("aaaaaaaaa")
     return jsonify(datos)
+'''
+
+@app.route('/selectrol/<id_roles>', methods=['GET'] )
+def person(id_roles):
+    cedula = Users.query.get(id_roles)
+    full_name = Users.query.get(id_roles)
+    telefono = Users.query.get(id_roles)
+    especialidad = Users.query.get(id_roles)      
+    db.session.select(cedula, full_name,telefono,especialidad)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(cedula, full_name,telefono,especialidad)) 

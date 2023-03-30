@@ -2,7 +2,7 @@ let morfismo = document.getElementById('poli');
 let i = 0;
 
 function viewpersonal() {
-    axios.get('conpersonal',{
+    axios.get('selectrol',{
         responseType: 'json'
     } )
       
