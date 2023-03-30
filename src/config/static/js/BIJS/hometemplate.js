@@ -56,62 +56,48 @@
     //}
   //}
   
-  var encabezado = document.getElementById("encabezado");
-var enlace = document.getElementById("enlace");
-
-// Función para mostrar el contenido del iframe
-function mostrarContenido() {
+  function mostrarContenido(id) {
   // Ocultar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "none";
   }
-
-  // Mostrar el contenido del iframe y el enlace, y ocultar el encabezado
-  var contenidoAdmin = document.getElementById("contenidoAdmin");
-  contenidoAdmin.style.display = "block";
-  enlace.style.display = "block";
-  encabezado.style.display = "none";
-
-  // Crear nuevo elemento de encabezado
-  var nuevoEncabezado = document.createElement("h1");
-  nuevoEncabezado.classList.add("all-tittles");
-  var textoEncabezado = document.createTextNode("Administradores");
-  nuevoEncabezado.appendChild(textoEncabezado);
-  enlace.parentNode.insertBefore(nuevoEncabezado, enlace.nextSibling);
-
+  
   // Animar el iframe correspondiente hacia arriba
-  contenidoAdmin.style.transform = "translateY(100%)";
-  contenidoAdmin.animate([
+  var contenido = document.getElementById(id);
+  contenido.style.transform = "translateY(100%)";
+  contenido.style.display = "block";
+  contenido.animate([
     { transform: "translateY(100%)" },
     { transform: "translateY(0)" }
   ], {
     duration: 500,
     easing: "ease-in-out"
   }).onfinish = function() {
-    contenidoAdmin.style.transform = "";
+    contenido.style.transform = "";
   };
 }
 
-// Función para ocultar el contenido del iframe y eliminar el nuevo encabezado
-function ocultarContenido() {
-  // Ocultar el contenido del iframe y el enlace, y mostrar el encabezado
-  var contenidoAdmin = document.getElementById("contenidoAdmin");
-  contenidoAdmin.style.display = "none";
-  enlace.style.display = "none";
-  encabezado.style.display = "block";
-
-  // Eliminar el nuevo encabezado
-  var nuevoEncabezado = enlace.nextSibling;
-  if (nuevoEncabezado && nuevoEncabezado.tagName == "H1") {
-    nuevoEncabezado.parentNode.removeChild(nuevoEncabezado);
-  }
+function ocultarContenido(id) {
+  // Ocultar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "none";
 
   // Mostrar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].style.display = "block";
   }
+}
+function animarEtiqueta() {
+  var etiqueta = document.querySelector('.animacion');
+  etiqueta.style.opacity = 0.1;
+  etiqueta.style.fontSize = '10px';
+}
+function revertirAnimacion() {
+  var etiqueta = document.querySelector('.animacion');
+  etiqueta.style.opacity = 1;
+  etiqueta.style.fontSize = '30px';
 }
 
 
