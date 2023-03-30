@@ -74,10 +74,10 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  position: absolute;
+  position: relative;
   top: 500px; /* ajusta la posición vertical */
   left: 300px; /* ajusta la posición horizontal */
-  z-index: 1; /* ajusta la capa en caso de solapamiento */
+  z-index: 10; /* ajusta la capa en caso de solapamiento */
 }
 
 /* Estilos para el contenedor del botón */
