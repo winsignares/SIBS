@@ -7,7 +7,6 @@ routes_searchbooks = Blueprint("routes_searchbooks", __name__)
 @routes_searchbooks.route('/indexsearchbooks', methods=['GET'] )
 def indexsearchbooks():
     
-
     return render_template('/main/SearchBoks.html')
 
   
@@ -15,12 +14,11 @@ def indexsearchbooks():
 @routes_searchbooks.route('/indexbuscador', methods=['GET'] )
 def indexbuscador(): 
 
-    return render_template('/main/book.html')
+    return render_template('/main/catalogo.html')
 
 
 
-@routes_searchbooks.route('/indexlogin', methods=['GET'] )
-def indexlogin(): 
+@routes_searchbooks.route('/indexhome', methods=['GET'] )
+def indexhome(): 
 
-    return render_template('/main/login.html')
-
+    return render_template('/main/home.html')
