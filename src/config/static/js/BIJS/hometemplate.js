@@ -114,6 +114,16 @@ enlaceVolver.addEventListener("click", function(event) {
   ocultarContenido("contenidoAdmin"); // Ocultar el contenido
 });
 
+document.getElementById("volver-admin").addEventListener("click", function() {
+  // activar la clase 'link' en la etiqueta 'h1'
+  document.querySelector(".all-tittles").classList.add("link");
+});
+document.getElementById("volver-admin").addEventListener("click", function() {
+  // activar la clase 'link' en la etiqueta 'h1'
+  document.querySelector(".all-tittles").classList.add("link");
+});
+
+
 
 
 
