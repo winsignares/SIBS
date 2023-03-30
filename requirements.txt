@@ -19,6 +19,5 @@ typing_extensions==4.5.0
 virtualenv==20.21.0
 PyMySQL==1.0.2
 six==1.16.0
-SQLAlchemy==2.0.6
 typing_extensions==4.5.0
 Werkzeug==2.2.3
