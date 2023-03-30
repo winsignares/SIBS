@@ -79,7 +79,7 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
-var inicioLink = document.getElementById('inicio-link');
+var inicioLink = document.getElementById('contenidoAdmin');
 var adminLink = document.getElementById('admin-link');
 
 inicioLink.addEventListener('click', function() {
