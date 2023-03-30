@@ -18,7 +18,7 @@
   .animacion {
     opacity: 0.5; /* Transparencia */
     font-size: 20px; /* Reducción de tamaño de fuente */
-    transition: all 10s ease; /* Duración y tipo de animación */
+    transition: all 3s ease; /* Duración y tipo de animación */
   }
   /*
   #boton-volver {
