@@ -83,7 +83,7 @@
 /* Estilos para el contenedor del botón */
 .containervolver {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
 }
 
 /* Estilos para el contenedor del botón en pantallas pequeñas */
