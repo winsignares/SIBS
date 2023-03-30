@@ -7,26 +7,12 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  #btn-volver {
-    background-image: url("ruta/a/la/imagen.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+  #boton-volver {
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
   }
   
-  #btn-volver:hover {
-    transform: scale(1.05);
+  #boton-volver:hover {
+    transform: scale(1.1);
   }
-  
-  #btn-volver:active {
-    transform: scale(0.95);
-  }
-  
   
