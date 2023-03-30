@@ -23,40 +23,11 @@ function GuardarAdministrador() {
     .catch((error) => {
         console.error(error)
     })
-}
-
-swal("Confirmar!", "You clicked the button!", {
-	icon : "warning",
-	buttons: {
-		confirm: {
-			className : 'btn btn-warning'
-		}
-	},
-});
-
-swal("Good job!", "You clicked the button!", {
-	icon : "error",
-	buttons: {
-		confirm: {
-			className : 'btn btn-danger'
-		}
-	},
-});
-
-swal("Good job!", "You clicked the button!", {
-	icon : "success",
-	buttons: {
-		confirm: {
-			className : 'btn btn-success'
-		}
-	},
-});
-
-swal("Good job!", "You clicked the button!", {
-	icon : "info",
-	buttons: {
-		confirm: {
-			className : 'btn btn-info'
-		}
-	},
-});
+} function mostrarAlerta() {
+    Swal.fire({
+      title: '¡Hola!',
+      text: 'Este es un mensaje de ejemplo.',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    })
+  }
