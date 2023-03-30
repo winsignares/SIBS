@@ -12,13 +12,13 @@ function GuardarInstructor() {
    
     axios.post('saveinstructor', {
         full_name: full.value,
-        password: passintruc.value,
         Email: usernameintruc.value,
         telefono: telinstructor.value,
         especialidad: espeinstructor.value,
         jornada: turnoinstruc.value,
-        id_roles: 4,        
-        Cedula: ccinstructor.value       
+        password: passintruc.value,
+        Cedula: ccinstructor.value,
+        id_roles: 4
     }, {
         headers: {
         'Content-Type': 'multipart/form-data'

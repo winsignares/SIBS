@@ -17,11 +17,11 @@ def guardarinstru():
     telefono = request.form['telefono']
     especialidad = request.form['especialidad']
     jornada = request.form['jornada']
-    id_roles = request.form['id_roles']
     cedula = request.form['cedula']
     password = request.form['password']
-    print(full_name,Email,telefono,especialidad,jornada)
-    new_Users = Users(full_name, Email,telefono,especialidad,jornada, id_roles, cedula, password)
+    id_roles = request.form['id_roles']
+    print(full_name)
+    new_Users = Users(full_name, Email,telefono,especialidad,jornada, cedula, password, id_roles)
     db.session.add(new_Users)
     db.session.commit()
-    return full_name
+    return "u rigth"
