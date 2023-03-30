@@ -15,14 +15,10 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
-  .ccontainervolver {
-    position: relative;
-  }
-  
   .boton-volver {
     position: absolute;
-    top: 500px;
-    right: 700px;
+    top: 0;
+    right: 0;
   }
   /*
   #boton-volver {
