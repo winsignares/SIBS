@@ -3,7 +3,7 @@ const table_report = document.getElementById('table');
 
 function cargar_reportes(){
     
-    axios.get('/conlistreports', {
+    axios.get('/listreports', {
             responseType: 'json'
         })
         .then(function(response) {
@@ -21,7 +21,7 @@ function cargar_reportes(){
                     </thead>
                     <tbody>
                         <tr>
-                            <td>${data.id_roles}</td>
+                            <td>${id_roles}</td>
                             <td>0</td>
                             <td>0%</td>
                         </tr>
