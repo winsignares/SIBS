@@ -15,14 +15,6 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
-  #boton-volver {
-    background-image: url('assets/icons/5397377.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
   /*
   #boton-volver {
     position: relative;
