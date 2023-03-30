@@ -39,13 +39,14 @@ def consullist():
     datos= {}
     resultado = db.session.query(Users, RolesUsuarios). select_from(Users).join(RolesUsuarios).filter(RolesUsuarios.roles== "Personal").all()
     i=0
-    for usuarios,roles in resultado:
+    for usuarios, roles in resultado:
         i+=1	       
         datos[i] = {
-        'dui':usuarios.Cedula,
+        'dui':usuarios.cedula,
 		'nombre':usuarios.full_name,
 		'telefono':usuarios.telefono,
 		'cargo': usuarios.especialidad                      
         }
-    print(datos)
-    return "u rigth"
+        print(datos)
+        print("aaaaaaaaa")
+    return jsonify(datos)

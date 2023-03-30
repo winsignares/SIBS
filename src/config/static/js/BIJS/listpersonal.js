@@ -4,9 +4,10 @@ let i = 0;
 function viewpersonal() {
     axios.get('conpersonal',{
         responseType: 'json'
-    })        
+    } )
+      
       .then(function (response) {        
-        console.log(response + "kgkvkvk")
+        console.log(response);
             let datos = response.data
             let listper = '';
             i= 0
@@ -17,9 +18,9 @@ function viewpersonal() {
                         <div class="div-table-row div-table-row-list">
                         <div class="div-table-cell" style="width: 6%;">#</div>
                         <div id= "${i}" class="div-table-cell" style="width: 15%;">${dui}</div>
-                        <div class="div-table-cell" style="width: 15%;">${datos[1].Nombre}</div>
-                        <div class="div-table-cell" style="width: 12%;">${datos[2].Telefono}</div>
-                        <div class="div-table-cell" style="width: 15%;">${datos[3].Cargo}</div>
+                        <div class="div-table-cell" style="width: 15%;">${datos.Nombre}</div>
+                        <div class="div-table-cell" style="width: 12%;">${datos.Telefono}</div>
+                        <div class="div-table-cell" style="width: 15%;">${datos.Cargo}</div>
                         <div class="div-table-cell" style="width: 9%;">
                                 <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                             </div>
