@@ -33,7 +33,6 @@ function listaestudiantes() {
         })
         .then(function() {});
 }
-listaestudiantes();
 
 function Busca_estudiantes() {
     axios.get('/conliststudiantes', {

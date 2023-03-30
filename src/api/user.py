@@ -105,7 +105,7 @@ def consullist():
     print(datos)
     return datos
 
-
+'''
 @routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
@@ -121,3 +121,4 @@ def consullist2():
         }
     print(datos)
     return datos
+    '''
