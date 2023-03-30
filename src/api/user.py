@@ -24,12 +24,19 @@ def usuarios():
 #crud de usuarios
 @routes_user.route('/eliminar_Users/<id>', methods=['GET'] )
 def eliminar_users(id):
+<<<<<<< HEAD
     #id = request.args.get('id')
     #id = request.json['id']
     user = Users.query.get(id)
     db.session.delete(user)
     db.session.commit()
     return jsonify(UsuariosSchema.dump(user)) 
+=======
+    usuarios = Users.query.get(id)
+    db.session.delete(usuarios)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(usuarios)) 
+>>>>>>> 01ebcafbdb4dec1c056891ca22f50aa4ce67ae2b
 
 @routes_user.route('/actualizarUsers', methods=['POST'] )
 def actualizar_users():
@@ -52,16 +59,9 @@ def actualizar_users():
 
 @routes_user.route('/save_Users', methods=['POST'] )
 def guardar_Users():
-    full_name = request.json['full_name']
-    Email = request.json['Email']
-    telefono = request.json['telefono']
-    especialidad = request.json['especialidad']
-    jornada = request.json['jornada']
-    direccion= request.json['direccion']
-    password = request.json['password']
-    cedula = request.json['Cedula']
-    print(full_name,Email,telefono,especialidad,jornada,direccion)
-    new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion, password, cedula)
+    usuarios = request.json['full_name,Email,password,telefono,especialidad,jornada,direccion,id_roles']
+    print(usuarios)
+    new_Users = Users(usuarios)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
@@ -118,3 +118,5 @@ def consullist2():
         }
     print(datos)
     return datos
+
+
