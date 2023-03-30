@@ -64,19 +64,40 @@
   .boton-volver {
     margin: -500px;
   }*/
+  /* Estilos para el botón */
+.boton-volver {
+  display: inline-block;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el contenedor del botón */
+.containervolver {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilos para el contenedor del botón en pantallas pequeñas */
+@media (max-width: 767px) {
   .containervolver {
-    position: fixed;
-    top: 500px;
-    left: 200px;
+    display: block;
+    text-align: center;
   }
-  
-  #boton-volver {
-    border: none;
-    padding: 200px 400px;
-    border-radius: 5px;
-    cursor: pointer;
+}
+
+/* Estilos para el botón en pantallas pequeñas */
+@media (max-width: 767px) {
+  .boton-volver {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
   }
-  
+}
+
   
   
   
