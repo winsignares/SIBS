@@ -112,20 +112,7 @@ var enlaceVolver = document.getElementById("volver-atras");
 enlaceVolver.addEventListener("click", function(event) {
   event.preventDefault(); // Evitar que se actualice la página
   ocultarContenido("contenidoAdmin"); // Ocultar el contenido
-
-  volverAtras.removeAttribute("disabled");
-
 });
-function volverAtras() {
-  // Ocultar el contenido del iframe y mostrar los mosaicos nuevamente
-  contenidoAdmin.style.display = "none";
-  for (var i = 0; i < tiles.length; i++) {
-    tiles[i].style.display = "block";
-  }
-
-  // Desactivar el enlace "volver-atras" nuevamente
-  volverAtras.setAttribute("disabled", "disabled");
-}
 
 
 

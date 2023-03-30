@@ -20,10 +20,6 @@
     font-size: 30px; /* Reducción de tamaño de fuente */
     transition: all 5s ease; /* Duración y tipo de animación */
   }
-  .disabled-link {
-    pointer-events: none;
-    color: gray;
-  }
   
   /*
   #boton-volver {
