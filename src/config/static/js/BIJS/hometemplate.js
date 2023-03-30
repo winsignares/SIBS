@@ -120,7 +120,7 @@ function volverAtras() {
   return false;
 }
 function volverAtras() {
-  if (window.location.href.includes('indexadminH')) {
+  if (window.location.href.includes('#contenidoAdmin')) {
     ocultarContenido('contenidoAdmin');
   } else {
     window.history.back();
