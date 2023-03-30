@@ -37,7 +37,7 @@ window.onload = function viewpersonal() {
 }
 
 function eliminarpersonal(){
-    const nose = document.getElementById('${i}');
+    const nose = document.getElementById('i');
     //const id = nose.textContent;
     axios.post('eliminarpersonal',{
         id: nose.textContent, 
