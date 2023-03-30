@@ -20,7 +20,7 @@
     font-size: 30px; /* Reducción de tamaño de fuente */
     transition: all 10s ease; /* Duración y tipo de animación */
   }
-  .animacion {
+  .animacion1 {
     font-size: 36px;
     transition: font-size 10s ease-out;
   }
