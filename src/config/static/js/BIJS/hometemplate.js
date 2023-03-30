@@ -64,7 +64,6 @@
   for (var i = 0; i < titulo.length; i++) {
     titulo[i].style.display = "none";
   }
-  
   // Mostrar el iframe correspondiente
   var contenido = document.getElementById(id);
   contenido.style.display = "block";
@@ -81,8 +80,7 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
-  }
-
+  
   
   
 
