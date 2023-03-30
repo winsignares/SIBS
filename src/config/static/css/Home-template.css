@@ -66,9 +66,16 @@
   }*/
   .containervolver {
     position: fixed;
-    top: 500;
-    left: 200;
-    margin: 100px;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+  }
+  
+  .boton-volver {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
   
