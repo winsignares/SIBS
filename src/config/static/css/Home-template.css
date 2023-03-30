@@ -75,8 +75,8 @@
   border-radius: 5px;
   cursor: pointer;
   position: absolute;
-  top: 20px; /* ajusta la posición vertical */
-  left: 20px; /* ajusta la posición horizontal */
+  top: 500px; /* ajusta la posición vertical */
+  left: 300px; /* ajusta la posición horizontal */
   z-index: 1; /* ajusta la capa en caso de solapamiento */
 }
 
