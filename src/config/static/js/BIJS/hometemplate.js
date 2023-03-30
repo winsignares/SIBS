@@ -99,6 +99,15 @@ function revertirAnimacion() {
   etiqueta.style.opacity = 1;
   etiqueta.style.fontSize = '30px';
 }
+// Obtener el enlace de volver atrás
+var enlaceVolver = document.getElementById("volver-atras");
+
+// Agregar un evento de clic al enlace para ocultar el contenido
+enlaceVolver.addEventListener("click", function(event) {
+  event.preventDefault(); // Evitar que se actualice la página
+  ocultarContenido("contenidoAdmin"); // Ocultar el contenido
+});
+
 
 
 
