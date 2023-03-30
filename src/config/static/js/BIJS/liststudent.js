@@ -32,3 +32,4 @@ function listaestudiantes() {
         })
         .then(function() {});
 }
+listaestudiantes();
