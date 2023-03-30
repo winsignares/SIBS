@@ -22,7 +22,7 @@
   }
   .animacion {
     font-size: 36px;
-    transition: font-size 0.3s ease-out;
+    transition: font-size 3s ease-out;
   }
   /*
   #boton-volver {
