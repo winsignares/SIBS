@@ -72,7 +72,11 @@ selautorlibro.addEventListener('change', function () {
             console.log(response.data);
             const data = response.data
             for (items in data) {
-                alert(data[items].nacionalidad)                
+                const opcion = document.createElement('option');
+                alert(data[items].nombre)
+                opcion.value = data[items];
+                opcion.text = data[items].nombre;
+                select.appendChild(opcion);            
             }
         })
         .catch(function (error) {
