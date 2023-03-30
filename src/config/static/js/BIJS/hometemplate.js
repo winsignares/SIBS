@@ -78,6 +78,9 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
+document.querySelector('a[href="#contenidoAdmin"]').addEventListener('click', function() {
+  document.querySelector('.mobile-menu-button').style.display = 'none';
+});
   
   
   
