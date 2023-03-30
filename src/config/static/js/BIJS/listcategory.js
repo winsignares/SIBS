@@ -1,7 +1,7 @@
-import Axios from 'axios';
 divcategory = document.getElementById('tablas')
+window.onload = listcategory;
 function listcategory(){
-  Axios.get('/viewlistcategory', {
+  axios.get('/viewCategoria', {
     responseType: 'json'
 })
 .then(function(response) {
@@ -24,8 +24,10 @@ function listcategory(){
 })
 .catch(function(err) {
     console.log(err);
+    
 })
 .then(function() {});
+
 }
 
 
