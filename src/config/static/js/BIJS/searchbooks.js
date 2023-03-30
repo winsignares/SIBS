@@ -1,7 +1,7 @@
 const buscador = document.getElementById('buscali');
 
 function buscarlibro() {
-    axios.get('/catalogo',  {
+    axios.get('/libros',  {
             responseType: 'json'
         })
         .then(function(response) {
