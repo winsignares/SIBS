@@ -70,9 +70,10 @@
   background-color: #555;
   color: #fff;
   border: none;
-  padding: 500px 500px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transform: translateY(-20px);
 }
 
 /* Estilos para el contenedor del botón */
