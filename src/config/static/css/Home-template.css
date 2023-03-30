@@ -56,4 +56,13 @@
       padding: 0.75rem 1.5rem;
     }
   }
+  .containervolver {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .boton-volver {
+    margin: 10px;
+  }
+  
   
