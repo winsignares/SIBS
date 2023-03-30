@@ -55,6 +55,7 @@
       //}
     //}
   //}
+  
   function mostrarContenido(id) {
   // Ocultar todos los mosaicos
   var tiles = document.getElementsByClassName("tile");
@@ -78,6 +79,42 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
+
+
+//Este es un codigo llamativo
+/*function mostrarContenido(id) {
+  // Ocultar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "none";
+  }
+
+  // Ocultar el menú lateral
+  var menuLateral = document.getElementsByClassName("container")[0];
+  menuLateral.style.display = "none";
+
+  // Mostrar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "block";
+}
+
+function ocultarContenido(id) {
+  // Mostrar el menú lateralS
+  var menuLateral = document.getElementsByClassName("container")[0];
+  menuLateral.style.display = "block";
+
+  // Ocultar el iframe correspondiente
+  var contenido = document.getElementById(id);
+  contenido.style.display = "none";
+
+  // Mostrar todos los mosaicos
+  var tiles = document.getElementsByClassName("tile");
+  for (var i = 0; i < tiles.length; i++) {
+    tiles[i].style.display = "block";
+  }
+}
+*/
+
   
   
   
