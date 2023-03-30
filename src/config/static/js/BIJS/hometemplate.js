@@ -90,7 +90,7 @@ function revertirAnimacion() {
   etiqueta.style.fontSize = '30px';
 }
 function reducirTitulo() {
-  var titulo = document.querySelector('.animacion');
+  var titulo = document.querySelector('.animacion1');
   titulo.style.fontSize = '20px';
 }
 
