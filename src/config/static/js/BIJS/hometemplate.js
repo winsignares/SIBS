@@ -119,6 +119,16 @@ function volverAtras() {
   // Desactivar el comportamiento predeterminado del enlace
   return false;
 }
+var volverAtrasLink = document.getElementById("volver-atras");
+
+document.getElementById("indexadminLink").addEventListener("click", function() {
+  volverAtrasLink.classList.remove("disabled-link");
+});
+
+volverAtrasLink.addEventListener("click", function(e) {
+  e.preventDefault();
+  ocultarContenido('contenidoAdmin');
+});
 
 
 

@@ -20,18 +20,11 @@
     font-size: 30px; /* Reducción de tamaño de fuente */
     transition: all 5s ease; /* Duración y tipo de animación */
   }
-  /* Desactivar enlace */
-.no-link a {
-  pointer-events: none;
-  color: #ccc;
-}
-
-/* Activar enlace */
-.link a {
-  pointer-events: auto;
-  color: #fff;
-}
-
+  .disabled-link {
+    pointer-events: none;
+    color: gray;
+  }
+  
   /*
   #boton-volver {
     position: relative;
