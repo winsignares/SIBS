@@ -11,7 +11,7 @@ def indexteacher():
 
 @routes_teacher.route('/saveinstructor', methods=['POST'] )
 def guardarinstru():   								
-
+    print('METODO')
     full_name = request.form['full_name']
     Email = request.form['Email']
     telefono = request.form['telefono']
@@ -20,7 +20,7 @@ def guardarinstru():
     id_roles = request.form['id_roles']
     cedula = request.form['cedula']
     password = request.form['password']
-    print(full_name)
+    print('pop',full_name, Email,telefono,especialidad,jornada, id_roles , cedula, password)
     new_Users = Users(full_name, Email,telefono,especialidad,jornada, id_roles , cedula, password)
     db.session.add(new_Users)
     db.session.commit()
