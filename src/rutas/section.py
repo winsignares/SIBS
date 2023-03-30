@@ -23,11 +23,7 @@ def saveSection():
     new_section = Section(year, especialidad, seccion)
     db.session.add(new_section)
     db.session.commit()
-<<<<<<< HEAD
-    return redirect('/proveedores')
-=======
     return "ok"
 
 
  
->>>>>>> fa40e94ccd5d185fa9d56c544280915e9dcd07f5
