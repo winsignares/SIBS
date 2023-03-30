@@ -135,10 +135,28 @@
                     <div class="div-table-cell" style="width: 10%;">Dias de atraso</div>
                     <div class="div-table-cell" style="width: 10%;">Estado</div>
                     <div class="div-table-cell" style="width: 8%;">
-                        <button class="btn btn-success" onclick="eliminar()" ><i class="zmdi zmdi-time-restore"></i></button>
+                        <button class="btn btn-success" onclick="Listo()" ><i class="zmdi zmdi-time-restore"></i></button>
                     </div>
                     <div class="div-table-cell" style="width: 8%;">
                         <button onclick="Listo()" class="btn btn-info" ><i class="zmdi zmdi-file-text"></i></button>
+                        <!-- Modal -->
+                        <div   div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                ...
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

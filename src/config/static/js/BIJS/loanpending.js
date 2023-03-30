@@ -1,8 +1,8 @@
-function eliminar() {
+/*function eliminar() {
     /*    const div = document.getElementById("hola");
-        div.parentNode.removeChild(div);*/
-    alert("algo")
-}
+        div.parentNode.removeChild(div);
+alert("algo")
+}*/
 
 function Listo() {
     const Toast = Swal.mixin({
@@ -18,8 +18,8 @@ function Listo() {
     })
 
     Toast.fire({
-            icon: 'success',
-            title: 'Recibido con Exito'
-        })
-        //  tblestadosolicitud.ajax.reload(null, flase)
+        icon: 'success',
+        title: 'Recibido con Exito'
+    })
+    tblestadosolicitud.ajax.reload(null, flase)
 }
