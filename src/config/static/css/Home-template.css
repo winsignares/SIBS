@@ -15,6 +15,7 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
+  
   /*
   #boton-volver {
     position: relative;
@@ -22,11 +23,11 @@
     left: 500px;
   }*/
   
-  .boton-volver {
-    padding: 1000px 100ppx;
-    font-size: 3000px;
+  /*.boton-volver {
+    padding: 100px 100px;
+    font-size: 16px;
     border: none;
-    border-radius: 20px;
+    border-radius: 4px;
     cursor: pointer;
   }
   @media (max-width: 576px) {
@@ -62,8 +63,8 @@
   }
   
   .boton-volver {
-    margin: 700px;
-  }
+    margin: -300px;
+  }*/
   
 
 
