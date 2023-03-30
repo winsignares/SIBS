@@ -79,6 +79,11 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
+function animarEtiqueta() {
+  var etiqueta = document.querySelector('.animacion');
+  etiqueta.style.opacity = 1;
+  etiqueta.style.fontSize = '30px';
+}
 
 
 //Este es un codigo llamativo
