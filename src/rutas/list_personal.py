@@ -12,16 +12,15 @@ def indexlist_personal():
 @routes_listpersonal.route('/conpersonal', methods=['GET'])
 def consullist():
     datos= {}
-    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
-        select_from(tblusuarios.cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "Personal").all()
+    resultado = db.session.query(tblusuarios, tblrolesusuarios).select_from(tblusuarios.cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.especialidad, tblrolesusuarios.roles).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "Personal").all()
     i=0
     for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'DUI':tblusuarios.Cedula,
+        'DUI':tblusuarios.cedula,
 		'Nombre':tblusuarios.full_name,
 		'Telefono':tblusuarios.telefono,
 		'Cargo': tblusuarios.especialidad                      
         }
-    print(datos)
+    print(datos.DUI)
     return datos

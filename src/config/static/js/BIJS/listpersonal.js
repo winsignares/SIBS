@@ -1,23 +1,25 @@
 const morfismo = document.getElementById('poli');
 const i = 0;
+
 window.onload = function viewpersonal() {
-    axios.get('/conlistpersonal', {
-            responseType: 'json'
-        })
-        .then(function(response) {
+    axios.get('conlistpersonal')
+        responseType: 'json'
+      .then(function (response) {
+        
+        console.log(response);
             const datos = response.data
             let listper = '';
             i= 0
-            for (let DUI in datos) {
+            for (let x in datos) {
                 i+= 1
-                listper += `<div class="table-responsive">
+                listper += `
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
                         <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div id= "${i}" class="div-table-cell" style="width: 15%;">${DUI}</div>
+                        <div id= "${i}" class="div-table-cell" style="width: 15%;">${datos.DUI}</div>
                         <div class="div-table-cell" style="width: 15%;">${datos.Nombre}</div>
                         <div class="div-table-cell" style="width: 12%;">${datos.Telefono}</div>
-                        <div class="div-table-cell" style="width: 15%;">pan</div>
+                        <div class="div-table-cell" style="width: 15%;">${datos.Cargo}</div>
                         <div class="div-table-cell" style="width: 9%;">
                                 <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                             </div>
@@ -25,17 +27,16 @@ window.onload = function viewpersonal() {
                                 <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
                             </div>
                         </div>
-                    </div>
-                </div>`;
+                    </div>`;
             }
             morfismo.innerHTML = listper
-        })
-        .catch(function(err) {
-            console.log(err);
-        })
-        .then(function() {});
-}
-
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        // Maneja los errores aquí
+        console.log(error);
+      });
+  }
 function eliminarpersonal(){
     const nose = document.getElementById('${i}');
     //const id = nose.textContent;
