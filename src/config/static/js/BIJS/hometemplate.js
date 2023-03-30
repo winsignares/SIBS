@@ -79,29 +79,6 @@ function ocultarContenido(id) {
     tiles[i].style.display = "block";
   }
 }
-var inicioLink = document.getElementById('contenidoAdmin');
-var adminLink = document.getElementById('admin-link');
-
-inicioLink.addEventListener('click', function() {
-  // disminuir tamaño de fuente y opacidad de la etiqueta "Inicio"
-  this.style.fontSize = '16px';
-  this.style.opacity = '0.5';
-  
-  // aumentar tamaño de fuente y cambiar color de la etiqueta "Administración Usuarios"
-  adminLink.style.fontSize = '20px';
-  adminLink.style.color = 'red';
-});
-
-adminLink.addEventListener('click', function() {
-  // disminuir tamaño de fuente y opacidad de la etiqueta "Administración Usuarios"
-  this.style.fontSize = '16px';
-  this.style.opacity = '0.5';
-  
-  // aumentar tamaño de fuente y cambiar color de la etiqueta "Inicio"
-  inicioLink.style.fontSize = '20px';
-  inicioLink.style.color = 'red';
-});
-
 
 
 //Este es un codigo llamativo

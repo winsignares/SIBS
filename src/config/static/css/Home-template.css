@@ -15,15 +15,6 @@
   #boton-volver:hover {
     transform: scale(1.1);
   }
-  .page-header a {
-    transition: font-size 0.5s ease, color 0.5s ease, opacity 0.5s ease;
-  }
-  
-  .page-header a:hover {
-    font-size: 24px;
-    color: yellow;
-    opacity: 1;
-  }
   
   /*
   #boton-volver {
