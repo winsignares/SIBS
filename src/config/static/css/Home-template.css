@@ -18,11 +18,11 @@
   .animacion {
     opacity: 1; /* Transparencia */
     font-size: 30px; /* Reducción de tamaño de fuente */
-    transition: all 3s ease; /* Duración y tipo de animación */
+    transition: all 10s ease; /* Duración y tipo de animación */
   }
   .animacion {
     font-size: 36px;
-    transition: font-size 3s ease-out;
+    transition: font-size 10s ease-out;
   }
   /*
   #boton-volver {
