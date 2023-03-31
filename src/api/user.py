@@ -24,10 +24,15 @@ def usuarios():
 #crud de usuarios
 @app.route('/eliminar_Users/<id>', methods=['GET'] )
 def eliminar_users(id):
-    usuarios = Users.query.get(id)
-    db.session.delete(usuarios)
+    full_name = Users.query.get(id)
+    Email = Users.query.get(id)
+    telefono = Users.query.get(id)
+    especialidad = Users.query.get(id)
+    jornada = Users.query.get(id)
+    direccion = Users.query.get(id)
+    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
     db.session.commit()
-    return jsonify(UsuariosSchema.dump(usuarios)) 
+    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
 
 @app.route('/actualizarUsers', methods=['POST'] )
 def actualizar_users():
@@ -56,8 +61,7 @@ def guardar_Users():
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
-
-@routes_user.route('/conlistpersonal', methods=['GET'])
+'''@routes_user.route('/conlistpersonal', methods=['GET'])
 def consullist():
     datos= {}
     resultado = db.session.query(tblusuarios, tblrolesusuarios). \
@@ -73,9 +77,10 @@ def consullist():
         }
     print(datos)
     return datos
+'''
 
 
-@routes_user.route('/conliststudiantes', methods=['GET'])
+'''@routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
@@ -90,6 +95,8 @@ def consullist2():
         }
     print(datos)
     return datos
+'''
+
 
 @routes_user.route('/eliminarpersonal', methods=['GET'] )
 def eliminarU(id):
