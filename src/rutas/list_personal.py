@@ -33,25 +33,26 @@ def consullist():
         print(usuario)
     return "u rigth"
 '''
-'''
+
 @routes_listpersonal.route('/conpersonal', methods=['GET'])
 def consullist():
     datos= {}
     resultado = db.session.query(Users, RolesUsuarios). select_from(Users).join(RolesUsuarios).filter(RolesUsuarios.roles== "Personal").all()
-    i=0
+    users = []
+    i = 0
     for usuarios, roles in resultado:
-        i+=1	       
+        i += 1
         datos[i] = {
         'dui':usuarios.cedula,
 		'nombre':usuarios.full_name,
 		'telefono':usuarios.telefono,
 		'cargo': usuarios.especialidad                      
         }
-        print(datos)
-        print("aaaaaaaaa")
+    users.append(datos)
+    print(users)
     return jsonify(datos)
-'''
 
+'''
 @app.route('/selectrol/<id_roles>', methods=['GET'] )
 def person(id_roles):
     cedula = Users.query.get(id_roles)
@@ -60,4 +61,4 @@ def person(id_roles):
     especialidad = Users.query.get(id_roles)      
     db.session.select(cedula, full_name,telefono,especialidad)
     db.session.commit()
-    return jsonify(UsuariosSchema.dump(cedula, full_name,telefono,especialidad)) 
+    return jsonify(UsuariosSchema.dump(cedula, full_name,telefono,especialidad)) '''
