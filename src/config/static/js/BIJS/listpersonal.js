@@ -42,7 +42,7 @@ function viewpersonal() {
     viewpersonal();
   });
 // Obtén el modal y el botón de cerrar
-var modal = document.querySelector('.modal1');
+var modal = document.querySelector('.modal');
 var closeBtn = document.querySelector('.close');
 
 

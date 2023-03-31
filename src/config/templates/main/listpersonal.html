@@ -1,5 +1,6 @@
 {% extends "./layout.html" %}
 {% block body %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 <div class="navbar-lateral full-reset">
     <div class="visible-xs font-movile-menu mobile-menu-button"></div>
     <div class="full-reset container-menu-movile nav-lateral-scroll">
@@ -165,19 +166,17 @@
             </div>
         </div>
     </div>
-    <div class="modal1">
+    <div class="modal">
         <div class="modal-content">
             <span class="close"></span>
             <div class="mensaje1">
-                <h1>Para actualizar los datos, llene los siguientes campos</h1>
+                <h2>Para actualizar los datos, llene los siguientes campos</h2>
             </div>
             <div class="text">
                 <form class="form-control">
                     <form>
                         <label for="id">Id del usuario:</label>
-                        <input type="number" id="idusu" name="idusu">
-                        <br>
-                        <label for="nombre">Nombre completo:</label>
+                        <input type="number" id="idusu" name="idusu"> <label for="nombre">Nombre completo:</label>
                         <input type="text" id="nombre" name="nombre">
                         <br>
                         <label for="telefono">Telefono:</label>
