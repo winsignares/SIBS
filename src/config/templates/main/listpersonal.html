@@ -172,33 +172,38 @@
             <div class="mensaje1">
                 <h2>Para actualizar los datos, llene los siguientes campos</h2>
             </div>
-            <div class="text">
+            <div class="textread">
                 <form class="form-control">
-                    <form>
-                        <label for="id">Id del usuario:</label>
-                        <input type="number" id="idusu" name="idusu"> <label for="nombre">Nombre completo:</label>
+                    <form class="rar">
+                        <label class= "labelop" for="id">Id del usuario:</label>
+                        <input type="number" id="idusu" name="idusu"> 
+                        <br>
+                        <label for="nombre">Nombre completo:</label>
+                        <br>
                         <input type="text" id="nombre" name="nombre">
                         <br>
-                        <label for="telefono">Telefono:</label>
+                        <label class= "labelop" for="telefono">Telefono:</label>
                         <input type="number" id="telefono" name="telefono">
                         <br>
-                        <label for="cargo">Cargo:</label>
+                        <label class= "labelop" for="cargo">Cargo:</label>
                         <input type="text" id="cargo" name="cargo">
                         <br>
-                        <label for="usuario">Usuario:</label>
+                </form>
+                    <form class="asda">
+                        <label class= "labelop" for="usuario">Usuario:</label>
                         <input type="text" id="usuario" name="usuario">
                         <br>
-                        <label for="contrasena">Contraseña:</label>
+                        <label class= "labelop" for="contrasena">Contraseña:</label>
                         <input type="password" id="contrasena" name="contrasena">
                         <br>
-                        <label for="pass">Repetir contraseña:</label>
+                        <label class= "labelop" for="pass">Repetir contraseña:</label>
                         <input type="password" id="pass" name="pass">
                         <br>
                     </form>
                 </form>
             </div>
             <br>
-            <div class="btn"> <button class="btn btn-outline-primary" onclick="alert()">Guardar</button></div>
+            <div class="btn_punto"> <button class="btn btn-outline-primary" onclick="alert()">Guardar</button></div>
         </div>
     </div>
     <!---FINAL DEL MODAL DE OBTENER MAS INFORMACION-->
@@ -240,4 +245,4 @@
 </div>yy
     </div>
     <script src="{{url_for('static', filename='js/BIJS/listpersonal.js')}}"></script>
-{% endblock %}
+ class= "labelop"{% endblock %}
