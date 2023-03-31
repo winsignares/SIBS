@@ -12,18 +12,20 @@ def indexlistcategory():
 
 
 
-@routes_listcategory.route('/viewlistcategory', methods=['GET'])
+@routes_listcategory.route('/viewlist', methods=['GET'])
 def viewlistcategor():
     datos= {}
-    resultado = db.session.query(tblcategorias).select_from(tblcategorias.id, tblcategorias.N_cat, tblcategorias.Descripcion).all()
+    resultado = db.session.query(Categorias).select_from(Categorias).all()
     i=0
-    for tblcategorias in resultado:
+    goria = []
+    for cate in resultado:
         i+=1	       
         datos[i] = {
-        'id':tblcategorias.id,
-		'cat':tblcategorias.N_cat,
-		'descripcion':tblcategorias.Descripcion,                    
+        'id':cate.id,
+		'cat':cate.N_cat,
+		'descripcion':cate.Descripcion,                    
         }
-    print(datos.id)
-    return "u right"
+        goria.append(datos)
+    print(goria)
+    return jsonify(datos)
         

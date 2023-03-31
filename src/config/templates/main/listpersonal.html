@@ -155,7 +155,7 @@
                             <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                         </div>
                         <div class="div-table-cell" style="width: 9%;">
-                            <a onclick = "viewpersonal()" class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
+                            <a class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
                         </div>
                     </div>
                 </div>
@@ -165,6 +165,44 @@
             </div>
         </div>
     </div>
+    <div class="modal1">
+        <div class="modal-content">
+            <span class="close"></span>
+            <div class="mensaje1">
+                <h1>Para actualizar los datos, llene los siguientes campos</h1>
+            </div>
+            <div class="text">
+                <form class="form-control">
+                    <form>
+                        <label for="id">Id del usuario:</label>
+                        <input type="number" id="idusu" name="idusu">
+                        <br>
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre">
+                        <br>
+                        <label for="telefono">Telefono:</label>
+                        <input type="number" id="telefono" name="telefono">
+                        <br>
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" id="cargo" name="cargo">
+                        <br>
+                        <label for="usuario">Usuario:</label>
+                        <input type="text" id="usuario" name="usuario">
+                        <br>
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena">
+                        <br>
+                        <label for="pass">Repetir contraseña:</label>
+                        <input type="password" id="pass" name="pass">
+                        <br>
+                    </form>
+                </form>
+            </div>
+            <br>
+            <div class="btn"> <button class="btn btn-outline-primary" onclick="alert()">Guardar</button></div>
+        </div>
+    </div>
+    <!---FINAL DEL MODAL DE OBTENER MAS INFORMACION-->
     <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
