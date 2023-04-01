@@ -22,8 +22,8 @@ def viewlistcategor():
         i+=1	       
         datos[i] = {
         'id':cate.id,
-		'cat':cate.N_cat,
-		'descripcion':cate.Descripcion,                    
+		'cat':cate.Nombre_categoria,
+		'descripcion':cate.Description,                    
         }
         goria.append(datos)
     print(goria)

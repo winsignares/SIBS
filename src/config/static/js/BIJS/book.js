@@ -35,7 +35,8 @@ function Guardarlibros() {
         estimado: estimadobook.value,
         cargo: cargobook.value,
         estado: estadobook.value
-    }, {
+    }, 
+    {
         headers: {
             'Content-Type': 'multipart/form-data'
 
@@ -43,11 +44,11 @@ function Guardarlibros() {
     }
     ).then((res) => {
         console.log(res.data)
-
-
+        alert('Informacion Guardada con Exito')
     })
         .catch((error) => {
             console.error(error)
+            alert('No se pudo guardar la Informacion, !Campos vacios o invalidos¡')
         })
 }
 // FUNCION PARA MOSTRAR LOS AUTORES
@@ -84,7 +85,7 @@ function mostrarautor() {
 // FUNCION PARA MOSTRAR LOS AUTORES
 function mostrarcategoria() {
     const selcategorialibro = document.getElementById('categorialibro');
-    axios.get('/api/Categorias')
+    axios.get('mostrarCategorias')
         .then(function (response) {
             // manejar respuesta exitosa
             console.log(response.data);
@@ -92,7 +93,7 @@ function mostrarcategoria() {
             for (items in data) {
                 const opcion = document.createElement('option');
                 opcion.value = data[items].id;
-                opcion.text = data[items].nombre;
+                opcion.text = data[items].Nombre_categoria;
                 selcategorialibro.appendChild(opcion);
             }
         })
@@ -108,7 +109,7 @@ function mostrarcategoria() {
 // FUNCION PARA MOSTRAR LOS AUTORES
 function mostrarproveedor() {
     const selproveedorlibro = document.getElementById('proveedorlibro');
-    axios.get('/api/Proveedores')
+    axios.get('/api/proveedores')
         .then(function (response) {
             // manejar respuesta exitosa
             console.log(response.data);
