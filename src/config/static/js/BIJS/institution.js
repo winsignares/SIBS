@@ -4,7 +4,6 @@ function Guardarinstitution(){
     const distritos = document.getElementById('distritos');
     const telefonos = document.getElementById('telefonos');
     const años = document.getElementById('años');
-alert("que va ome")
 
 
     axios.post('guardarinstitution', {

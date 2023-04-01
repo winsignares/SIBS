@@ -13,7 +13,7 @@ def indexinstitution():
 
 @routes_institution.route('/guardarinstitution',methods=['POST'])
 def saveinstitution():
-    #request.form['title']
+
     codigo_infraestructura = request.form['codigo_infraestructura']
     nombre_institucion = request.form['nombre_institucion']
     distrito = request.form['distrito'] 
@@ -23,7 +23,7 @@ def saveinstitution():
     new_institution = institucion(codigo_infraestructura, nombre_institucion, distrito,telefono,año)
     db.session.add(new_institution)
     db.session.commit()
-    return "listo"
+    return render_template('/main/institution.html')
 
 
 
