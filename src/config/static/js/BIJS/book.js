@@ -35,44 +35,98 @@ function Guardarlibros() {
         estimado: estimadobook.value,
         cargo: cargobook.value,
         estado: estadobook.value
-    }, {
+    }, 
+    {
         headers: {
-        'Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data'
 
         }
     }
     ).then((res) => {
         console.log(res.data)
-
-
+        alert('Informacion Guardada con Exito')
     })
-    .catch((error) => {
-        console.error(error)
-    })
+        .catch((error) => {
+            console.error(error)
+            alert('No se pudo guardar la Informacion, !Campos vacios o invalidos¡')
+        })
 }
-
-window.onload = function () {
-    mostaratorbook();
-}
-function mostaratorbook() {
-    /*const selectautor = document.getElementById("autorlibro");
-        axios.get('/libros')
+// FUNCION PARA MOSTRAR LOS AUTORES
+document.addEventListener("DOMContentLoaded", function () {
+    mostrarautor()
+    mostrarcategoria()
+    mostrarproveedor()
+});
+function mostrarautor() {
+    const selautorlibro = document.getElementById('autorlibro');
+    // Hacer una petición para un usuario con ID especifico
+    axios.get('/api/autores')
         .then(function (response) {
-          const options = response.data;
-          const select = document.getElementById('autorlibro');
-          options.map(function(option) {
-            const el = document.createElement("option");
-            el.text = option[1];
-            el.value = option[0];
-            select.add(el);
-          });
+            // manejar respuesta exitosa
+            console.log(response.data);
+            const data = response.data
+            for (items in data) {
+                //alert(data[items].nombre)
+                const opcion = document.createElement('option');
+                opcion.value = data[items].id;
+                opcion.text = data[items].nombre;
+                selautorlibro.appendChild(opcion);
+            }
         })
         .catch(function (error) {
-          console.log(error);
-        });*/
+            // manejar error
+            console.log(error);
+        })
+        .finally(function () {
+            // siempre sera executado
+            console.log("Ejcucion Finalizada");
+        });
 }
-
-function eliminarFila() {
-    const div = document.getElementById("hola");
-    div.parentNode.removeChild(div);
+// FUNCION PARA MOSTRAR LOS AUTORES
+function mostrarcategoria() {
+    const selcategorialibro = document.getElementById('categorialibro');
+    axios.get('mostrarCategorias')
+        .then(function (response) {
+            // manejar respuesta exitosa
+            console.log(response.data);
+            const data = response.data
+            for (items in data) {
+                const opcion = document.createElement('option');
+                opcion.value = data[items].id;
+                opcion.text = data[items].Nombre_categoria;
+                selcategorialibro.appendChild(opcion);
+            }
+        })
+        .catch(function (error) {
+            // manejar error
+            console.log(error);
+        })
+        .finally(function () {
+            // siempre sera executado
+            console.log("Ejcucion Finalizada");
+        });
+}
+// FUNCION PARA MOSTRAR LOS AUTORES
+function mostrarproveedor() {
+    const selproveedorlibro = document.getElementById('proveedorlibro');
+    axios.get('/api/proveedores')
+        .then(function (response) {
+            // manejar respuesta exitosa
+            console.log(response.data);
+            const data = response.data
+            for (items in data) {
+                const opcion = document.createElement('option');
+                opcion.value = data[items].id;
+                opcion.text = data[items].Nombre_proveedor;
+                selproveedorlibro.appendChild(opcion);
+            }
+        })
+        .catch(function (error) {
+            // manejar error
+            console.log(error);
+        })
+        .finally(function () {
+            // siempre sera executado
+            console.log("Ejcucion Finalizada");
+        });
 }

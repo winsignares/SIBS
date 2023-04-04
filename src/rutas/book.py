@@ -14,7 +14,7 @@ def savebook():
     titulo = request.form['titulo']
     id_autor = request.form['id_autor']
     pais = request.form['pais']
-    id_categoria = request.form['id_Categoria']
+    id_Categoria = request.form['id_Categoria']
     id_proveedor = request.form['id_proveedor']
     ano_publicado = request.form['ano_publicado']
     editorial = request.form['editorial']
@@ -23,16 +23,9 @@ def savebook():
     cargo = request.form['cargo']
     estado = request.form['estado']
 
-    book = {'titulo': titulo, 'id_autor': id_autor, 'pais': pais, 'id_categoria': id_categoria, 'id_proveedor': id_proveedor, 'ano_publicado': ano_publicado, 'editorial': editorial, 'ubicacion': ubicacion, 'estimado': estimado, 'cargo': cargo, 'estado': estado}
-
-    new_libro = Libros(book)
+    #book = { titulo,  id_autor, pais,  id_Categoria, id_proveedor,  ano_publicado,  editorial,  ubicacion,  estimado, cargo,  estado}
+    #print(book)
+    new_libro = Libros(titulo,  id_autor, pais,  id_Categoria, id_proveedor,  ano_publicado,  editorial,  ubicacion,  estimado, cargo,  estado)
     db.session.add(new_libro)
     db.session.commit()
     return {'mensaje':'Informacion Insertada en la base de datos'}
-
-
-@routes_book.route('/libros', methods=['GET'])
-def libros():    
-    returnall = Libros.query.all()
-    resultado_libros = LibrosSchema.dump(returnall)
-    return jsonify(resultado_libros)

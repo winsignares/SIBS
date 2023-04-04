@@ -21,11 +21,11 @@ def guardar_Proveedores():
     db.session.commit()
     return redirect('/Proveedores')
 
-@routes_proveedores.route('/Proveedores', methods=['GET'])
+@routes_proveedores.route('/proveedores', methods=['GET'])
 def obtenerproveedor():    
     returnall = Proveedores.query.all()
    
-    resultado_Proveedores = ProveedoresSchema.dump(returnall)
+    resultado_Proveedores = Proveedores_schema.dump(returnall)
     return jsonify(resultado_Proveedores)
 
 @routes_proveedores.route('/eliminarProveedores/<id>', methods=['GET'] )

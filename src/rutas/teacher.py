@@ -1,5 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
+from Model.Usuarios import Users, UsuariosSchema
 
 routes_teacher = Blueprint("routes_teacher", __name__)
 
@@ -22,4 +23,4 @@ def guardarinstru():
     new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion)
     db.session.add(new_Users)
     db.session.commit()
-    return redirect('/Usuarios')
+    return "u rigth"
