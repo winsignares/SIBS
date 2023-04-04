@@ -1,19 +1,19 @@
 function addprovedor() {
-    const Nombre_proveedorr = document.getElementById('nombreprovider');
-    const correoprovider = document.getElementById('emailprovider');
-    const Direccionprovider = document.getElementById('dirreccionprovider');
-    const telefonoprovider = document.getElementById('telprovider');
-    const responsableprovider = document.getElementById('resprovider');
+    const Nombre_proveedorr = document.getElementById('nombreprovider').value;
+    const correoprovider = document.getElementById('emailprovider').value;
+    const Direccionprovider = document.getElementById('dirreccionprovider').value;
+    const telefonoprovider = document.getElementById('telprovider').value;
+    const responsableprovider = document.getElementById('resprovider').value;
     
-   alert('a')
+
 
     axios.post('guardarprovider', {
         
-        Nombre_proveedor: Nombre_proveedorr.value,
-        correo: correoprovider.value,
-        Direccion: Direccionprovider.value,
-        telefono: telefonoprovider.value,
-        Descripcion: responsableprovider.value
+        Nombre_proveedor: Nombre_proveedorr,
+        correo: correoprovider,
+        Direccion: Direccionprovider,
+        telefono: telefonoprovider,
+        Descripcion: responsableprovider
         
 
     }, {
@@ -27,4 +27,6 @@ function addprovedor() {
     .catch((error) => {
         console.error(error)
     })
+
+    
 }
