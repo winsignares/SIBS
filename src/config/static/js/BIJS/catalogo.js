@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     mostrarlibros()
 });
+
 function mostrarlibros() {
-    /*const seltitulibro = document.getElementById('titu');
+    const seltitulibro = document.getElementById('titu');
     const selautorlibro = document.getElementById('autores');
     const selyearlibro = document.getElementById('año');
     // Hacer una petición para un usuario con ID especifico
@@ -11,15 +12,15 @@ function mostrarlibros() {
             // manejar respuesta exitosa
             console.log(response.data);
             const data = response.data
-            for (items in data) {
-               let title = data[items].titulo
-               let autor = data[items].id_autor
-               let year = data[items].ano_publicado
-                seltitulibro.innerHTML += (title);
-                selautorlibro.innerHTML += (autor);
-                selyearlibro.innerHTML += year;
+            data.forEach(dato => {
+               let title = dato.titulo
+               let autor = dato.id_autor
+               let year = dato.ano_publicado
+                seltitulibro.innerHTML = (title);
+                selautorlibro.innerHTML = (autor);
+                selyearlibro.innerHTML = year;
 
-            }
+            });
         })
         .catch(function (error) {
             // manejar error
@@ -28,7 +29,7 @@ function mostrarlibros() {
         .finally(function () {
             // siempre sera executado
             console.log("Ejcucion Finalizada");
-        });*/
+        });
 
     /*axios.get('/api/libros')
         .then(function (response) {
@@ -36,54 +37,45 @@ function mostrarlibros() {
             // Obtener los datos de la base de datos
             const datos = response.data
             // Seleccionar el contenedor principal
-            const contenedor = document.querySelector(".container-fluid");
+            const contenedor = document.getElementById("contendorcatalogo");
             datos.forEach(dato => {
-                // Crear un nuevo elemento de medios
-                const nuevoElemento = document.createElement("div");
-                nuevoElemento.classList.add("media", "media-hover");
-                // Agregar la imagen
-                const nuevaImagen = document.createElement("img");
-                nuevaImagen.classList.add("media-object");
-                nuevaImagen.src = "{{url_for('static', filename='assets/img/checklist.png')}}";
-                nuevaImagen.alt = "Libro";
-                nuevaImagen.width = "48";
-                nuevaImagen.height = "48";
-                const nuevoEnlace = document.createElement("a");
-                nuevoEnlace.classList.add("tooltips-general");
-                nuevoEnlace.href = "#!";
-                nuevoEnlace.setAttribute("data-toggle", "tooltip");
-                nuevoEnlace.setAttribute("data-placement", "right");
-                nuevoEnlace.title = "Más información del libro";
-                nuevoEnlace.appendChild(nuevaImagen);
-                const nuevoMediaLeft = document.createElement("div");
-                nuevoMediaLeft.classList.add("media-left", "media-middle");
-                nuevoMediaLeft.appendChild(nuevoEnlace);
-                nuevoElemento.appendChild(nuevoMediaLeft);
-                console.log(nuevaImagen);
-                console.log(nuevoEnlace);
-                console.log(nuevoMediaLeft);
+                titulolibro = dato.titulo
+                autorlibro = dato.id_autor
+                yearlibro = dato.ano_publicado
 
-                // Agregar el título
-                const nuevoTitulo = document.createElement("h4");
-                nuevoTitulo.classList.add("media-heading");
-                nuevoTitulo.style.fontSize = "22px";
-                nuevoTitulo.textContent = dato.titulo;
-                console.log(nuevoTitulo);
-
-                // Agregar la información del autor y año
-                const nuevoAutor = document.createElement("strong");
-                nuevoAutor.id = "autores";
-                nuevoAutor.textContent = dato.id_autor;
-                console.log(nuevoAutor);
-                const nuevoAño = document.createElement("strong");
-                nuevoAño.id = "año";
-                nuevoAño.textContent = dato.ano_publicado;
-                console.log(nuevoAño);
-                const nuevaInfo = document.createElement("div");
-                nuevaInfo.classList.add("pull-left");
-                nuevaInfo.appendChild(nuevoAutor);
-                nuevaInfo.appendChild(document.createElement("br"));
-                contenedor.appendChild(nuevoElemento)
+                divgeneral = `        <div class="media media-hover">
+                <div class="media-left media-middle">
+                    <a href="#!" class="tooltips-general" data-toggle="tooltip" data-placement="right"
+                        title="Más información del libro">
+                        <img class="media-object" src="{{url_for('static', filename='assets/img/book.png')}}" alt="Libro"
+                            width="48" height="48">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"  id="titu">${titulolibro}</h4>
+                    <div class="pull-left">
+                        <strong id="autores">${autorlibro}</strong><br>
+                            <strong id="año">${yearlibro}</strong>
+                    </div>
+                    <p class="text-center pull-right">
+                        <a  class="modal_button"  href="#!" class="btn btn-info btn-xs" style="margin-right: 10px;"><i
+                                class="zmdi zmdi-info-outline"></i> &nbsp;&nbsp; Más información</a>
+                    </p>
+                </div>
+            </div>
+            <!--MODAL-->
+            <section class="modal1">
+                <div class="modal-container">
+                    <h2>¡Mas informacion de el libro escogido!</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur quo dicta minus ipsum,
+                        deserunt quas dolorem sunt architecto cum, omnis cumque officiis voluptatum ab laborum, aperiam
+                        nesciunt illo totam ea?</p>
+                    <div class="close_Modal">x</div>
+                </div>
+            </section>
+        </div>
+        <!--FINAL MODAL-->`
+                contenedor.innerHTML += (divgeneral);
             });
         })
         .catch(function (error) {
