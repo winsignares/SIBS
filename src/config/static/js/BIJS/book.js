@@ -1,3 +1,11 @@
+$(function() {
+    $("#yearlibro").datepicker({
+    dateFormat: "yy",
+    changeYear: true,
+    yearRange: "-100:+0"
+    });
+  });
+
 function Guardarlibros() {
     const titulobook = document.getElementById('titulolibro');
     const id_autorbook = document.getElementById('autorlibro');
@@ -11,18 +19,6 @@ function Guardarlibros() {
     const cargobook = document.getElementById('cargobook');
     const estadobook = document.getElementById('estadolibro');
 
-    /*alert(titulobook.value);
-    alert(id_autorbook.value);
-    alert(paisbook.value);
-    alert(id_Categoriabook.value);
-    alert(id_proveedorbook.value);
-    alert(ano_publicadobook.value);
-    alert(editorialbook.value);
-    alert(ubicacionbook.value);
-    alert(estimadobook.value);
-    alert(cargobook.value);
-    alert(estadobook.value);*/
-    //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${nameadmin.value} ${emailadmin.value}${usernameadmin.value} ${passadmin.value}`): alert('los campos son diferentes');
     axios.post('guardarbook', {
         titulo: titulobook.value,
         id_autor: id_autorbook.value,
@@ -44,11 +40,13 @@ function Guardarlibros() {
     }
     ).then((res) => {
         console.log(res.data)
-        alert('Informacion Guardada con Exito')
+        document.getElementById("modal-message").textContent = "Información guardada exitosamente";
+        $("#myModal").modal();
     })
         .catch((error) => {
             console.error(error)
-            alert('No se pudo guardar la Informacion, !Campos vacios o invalidos¡')
+            document.getElementById("modal-message").textContent = "No se pudo guardar la información. Por favor, verifica que los campos estén llenos correctamente.";
+            $("#myModal").modal();
         })
 }
 // FUNCION PARA MOSTRAR LOS AUTORES
@@ -66,7 +64,6 @@ function mostrarautor() {
             console.log(response.data);
             const data = response.data
             for (items in data) {
-                //alert(data[items].nombre)
                 const opcion = document.createElement('option');
                 opcion.value = data[items].id;
                 opcion.text = data[items].nombre;
