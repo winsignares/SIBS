@@ -1,11 +1,3 @@
-$(function() {
-    $("#yearlibro").datepicker({
-    dateFormat: "yy",
-    changeYear: true,
-    yearRange: "-100:+0"
-    });
-  });
-
 function Guardarlibros() {
     const titulobook = document.getElementById('titulolibro');
     const id_autorbook = document.getElementById('autorlibro');
