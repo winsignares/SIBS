@@ -144,23 +144,6 @@
                     <div class="div-table-cell" style="width: 9%;">Eliminar</div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 15%;">DUI</div>
-                        <div class="div-table-cell" style="width: 15%;">Nombres</div>
-                        <div class="div-table-cell" style="width: 12%;">Teléfonos</div>
-                        <div class="div-table-cell" style="width: 15%;">Cargo</div>
-                        <div class="div-table-cell" style="width: 9%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 9%;">
-                            <a class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id= "poli" class="table-responsive">
                
             </div>
@@ -172,24 +155,25 @@
             <div class="mensaje1">
                 <h2>Para actualizar los datos, llene los siguientes campos</h2>
             </div>
-            <div class="textread">
-                <form class="form-control">
+            <div class="textread">               
                     <form class="rar">
-                        <label class= "labelop" for="id">Id del usuario:</label>
-                        <input type="number" id="idusu" name="idusu"> 
+                        <label class= "labelop">Id del usuario:</label>
+                        <input id="idusu" name="idusu"> 
                         <br>
                         <label for="nombre">Nombre completo:</label>
                         <br>
                         <input type="text" id="nombre" name="nombre">
                         <br>
-                        <label class= "labelop" for="telefono">Telefono:</label>
-                        <input type="number" id="telefono" name="telefono">
+                        <label class= "labelop">Cedula:</label>
+                        <input id="cece" name="cece"> 
                         <br>
+                        <label class= "labelop" for="telefono">Telefono:</label>
+                        <input id="telefono" name="telefono">
+                    </form>
+                    <form class="asda">
                         <label class= "labelop" for="cargo">Cargo:</label>
                         <input type="text" id="cargo" name="cargo">
-                        <br>
-                </form>
-                    <form class="asda">
+                        <br>                   
                         <label class= "labelop" for="usuario">Usuario:</label>
                         <input type="text" id="usuario" name="usuario">
                         <br>
@@ -199,10 +183,8 @@
                         <label class= "labelop" for="pass">Repetir contraseña:</label>
                         <input type="password" id="pass" name="pass">
                         <br>
-                    </form>
                 </form>
             </div>
-            <br>
             <div class="btn_punto"> <button class="btn btn-outline-primary" onclick="alert()">Guardar</button></div>
         </div>
     </div>

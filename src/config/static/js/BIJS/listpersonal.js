@@ -41,11 +41,10 @@ function viewpersonal() {
   window.addEventListener('load', function() {
     viewpersonal();
   });
+  
 // Obtén el modal y el botón de cerrar
 var modal = document.querySelector('.modal');
 var closeBtn = document.querySelector('.close');
-
-
 
 // Añade un evento click al botón de cerrar para cerrar el modal
 closeBtn.addEventListener('click', function() {
@@ -64,50 +63,50 @@ function openModal() {
   modal.style.display = 'block';
 }
 
-  function actuperson() {
-    
-    const idusu = document.getElementsByName('idusu').value;
-    const name = document.getElementsByName('nombre').value;
-    const telef = document.getElementsByName('telefono').value;
-    const especialidad = document.getElementsByName('cargo').value;
-    const user = document.getElementsByName('usuario').value;
-    const contra = document.getElementsByName('contrasena').value;    
-    const  pass = document.getElementsByName('pass').value;
-
-    
-
-// Función para abrir el modal
-
 function alert(){
-Swal.fire({
-    position: 'top',
-    icon: 'success',
-    title: 'Tus datos han sido  guardados con exito',
-    showConfirmButton: false,
-    timer: 1500
-  })
-}
-    axios.post('actualizarpersonal', {
-        id: idusu,
-        full_name: name,
-        telefono: telef,
-        Email: user,        
-        especialidad: especialidad,
-        password: contra
-        
-    }, {
-        headers: {
-        'Content-Type': 'multipart/form-data'
+  const idusu = document.getElementById('idusu').value;
+  const cece=  document.getElementById('cece').value;
+  const name = document.getElementById('nombre').value;
+  const telef = document.getElementById('telefono').value;
+  const especialidad = document.getElementById('cargo').value;
+  const user = document.getElementById('usuario').value;
+  const contra = document.getElementById('contrasena').value;    
+  const  pass = document.getElementById('pass').value;
+  
+  console.log(idusu, name, telef, especialidad, user, contra)
 
-        }
+  axios.post('actualizarpersonal', {
+    id: idusu,
+    full_name: name,
+    telefono: telef,
+    Email: user,        
+    especialidad: especialidad,
+    password: contra
+    
+}, {
+    headers: {
+    'Content-Type': 'multipart/form-data'
+
     }
-    ).then((res) => {
-        console.log(res.data)
-    })
-    .catch((err) => {
-        console.log(err);
-    })
 }
+).then((res) => {
+    console.log(res.data)
+})
+.catch((err) => {
+    console.log(err);
+})
+/*
+Swal.fire({
+  position: 'top',
+  icon: 'success',
+  title: 'Tus datos han sido  guardados con exito',
+  showConfirmButton: false,
+  timer: 1500
+})
+*/ 
+}
+
+
 
 // function eliminarpersonal(){
 //     const nose = document.getElementById('i');

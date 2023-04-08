@@ -39,11 +39,12 @@ def actualizar_users():
     especialidad= request.form['especialidad']
     password= request.form['password']
     
-    users= Users.query.get(id)
+    users = Users.query.get(id)
     users.full_name = full_name
     users.Email = Email
     users.telefono = telefono
     users.especialidad= especialidad
     users.password= password
     db.session.commit()
+    print(id, full_name, Email, telefono, especialidad, password)
     return redirect('/indexlist_personal')

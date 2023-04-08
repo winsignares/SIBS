@@ -13,16 +13,21 @@ function listcategory() {
             let categor = '';
             i= 0
             for (let index = 1; index < length; index++) {
-                categor += `
-                <div class="div-table-row">
-                    <div class="div-table-cell">${datos[index].id}</div>
-                    <div class="div-table-cell">${datos[index].cat}</div>
-                    <div class="div-table-cell">${datos[index].descripcion}</div>
-                    <div class="div-table-cell">
-                        <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
+                categor += `      
+                <div class="table-responsive">
+                <div class="div-table" style="margin:0 !important;">
+                    <div class="div-table-row div-table-row-list">
+                        <div class="div-table-cell" style="width: 6%;">#</div>
+                        <div class="div-table-cell" style="width: 15%;">${datos[index].id}</div>
+                        <div class="div-table-cell" style="width: 15%;">${datos[index].cat}</div>
+                        <div class="div-table-cell" style="width: 12%;">${datos[index].descripcion}</div>
+                        <div class="div-table-cell" style="width: 9%;">
+                            <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
+                        </div>
+                        <div class="div-table-cell" style="width: 9%;">
+                            <a class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
+                        </div>
                     </div>
-                    <div class="div-table-cell">
-                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
                 </div>
             </div>`;
                 
