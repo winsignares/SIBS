@@ -1000,7 +1000,7 @@ input.material-control:focus~.highlight {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    width: 40%;
     
 }
 
@@ -1014,7 +1014,7 @@ input.material-control:focus~.highlight {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height: 100%;
-    width: 95%;
+    width: 100%;
     background-color: #2B3D51;
     color: #F5F5F5;
 }
