@@ -21,7 +21,7 @@ function EliminarEstudiantes() {
     }).then((result) => {
         if (result.isConfirmed) {
             const eliminarAprendiz = document.getElementById('EliminarAprendiz');
-            axios.get('api/eliminar_Users', {
+            axios.get('api/eliminar_Users/<id>', {
                 id: eliminarAprendiz.value
 
             }, {
