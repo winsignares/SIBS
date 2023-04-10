@@ -24,10 +24,15 @@ def usuarios():
 #crud de usuarios
 @routes_user.route('/eliminar_Users/<id>', methods=['GET'] )
 def eliminar_users(id):
-    usuarios = Users.query.get(id)
-    db.session.delete(usuarios)
+    full_name = Users.query.get(id)
+    Email = Users.query.get(id)
+    telefono = Users.query.get(id)
+    especialidad = Users.query.get(id)
+    jornada = Users.query.get(id)
+    direccion = Users.query.get(id)
+    db.session.delete(full_name,Email,telefono,especialidad,jornada,direccion)
     db.session.commit()
-    return jsonify(UsuariosSchema.dump(usuarios)) 
+    return jsonify(UsuariosSchema.dump(full_name,Email,telefono,especialidad,jornada,direccion)) 
 
 @routes_user.route('/actualizarUsers', methods=['POST'] )
 def actualizar_users():
@@ -56,51 +61,32 @@ def guardar_Users():
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
-
-@routes_user.route('/obtenerToken', methods=['GET'])
-def obtenertoken():
-    #var_request = json.loads(event["body"])   
-    datatoken = generar_token("William", 123)
-    var_Token = datatoken["token"]
-    response = {"statusCode": 200, "body": json.dumps(var_Token)}    
-    return response
-
-@routes_user.route('/verificartoken', methods=['GET'])
-def verificartoken():
-    token = request.headers['Authorization']
-    token = token.replace("Bearer","")
-    token = token.replace(" ","")
-    print("token =>", token)
-      # Call the function to validate token
-    vf = verificar_token(token)
-    print("vf =>", vf)
-    return vf
-
-@routes_user.route('/conlistpersonal', methods=['GET'])
+'''@routes_user.route('/conlistpersonal', methods=['GET'])
 def consullist():
     datos= {}
-    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
+    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
+        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
     i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
+    for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'DUI':TblUsuarios.Cedula,
-		'Nombre':TblUsuarios.full_name,
-		'Telefono':TblUsuarios.telefono,
-		'Cargo': TblUsuarios.especialidad                      
+        'DUI':tblusuarios.Cedula,
+		'Nombre':tblusuarios.full_name,
+		'Telefono':tblusuarios.telefono,
+		'Cargo': tblusuarios.especialidad                      
         }
     print(datos)
     return datos
+'''
 
 
-@routes_user.route('/conliststudiantes', methods=['GET'])
+'''@routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
         select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.jornada, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
     i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
+    for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
         'NIE':TblUsuarios.Cedula,
@@ -109,5 +95,13 @@ def consullist2():
         }
     print(datos)
     return datos
+'''
 
 
+@routes_user.route('/eliminarpersonal', methods=['GET'] )
+def eliminarU(id):
+
+    usu = Users.query.get(id)
+    db.session.delete(usu)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(usu)) 
