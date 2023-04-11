@@ -9,21 +9,8 @@ Jinja2==3.1.2
 MarkupSafe==2.1.2
 marshmallow==3.19.0
 packaging==23.0
-<<<<<<< HEAD
 PyMySQL==1.0.3
-=======
-<<<<<<< HEAD
-platformdirs==3.2.0
-PyMySQL==1.0.2
 six==1.16.0
-SQLAlchemy==2.0.7
+SQLAlchemy==2.0.8
 typing_extensions==4.5.0
-virtualenv==20.21.0
-=======
-PyMySQL==1.0.2
->>>>>>> 3bc3076ae23cdb844b2e311039e5eed71ec9a14d
-six==1.16.0
-SQLAlchemy==2.0.7
-typing_extensions==4.5.0
->>>>>>> main
 Werkzeug==2.2.3
