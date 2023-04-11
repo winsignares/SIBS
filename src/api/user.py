@@ -61,24 +61,6 @@ def guardar_Users():
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
-'''@routes_user.route('/conlistpersonal', methods=['GET'])
-def consullist():
-    datos= {}
-    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
-        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
-    i=0
-    for tblusuarios,tblrolesusuarios in resultado:
-        i+=1	       
-        datos[i] = {
-        'DUI':tblusuarios.Cedula,
-		'Nombre':tblusuarios.full_name,
-		'Telefono':tblusuarios.telefono,
-		'Cargo': tblusuarios.especialidad                      
-        }
-    print(datos)
-    return datos
-'''
-
 
 '''@routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():

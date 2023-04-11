@@ -15,8 +15,8 @@ function viewpersonal() {
                 listper += `
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">${index}</div>
-                        <div id= "${i}" class="div-table-cell CC" style="width: 15%;">${datos[index].dui}</div>
+                        <div class="div-table-cell  CC" style="width: 6%;">${index}</div>
+                        <div id= "${i}" class="div-table-cell" style="width: 15%;">${datos[index].dui}</div>
                         <div class="div-table-cell" style="width: 15%;">${datos[index].nombre}</div>
                         <div class="div-table-cell" style="width: 12%;">${datos[index].telefono}</div>
                         <div class="div-table-cell" style="width: 15%;">${datos[index].cargo}</div>
@@ -24,7 +24,7 @@ function viewpersonal() {
                                 <a onclick="openModal()" class="btn btn-success"><i class="zmdi zmdi-refresh"></i></a>
                             </div>
                             <div class="div-table-cell" style="width: 9%;">
-                                <a onclick= "eliminarpersonal(this)" class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
+                                <a onclick= "eliminarper(this)" class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
                             </div>
                         </div>
                     </div>`;
@@ -86,6 +86,7 @@ function alert(){
       telefono: telef,
       Email: user,        
       especialidad: especialidad,
+      cedula: cece,
       password: contra
   }, {
       headers: {
@@ -105,42 +106,23 @@ function alert(){
 }
 
 //--------------------------------ELIMINAR------------------------------------------------
-function eliminarpersonal(btn) {
-  var fila = btn.parentNode; // Obtenemos el div de la fila
-  var id = fila.querySelector('.CC').innerHTML; // Obtenemos el contenido de la celda "id"
-    axios.post('eliminarpersonal',{
-            id: nose.textContent, 
-         }, {
-             headers: {
-             'Content-Type': 'multipart/form-data'
-             }
-         }
-         ).then((res) => {
-             console.log(res.data)
-         })
-         .catch((error) => {
-             console.error(error)
-        
-         })
-}
-
-// function eliminarpersonal(){
-//     const nose = document.getElementById('i');
-//     //const id = nose.textContent;
-//     axios.post('eliminarpersonal',{
-//         id: nose.textContent, 
-//     }, {
-//         headers: {
-//         'Content-Type': 'multipart/form-data'
-//         }
-//     }
-//     ).then((res) => {
-//         console.log(res.data)
-//     })
-//     .catch((error) => {
-//         console.error(error)
-    
-//     })
-// }
+function eliminarper(btn) {
+  var cedula = $(btn).closest('.div-table-row').find('.div-table-cell:nth-child(2)').text(); // Obtenemos el div de la fila
+  console.log(cedula + "jsjjsjsj")  
+  axios.delete('eliminarpersonal',{
+      data:{
+        cedula: cedula 
+      }
+      
+    })
+    .then(function (response) {
+      var fila = $(btn).closest('.div-table-row');
+      fila.remove();
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
 //----------------------------------BUSCAR---------------------------------------
