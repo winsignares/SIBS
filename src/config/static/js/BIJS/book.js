@@ -11,18 +11,6 @@ function Guardarlibros() {
     const cargobook = document.getElementById('cargobook');
     const estadobook = document.getElementById('estadolibro');
 
-    /*alert(titulobook.value);
-    alert(id_autorbook.value);
-    alert(paisbook.value);
-    alert(id_Categoriabook.value);
-    alert(id_proveedorbook.value);
-    alert(ano_publicadobook.value);
-    alert(editorialbook.value);
-    alert(ubicacionbook.value);
-    alert(estimadobook.value);
-    alert(cargobook.value);
-    alert(estadobook.value);*/
-    //passadmin.value === passadmin2.value ? alert(`Estos son los datos del administrador ${nameadmin.value} ${emailadmin.value}${usernameadmin.value} ${passadmin.value}`): alert('los campos son diferentes');
     axios.post('guardarbook', {
         titulo: titulobook.value,
         id_autor: id_autorbook.value,
@@ -35,7 +23,8 @@ function Guardarlibros() {
         estimado: estimadobook.value,
         cargo: cargobook.value,
         estado: estadobook.value
-    }, {
+    }, 
+    {
         headers: {
             'Content-Type': 'multipart/form-data'
 
@@ -43,11 +32,13 @@ function Guardarlibros() {
     }
     ).then((res) => {
         console.log(res.data)
-
-
+        document.getElementById("modal-message").textContent = "Información guardada exitosamente";
+        $("#myModal").modal();
     })
         .catch((error) => {
             console.error(error)
+            document.getElementById("modal-message").textContent = "No se pudo guardar la información. Por favor, verifica que los campos estén llenos correctamente.";
+            $("#myModal").modal();
         })
 }
 // FUNCION PARA MOSTRAR LOS AUTORES
@@ -65,7 +56,6 @@ function mostrarautor() {
             console.log(response.data);
             const data = response.data
             for (items in data) {
-                //alert(data[items].nombre)
                 const opcion = document.createElement('option');
                 opcion.value = data[items].id;
                 opcion.text = data[items].nombre;
@@ -84,7 +74,7 @@ function mostrarautor() {
 // FUNCION PARA MOSTRAR LOS AUTORES
 function mostrarcategoria() {
     const selcategorialibro = document.getElementById('categorialibro');
-    axios.get('/api/Categorias')
+    axios.get('mostrarCategorias')
         .then(function (response) {
             // manejar respuesta exitosa
             console.log(response.data);
@@ -92,7 +82,7 @@ function mostrarcategoria() {
             for (items in data) {
                 const opcion = document.createElement('option');
                 opcion.value = data[items].id;
-                opcion.text = data[items].nombre;
+                opcion.text = data[items].Nombre_categoria;
                 selcategorialibro.appendChild(opcion);
             }
         })
@@ -108,7 +98,7 @@ function mostrarcategoria() {
 // FUNCION PARA MOSTRAR LOS AUTORES
 function mostrarproveedor() {
     const selproveedorlibro = document.getElementById('proveedorlibro');
-    axios.get('/api/Proveedores')
+    axios.get('/api/proveedores')
         .then(function (response) {
             // manejar respuesta exitosa
             console.log(response.data);

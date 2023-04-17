@@ -159,7 +159,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="group-material">
-                           <input id="yearlibro" type="text" class="material-control tooltips-general" placeholder="Escribe aquí el año del libro" required="" pattern="[0-9]{1,4}" maxlength="4" data-toggle="tooltip" data-placement="top" title="Solamente números, sin espacios">
+                           <input id="yearlibro" type="date" class="material-control tooltips-general datepicker" placeholder="Escribe aquí el año del libro" required="" pattern="[0-9]{1,4}" maxlength="4" data-toggle="tooltip" data-placement="top" title="Solamente números, sin espacios">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Año</label>
@@ -197,11 +197,11 @@
                             <span style="top: -20px; font-size: 17px; color: #E34724; font-weight: normal">Cargo</span>
                             <select id="cargobook" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige el cargo del libro">
                                 <option value="" disabled="" selected="">Selecciona el cargo del libro</option>
-                                <option value="1-1">Entrega del ministerio</option>
-                                <option value="1-2">Donaciones</option>
-                                <option value="1-3">Compras con fondos propios</option>
-                                <option value="1-4">Presupuesto escolar</option>
-                                <option value="1-5">Otros</option>
+                                <option value="Entrega del ministerio">Entrega del ministerio</option>
+                                <option value="Donaciones">Donaciones</option>
+                                <option value="Compras con fondos propios">Compras con fondos propios</option>
+                                <option value="Presupuesto escolar">Presupuesto escolar</option>
+                                <option value="Otros">Otros</option>
                             </select>
                         </div>
                     </div>
@@ -218,7 +218,27 @@
                    <div class="col-xs-12">
                         <p class="text-center">
                             <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
-                            <a type="submit" class="btn btn-primary" onclick="Guardarlibros()"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</a>
+                            <a data-toggle="modal" data-target="#myModal" type="submit" class="btn btn-primary" onclick="Guardarlibros()"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 style="font-size: 36px" class="modal-title" id="myModalLabel">Aviso!</h5>
+                                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>-->
+                                        </div>
+                                        <div class="modal-body">
+                                        <p style="font-size: 20px;" id="modal-message">Mensaje de resultado de la petición</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!--fin-->
                         </p>
                    </div>
                 </div>
