@@ -906,9 +906,7 @@ input.material-control:focus~.highlight {
 
 /* ============= CSS DEL MODAL ============= */
 
-
 /* Estilos para el modal este es el que contiene el modal */
-
 .modal1 {
     position: fixed;
     top: 0;
@@ -919,11 +917,12 @@ input.material-control:focus~.highlight {
     pointer-events: none;
     display: flex;
     opacity: 0;
+    transition: opacity .3s .3s;
+    --transform: translateY(-100vh);
+    --transition: transform .3s;
 }
 
-
 /* Estilos para el modal este es el contenido del modal */
-
 .modal-container {
     display: flex;
     position: relative;
@@ -938,23 +937,19 @@ input.material-control:focus~.highlight {
     background-color: #fff;
     border-radius: 6px;
     padding: 3rem 2.5rem;
+    transform: var(--transform);
+    transition: var(--transition);
 }
 
-.modal-content1 .btn btn-success {
-    width: 100%;
-    margin-top: 0px;
-    display: flex;
-    justify-content: flex-end;
-}
-
+/*DISEÑO DEL TITULO */
 .modal-container h2 {
     font-size: 2.5rem;
 }
-
+/*DISEÑO DEL TEXTO DENTRO DEL MODAL*/
 .modal-container p {
     margin-bottom: 10px;
 }
-
+/*DISEÑO DEL BOTON X PARA SALIR*/
 .close_Modal {
     position: absolute;
     top: -1%;
@@ -963,9 +958,21 @@ input.material-control:focus~.highlight {
     font-weight: bold;
     cursor: pointer;
 }
-
+/*FUNCION DEL CLICK PARA ABRIR Y CERRAR*/
 .modal-show {
     opacity: 1;
     pointer-events: unset;
-    transition: opacity .6s;
+    transition: opacity .3s;
+    --transform: translate(0);
+    --transition: transform .3s .3s;
+}
+/*DISEÑO DEL BOTON QUE SE HABIA DAÑADO XD*/
+.modal_button {
+    padding: 3px 5px;
+    border-radius: 2px;
+    border: 0;
+    font-size: 13px;
+    background-color: #48b7f3;
+    color: white;
+    cursor: pointer;
 }
