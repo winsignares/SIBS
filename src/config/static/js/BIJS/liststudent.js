@@ -6,16 +6,18 @@ function listaestudiantes() {
             responseType: 'json'
         })
         .then(function(response) {
-            const datos = response.data
+            let datos = response.data
+            var length = (Object.keys(datos).length) + 1;
             let estudiante = '';
-            for (let NIE in datos) {
+            i = 0
+            for (let index = 1; index < length; index++) {
                 estudiante += `<div class="table-responsive">
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
-                            <div class="div-table-cell" style="width: 6%;">#</div>
-                            <div class="div-table-cell" style="width: 18%;">${NIE}</div>
-                            <div class="div-table-cell" style="width: 18%;">${datos.full_name}</div>
-                            <div class="div-table-cell" style="width: 18%;">${datos.Jornada}</div>
+                            <div class="div-table-cell" style="width: 6%;">${index}</div>
+                            <div id= "${i}" class="div-table-cell" style="width: 18%;">${datos[index].NIE}</div>
+                            <div class="div-table-cell" style="width: 18%;">${datos[index].full_name}</div>
+                            <div class="div-table-cell" style="width: 18%;">${datos[index].Jornada}</div>
                             <div class="div-table-cell" style="width: 9%;">
                                 <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
                             </div>
@@ -33,7 +35,6 @@ function listaestudiantes() {
         })
         .then(function() {});
 }
-listaestudiantes();
 
 function Busca_estudiantes() {
     axios.get('/conliststudiantes', {
