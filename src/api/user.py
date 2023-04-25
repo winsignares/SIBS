@@ -55,69 +55,68 @@ def actualizar_users():
 
 @app.route('/save_Users', methods=['POST'] )
 def guardar_Users():
-    full_name = request.json['full_name']
-    Email = request.json['Email']
-    telefono = request.json['telefono']
-    especialidad = request.json['especialidad']
-    jornada = request.json['jornada']
-    direccion= request.json['direccion']
-    password = request.json['password']
-    cedula = request.json['Cedula']
-    print(full_name,Email,telefono,especialidad,jornada,direccion)
-    new_Users = Users(full_name,Email,telefono,especialidad,jornada,direccion, password, cedula)
+    usuarios = request.json['full_name,Email,password,telefono,especialidad,jornada,direccion,id_roles']
+    print(usuarios)
+    new_Users = Users(usuarios)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
-
-@routes_user.route('/obtenerToken', methods=['GET'])
-def obtenertoken():
-    #var_request = json.loads(event["body"])   
-    datatoken = generar_token("William", 123)
-    var_Token = datatoken["token"]
-    response = {"statusCode": 200, "body": json.dumps(var_Token)}    
-    return response
-
-@routes_user.route('/verificartoken', methods=['GET'])
-def verificartoken():
-    token = request.headers['Authorization']
-    token = token.replace("Bearer","")
-    token = token.replace(" ","")
-    print("token =>", token)
-      # Call the function to validate token
-    vf = verificar_token(token)
-    print("vf =>", vf)
-    return vf
-
-@routes_user.route('/conlistpersonal', methods=['GET'])
+'''@routes_user.route('/conlistpersonal', methods=['GET'])
 def consullist():
     datos= {}
-    resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.telefono, TblUsuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
+    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
+        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
     i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
+    for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
-        'DUI':TblUsuarios.Cedula,
-		'Nombre':TblUsuarios.full_name,
-		'Telefono':TblUsuarios.telefono,
-		'Cargo': TblUsuarios.especialidad                      
+        'DUI':tblusuarios.Cedula,
+		'Nombre':tblusuarios.full_name,
+		'Telefono':tblusuarios.telefono,
+		'Cargo': tblusuarios.especialidad                      
         }
     print(datos)
     return datos
+'''
 
-
+<<<<<<< HEAD
+'''
 @routes_user.route('/conliststudiantes', methods=['GET'])
+=======
+
+'''@routes_user.route('/conliststudiantes', methods=['GET'])
+>>>>>>> 4e66e86536ffaaf52a2699b4b3058cd7fc7a4d55
 def consullist2():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
-        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.seccion, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
+        select_from(TblUsuarios.Cedula, TblUsuarios.full_name, TblUsuarios.jornada, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "estudiante").all()
     i=0
-    for TblUsuarios,tblrolesusuarios in resultado:
+    for tblusuarios,tblrolesusuarios in resultado:
         i+=1	       
         datos[i] = {
         'NIE':TblUsuarios.Cedula,
 		'Nombre':TblUsuarios.full_name,
-		'Seccion':TblUsuarios.seccion,                    
+		'Jornada':TblUsuarios.jornada,                    
         }
     print(datos)
     return datos
+<<<<<<< HEAD
+<<<<<<< HEAD
+    '''
+=======
+=======
+'''
+
+>>>>>>> 4e66e86536ffaaf52a2699b4b3058cd7fc7a4d55
+
+@routes_user.route('/eliminarpersonal', methods=['GET'] )
+def eliminarU(id):
+
+<<<<<<< HEAD
+>>>>>>> de2ecb07b286188d704e1c79a47205e9938d41b9
+=======
+    usu = Users.query.get(id)
+    db.session.delete(usu)
+    db.session.commit()
+    return jsonify(UsuariosSchema.dump(usu)) 
+>>>>>>> 4e66e86536ffaaf52a2699b4b3058cd7fc7a4d55

@@ -13,3 +13,8 @@ def indexsearchbooks():
 def indexbuscador(): 
 
     return render_template('/main/book.html')
+
+@routes_searchbooks.route('/indexlogin', methods=['GET'] )
+def indexlogin(): 
+
+    return render_template('/main/login.html')

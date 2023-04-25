@@ -13,7 +13,7 @@ libros_Schema = LibrosSchema(many=True)
 
 
 @routes_Libros.route('/libros', methods=['GET'])
-def libros():    
+def libro():    
     returnall = Libros.query.all()
     resultado_libros = libros_Schema.dump(returnall)
     return jsonify(resultado_libros)
