@@ -29,7 +29,6 @@ def guardar_Libros():
 
 @routes_Libros.route('/actualizarlibros', methods=['POST'] )
 def actualizarL():
-
     id = request.json['id']
     libro = request.json['titulo','pais', 'ano_publicado', 'copias', 'estado', 'ubicacion']
     nlibros = Libros.query.get(id)
@@ -39,7 +38,6 @@ def actualizarL():
 
 @routes_Libros.route('/eliminarlibros/<id>', methods=['GET'] )
 def eliminarL(id):
-
     libro = Libros.query.get(id)
     db.session.delete(libro)
     db.session.commit()

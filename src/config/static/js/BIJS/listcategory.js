@@ -1,14 +1,14 @@
 divcategory = document.getElementById('tablas')
-window.onload = listcategory;
-function listcategory(){
-  axios.get('/viewCategoria', {
+window.onload = listcategory
+function listcategory () {
+  axios.get('/rutas/listcategory.py/', {
     responseType: 'json'
-})
-.then(function(response) {
-    const datos = response.data
-    let category = '';
-    for (let id in datos) {
-      category += `<div class="div-table-row">
+  })
+    .then(function (response) {
+      const datos = response.data
+      let category = ''
+      for (let id in datos) {
+        category += `<div class="div-table-row">
       <div class="div-table-cell">${id}</div>
       <div class="div-table-cell">${datos.N_cat}</div>
       <div class="div-table-cell">${datos.Descripcion}</div>
@@ -18,18 +18,16 @@ function listcategory(){
       <div class="div-table-cell">
           <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
       </div>
-  </div>`;
-    }
-    divcategory.innerHTML = category
-})
-.catch(function(err) {
-    console.log(err);
-    console.log()
-})
-.then(function() {});
+  </div>`
+      }
+      divcategory.innerHTML = category
+    })
+    .catch(function (err) {
+      console.log(err)
+      console.log()
+    })
+    .then(function () {})
 }
-
-
 
 /*  axios.get('/viewlistcategory',{
         .then(function(response){
