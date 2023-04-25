@@ -9,21 +9,20 @@ routes_listcategory = Blueprint("routes_listcategory", __name__)
 def indexlistcategory():
     return render_template('/main/listcategory.html')
 
-
-
-
-@routes_listcategory.route('/viewlistcategory', methods=['GET'])
-def viewlistcategor():
-    datos= {}
-    resultado = db.session.query(tblcategorias).select_from(tblcategorias.id, tblcategorias.N_cat, tblcategorias.Descripcion).all()
-    i=0
-    for tblcategorias in resultado:
-        i+=1	       
-        datos[i] = {
-        'id':tblcategorias.id,
-		'cat':tblcategorias.N_cat,
-		'descripcion':tblcategorias.Descripcion,                    
-        }
-    print(datos.id)
-    return "u right"
         
+@routes_listcategory.route('/viewlist', methods=['GET'])
+def consullist():
+    datos= {}
+    resultado = db.session.query(Categorias).select_from(Categorias).all()
+    cate = []
+    i = 0
+    for catego in resultado:
+        i += 1
+        datos[i] = {
+        'id':catego.id,
+		'cat':catego.N_cat,
+		'descripcion':catego.Descripcion                       
+        }
+    cate.append(datos)
+    print(cate)
+    return jsonify(datos)

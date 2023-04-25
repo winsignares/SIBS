@@ -29,10 +29,3 @@ def savebook():
     db.session.add(new_libro)
     db.session.commit()
     return {'mensaje':'Informacion Insertada en la base de datos'}
-
-
-@routes_book.route('/libros', methods=['GET'])
-def libros():    
-    returnall = Libros.query.all()
-    resultado_libros = LibrosSchema.dump(returnall)
-    return jsonify(resultado_libros)

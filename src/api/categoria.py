@@ -34,7 +34,7 @@ def view_categoria():
     vf = verificar_token(token)
     if vf['error'] == False:
         returnall = Categorias.query.all()    
-        result_Categoria = CategoriasSchema.dump(returnall)
+        result_Categoria = Categorias_schema.dump(returnall)
         return jsonify(result_Categoria)
     else:
         return vf
@@ -50,10 +50,16 @@ def eliminar_Cat(id):
 @routes_category.route('/updateCat', methods=['POST'] )
 def actualizar_Cat():
     id = request.json['id']
-    N_cat = request.json['N_cat']
+    Nombre_categoria = request.json['Nombre_categoria']
     Descripcion = request.json['Descripcion']
     updateCat = Categorias.query.get(id)
-    updateCat.nameCat = N_cat
+    updateCat.nameCat = Nombre_categoria
     updateCat.descripCat = Descripcion
     db.session.commit()
     return redirect('/Categorias')
+
+@routes_category.route('/mostrarCategorias', methods=['GET'])
+def Categoria():    
+        returnall = Categorias.query.all()    
+        result_Categoria = Categorias_schema.dump(returnall)
+        return jsonify(result_Categoria)

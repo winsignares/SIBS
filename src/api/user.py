@@ -55,37 +55,12 @@ def actualizar_users():
 
 @app.route('/save_Users', methods=['POST'] )
 def guardar_Users():
-    full_name = request.json['full_name']
-    Email = request.json['Email']
-    telefono = request.json['telefono']
-    especialidad = request.json['especialidad']
-    jornada = request.json['jornada']
-    id_roles = request.json['id_roles']
-    password = request.json['password']
-    cedula = request.json['Cedula']
-    print(full_name,Email,telefono,especialidad,jornada)
-    new_Users = Users(full_name,Email,telefono,especialidad,jornada, password, cedula)
+    usuarios = request.json['full_name,Email,password,telefono,especialidad,jornada,direccion,id_roles']
+    print(usuarios)
+    new_Users = Users(usuarios)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
-'''@routes_user.route('/conlistpersonal', methods=['GET'])
-def consullist():
-    datos= {}
-    resultado = db.session.query(tblusuarios, tblrolesusuarios). \
-        select_from(tblusuarios.Cedula, tblusuarios.full_name, tblusuarios.telefono, tblusuarios.cargo, tblrolesusuarios.rol).join(tblrolesusuarios).filter(tblrolesusuarios.roles== "personal").all()
-    i=0
-    for tblusuarios,tblrolesusuarios in resultado:
-        i+=1	       
-        datos[i] = {
-        'DUI':tblusuarios.Cedula,
-		'Nombre':tblusuarios.full_name,
-		'Telefono':tblusuarios.telefono,
-		'Cargo': tblusuarios.especialidad                      
-        }
-    print(datos)
-    return datos
-'''
-
 
 '''@routes_user.route('/conliststudiantes', methods=['GET'])
 def consullist2():
