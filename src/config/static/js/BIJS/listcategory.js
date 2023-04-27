@@ -1,4 +1,6 @@
 
+
+
 function listcategory() {
     const divcate = document.getElementById('tablas');
     axios.get('viewlist',{
