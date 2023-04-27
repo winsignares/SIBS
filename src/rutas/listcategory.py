@@ -19,9 +19,15 @@ def consullist():
     for catego in resultado:
         i += 1
         datos[i] = {
+<<<<<<< HEAD
         'id':catego.id,
 		'cat':catego.N_cat,
 		'descripcion':catego.Descripcion                       
+=======
+        'id':cate.id,
+		'cat':cate.Nombre_categoria,
+		'descripcion':cate.Description,                    
+>>>>>>> a3087c4ca59074afcc144fbb8a1a6805efbcae79
         }
     cate.append(datos)
     print(cate)
