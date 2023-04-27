@@ -1270,19 +1270,6 @@ input.material-control:focus~.highlight {
     cursor: pointer;
 }
 /*-----------------------diseño del otro modal------------------*/
-.modal {
-    align-items: center;
-    justify-content: center;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
 
 .modal {
     align-items: center;
@@ -1295,6 +1282,7 @@ input.material-control:focus~.highlight {
     width: 100%;
     height: 100%;
     overflow: auto;
+    border: 1px solid #888;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -1305,7 +1293,7 @@ input.material-control:focus~.highlight {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
     
 }
 
@@ -1319,8 +1307,9 @@ input.material-control:focus~.highlight {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height: 100%;
-    width: 70%;
-    background-color: rgb(91, 176, 255);
+    width: 100%;
+    background-color: #2B3D51;
+    color: #F5F5F5;
 }
 
 .close:focus,
@@ -1334,18 +1323,17 @@ input.material-control:focus~.highlight {
     left: 0;
     justify-items: center;
     align-items: center;
+    background-color: #2B3D51;
 }
 .textread {
     justify-items: center;
     display: flex;
     align-items: center;
-}
-.form-control {
-    justify-content: center;
-    align-items: center;
-    width: 1160px;
+    border: 1px solid #888 ;
+    width: 491px;
     height: 300px;
 }
+
 .labelop {
     display: block;
     margin-top: 10px;
@@ -1353,10 +1341,13 @@ input.material-control:focus~.highlight {
 
 .rar{
     width: 50%;
+    margin-left: 20px;
 }
 
 .asda{
     width: 50%;
+    margin-left: 40px;
+
 }
 
 >>>>>>> b062fb0dc3a9fe8c53b036aa078866481a84077d
