@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 from common.Toke import *
 from config.db import db, app, ma
 from flask import Flask, Blueprint, redirect, request, jsonify, json, session, render_template
@@ -79,13 +81,8 @@ def consullist():
     return datos
 '''
 
-<<<<<<< HEAD
-'''
-@routes_user.route('/conliststudiantes', methods=['GET'])
-=======
 
 '''@routes_user.route('/conliststudiantes', methods=['GET'])
->>>>>>> 4e66e86536ffaaf52a2699b4b3058cd7fc7a4d55
 def consullist2():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
@@ -120,3 +117,4 @@ def eliminarU(id):
     db.session.commit()
     return jsonify(UsuariosSchema.dump(usu)) 
 >>>>>>> 4e66e86536ffaaf52a2699b4b3058cd7fc7a4d55
+>>>>>>> b062fb0dc3a9fe8c53b036aa078866481a84077d
