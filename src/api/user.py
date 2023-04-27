@@ -79,13 +79,8 @@ def consullist():
     return datos
 '''
 
-<<<<<<< HEAD
-'''
-@routes_user.route('/conliststudiantes', methods=['GET'])
-=======
 
 '''@routes_user.route('/conliststudiantes', methods=['GET'])
->>>>>>> 4e66e86536ffaaf52a2699b4b3058cd7fc7a4d55
 def consullist2():
     datos= {}
     resultado = db.session.query(TblUsuarios, tblrolesusuarios). \
