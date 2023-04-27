@@ -1,37 +1,38 @@
-from config.db import db,app,ma 
+from config.db import db, app, ma
 
 class Users(db.Model):
-    __tablename__= "TblUsuarios"    
-    
-    
-    id = db.Column(db.Integer,primary_key=True)
-    full_name= db.Column(db.String(200))
-    password= db.Column(db.String(200))
-    Email= db.Column(db.String(200))
-    telefono= db.Column(db.Integer)
-    especialidad= db.Column(db.String(200))
-    jornada= db.Column(db.String(200))
-    direccion= db.Column(db.String(200))
+    __tablename__ = "tblusuarios"
+
+    id = db.Column(db.Integer, primary_key=True)
+    cedula = db.Column(db.Integer)
+    nombre = db.Column(db.String(200))
+    fecha_nacimiento = db.Column(db.Date)
+    correo = db.Column(db.String(200))
+    password = db.Column(db.String(200))
+    telefono = db.Column(db.Integer)
+    direccion = db.Column(db.String(200))
+    fecha_registro = db.Column(db.Date)
+    fecha_actualizacion = db.Column(db.Date)
     id_roles = db.Column(db.Integer, db.ForeignKey('tblrolesusuarios.id'))
-    
-    def __init__(self,full_name,password,Email,telefono,especialidad,jornada,direccion,id_roles):
-       self.full_name= full_name
-       self.password= password
-       self.Email= Email
-       self.telefono= telefono
-       self.especialidad= especialidad
-       self.jornada= jornada
-       self.direccion= direccion
-       self.id_roles = id_roles
-       
-       with app.app_context():
-           db.create_all()
+
+    def __init__(self, cedula, nombre, fecha_nacimiento, correo, password, telefono, direccion, fecha_registro, id_roles):
+        self.cedula = cedula
+        self.nombre = nombre
+        self.fecha_nacimiento = fecha_nacimiento
+        self.correo = correo
+        self.password = password
+        self.telefono = telefono
+        self.direccion= direccion
+        self.fecha_registro = fecha_registro
+        self.id_roles = id_roles
+
+        with app.app_context():
+            db.create_all()
+
 
 class UsuariosSchema(ma.Schema):
     class Meta:
-        fields = ('id','full_name','password','Email','telefono','especialidad','jornada','direccion')
-        
-    
-    
-    
-    
+        fields = ('id', 'cedula', 'nombre', 'fecha_nacimiento', 'correo', 'password', 'telefono', 'direccion'
+                  'fecha_registro', 'fecha_actualizacion', 'id_roles')
+
+
