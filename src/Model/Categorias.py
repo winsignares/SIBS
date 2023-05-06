@@ -5,17 +5,17 @@ class Categorias(db.Model):
 
     
     id  = db.Column(db.Integer, primary_key=True)
-    N_cat = db.Column(db.String(50))
-    Descripcion = db.Column(db.String(50))
+    Nombre_categoria = db.Column(db.String(50))
+    Description = db.Column(db.String(50))
 
-    def __init__(self, N_cat,Descripcion):
-        self.N_cat = N_cat
-        self.Descripcion = Descripcion
+    def __init__(self, Nombre_categoria,Description):
+        self.Nombre_categoria = Nombre_categoria
+        self.Description = Description
     
 with app.app_context():
     db.create_all()
 
 class CategoriasSchema(ma.Schema):
     class Meta:
-        fields = ('id','N_Cat','Descripción')
+        fields = ('id','Nombre_categoria','Description')
         
