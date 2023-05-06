@@ -15,7 +15,7 @@ function viewpersonal() {
                 listper += `
                     <div class="div-table" style="margin:0 !important;">
                         <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">${index}</div>
+                        <div class="div-table-cell  CC" style="width: 6%;">${index}</div>
                         <div id= "${i}" class="div-table-cell" style="width: 15%;">${datos[index].dui}</div>
                         <div class="div-table-cell" style="width: 15%;">${datos[index].nombre}</div>
                         <div class="div-table-cell" style="width: 12%;">${datos[index].telefono}</div>
@@ -24,7 +24,7 @@ function viewpersonal() {
                                 <a onclick="openModal()" class="btn btn-success"><i class="zmdi zmdi-refresh"></i></a>
                             </div>
                             <div class="div-table-cell" style="width: 9%;">
-                                <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                                <a onclick= "eliminarper(this)" class="btn btn-danger"><i class="zmdi zmdi-delete"></i></a>
                             </div>
                         </div>
                     </div>`;
@@ -41,11 +41,12 @@ function viewpersonal() {
   window.addEventListener('load', function() {
     viewpersonal();
   });
+
+//-----------------------------FUNCIONES DEL MODAL-----------------------------------------
+
 // Obtén el modal y el botón de cerrar
 var modal = document.querySelector('.modal');
 var closeBtn = document.querySelector('.close');
-
-
 
 // Añade un evento click al botón de cerrar para cerrar el modal
 closeBtn.addEventListener('click', function() {
@@ -63,67 +64,65 @@ modal.addEventListener('click', function(event) {
 function openModal() {
   modal.style.display = 'block';
 }
-
-  function actuperson() {
-    
-    const idusu = document.getElementsByName('idusu').value;
-    const name = document.getElementsByName('nombre').value;
-    const telef = document.getElementsByName('telefono').value;
-    const especialidad = document.getElementsByName('cargo').value;
-    const user = document.getElementsByName('usuario').value;
-    const contra = document.getElementsByName('contrasena').value;    
-    const  pass = document.getElementsByName('pass').value;
-
-    
-
-// Función para abrir el modal
-
+//------------------------------ACTUALIZAR-------------------------------------
 function alert(){
-Swal.fire({
-    position: 'top',
-    icon: 'success',
-    title: 'Tus datos han sido  guardados con exito',
-    showConfirmButton: false,
-    timer: 1500
-  })
-}
-    axios.post('actualizarpersonal', {
-        id: idusu,
-        full_name: name,
-        telefono: telef,
-        Email: user,        
-        especialidad: especialidad,
-        password: contra
-        
-    }, {
-        headers: {
-        'Content-Type': 'multipart/form-data'
-
-        }
-    }
-    ).then((res) => {
-        console.log(res.data)
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-}
-
-// function eliminarpersonal(){
-//     const nose = document.getElementById('i');
-//     //const id = nose.textContent;
-//     axios.post('eliminarpersonal',{
-//         id: nose.textContent, 
-//     }, {
-//         headers: {
-//         'Content-Type': 'multipart/form-data'
-//         }
-//     }
-//     ).then((res) => {
-//         console.log(res.data)
-//     })
-//     .catch((error) => {
-//         console.error(error)
+  if (idusu == ""|| cece == "" || name =="" || telef == ""|| 
+  especialidad == ""|| user ==""|| contra == ""|| pass=="") {
+    swal("Hay campos vacios!", "Por favor llene todos los campos", "error");
+  } else {
+    const idusu = document.getElementById('idusu').value;
+    const cece=  document.getElementById('cece').value;
+    const name = document.getElementById('nombre').value;
+    const telef = document.getElementById('telefono').value;
+    const especialidad = document.getElementById('cargo').value;
+    const user = document.getElementById('usuario').value;
+    const contra = document.getElementById('contrasena').value;    
+    const  pass = document.getElementById('pass').value;
     
-//     })
-// }
+    console.log(idusu, name, telef, especialidad, user, contra)
+    axios.post('actualizarpersonal', {
+      id: idusu,
+      full_name: name,
+      telefono: telef,
+      Email: user,        
+      especialidad: especialidad,
+      cedula: cece,
+      password: contra
+  }, {
+      headers: {
+      'Content-Type': 'multipart/form-data'
+  
+      }
+  }
+  ).then((res) => {
+      console.log(res.data)
+  })
+  .catch((err) => {
+      console.log(err);
+  })
+  swal("Muchas gracias!", "Datos actualizados con exito!", "success");
+  } 
+
+}
+
+//--------------------------------ELIMINAR------------------------------------------------
+function eliminarper(btn) {
+  var cedula = $(btn).closest('.div-table-row').find('.div-table-cell:nth-child(2)').text(); // Obtenemos el div de la fila
+  console.log(cedula + "jsjjsjsj")  
+  axios.delete('eliminarpersonal',{
+      data:{
+        cedula: cedula 
+      }
+      
+    })
+    .then(function (response) {
+      var fila = $(btn).closest('.div-table-row');
+      fila.remove();
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+//----------------------------------BUSCAR---------------------------------------

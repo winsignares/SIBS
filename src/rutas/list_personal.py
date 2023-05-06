@@ -11,7 +11,7 @@ def indexlist_personal():
     
     return render_template('/main/listpersonal.html')
 
-
+#------------------------------MOSTRAR--------------
 @routes_listpersonal.route('/conpersonal', methods=['GET'])
 def consullist():
     datos= {}
@@ -30,6 +30,7 @@ def consullist():
     print(users)
     return jsonify(datos)
 
+#------------------------------ACTUALIZAR
 @routes_listpersonal.route('/actualizarpersonal', methods=['POST'] )
 def actualizar_users():
     id = request.form['id']
@@ -37,13 +38,32 @@ def actualizar_users():
     Email =request.form['Email']
     telefono= request.form['telefono']
     especialidad= request.form['especialidad']
+    cedula = request.form['cedula']
     password= request.form['password']
     
-    users= Users.query.get(id)
+    users = Users.query.get(id)
     users.full_name = full_name
     users.Email = Email
     users.telefono = telefono
     users.especialidad= especialidad
+    users.cedula = cedula
     users.password= password
     db.session.commit()
+    print(id, full_name, Email, telefono, especialidad, password)
     return redirect('/indexlist_personal')
+
+#--------------------------ELIMINAR
+
+@routes_listpersonal.route('/eliminarpersonal', methods=['DELETE'] )
+def eliminarperso():
+    cedula = request.json.get('cedula')
+    dui = Users.query.filter_by(cedula=cedula).first()
+    if dui:
+        db.session.delete(dui)
+        db.session.commit()
+        print(cedula)
+        print(dui)
+        return 'Registro eliminado', 200
+    else:
+        return 'Registro no encontrado', 404
+  

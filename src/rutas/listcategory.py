@@ -9,23 +9,20 @@ routes_listcategory = Blueprint("routes_listcategory", __name__)
 def indexlistcategory():
     return render_template('/main/listcategory.html')
 
-
-
-
+        
 @routes_listcategory.route('/viewlist', methods=['GET'])
-def viewlistcategor():
+def consullist():
     datos= {}
     resultado = db.session.query(Categorias).select_from(Categorias).all()
-    i=0
-    goria = []
-    for cate in resultado:
-        i+=1	       
+    cate = []
+    i = 0
+    for catego in resultado:
+        i += 1
         datos[i] = {
-        'id':cate.id,
-		'cat':cate.Nombre_categoria,
-		'descripcion':cate.Description,                    
+        'id':catego.id,
+		'cat':catego.N_cat,
+		'descripcion':catego.Descripcion                       
         }
-        goria.append(datos)
-    print(goria)
+    cate.append(datos)
+    print(cate)
     return jsonify(datos)
-        
